@@ -1,0 +1,50 @@
+{
+  "name": "youtube-app",
+  "version": "2.0.3",
+  "private": true,
+  "main": "app.js",
+  "dependencies": {
+    "dotenv-safe": "2.1.*",
+    "express": "4.13.*",
+    "mongoose": "4.11.*",
+    "playbuzz-auth": "https://github.com/playbuzz/pb-authentication.git#master",
+    "playbuzz-config": "https://github.com/playbuzz/pb-config.git#master",
+    "playbuzz-express": "https://github.com/playbuzz/pb-express.git#master",
+    "playbuzz-logs": "https://github.com/playbuzz/pb-logs.git#master",
+    "pm2": "2.4.*",
+    "request-promise": "4.2.*",
+    "swagger-jsdoc": "1.9.*",
+    "swagger-tools": "0.10.*",
+    "winston": "2.1.*"
+  },
+  "devDependencies": {
+    "chai": "3.4.*",
+    "chai-as-promised": "5.2.*",
+    "eslint": "3.15.*",
+    "eslint-watch": "3.0.*",
+    "istanbul": "0.4.*",
+    "mocha": "2.3.*",
+    "mockgoose": "^7.3.3",
+    "mock-require": "^2.0.2",
+    "ncp": "2.0.0",
+    "npm-run-all": "4.0.*",
+    "sinon": "^3.2.*",
+    "sinon-express-mock": "^1.3.1"
+  },
+  "scripts": {
+    "lint": "esw app.js src/**/*.js --color -f simple-detail",
+    "watch-lint": "npm run lint -- --watch",
+    "stop": "pm2 delete all",
+    "start:watch-lint": "npm run watch-lint",
+    "start:logs": "pm2 logs",
+    "start:env": "ncp .env.example .env --noclobber",
+    "start:run": "pm2 start ecosystem.config.js",
+    "start": "npm-run-all --parallel start:*",
+    "precommit": "npm run lint",
+    "prebuild": "npm run lint",
+    "build": "./build.sh",
+    "test": "mocha --require test/support/env --reporter spec test/**/*.test.js",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --check-leaks test/**/*.spec.js",
+    "cov-cobertura": "istanbul report cobertura"
+  }
+}

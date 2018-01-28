@@ -1,0 +1,13 @@
+/.idea
+/build
+/coverage
+/logs/*.log
+/.vscode
+/node_modules
+
+.env
+npm-debug.log
+*.zip
+id_rsa_url
+ssh_key
+yarn.lock
