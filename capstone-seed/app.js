@@ -5,8 +5,12 @@ const app = express();
 const port = 8081;
 
 // make a call to handle any possible direction
+const route = require('./src/routers/router.js');
 
+app.use('/', route);
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
 });
+
+module.exports = app;
