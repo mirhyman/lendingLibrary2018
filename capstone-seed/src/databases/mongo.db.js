@@ -27,7 +27,8 @@ function validateName(value) {
         languages: {type: Array, required: false},
         brand: {type: String, required: false},
         price: {type: Number, required: false},
-        features: {type: Array, required: false}
+        features: {type: Array, required: false},
+        id: {type: Number, required: true}
     }, {timestamps: true, autoIndex: false});
     /* first time you run on a new DB must remove the auto index to create the index*/
 
@@ -51,7 +52,9 @@ function validateName(value) {
 
 async function saveProduct(prod) {
     try {
-        const savedProd = await ProductModel.findOneAndUpdate({name: prod.name}, prod, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true});
+        const savedProd = await ProductModel.findOneAndUpdate({name: prod.name},
+            prod,
+            {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true});
         winston.debug(`${logPrefix}${savedProd.name} saved, returning ${JSON.stringify(savedProd)}`);
         return Product.fromDb(savedProd);
     } catch (e) {
@@ -59,4 +62,112 @@ async function saveProduct(prod) {
         throw e;
     }
 }
-    module.exports = {getProductByName, saveProduct};
+
+// takes in a product json, if a certan field
+// did not have a search requirement then we will
+// just not include it.
+async function getProductByQuery(prod) {
+    try {
+        var productMap = new Map();
+
+        const hardware = prod.hardware;
+        // if no hardware preference
+        if (hardware !== null) {
+            let hardwareProds = await ProductModel.find({hardware: {$eq: hardware}});
+            // probably make this a helper method.. find out how to
+            // do this, does async not make it work?
+            let i;
+            for (i = 0; i < hardwareProds.length; i++) {
+                let currProduct = hardwareProds[i];
+                if (!productMap.has(currProduct.id)) {
+                    productMap.set(currProd.id, currProd);
+                }
+            }
+        }
+        const accessList = prod.access;
+        if (accessList) {
+            let i;
+            for (i = 0; i < accessList.length; i++) {
+                let field = accessList[i];
+                let fieldProds = await ProductModel.find({access: field});
+                let j;
+                for (j = 0; j < fieldProds.length; j++) {
+                    let currProduct = fieldProds[j];
+                    if (!productMap.has(currProduct.id)) {
+                        productMap.set(currProd.id, currProd);
+                    }
+                }
+            }
+        }
+        const platformList = prod.platform;
+        if (platformList) {
+            let i;
+            for (i = 0; i < platformList.length; i++) {
+                let currPlat = platformList[i];
+                let platProds = await ProductModel.find({platform: currPlat});
+                let j;
+                for (j = 0; j < platProds.length; j++) {
+                    let currProduct = platProds[j];
+                    if (!productMap.has(currProduct.id)) {
+                        productMap.set(currProd.id, currProd);
+                    }
+                }
+            }
+        }
+        const languageList = prod.languages;
+        if (languageList) {
+            let i;
+            for (i = 0; i < languageList.length; i++) {
+                let currLang = languageList[i];
+                let langProds = await ProductModel.find({language: currLang});
+                let j;
+                for (j = 0; j < langProds.length; j++) {
+                    let currProduct = langProds[j];
+                    if (!productMap.has(currProduct.id)) {
+                        productMap.set(currProd.id, currProd);
+                    }
+                }
+            }
+        }
+        const minPrice = prod.minPrice;
+        const maxPrice = prod.maxPrice;
+        if (maxPrice !== 0) {
+            let priceProds = await
+                ProductModel.find({price: {$lt: maxPrice, $gte: minPrice}});
+            let i;
+            for (i = 0; i < priceProds.length; i++) {
+                let currProduct = priceProds[i];
+                if (!productMap.has(currProduct.id)) {
+                    productMap.set(currProd.id, currProd);
+                }
+            }
+        }
+        const featuresList = prod.features;
+        if (featuresList) {
+            let i;
+            for (i = 0; i < featuresList.length; i++) {
+                let currFeat = featuresList[i];
+                let featProds = await ProductModel.find({features: currFeat});
+                let j;
+                for (j = 0; j < featProds.length; j++) {
+                    let currProduct = featProds[j];
+                    if (!productMap.has(currProduct.id)) {
+                        productMap.set(currProd.id, currProd);
+                    }
+                }
+            }
+        }
+
+        let results = [];
+        for (var [key, value] of productMap) {
+            results.push(value);
+        }
+        results.map(res => Product.fromDb(res));
+        // now to loop through and find matches
+    } catch(e) {
+        console.log(e);
+        throw(e);
+    }
+}
+
+    module.exports = {getProductByName, saveProduct, getProductByQuery};

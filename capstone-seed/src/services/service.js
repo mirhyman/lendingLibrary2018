@@ -12,4 +12,8 @@ async function saveProduct (user) {
     return await db.saveProduct(user);
 }
 
-module.exports = {getProductByName, saveProduct};
+async function getProductByQuery (prod) {
+    return await db.getProductByQuery(prod);
+}
+
+module.exports = {getProductByName, saveProduct, getProductByQuery};

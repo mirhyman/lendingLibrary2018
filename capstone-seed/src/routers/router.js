@@ -7,4 +7,6 @@ router.get('/product/:name', controller.getProductByName);
 
 router.post('/product', controller.saveProduct);
 
+router.get('/product', controller.getProductByQuery);
+
 module.exports = router;
