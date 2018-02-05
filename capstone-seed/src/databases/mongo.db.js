@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const winston = require('winston');
 const Product = require('../modules/model');
 
-mongoose.connect('mongodb://localhost/test', { useMongoClient: true }).catch(e => {winston.error(`${logPrefix}connection error ${e}`); process.exit(1);});
+const logPrefix = 'MongoDB: ';
+
+mongoose.connect('mongodb://localhost/Products', { useMongoClient: true }).catch(e => {winston.error(`${logPrefix}connection error ${e}`); process.exit(1);});
 
 function validateName(value) {
     if (!value || value.length < 4) return false; // too short
@@ -31,15 +33,15 @@ function validateName(value) {
 
     let ProductModel = mongoose.model('Product', ProductSchema);
 
-    async function getProduct(name) {
+    async function getProductByName(name) {
         try {
             const product = await ProductModel.findOne({name});
             if (!product) {
                 winston.debug(`${logPrefix}${name} not in db`);
                 return null;
             }
-            winston.debug(`${logPrefix}${name} found, returning ${JSON.stringify(feature)}`);
-            return Product.fromDb(feature);
+            winston.debug(`${logPrefix}${name} found, returning ${JSON.stringify(product)}`);
+            return Product.fromDb(product);
         } catch (e) {
             winston.error(`${logPrefix}Error during find by id ${name}: ${e}`);
             throw e;
@@ -53,7 +55,8 @@ async function saveProduct(prod) {
         winston.debug(`${logPrefix}${savedProd.name} saved, returning ${JSON.stringify(savedProd)}`);
         return Product.fromDb(savedProd);
     } catch (e) {
+        console.log(e);
         throw e;
     }
 }
-    module.exports = {getProduct, saveProduct};
+    module.exports = {getProductByName, saveProduct};

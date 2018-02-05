@@ -1,13 +1,15 @@
 const db = require('../databases/mongo.db');
 const winston = require('winston');
 
-async function getProduct (name) {
+const logPrefix = 'Service: ';
+
+async function getProductByName (name) {
     winston.debug(`${logPrefix}Got request for ${name}.`);
-    return await db.getProduct(name);
+    return await db.getProductByName(name);
 }
 
 async function saveProduct (user) {
     return await db.saveProduct(user);
 }
 
-module.exports = {getProduct, saveProduct};
+module.exports = {getProductByName, saveProduct};

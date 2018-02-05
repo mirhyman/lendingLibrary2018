@@ -15,7 +15,7 @@ class Product {
 
     }
 
-    static fromDB({name, hardware, access, platform, languages, brand, price, features}) {
+    static fromDb({name, hardware, access, platform, languages, brand, price, features}) {
         return new Product(name.toLowerCase(), hardware, access, platform, languages, brand, price, features);
     }
 }
