@@ -9,4 +9,8 @@ router.post('/product', controller.saveProduct);
 
 router.get('/product', controller.getProductByQuery);
 
+router.get('/products', controller.getAllProducts);
+
+router.delete('/product/:name', controller.deleteProduct);
+
 module.exports = router;

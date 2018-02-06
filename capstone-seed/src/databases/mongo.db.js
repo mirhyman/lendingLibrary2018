@@ -50,6 +50,15 @@ function validateName(value) {
     }
 
 
+async function getAllProducts() {
+    try {
+        let results =  await ProductModel.find({});
+        return results.map(res => Product.fromDb(res));
+    } catch(e) {
+        throw e;
+    }
+}
+
 async function saveProduct(prod) {
     try {
         const savedProd = await ProductModel.findOneAndUpdate({name: prod.name},
@@ -160,11 +169,11 @@ async function getProductByQuery(prod) {
         }
 
         let results = [];
-        console.log(productMap);
+        //console.log(productMap);
         for (var [key, value] of productMap) {
             results.push(value);
         }
-        console.log(results);
+        //console.log(results);
         return results.map(res => Product.fromDb(res));
         // now to loop through and find matches
     } catch(e) {
@@ -173,4 +182,20 @@ async function getProductByQuery(prod) {
     }
 }
 
-    module.exports = {getProductByName, saveProduct, getProductByQuery};
+async function deleteProduct(name){
+    try {
+        await ProductModel.deleteOne({name});
+        console.log('deleted');
+    } catch (e) {
+        winston.error(`${logPrefix}Error during delete with name ${name}: ${e}`);
+        throw e;
+    }
+}
+
+    module.exports = {
+        getProductByName,
+        saveProduct,
+        getProductByQuery,
+        getAllProducts,
+        deleteProduct
+    };

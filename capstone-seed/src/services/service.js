@@ -16,4 +16,19 @@ async function getProductByQuery (prod) {
     return await db.getProductByQuery(prod);
 }
 
-module.exports = {getProductByName, saveProduct, getProductByQuery};
+async function getProducts () {
+    return await db.getAllProducts();
+}
+
+async function deleteProduct (name) {
+    winston.debug(`${logPrefix}Got delete request for ${name}.`);
+    await db.deleteProduct(name);
+}
+
+module.exports = {
+    getProductByName,
+    saveProduct,
+    getProductByQuery,
+    getProducts,
+    deleteProduct
+};

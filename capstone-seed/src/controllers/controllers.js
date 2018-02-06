@@ -29,7 +29,7 @@ async function getProductByQuery(req, res) {
     }
     minPrice = parseInt(minPrice);
     maxPrice = parseInt(maxPrice);
-    console.log(req.query);
+    //console.log(req.query);
     let jsonProd = {
         hardware: req.query.hardware,
         access: req.query.access,
@@ -42,6 +42,7 @@ async function getProductByQuery(req, res) {
     console.log(jsonProd);
     try {
         const product = await service.getProductByQuery(jsonProd);
+        console.log(product);
         if(product) {
             res.json(product).status(200);
         } else {
@@ -63,10 +64,33 @@ async function saveProduct(req, res) {
     }
 }
 
+async function getAllProducts(req, res) {
+    try {
+        res.json(await service.getProducts()).status(200);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}
 
+
+async function deleteProduct(req, res) {
+    let name = req.params.name;
+    if(!name) {
+        res.status(400).send('Name must be valid');
+        return;
+    }
+    try {
+        await service.deleteProduct(name.toLowerCase());
+        res.status(200).send('Sucessfully deleted!');
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}
 
 module.exports = {
     saveProduct,
     getProductByName,
-    getProductByQuery
+    getProductByQuery,
+    getAllProducts,
+    deleteProduct
 };
