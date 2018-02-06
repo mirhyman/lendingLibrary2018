@@ -78,8 +78,8 @@ async function getProductByQuery(prod) {
             // do this, does async not make it work?
             let i;
             for (i = 0; i < hardwareProds.length; i++) {
-                let currProduct = hardwareProds[i];
-                if (!productMap.has(currProduct.id)) {
+                let currProd = hardwareProds[i];
+                if (!productMap.has(currProd.id)) {
                     productMap.set(currProd.id, currProd);
                 }
             }
@@ -92,8 +92,8 @@ async function getProductByQuery(prod) {
                 let fieldProds = await ProductModel.find({access: field});
                 let j;
                 for (j = 0; j < fieldProds.length; j++) {
-                    let currProduct = fieldProds[j];
-                    if (!productMap.has(currProduct.id)) {
+                    let currProd = fieldProds[j];
+                    if (!productMap.has(currProd.id)) {
                         productMap.set(currProd.id, currProd);
                     }
                 }
@@ -107,8 +107,8 @@ async function getProductByQuery(prod) {
                 let platProds = await ProductModel.find({platform: currPlat});
                 let j;
                 for (j = 0; j < platProds.length; j++) {
-                    let currProduct = platProds[j];
-                    if (!productMap.has(currProduct.id)) {
+                    let currProd = platProds[j];
+                    if (!productMap.has(currProd.id)) {
                         productMap.set(currProd.id, currProd);
                     }
                 }
@@ -122,8 +122,8 @@ async function getProductByQuery(prod) {
                 let langProds = await ProductModel.find({language: currLang});
                 let j;
                 for (j = 0; j < langProds.length; j++) {
-                    let currProduct = langProds[j];
-                    if (!productMap.has(currProduct.id)) {
+                    let currProd = langProds[j];
+                    if (!productMap.has(currProd.id)) {
                         productMap.set(currProd.id, currProd);
                     }
                 }
@@ -134,10 +134,11 @@ async function getProductByQuery(prod) {
         if (maxPrice !== 0) {
             let priceProds = await
                 ProductModel.find({price: {$lt: maxPrice, $gte: minPrice}});
+            console.log(priceProds);
             let i;
             for (i = 0; i < priceProds.length; i++) {
-                let currProduct = priceProds[i];
-                if (!productMap.has(currProduct.id)) {
+                let currProd = priceProds[i];
+                if (!productMap.has(currProd.id)) {
                     productMap.set(currProd.id, currProd);
                 }
             }
@@ -150,8 +151,8 @@ async function getProductByQuery(prod) {
                 let featProds = await ProductModel.find({features: currFeat});
                 let j;
                 for (j = 0; j < featProds.length; j++) {
-                    let currProduct = featProds[j];
-                    if (!productMap.has(currProduct.id)) {
+                    let currProd = featProds[j];
+                    if (!productMap.has(currProd.id)) {
                         productMap.set(currProd.id, currProd);
                     }
                 }
@@ -159,10 +160,12 @@ async function getProductByQuery(prod) {
         }
 
         let results = [];
+        console.log(productMap);
         for (var [key, value] of productMap) {
             results.push(value);
         }
-        results.map(res => Product.fromDb(res));
+        console.log(results);
+        return results.map(res => Product.fromDb(res));
         // now to loop through and find matches
     } catch(e) {
         console.log(e);

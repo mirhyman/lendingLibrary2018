@@ -19,21 +19,25 @@ async function getProductByName(req, res) {
 }
 
 async function getProductByQuery(req, res) {
-    let minPrice = req.params.minPrice;
-    let maxPrice = req.params.maxPrice;
+    let minPrice = req.query.minPrice;
+    let maxPrice = req.query.maxPrice;
     if (!minPrice) {
         maxPrice = 0;
         minPrice = 0;
+    } else if (!maxPrice) {
+        maxPrice = 0;
     }
-    console.log(req.params.query);
+    minPrice = parseInt(minPrice);
+    maxPrice = parseInt(maxPrice);
+    console.log(req.query);
     let jsonProd = {
-        hardware: req.params.hardware,
-        access: req.params.access,
-        platform: req.params.platform,
-        languages: req.params.languages,
+        hardware: req.query.hardware,
+        access: req.query.access,
+        platform: req.query.platform,
+        languages: req.query.languages,
         maxPrice: maxPrice,
         minPrice: minPrice,
-        features: req.params.features
+        features: req.query.features
     };
     console.log(jsonProd);
     try {
