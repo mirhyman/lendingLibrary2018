@@ -39,10 +39,8 @@ async function getProductByQuery(req, res) {
         minPrice: minPrice,
         features: req.query.features
     };
-    console.log(jsonProd);
     try {
         const product = await service.getProductByQuery(jsonProd);
-        console.log(product);
         if(product) {
             res.json(product).status(200);
         } else {

@@ -252,15 +252,8 @@ function check() {
         }
         queryString += "features[" + idx + "]=wearable";
     }
-    console.log(queryString);
+    window.location = "/loadProduct?" + queryString;
 
-    let oReq = new XMLHttpRequest();
-
-    oReq.open("GET", "/product?" + queryString, true);
-    oReq.onload = function(oEvent) {
-        console.log(oReq.responseText);
-    };
-    oReq.send();
     //ev.preventDefault();
 }
 
@@ -269,7 +262,7 @@ function getAll() {
 
     oReq.open("GET", "/products", true);
     oReq.onload = function(oEvent) {
-        window.location = "/loadProduct";
+        window.location = "/loadProduct?";
         console.log(oReq.responseText);
     };
     oReq.send();

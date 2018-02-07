@@ -13,7 +13,9 @@ const route = require('./src/routers/router.js');
 
 
 app.use(express.static('src/public'));
-app.us('/loadProduct', express.static('src/public/product.html'));
+app.use('/loadProduct', express.static('src/public/product.html'));
+app.use('/productPage', express.static('src/public/productPage.html'));
+app.use('/saveProducts', express.static('src/public/saveProducts.html'));
 app.use('/', route);
 
 app.listen(port, () => {

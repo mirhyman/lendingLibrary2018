@@ -23,12 +23,13 @@ function validateName(value) {
         },
         hardware: {type: Boolean, required: false},
         access: {type: Array, required: false},
-        platform: {type: String, required: false},
+        platform: {type: Array, required: false},
         languages: {type: Array, required: false},
         brand: {type: String, required: false},
         price: {type: Number, required: false},
         features: {type: Array, required: false},
-        id: {type: Number, required: true}
+        id: {type: Number, required: true},
+        img: {type: String, required: false}
     }, {timestamps: true, autoIndex: false});
     /* first time you run on a new DB must remove the auto index to create the index*/
 
@@ -124,11 +125,14 @@ async function getProductByQuery(prod) {
             }
         }
         const languageList = prod.languages;
+
         if (languageList) {
+
             let i;
             for (i = 0; i < languageList.length; i++) {
                 let currLang = languageList[i];
-                let langProds = await ProductModel.find({language: currLang});
+
+                let langProds = await ProductModel.find({languages: currLang});
                 let j;
                 for (j = 0; j < langProds.length; j++) {
                     let currProd = langProds[j];
