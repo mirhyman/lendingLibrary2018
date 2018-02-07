@@ -7,6 +7,8 @@ router.get('/product/:name', controller.getProductByName);
 
 router.post('/product', controller.saveProduct);
 
+router.post('/product/review', controller.saveReview);
+
 router.get('/product', controller.getProductByQuery);
 
 router.get('/products', controller.getAllProducts);

@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 const winston = require('winston');
 const Product = require('../modules/model');
+const Review = require('../modules/reviews-model');
 
 const logPrefix = 'MongoDB: ';
 
@@ -12,6 +13,17 @@ function validateName(value) {
     if (!value || value.length < 4) return false; // too short
     return true;
 }
+
+    let ReviewSchema = new mongoose.Schema({
+        id: {type: Number, required: true},
+        title: {type: String, required: true},
+        tags: {type: Array, required: false},
+        body: {type: String, required: true},
+        context: {type: String, required: false},
+        author: {type: String, required: false}
+    });
+
+    let ReviewModel = mongoose.model('Review', ReviewSchema);
 
     let ProductSchema = new mongoose.Schema({
         name: {
@@ -69,6 +81,19 @@ async function saveProduct(prod) {
             {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true});
         winston.debug(`${logPrefix}${savedProd.name} saved, returning ${JSON.stringify(savedProd)}`);
         return Product.fromDb(savedProd);
+    } catch (e) {
+        console.log(e);
+        throw e;
+    }
+}
+
+async function saveReview(rev) {
+    try {
+        const savedRev = await ReviewModel.findOneAndUpdate({id: rev.id},
+            rev,
+            {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true});
+        winston.debug(`${logPrefix}${savedRev.title} saved, returning ${JSON.stringify(savedRev)}`);
+        return Product.fromDb(savedRev);
     } catch (e) {
         console.log(e);
         throw e;
@@ -260,5 +285,6 @@ async function deleteProduct(name){
         saveProduct,
         getProductByQuery,
         getAllProducts,
-        deleteProduct
+        deleteProduct,
+        saveReview
     };

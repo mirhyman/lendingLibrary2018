@@ -12,6 +12,10 @@ async function saveProduct (user) {
     return await db.saveProduct(user);
 }
 
+async function saveReview (user) {
+    return await db.saveReview(user);
+}
+
 async function getProductByQuery (prod) {
     return await db.getProductByQuery(prod);
 }
@@ -30,5 +34,6 @@ module.exports = {
     saveProduct,
     getProductByQuery,
     getProducts,
-    deleteProduct
+    deleteProduct,
+    saveReview
 };

@@ -62,6 +62,17 @@ async function saveProduct(req, res) {
     }
 }
 
+async function saveReview(req, res) {
+    try {
+        let saved = await service.saveReview(req.body);
+        console.log(`debug: ${JSON.stringify(saved)} added to db`);
+        res.json(saved).status(200);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send(err);
+    }
+}
+
 async function getAllProducts(req, res) {
     try {
         res.json(await service.getProducts()).status(200);
@@ -90,5 +101,6 @@ module.exports = {
     getProductByName,
     getProductByQuery,
     getAllProducts,
-    deleteProduct
+    deleteProduct,
+    saveReview
 };
