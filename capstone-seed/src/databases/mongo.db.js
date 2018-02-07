@@ -172,14 +172,58 @@ async function getProductByQuery(prod) {
             }
         }
 
-        let results = [];
-        //console.log(productMap);
-        for (var [key, value] of productMap) {
-            results.push(value);
+        var result = [];
+        // calculate scores
+        for (var curProd of productMap.values()) {
+            var curScore;
+            // hardware
+            if (prod.hardware === curProd.hardware) {
+                curScore += 3;
+            }
+            // acccess
+            for (var curAccess of curProd.access) {
+                if (prod.access.contains(curAccess)) {
+                    curScore += 5;
+                }
+            }
+            // platform
+            for (var curPlat of curProd.platform) {
+                if (prod.platform.contains(curPlat)) {
+                    curScore += 1;
+                }
+            }
+            // language
+            for (var curLang of curProd.languages) {
+                if (prod.languages.contains(curLang)) {
+                    curScore += 1;
+                }
+            }
+            // price
+            if (prod.minPrice <= curProd.price && prodQuery.maxPrice > curValue.price) {
+                curScore += 2;
+            }
+            for (var curFeat of curProd.features) {
+                if (prod.features.contains(curFeat)) {
+                    curScore += 1;
+                }
+            }
+            result.push({product: curProd, score: curScore});
         }
+        // order resulting array by descending score
+        result.sort(function(a, b) {
+            return b.score - a.score;
+        });
+
+        var results = [];
+        for (let i = 0; i< result.length; i++) {
+            results.push(result[i].product);
+        }
+
         //console.log(results);
         return results.map(res => Product.fromDb(res));
         // now to loop through and find matches
+
+
     } catch(e) {
         console.log(e);
         throw(e);
