@@ -11,7 +11,7 @@ function check() {
         if (addAnd) {
             queryString += "&";
         }
-        queryString += "software=true";
+        queryString += "hardware=false";
         addAnd = true;
     }
     let idx = '0';

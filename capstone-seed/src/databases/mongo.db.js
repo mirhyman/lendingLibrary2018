@@ -35,6 +35,8 @@ function validateName(value) {
 
     let ProductModel = mongoose.model('Product', ProductSchema);
 
+
+
     async function getProductByName(name) {
         try {
             const product = await ProductModel.findOne({name});
@@ -174,37 +176,50 @@ async function getProductByQuery(prod) {
 
         var result = [];
         // calculate scores
+        console.log(productMap);
         for (var curProd of productMap.values()) {
-            var curScore;
+            var curScore = 0;
             // hardware
-            if (prod.hardware === curProd.hardware) {
+            if (hardware !== null && prod.hardware === curProd.hardware) {
                 curScore += 3;
             }
             // acccess
-            for (var curAccess of curProd.access) {
-                if (prod.access.contains(curAccess)) {
-                    curScore += 5;
+            //console.log(curProd.access);
+            if (prod.access) {
+                //console.log('got into access');
+                for (var curAccess of curProd.access) {
+                    if (prod.access.includes(curAccess)) {
+                        curScore += 5;
+                    }
                 }
             }
             // platform
-            for (var curPlat of curProd.platform) {
-                if (prod.platform.contains(curPlat)) {
-                    curScore += 1;
+            //console.log(curProd.platform);
+            if (prod.platform) {
+                //console.log('got into platform');
+                for (var curPlat of curProd.platform) {
+                    if (prod.platform.includes(curPlat)) {
+                        curScore += 1;
+                    }
                 }
             }
             // language
-            for (var curLang of curProd.languages) {
-                if (prod.languages.contains(curLang)) {
-                    curScore += 1;
+            if (prod.languages) {
+                for (var curLang of curProd.languages) {
+                    if (prod.languages.includes(curLang)) {
+                        curScore += 1;
+                    }
                 }
             }
             // price
-            if (prod.minPrice <= curProd.price && prodQuery.maxPrice > curValue.price) {
+            if (prod.minPrice <= curProd.price && prod.maxPrice > curProd.price) {
                 curScore += 2;
             }
-            for (var curFeat of curProd.features) {
-                if (prod.features.contains(curFeat)) {
-                    curScore += 1;
+            if (prod.features) {
+                for (var curFeat of curProd.features) {
+                    if (prod.features.includes(curFeat)) {
+                        curScore += 1;
+                    }
                 }
             }
             result.push({product: curProd, score: curScore});
