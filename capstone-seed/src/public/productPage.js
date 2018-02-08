@@ -1,3 +1,5 @@
+var id = 0;
+
 window.onload = function() {
     let str = window.location.href;
     let idx = str.indexOf("?");
@@ -6,6 +8,7 @@ window.onload = function() {
     oReq.open("GET", "/product/" + str, true);
     oReq.responseType = 'json';
     oReq.onload = function(oEvent) {
+        id = oReq.response.id;
         let build = "";
             build += "<img src=/images/";
             build += oReq.response.img;
@@ -29,3 +32,32 @@ window.onload = function() {
     oReq.send();
     //ev.preventDefault();
 };
+
+function addReview() {
+    document.getElementById("toAdd").innerHTML =
+        "<form method=\"post\" name = \"review\">\n" +
+        "        <label for=\"title\">Enter title: </label>\n" +
+        "    <input id=\"title\" type=\"text\" name=\"title\" value=\"Default title.\">\n" +
+        "<label for='author'>Your Name: </label>\n" +
+        "<label for='context'>Context of use: </label>" +
+        "<label for='body'>Enter your review:</label>" +
+        "        </form>" +
+    "<button id='submitReview' onclick='submitReview()'>Submit Review!</button>";
+}
+
+function submitReview() {
+    //let btn = document.getElementById("get_name");
+    let form = document.forms.namedItem("review");
+
+    //var oOutput = document.getElementById("post_res");
+    let oData = new FormData(form);
+
+    var oReq = new XMLHttpRequest();
+    let pair1;
+    
+    oReq.open("get", '/features/' + pair1, true);
+    oReq.onload = function (oEvent) {
+        oOutput.innerHTML = oReq.responseText;
+    };
+    oReq.send(null);
+}

@@ -93,7 +93,7 @@ async function saveReview(rev) {
             rev,
             {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true});
         winston.debug(`${logPrefix}${savedRev.title} saved, returning ${JSON.stringify(savedRev)}`);
-        return Product.fromDb(savedRev);
+        return Review.fromDb(savedRev);
     } catch (e) {
         console.log(e);
         throw e;
