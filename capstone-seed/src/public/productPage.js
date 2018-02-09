@@ -56,15 +56,15 @@ window.onload = function() {
 
 function addReview() {
     document.getElementById("toAdd").innerHTML =
-        "<form method=\"post\" name = \"review\">\n" +
-        "        <label for=\"title\">Enter title: </label>\n" +
-        "    <input id=\"title\" type=\"text\" name=\"title\" value=\"Default title.\">\n" +
-        "<label for='author'>Your Name: </label>\n" +
-        "<input id=\"author\" type=\"text\" name=\"author\" value=\"Your name.\">\n" +
+        "<form method=\"post\" name = \"review\">" +
+        "        <label for=\"title\">Enter title: </label>" +
+        "    <input id=\"title\" type=\"text\" name=\"title\" value=\"Default title.\"><br>" +
+        "<label for='author'>Your Name: </label>" +
+        "<input id=\"author\" type=\"text\" name=\"author\" value=\"Your name.\"><br>" +
         "<label for='context'>Context of use: </label>" +
-        "<input id=context' type='text' name='context' value='used product'>\n" +
+        "<input id=context' type='text' name='context' value='used product'><br>" +
         "<label for='body'>Enter your review:</label>" +
-        "<input id='body' type='text' name='body' value='Enter review here'>\n" +
+        "<input id='body' type='text' name='body' value='Enter review here'><br>" +
         "        </form>" +
     "<button id='submitReview' onclick='submitReview()'>Submit Review!</button>";
 }
@@ -96,4 +96,8 @@ function submitReview() {
         console.log(oReq.responseText);
     };
     oReq.send(obj);
+}
+
+function update() {
+    window.location = "/saveProducts"
 }

@@ -9,71 +9,93 @@
         <ul style="list-style-type:none">
             <li><label>
                 <input type="checkBox" title="hardware" id="hardware"
-                       onchange="onCheckUpdate(this)"/>
-                Hardware</label></li>
-            <li><label><input type="checkBox" title="software" id="software"/>Software</label></li>
+                       onchange="onCheckUpdate(this)"/>Hardware</label></li>
+            <li><label><input type="checkBox" title="software" id="software"
+                              onchange="onCheckUpdate(this)"/>Software</label></li>
         </ul>
     </li>
     <li><b>Access</b>
         <ul style="list-style-type:none">
             <li><label><input type="checkbox" title="accessKeyboard"
                               id="keyboard" onchange="onCheckUpdate(this)"/>Keyboard</label></li>
-            <li><label><input type="checkbox" title="accessTouch" id="accessTouch"/>Touchscreen</label></li>
-            <li><label><input type="checkbox" title="accessVoice" id="accessVoice"/>Voice Accessible</label></li>
-            <li><label><input type="checkbox" title="accessEyes" id="accessEyes">Eye Gaze Accessible</label></li>
-            <li><label><input type="checkbox" title="accessECU" id="accessECU">ECU Accessible</label></li>
+            <li><label><input type="checkbox" title="accessTouch" id="accessTouch"
+                              onchange="onCheckUpdate(this)"/>Touchscreen</label></li>
+            <li><label><input type="checkbox" title="accessVoice" id="accessVoice"
+                               onchange="onCheckUpdate(this)"/>Voice Accessible</label></li>
+            <li><label><input type="checkbox" title="accessEyes" id="accessEyes"
+                              onchange="onCheckUpdate(this)">Eye Gaze Accessible</label></li>
+            <li><label><input type="checkbox" title="accessECU" id="accessECU"
+                              onchange="onCheckUpdate(this)">ECU Accessible</label></li>
         </ul>
     </li>
     <li><b>Software</b>
     <ul style="list-style-type:none">
-        <li><label><input type="checkbox" title="softwareIOS" id="softwareIOS"/> IOS</label></li>
-        <li><label><input type="checkbox" title="softwareMacOS" id="softwareMacOS"/>Mac OS</label></li>
+        <li><label><input type="checkbox" title="softwareIOS" id="softwareIOS"
+                          onchange="onCheckUpdate(this)"/> IOS</label></li>
+        <li><label><input type="checkbox" title="softwareMacOS" id="softwareMacOS"
+                          onchange="onCheckUpdate(this)"/>Mac OS</label></li>
         <li><label><input type="checkbox"
-                          title="softwareWindows" id="softwareWindows"/>Windows</label></li>
+                          title="softwareWindows" id="softwareWindows"
+                          onchange="onCheckUpdate(this)"/>Windows</label></li>
         <li><label><input type="checkbox"
-                          title="softwareAndroid" id="softwareAndroid"/>Android</label></li>
+                          title="softwareAndroid" id="softwareAndroid"
+                          onchange="onCheckUpdate(this)"/>Android</label></li>
     </ul>
     </li>
     <li><b>Languages</b>
     <ul style="list-style-type:none">
-        <li><label><input type="checkbox" title="french" id="french"/>French</label></li>
-        <li><label><input type="checkbox" title="english" id="english"/>English</label></li>
-        <li><label><input type="checkbox" title="chinese" id="chinese"/>Chinese</label></li>
-        <li><label><input type="checkbox" title="spanish" id="spanish"/>Spanish</label></li>
-        <li><label><input type="checkbox" title="german" id="german"/>German</label></li>
-        <li><label><input type="checkbox" title="japanese" id="japanese"/>Japanese</label></li>
+        <li><label><input type="checkbox" title="french" id="french"
+            onchange="onCheckUpdate(this)"/>French</label></li>
+        <li><label><input type="checkbox" title="english" id="english"
+            onchange="onCheckUpdate(this)"/>English</label></li>
+        <li><label><input type="checkbox" title="chinese" id="chinese"
+            onchange="onCheckUpdate(this)"/>Chinese</label></li>
+        <li><label><input type="checkbox" title="spanish" id="spanish"
+            onchange="onCheckUpdate(this)"/>Spanish</label></li>
+        <li><label><input type="checkbox" title="german" id="german"
+            onchange="onCheckUpdate(this)"/>German</label></li>
+        <li><label><input type="checkbox" title="japanese" id="japanese"
+            onchange="onCheckUpdate(this)"/>Japanese</label></li>
     </ul>
     </li>
 
     <li><b>Price Range</b>
         <ul style="list-style-type:none">
-            <li><label><input type="checkbox" title="freeTo50" id="freeTo50"/>Free</label></li>
-            <li><label><input type="checkbox" title="0to99" id="0to99"/>$0-$99.99</label></li>
-            <li><label><input type="checkbox" title="100to599" id="100to599"/>$100-$599.99</label></li>
-            <li><label><input type="checkbox" title="600to999" id="600to999"/>$600-$999.99</label></li>
-            <li><label><input type="checkbox" title="1000up" id="1000up"/>$1000.00 +up</label></li>
+            <li><label><input type="checkbox" title="freeTo50" id="freeTo50"
+                onchange="onCheckUpdate(this)"/>Free</label></li>
+            <li><label><input type="checkbox" title="0to99" id="0to99"
+                onchange="onCheckUpdate(this)"/>$0-$99.99</label></li>
+            <li><label><input type="checkbox" title="100to599" id="100to599"
+                onchange="onCheckUpdate(this)"/>$100-$599.99</label></li>
+            <li><label><input type="checkbox" title="600to999" id="600to999"
+                onchange="onCheckUpdate(this)"/>$600-$999.99</label></li>
+            <li><label><input type="checkbox" title="1000up" id="1000up"
+                onchange="onCheckUpdate(this)"/>$1000.00 +up</label></li>
         </ul>
     </li>
 
     <li><b>Extra Features</b>
         <ul style="list-style-type:none">
             <li><label><input type="checkbox" title="emailExtra"
-                          id="emailExtra"/>Email</label></li>
+                          id="emailExtra" onchange="onCheckUpdate(this)"/>Email</label></li>
             <li><label><input type="checkbox" title="textingExtra"
-                          id="textingExtra"/>Texting</label></li>
+                          id="textingExtra" onchange="onCheckUpdate(this)"/>Texting</label></li>
             <li><label><input type="checkbox" title="socialMedia"
-                              id="socialMedia"/>Social Media</label></li>
+                              id="socialMedia" onchange="onCheckUpdate(this)"/>Social Media</label></li>
             <li><label><input type="checkbox" title="notetaking"
-                              id="notetaking"/>Notetaking</label></li>
+                              id="notetaking" onchange="onCheckUpdate(this)"/>Notetaking</label></li>
             <li><label><input type="checkbox" title="drawingWriting"
-                              id="drawingWriting"/>Drawing/Writing</label></li>
+                              id="drawingWriting" onchange="onCheckUpdate(this)"/>Drawing/Writing</label></li>
             <li><label><input type="checkbox" title="personalVoice"
-                              id="personalVoice"/>Personal Voice</label></li>
+                              id="personalVoice" onchange="onCheckUpdate(this)"/>Personal Voice</label></li>
             <li><label><input type="checkbox" title="personalPhrase"
-                              id="personalPhrase"/>Personal Phrase</label></li>
-            <li><label><input type="checkbox" title="symbols" id="symbols"/>Symbols</label></li>
-            <li><label><input type="checkbox" title="camera" id="camera"/>Camera</label></li>
-            <li><label><input type="checkbox" title="wearable" id="wearable"/>Wearable</label></li>
+                              id="personalPhrase" onchange="onCheckUpdate(this)"/>Personal Phrase</label></li>
+            <li><label><input type="checkbox" title="symbols" id="symbols"
+                               onchange="onCheckUpdate(this)"/>Symbols</label></li>
+            <li><label><input type="checkbox" title="camera" id="camera"
+                            onchange="onCheckUpdate(this)"/>Camera</label></li>
+            <li><label><input type="checkbox" title="wearable" id="wearable"
+                        onchange="onCheckUpdate(this)"/>Wearable</label></li>
         </ul>
     </li>
 </ul>

@@ -30,12 +30,102 @@ function onCheckUpdate(filter) {
         //console.log(filter.id);
         for (let i = 0; i < currResults.length; i++) {
             //console.log(currResults[i].access.includes("keys"));
+            // note this is so redundant I really need to fix it. omg. ew. ick.
             if (filter.id === 'hardware' && currResults[i].hardware) {
                 newCurr.push(currResults[i]);
             } else if (filter.id === 'software' && !currResults[i].hardware) {
                 newcurr.push(currResults[i]);
             } else if (filter.id === 'keyboard'
                 && currResults[i].access.includes("keys")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'accessTouch'
+                && currResults[i].access.includes("touchscreen")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'accessVoice'
+                && currResults[i].access.includes("voice")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'accessEyes'
+                && currResults[i].access.includes("eyes")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'accessECU'
+                && currResults[i].access.includes("ecu")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'softwareIOS'
+                && currResults[i].platform.includes("ios")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'softwareMacOs'
+                && currResults[i].platform.includes("macOS")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'softwareWindows'
+                && currResults[i].platform.includes("windows")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'softwareAndroid'
+                && currResults[i].platform.includes("android")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'french'
+                && currResults[i].languages.includes("french")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'english'
+                && currResults[i].languages.includes("english")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'chinese'
+                && currResults[i].languages.includes("chinese")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'spanish'
+                && currResults[i].languages.includes("spanish")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'german'
+                && currResults[i].languages.includes("german")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'japanese'
+                && currResults[i].languages.includes("japanese")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'freeTo50'
+                && currResults[i].price === 0) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === '0to99'
+                && currResults[i].price <= 99.99) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === '100to599'
+                && currResults[i].price >= 100 &&
+                currResults[i].price <= 599.99) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === '600to999'
+                && currResults[i].price >= 600 &&
+                currResults[i].price <= 999.99) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === '1000up'
+                && currResults[i].price >= 1000) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'emailExtra'
+                && currResults[i].features.includes("email")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'textingExtra'
+                && currResults[i].features.includes("texting")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'socialMedia'
+                && currResults[i].features.includes("social media")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'notetaking'
+                && currResults[i].features.includes("notetaking")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'drawingWriting'
+                && currResults[i].features.includes("drawing and writing")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'personalVoice'
+                && currResults[i].features.includes("personal voice")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'personalPhrase'
+                && currResults[i].features.includes("personal phrase")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'symbols'
+                && currResults[i].features.includes("symbols")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'camera'
+                && currResults[i].features.includes("camera")) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'wearable'
+                && currResults[i].features.includes("wearable ")) {
                 newCurr.push(currResults[i]);
             }
         }

@@ -4,6 +4,76 @@
     <meta charset="UTF-8">
 </head>
 <body>
-
+<form method="post" name="product">
+    <label for="name">Enter name:</label>
+    <input id="name" type="text" name="name" value="Product name" required><br>
+    <label for="hardware">Hardware</label>
+    <input id="hardware" type="checkbox"  name="hardware">
+    <label for="software">Software</label>
+    <input id="software" type="checkbox" name="software"><br>
+    Types of access: <br>
+    <ul style="list-style-type: none; ">
+        <li><label for="accessTouch">Touchable</label>
+        <input id="accessTouch" type="checkbox" name="accessTouch"></li>
+        <li><label for="accessKeyboard">Keyboard</label>
+            <input id="accessKeyboard" type="checkbox" name="accessKeyboard"></li>
+        <li><label for="accessVoice">Voice</label>
+            <input id="accessVoice" type="checkbox" name="accessVoice"></li>
+        <li><label for="accessEyes">Eyes</label>
+            <input id="accessEyes" type="checkbox" name="accessEyes"></li>
+        <li><label for="accessECU">ECU Accessible</label>
+            <input id="accessECU" type="checkbox" name="accessECU"></li>
+        <li><label for="access">Other</label>
+            <input id="access" type="checkbox" name="access"></li>
+    </ul>
+    <br>
+    Available platforms: <br>
+    <ul style="list-style-type: none; ">
+        <li><label for="macOSPlatform"> Mac OS
+        <input id="macOSPlatform" type="checkbox">
+    </label></li>
+    </ul>
+    <br>
+    Languages: <br>
+    <ul style="list-style-type: none; ">
+        <li><label for="frenchLang"> French
+            <input id="frenchLang" type="checkbox" value="french">
+        </label></li>
+        <li><label for="japaneseLang"> Japanese
+            <input id="japaneseLang" type="checkbox" value="japanese">
+        </label></li>
+        <li><label for="germanLang"> German
+            <input id="germanLang" type="checkbox" value="german">
+        </label></li>
+        <li><label for="spanishLang"> Spanish
+            <input id="spanishLang" type="checkbox" value="spanish">
+        </label></li>
+        <li><label for="chineseLang"> Chinese
+            <input id="chineseLang" type="checkbox" value="chinese">
+        </label></li>
+    </ul>
+    <br>
+    <label for="brand">Enter brand:</label>
+    <input id="brand" type="text" name="brand" value="Product brand"
+    required><br>
+    <label for="price">Enter price:</label>
+    <input required pattern="d{1,1000}.d{1,99}"
+           id="price" type="text" name="price" value="Product price"><br>
+    Extra features: <br>
+    <ul style="list-style-type: none; ">
+        <li><label for="emailFeat"> Email
+        <input id="emailFeat" type="checkbox">
+    </label></li>
+        <li><label for="textFeat"> Texting
+            <input id="textFeat" type="checkbox">
+        </label></li>
+    </ul>
+    <br>
+    <label for="id">Enter product id: </label>
+    <input id="id" type="text" name="id" value="id" required>
+    <br>
+</form>
+    <button id="addProduct" onclick="addProduct()">Submit Product!</button>
+<script src="saveProducts.js"></script>
 </body>
 </html>
