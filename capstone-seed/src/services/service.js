@@ -29,11 +29,17 @@ async function deleteProduct (name) {
     await db.deleteProduct(name);
 }
 
+async function getReview(id) {
+    winston.debug(`${logPrefix}Got request for ${id}.`);
+    return await db.getReviewById(id);
+}
+
 module.exports = {
     getProductByName,
     saveProduct,
     getProductByQuery,
     getProducts,
     deleteProduct,
-    saveReview
+    saveReview,
+    getReview
 };

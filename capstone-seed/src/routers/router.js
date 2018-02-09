@@ -9,6 +9,8 @@ router.post('/product', controller.saveProduct);
 
 router.post('/product/review', controller.saveReview);
 
+router.get('/product/review/:id', controller.getReview);
+
 router.get('/product', controller.getProductByQuery);
 
 router.get('/products', controller.getAllProducts);

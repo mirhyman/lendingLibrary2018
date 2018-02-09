@@ -13,7 +13,7 @@ function validateName(value) {
     if (!value || value.length < 4) return false; // too short
     return true;
 }
-
+    /*
     let ReviewSchema = new mongoose.Schema({
         id: {type: Number, required: true},
         title: {type: String, required: true},
@@ -21,6 +21,12 @@ function validateName(value) {
         body: {type: String, required: true},
         context: {type: String, required: false},
         author: {type: String, required: false}
+    });
+    */
+
+    let ReviewSchema = new mongoose.Schema({
+        id: {type: Number, required: true},
+        reviews: {type: Array, required: true}
     });
 
     let ReviewModel = mongoose.model('Review', ReviewSchema);
@@ -90,12 +96,27 @@ async function saveProduct(prod) {
 async function saveReview(rev) {
     try {
         const savedRev = await ReviewModel.findOneAndUpdate({id: rev.id},
-            rev,
+            {$push: {reviews: {rev}}},
             {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true});
         winston.debug(`${logPrefix}${savedRev.title} saved, returning ${JSON.stringify(savedRev)}`);
         return Review.fromDb(savedRev);
     } catch (e) {
         console.log(e);
+        throw e;
+    }
+}
+
+async function getReviewById(id) {
+    try {
+        const review = await ReviewModel.findOne({id});
+        if (!review) {
+            winston.debug(`${logPrefix}${id} not in db`);
+            return null;
+        }
+        winston.debug(`${logPrefix}${id} found, returning ${JSON.stringify(review)}`);
+        return Review.fromDb(review);
+    } catch (e) {
+        winston.error(`${logPrefix}Error during find by id ${id}: ${e}`);
         throw e;
     }
 }
@@ -286,5 +307,6 @@ async function deleteProduct(name){
         getProductByQuery,
         getAllProducts,
         deleteProduct,
-        saveReview
+        saveReview,
+        getReviewById
     };

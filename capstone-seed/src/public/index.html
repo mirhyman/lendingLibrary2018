@@ -1,75 +1,10 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="utf-8">
-    <title></title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 </head>
 <body>
-<!-- note to change this -->
-<b>Hardware or Software</b>
-<div>
-    <label><input type="checkBox" title="hardware" id="hardware"/>Hardware</label>
-    <label><input type="checkBox" title="software" id="software"/>Software</label>
-</div>
-<b>Access</b>
-<div>
-    <label><input type="checkbox" title="accessKeyboard" id="keyboard"/>Keyboard</label>
-    <label><input type="checkbox" title="accessTouch" id="accessTouch"/>Touchscreen</label>
-    <label><input type="checkbox" title="accessVoice" id="accessVoice"/>Voice Accessible</label>
-    <label><input type="checkbox" title="accessEyes" id="accessEyes">Eye Gaze Accessible</label>
-    <label><input type="checkbox" title="accessECU" id="accessECU">ECU Accessible</label>
-</div>
-
-<b>Software</b>
-<div>
-    <label><input type="checkbox" title="softwareIOS" id="softwareIOS"/> IOS</label>
-    <label><input type="checkbox" title="softwareMacOS" id="softwareMacOS"/>Mac OS</label>
-    <label><input type="checkbox" title="softwareWindows" id="softwareWindows"/>Windows</label>
-    <label><input type="checkbox" title="softwareAndroid" id="softwareAndroid"/>Android</label>
-</div>
-
-<b>Languages</b>
-<div>
-    <label><input type="checkbox" title="french" id="french"/>French</label>
-    <label><input type="checkbox" title="english" id="english"/>English</label>
-    <label><input type="checkbox" title="chinese" id="chinese"/>Chinese</label>
-    <label><input type="checkbox" title="spanish" id="spanish"/>Spanish</label>
-    <label><input type="checkbox" title="german" id="german"/>German</label>
-    <label><input type="checkbox" title="japanese" id="japanese"/>Japanese</label>
-</div>
-
-<b>Price Range</b>
-<div>
-    <label><input type="checkbox" title="freeTo50" id="freeTo50"/>Free</label>
-    <label><input type="checkbox" title="0to99" id="0to99"/>$0-$99.99</label>
-    <label><input type="checkbox" title="100to599" id="100to599"/>$100-$599.99</label>
-    <label><input type="checkbox" title="600to999" id="600to999"/>$600-$999.99</label>
-    <label><input type="checkbox" title="1000up" id="1000up"/>$1000.00 +up</label>
-</div>
-
-<b>Extra Features</b>
-<div>
-    <label><input type="checkbox" title="emailExtra" id="emailExtra"/>Email</label>
-    <label><input type="checkbox" title="textingExtra" id="textingExtra"/>Texting</label>
-    <label><input type="checkbox" title="socialMedia" id="socialMedia"/>Social Media</label>
-    <label><input type="checkbox" title="notetaking" id="notetaking"/>Notetaking</label>
-    <label><input type="checkbox" title="drawingWriting" id="drawingWriting"/>Drawing/Writing</label>
-    <label><input type="checkbox" title="personalVoice" id="personalVoice"/>Personal Voice</label>
-    <label><input type="checkbox" title="personalPhrase" id="personalPhrase"/>Personal Phrase</label>
-    <label><input type="checkbox" title="symbols" id="symbols"/>Symbols</label>
-    <label><input type="checkbox" title="camera" id="camera"/>Camera</label>
-    <label><input type="checkbox" title="wearable" id="wearable"/>Wearable</label>
-</div>
-
-<button onclick="check()">Search</button>
-<button onclick="getAll()">Get all!</button>
-<button onclick="update()">Want to update some data?</button>
+    <button id="guidedSearch" onclick="guide()">Guided Search!</button>
 <script src="index.js"></script>
-<script>
-    function update() {
-        window.location = "/saveProducts";
-    }
-</script>
 </body>
 </html>

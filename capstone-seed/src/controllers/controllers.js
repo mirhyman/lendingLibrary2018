@@ -18,6 +18,23 @@ async function getProductByName(req, res) {
     }
 }
 
+async function getReview(req, res) {
+    let id = req.params.id;
+    if(!id) {
+        return res.status(400).send('Must include id');
+    }
+    try {
+        const review = await service.getReview(id);
+        if(review) {
+            res.json(review).status(200);
+        } else {
+            res.status(404).send('Not Found');
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}
+
 async function getProductByQuery(req, res) {
     let minPrice = req.query.minPrice;
     let maxPrice = req.query.maxPrice;
@@ -102,5 +119,6 @@ module.exports = {
     getProductByQuery,
     getAllProducts,
     deleteProduct,
-    saveReview
+    saveReview,
+    getReview
 };

@@ -9,6 +9,7 @@ window.onload = function() {
     oReq.responseType = 'json';
     oReq.onload = function(oEvent) {
         id = oReq.response.id;
+
         let build = "";
             build += "<img src=/images/";
             build += oReq.response.img;
@@ -25,10 +26,30 @@ window.onload = function() {
             build += "<br>Extra Feature: ";
             build +=
                 oReq.response.features.toString().replace("[", "").replace("]", "");
+
+
+        let oReq2 = new XMLHttpRequest();
+        oReq2.open("GET", "/product/review/" + id, true);
+        oReq2.responseType = 'json';
+        oReq2.onload = function (oEvent) {
+            if (oReq2.status === 200) {
+                for (let j = 0; j < oReq2.response.reviews.length; j++) {
+
+                    build += "title: " + oReq2.response.reviews[j].rev.title + "<br>";
+                    build += "author: " + oReq2.response.reviews[j].rev.author + "<br>";
+                    build += "Review: " + oReq2.response.reviews[j].rev.body + "<br>";
+                }
+            }
             build += "</li>";
 
-        document.getElementById("resultList").innerHTML = build;
+            document.getElementById("resultList").innerHTML = build;
+
+         };
+
+        oReq2.send();
+
     };
+
     oReq.send();
     //ev.preventDefault();
 };
@@ -39,25 +60,40 @@ function addReview() {
         "        <label for=\"title\">Enter title: </label>\n" +
         "    <input id=\"title\" type=\"text\" name=\"title\" value=\"Default title.\">\n" +
         "<label for='author'>Your Name: </label>\n" +
+        "<input id=\"author\" type=\"text\" name=\"author\" value=\"Your name.\">\n" +
         "<label for='context'>Context of use: </label>" +
+        "<input id=context' type='text' name='context' value='used product'>\n" +
         "<label for='body'>Enter your review:</label>" +
+        "<input id='body' type='text' name='body' value='Enter review here'>\n" +
         "        </form>" +
     "<button id='submitReview' onclick='submitReview()'>Submit Review!</button>";
 }
 
 function submitReview() {
     //let btn = document.getElementById("get_name");
-    let form = document.forms.namedItem("review");
+    let form = document.querySelector("form");
 
     //var oOutput = document.getElementById("post_res");
     let oData = new FormData(form);
+    let obj = "";
+    let i = 0;
+    for (var pair of oData.entries()) {
+        if (i !== 0) {
+            obj += "&";
+        }
+        obj += pair[0] + "=" + pair[1];
+        i++;
+    }
 
+    obj += "&id=" + id;
+    console.log(id);
     var oReq = new XMLHttpRequest();
-    let pair1;
-    
-    oReq.open("get", '/features/' + pair1, true);
+    //let pair1;
+    //console.log(oData);
+    oReq.open("post", '/product/review', true);
+    oReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     oReq.onload = function (oEvent) {
-        oOutput.innerHTML = oReq.responseText;
+        console.log(oReq.responseText);
     };
-    oReq.send(null);
+    oReq.send(obj);
 }
