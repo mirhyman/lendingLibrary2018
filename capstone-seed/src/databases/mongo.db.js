@@ -291,6 +291,40 @@ async function getProductByQuery(prod) {
     }
 }
 
+async function getProductByText(searchString) {
+    try {
+        let results = [];
+        // check for text matches on product entries
+        ProductModel.createIndex({name: "text", access: "text", platform: "text", languages: "text", brand: "text", features: "text"});
+        let prodMatches = await ProductModel.find(
+            { $text: { $search: searchString }}, { score: { $meta: "textScore" }}).sort({ score: { $meta: "textScore" } });
+        for (let i = 0; i < prodMatches.length; i++) {
+            let curProd = prodMatches[i];
+            results.push(curProd);
+        }
+        // check for text matches in reviews of products
+        ReviewModel.createIndex({title: "text", tags: "text", context: "text"});
+        let reviewMatches = await ReviewModel.find(
+            { $text: { $search: searchString }}, { score: { $meta: "textScore" }}).sort({ score: { $meta: "textScore" } });
+        for (let i = 0; i < reviewMatches.length; i++) {
+            // get product associated with review
+            let curReview = reviewMatches[i];
+            let curProd = await ProductModel.find({id: curReview.id});
+            results.push(curProd);
+        }
+        // results now has products sorted by best match with matches by product description above matches by reviews
+        // need to remove duplicates still
+        let resultsNoDuplicates = results.filter((prod, pos, arr) => {
+            return arr.map(mapProd => mapProd[id]).indexOf(prod[id]) === pos;
+        });
+        return resultsNoDuplicates.map(res => Product.fromDb(res));
+    } catch(e) {
+        console.log(e);
+        throw(e);
+    }
+}
+
+
 async function deleteProduct(name){
     try {
         await ProductModel.deleteOne({name});
@@ -308,5 +342,6 @@ async function deleteProduct(name){
         getAllProducts,
         deleteProduct,
         saveReview,
-        getReviewById
+        getReviewById,
+        getProductByText
     };
