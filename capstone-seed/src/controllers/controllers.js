@@ -113,6 +113,24 @@ async function deleteProduct(req, res) {
     }
 }
 
+async function getProductByText(req, res) {
+    let query = req.query.query;
+    console.log(query);
+    if(!query) {
+        return res.status(400).send('Must include id');
+    }
+    try {
+        const review = await service.getProductByText(query);
+        if(review) {
+            res.json(review).status(200);
+        } else {
+            res.status(404).send('Not Found');
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}
+
 module.exports = {
     saveProduct,
     getProductByName,
@@ -120,5 +138,6 @@ module.exports = {
     getAllProducts,
     deleteProduct,
     saveReview,
-    getReview
+    getReview,
+    getProductByText
 };

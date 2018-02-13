@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <button id="guidedSearch" onclick="guide()">Guided Search!</button>
-    <button id="update" onclick="updateDatabase()">Update Products</button>
 
+    <button id="guidedSearch" onclick="guide()">Guided Search!</button>
+    <button id="update" onclick="updateDatabase()">Add Products</button>
+    <button id="glossary">Glossary</button>
+    <label for="search"><input type="text"
+                               placeholder= "I'm looking for..." id="search"></label>
+    <button id="submitSearch" onclick="searchQuery()">Go!</button>
 
 
 <script src="index.js"></script>

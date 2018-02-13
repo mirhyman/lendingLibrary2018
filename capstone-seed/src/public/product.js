@@ -1,15 +1,23 @@
 let allResults = [];
 let currResults = [];
 let pastResults = [];
+let compareList = [];
 
 window.onload = function() {
     let str = window.location.href;
     let idx = str.indexOf("?");
     str = str.substring(idx);
+    let sub = str.indexOf("Q");
     let oReq = new XMLHttpRequest();
-    if (str === "?") {
+    //console.log(sub);
+    if (sub !== -1) {
+        str = str.substring(2);
+        oReq.open("GET", "/textSearch?query=" + str, true);
+    } else if (str === "?") {
+        //console.log("here 2");
         oReq.open("GET", "/products", true);
     } else {
+        //console.log("here 3");
         oReq.open("GET", "/product" + str, true);
     }
     oReq.responseType = 'json';
@@ -161,9 +169,49 @@ function displayResults() {
         build += "<br>Extra Feature: ";
         build +=
             currResults[i].features.toString().replace("[", "").replace("]", "");
-        build += "</li></a><br>";
+        build += "</li></a>" +
+            "<button id='" + currResults[i].id +"' onclick='storeCompare(this)'>" +
+            "Compare</button><br>";
     }
     document.getElementById("resultList").innerHTML = currResults.length
         + " result(s) found <br><br>" + build;
+}
+
+function storeCompare(btn) {
+    if (compareList.length < 3) {
+        if (compareList.includes(btn.id)) {
+            let idx = compareList.indexOf(btn.id);
+            compareList.splice(idx, 1);
+            document.getElementById('compare_all_your_items').textContent = "Compare(" +
+                compareList.length + ")";
+        } else {
+            compareList.push(btn.id);
+            document.getElementById('compare_all_your_items').textContent = "Compare(" +
+                compareList.length + ")";
+        }
+    } else {
+        alert("You can only compare up to 3 items!");
+    }
+}
+
+function compare() {
+    let s = "/compareProducts?";
+    if (compareList.length < 2) {
+        alert("Add more items!");
+    } else {
+        for (let i = 0; i < compareList.length; i++) {
+            for (let j = 0; j < currResults.length; j++) {
+                //console.log(parseInt(compareList[i]));
+                if (currResults[j].id === parseInt(compareList[i])) {
+                    if (i !== 0) {
+                        s += "&";
+                    }
+                    s += currResults[j].name;
+                }
+            }
+        }
+        //console.log(s);
+        window.location = s;
+    }
 }
 

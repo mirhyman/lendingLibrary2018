@@ -17,4 +17,6 @@ router.get('/products', controller.getAllProducts);
 
 router.delete('/product/:name', controller.deleteProduct);
 
+router.get('/textSearch', controller.getProductByText);
+
 module.exports = router;

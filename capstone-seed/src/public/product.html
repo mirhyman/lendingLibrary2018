@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="product.css">
 </head>
 <body>
+<div id="navBar">
+<button id="glossary">Glossary</button>
+</div>
 <ul style="list-style-type:none; float:left" id="filterList">Filter
     <li><b>Hardware or Software</b>
         <ul style="list-style-type:none">
@@ -99,9 +103,12 @@
         </ul>
     </li>
 </ul>
+<div class="vertical"></div>
+<button id="compare_all_your_items" onclick="compare()">Compare (0)</button>
 <ul style="list-style-type:circle; float: right" id="resultList">
 
 </ul>
+
 <script src="product.js"></script>
 </body>
 </html>

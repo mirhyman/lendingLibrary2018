@@ -1,0 +1,68 @@
+#filterList {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+    top: 262px;
+}
+
+#resultList {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 75vh ;
+    top: 262px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0F4880;
+    border-radius: 40px;
+} /* the new scrollbar will have a flat appearance with the set background color */
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 72, 128, 0.3);
+    border-radius: 40px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: black;
+}
+
+.vertical {
+    background: #0F4880;
+    width: 4px;
+    height: 100vh;
+    position: absolute;
+    left: 40%;
+}
+
+#glossary {
+    position: absolute;
+    width: 220px;
+    height: 29px;
+    left: 286px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+
+    color: #000000;
+    background-color: transparent;
+    border: none;
+}
+
+#glossary:hover {
+    color: #1478cb;
+}
+
+#navBar {
+    margin-top: 30px;
+}

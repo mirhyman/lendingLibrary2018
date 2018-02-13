@@ -34,6 +34,10 @@ async function getReview(id) {
     return await db.getReviewById(id);
 }
 
+async function getProductByText(id) {
+    return await db.getProductByText(id);
+}
+
 module.exports = {
     getProductByName,
     saveProduct,
@@ -41,5 +45,6 @@ module.exports = {
     getProducts,
     deleteProduct,
     saveReview,
-    getReview
+    getReview,
+    getProductByText
 };
