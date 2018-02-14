@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="navBar">
     <button id="update" onclick="updateDatabase()">Add Products</button>
     <button id="glossary" onclick="glossary()">Glossary</button>
+        <button id="products" onclick="getAll()">All Products</button>
+        <button id="eye_gaze">Eye Gaze</button>
+        <button id="voice">Voice Access</button>
+        <button id="touch">Touchscreen</button>
+        <div id="logo">Website Logo  <i class="fas fa-child fa-2x"></i></div>
     </div>
+    <div id="welcome">
+    <p>
+    Welcome to our website. We're here to help find the perfect solution for you.</p></div>
     <label for="search"><input type="text"
-                               placeholder= "I'm looking for..." id="search"></label>
+                               placeholder= "  I'm looking for..." id="search"></label>
     <button id="submitSearch" onclick="searchQuery()">Go!</button>
+    <p id="start">Don't know where to start?</p>
         <button id="guidedSearch" onclick="guide()">Guided Search!</button>
 
-
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script src="index.js"></script>
 </body>
 </html>

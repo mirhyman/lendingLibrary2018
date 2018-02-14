@@ -78,43 +78,159 @@
     position: absolute;
     width: 220px;
     height: 29px;
-    left: 51px;
-    top: 68px;
+    left: 95px;
+    top: 10px;
 
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    font-size: 24px;
+    font-size: 15px;
     text-align: center;
     background-color: transparent;
     border: none;
-    color: #000000;
+    color: white;
 }
 
 #glossary:hover {
-    color: #1478cb;
+    color: #38c7f5;
 }
 
 #update:hover {
-    color: #1478cb;
+    color: #38c7f5;
+}
+
+#products:hover {
+    color: #38c7f5;
 }
 
 #glossary {
     position: absolute;
     width: 220px;
     height: 29px;
-    left: 286px;
-    top: 68px;
+    left: -25px;
+    top: 10px;
 
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    font-size: 24px;
+    font-size: 15px;
     text-align: center;
 
-    color: #000000;
+    color: white;
     background-color: transparent;
     border: none;
+}
+
+#navBar {
+    background: #0F4880;;
+    height: 44px;
+    width: 100%;
+    top: 0px;
+    position: fixed;
+    right: 0px;
+    left: 0px;
+}
+
+#products {
+    position: absolute;
+    width: 220px;
+    height: 29px;
+    left: 210px;
+    top: 10px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    text-align: center;
+
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+#eye_gaze {
+
+    position: absolute;
+    width: 220px;
+    height: 29px;
+    left: 570px;
+    top: 10px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+#voice {
+
+    position: absolute;
+    width: 220px;
+    height: 29px;
+    left: 450px;
+    top: 10px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+#touch {
+
+    position: absolute;
+    width: 220px;
+    height: 29px;
+    left: 330px;
+    top: 10px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+#logo {
+    left: 900px;
+    position: absolute;
+    top: 3.5px;
+    font-size: 15px;
+    color: white;
+    font-family: Roboto;
+    text-align: center;
+}
+
+#welcome {
+    color: black;
+    position: fixed;
+    top: 190px;
+    left: 310px;
+    font-family: Roboto;
+}
+
+#start {
+    color: black;
+    position: fixed;
+    top: 340px;
+    left: 495px;
+    font-family: Roboto;
 }
