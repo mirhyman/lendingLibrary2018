@@ -1,18 +1,64 @@
 #filterList {
+
     -moz-column-count: 2;
-    -moz-column-gap: 20px;
+    -moz-column-gap: 1px;
     -webkit-column-count: 2;
-    -webkit-column-gap: 20px;
+    -webkit-column-gap: 1px;
     column-count: 2;
-    column-gap: 20px;
-    top: 262px;
+    column-gap: 1px;
+    position: fixed;
+    border-right: 2px solid #0F4880;
+    height: 90vh;
+    column-width: 15px;
+    left: -30px;
+    overflow: hidden;
+    font-family: Roboto;
+    font-size: 14px;
+
+}
+
+#navBar #compare_all_your_items {
+    position: relative;
+    left: 80vw;
+
+    background: #FFFFFF;
+    border: 4px solid #0F4880;
+    box-sizing: border-box;
+    border-radius: 40px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: lighter;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+}
+
+#navBar #compare_all_your_items:hover {
+    background: #1478cb;
+    border: 4px solid #1478cb;
+    box-sizing: border-box;
+    border-radius: 40px;
+    color: white;
+}
+
+
+input[type="checkBox"] {
+    margin: 10px;
+
 }
 
 #resultList {
     overflow: hidden;
     overflow-y: scroll;
-    height: 75vh ;
-    top: 262px;
+    height: 75vh;
+    float: right;
+    position: fixed;
+    margin-left: 475px;
+    width: 50%;
+}
+
+#resultPanel {
+    float: right;
 }
 
 ::-webkit-scrollbar {
@@ -33,19 +79,12 @@
     background-color: black;
 }
 
-.vertical {
-    background: #0F4880;
-    width: 4px;
-    height: 100vh;
-    position: absolute;
-    left: 40%;
-}
 
-#glossary {
+
+#glossary, #home {
     position: absolute;
     width: 220px;
     height: 29px;
-    left: 286px;
 
     font-family: Roboto;
     font-style: normal;
@@ -59,10 +98,208 @@
     border: none;
 }
 
+#home:hover {
+    color: #1478cb;
+}
+
+#glossary {
+    left: 20vw;
+}
+
 #glossary:hover {
     color: #1478cb;
 }
 
 #navBar {
-    margin-top: 30px;
+    padding: 0;
+    top: 0;
+    position: absolute;
+    display: inline-block;
+}
+
+#content {
+    margin-top: 40px;
+}
+
+#resultList li img{
+    height: 160px;
+    width: 160px;
+}
+
+#resultList li #info #name {
+    margin-left: 175px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 18px;
+    display: inline-block;
+}
+
+#resultList li #info #price {
+    float: right;
+    margin: 0 220px 0 0;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 18px;
+
+}
+
+
+#resultList li #btns #compare{
+    position: absolute;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    border-radius: 40px;
+    right: 2px;
+
+    display:-webkit-inline-box;
+    background: #0F4880;
+    border: 4px solid #0F4880;
+    box-sizing: border-box;
+}
+
+#resultList li #btns #view:hover {
+    background: #1478cb;
+    border: 4px solid #1478cb;
+    box-sizing: border-box;
+    border-radius: 40px;
+    color: white;
+}
+
+#resultList li #btns #compare:hover {
+    background: #1478cb;
+    border: 4px solid #1478cb;
+    box-sizing: border-box;
+    border-radius: 40px;
+    color: white;
+}
+
+#resultList li #btns #view{
+    position: absolute;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    border-radius: 40px;
+    right: 130px;
+
+
+    background: #0F4880;
+    border: 4px solid #0F4880;
+    box-sizing: border-box;
+}
+
+#resultList li #btns {
+    position: relative;
+    right: 1px;
+    bottom: 170px;
+}
+
+#resultList li #description {
+    position: relative;
+    left: 175px;
+    width: 20vw;
+    bottom: 130px;
+    font-family: Roboto;
+    font-size: 14px;
+}
+
+#resultList {
+    left: -45px;
+    width: 60vw;
+}
+
+#filter {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px;
+}
+
+button {
+    padding: 5px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 14px;
+    color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 14px;
+    width: 14px;
+    background-color: white;
+    border-radius: 40px;
+    border: 1px solid #0F4880;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color:#0F4880;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }

@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
-
-    <button id="guidedSearch" onclick="guide()">Guided Search!</button>
+    <div id="navBar">
     <button id="update" onclick="updateDatabase()">Add Products</button>
-    <button id="glossary">Glossary</button>
+    <button id="glossary" onclick="glossary()">Glossary</button>
+    </div>
     <label for="search"><input type="text"
                                placeholder= "I'm looking for..." id="search"></label>
     <button id="submitSearch" onclick="searchQuery()">Go!</button>
+        <button id="guidedSearch" onclick="guide()">Guided Search!</button>
 
 
 <script src="index.js"></script>

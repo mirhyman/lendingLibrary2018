@@ -2,12 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="productPage.css" rel="stylesheet">
 </head>
 <body>
-<ul id="resultList"></ul>
-<button id="review" onclick="addReview()">Add Review!</button>
-<button id="update" onclick="update()">Update Product Information</button>
-<div id="toAdd"></div>
+<div id="navBar">
+    <button id="home" onclick="goHome()">Home</button>
+    <button id="glossary" onclick="glossary">Glossary</button>
+    <button id="update" onclick="update()">Update Product Information</button>
+
+</div>
+    <ul id="resultList"></ul>
+    <div id="rev">Reviews</div>
+<ul style="list-style-type:none;" id="reviews"></ul>
+<div id="toAdd">
+
+</div>
 <script src="productPage.js"></script>
 </body>
 </html>

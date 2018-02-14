@@ -1,22 +1,22 @@
 #search {
     position: absolute;
-    width: 750px;
-    height: 60px;
-    left: 346px;
-    top: 418px;
+    width: 63vw;
+    height: 8vh;
+    left: 20vw;
+    top: 41vh;
 
     border: 4px solid #0F4880;
     box-sizing: border-box;
     border-radius: 40px;
-    font-size: 30px;
+    font-size: 3vh;
 }
 
 #submitSearch {
     position: absolute;
     width: 60px;
     height: 60px;
-    left: 1116px;
-    top: 418px;
+    left: 85vw;
+    top: 40%;
 
     background: #0F4880;
     border: 4px solid #0F4880;
@@ -33,11 +33,7 @@
 
 
 #submitSearch:hover {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    left: 1116px;
-    top: 418px;
+
 
     background: #1478cb;
     border: 4px solid #1478cb;
@@ -48,10 +44,10 @@
 
 #guidedSearch {
     position: absolute;
-    width: 348px;
-    height: 69px;
-    left: 546px;
-    top: 660px;
+    width: 24vw;
+    height: 7vh;
+    left: 40vw;
+    top: 65vh;
 
     background: #0F4880;
     border: 4px solid #0F4880;
@@ -67,11 +63,8 @@
 }
 
 #guidedSearch:hover {
-    position: absolute;
-    width: 348px;
-    height: 69px;
-    left: 546px;
-    top: 660px;
+
+
 
     background: #1478cb;
     border: 4px solid #1478cb;

@@ -1,0 +1,12 @@
+body {
+    background: #0F4880;
+    color: white;
+}
+
+#terms {
+    width: 95%;
+    height: 95vh;
+    margin-left: 25px;
+    background: white;
+    color: black;
+}

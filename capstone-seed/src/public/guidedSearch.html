@@ -2,64 +2,194 @@
 <html>
 <head lang="en">
     <meta charset="utf-8">
-    <title></title>
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <link href="guidedSearch.css" rel="stylesheet">
 </head>
 <body>
+<div id="navBar">
+    <button id="home" onclick="goHome()">Home</button>
+    <button id="glossary" onclick="glossary()">Glossary</button>
+</div>
 <!-- note to change this -->
-<b>Hardware or Software</b>
-<div>
-    <label><input type="checkBox" title="hardware" id="hardware"/>Hardware</label>
-    <label><input type="checkBox" title="software" id="software"/>Software</label>
+
+<div id="firstQuestion">
+    <div id="intro">We'd like to ask you a few questions to make sure we can find the right
+        technology for you. First question:
+        <br><br>
+        What type of device do you want?</div>
+    <div class ="questions">
+    <label class="container">Hardware
+        <input type="checkBox" title="hardware" id="hardware"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Software
+        <input type="checkBox" title="software" id="software"/>
+        <span class="checkmark"></span>
+    </label>
+    </div>
 </div>
-<b>Access</b>
-<div>
-    <label><input type="checkbox" title="accessKeyboard" id="keyboard"/>Keyboard</label>
-    <label><input type="checkbox" title="accessTouch" id="accessTouch"/>Touchscreen</label>
-    <label><input type="checkbox" title="accessVoice" id="accessVoice"/>Voice Accessible</label>
-    <label><input type="checkbox" title="accessEyes" id="accessEyes">Eye Gaze Accessible</label>
-    <label><input type="checkbox" title="accessECU" id="accessECU">ECU Accessible</label>
+<button id="next_question" onclick="next()">Next Question</button>
+<button id="back" onclick="back()">Back</button>
+<button id="submitSearch" onclick="check()">Search</button>
+<div id="secondQuestion">
+    <div id="intro2">We'd like to ask you a few questions to make sure we can find the right
+        technology for you. Second question:
+        <br><br>
+        What type of access would you like the device to have?</div>
+    <div class="questions">
+    <label class="container"> Keyboard
+        <input type="checkbox" title="accessKeyboard" id="keyboard"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> Touchscreen
+        <input type="checkbox" title="accessTouch" id="accessTouch"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> Voice Production
+        <input type="checkbox" title="accessVoice" id="accessVoice"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> Eye Gaze
+        <input type="checkbox" title="accessEyes" id="accessEyes">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> ECU Compatible
+        <input type="checkbox" title="accessECU" id="accessECU">
+        <span class="checkmark"></span>
+    </label>
+    </div>
+</div>
+<div id="thirdQuestion">
+    <div id="intro3">We'd like to ask you a few questions to make sure we can find the right
+        technology for you. Second question:
+        <br><br>
+        What kind of software compatibility do you want?
+    </div>
+    <div class="questions">
+    <label class="container"> IOS
+        <input type="checkbox" title="softwareIOS" id="softwareIOS"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> Mac OS
+        <input type="checkbox" title="softwareMacOS" id="softwareMacOS"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> Windows
+        <input type="checkbox" title="softwareWindows" id="softwareWindows"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Android
+        <input type="checkbox" title="softwareAndroid" id="softwareAndroid"/>
+        <span class="checkmark"></span>
+    </label>
 </div>
 
-<b>Software</b>
-<div>
-    <label><input type="checkbox" title="softwareIOS" id="softwareIOS"/> IOS</label>
-    <label><input type="checkbox" title="softwareMacOS" id="softwareMacOS"/>Mac OS</label>
-    <label><input type="checkbox" title="softwareWindows" id="softwareWindows"/>Windows</label>
-    <label><input type="checkbox" title="softwareAndroid" id="softwareAndroid"/>Android</label>
+
+<div id="fourfthQuestion">
+    <div id="intro4">We'd like to ask you a few questions to make sure we can find the right
+        technology for you. Second question:
+        <br><br>
+        What kind of software compatibility do you want?
+    </div>
+    <div class ="questions">
+        <label class="container">French
+            <input type="checkbox" title="french" id="french"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">English
+            <input type="checkbox" title="english" id="english"/>
+            <span class="checkmark"></span>
+        </label>
+    <label class="container">Chinese
+        <input type="checkbox" title="chinese" id="chinese"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> Spanish
+        <input type="checkbox" title="spanish" id="spanish"/>
+        <span class="checkmark"></span>
+    </label>
+    </div>
 </div>
 
-<b>Languages</b>
-<div>
-    <label><input type="checkbox" title="french" id="french"/>French</label>
-    <label><input type="checkbox" title="english" id="english"/>English</label>
-    <label><input type="checkbox" title="chinese" id="chinese"/>Chinese</label>
-    <label><input type="checkbox" title="spanish" id="spanish"/>Spanish</label>
-    <label><input type="checkbox" title="german" id="german"/>German</label>
-    <label><input type="checkbox" title="japanese" id="japanese"/>Japanese</label>
+<div id="fifthQuestion">
+    <div id="intro5">We'd like to ask you a few questions to make sure we can find the right
+        technology for you. Second question:
+        <br><br>
+        What kind of software compatibility do you want?
+    </div>
+    <div class ="questions">
+    <label class="container">Free
+        <input type="checkbox" title="freeTo50" id="freeTo50"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">$0-$99.99
+        <input type="checkbox" title="0to99" id="0to99"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> $100-$599.99
+    <input type="checkbox" title="100to599" id="100to599"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> $600-$999.99
+        <input type="checkbox" title="600to999" id="600to999"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">
+        <input type="checkbox" title="1000up" id="1000up"/>$1000.00 +up
+
+    </label>
+    </div>
 </div>
 
-<b>Price Range</b>
-<div>
-    <label><input type="checkbox" title="freeTo50" id="freeTo50"/>Free</label>
-    <label><input type="checkbox" title="0to99" id="0to99"/>$0-$99.99</label>
-    <label><input type="checkbox" title="100to599" id="100to599"/>$100-$599.99</label>
-    <label><input type="checkbox" title="600to999" id="600to999"/>$600-$999.99</label>
-    <label><input type="checkbox" title="1000up" id="1000up"/>$1000.00 +up</label>
+<div id="sixthQuestion">
+    <div id="intro6">We'd like to ask you a few questions to make sure we can find the right
+        technology for you. Second question:
+        <br><br>
+        What kind of software compatibility do you want?
+    </div>
+    <div class="questions">
+    <label class="container"> Email
+        <input type="checkbox" title="emailExtra" id="emailExtra"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Texting
+        <input type="checkbox" title="textingExtra" id="textingExtra"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Social Media
+        <input type="checkbox" title="socialMedia" id="socialMedia"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Notetaking
+        <input type="checkbox" title="notetaking" id="notetaking"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Drawing/Writing
+        <input type="checkbox" title="drawingWriting" id="drawingWriting"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Personal Voice
+        <input type="checkbox" title="personalVoice" id="personalVoice"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Personal Phrase
+        <input type="checkbox" title="personalPhrase" id="personalPhrase"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Symbols
+        <input type="checkbox" title="symbols" id="symbols"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container"> Camera
+        <input type="checkbox" title="camera" id="camera"/>
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Wearable
+        <input type="checkbox" title="wearable" id="wearable"/>
+        <span class="checkmark"></span>
+    </label>
 </div>
-
-<b>Extra Features</b>
-<div>
-    <label><input type="checkbox" title="emailExtra" id="emailExtra"/>Email</label>
-    <label><input type="checkbox" title="textingExtra" id="textingExtra"/>Texting</label>
-    <label><input type="checkbox" title="socialMedia" id="socialMedia"/>Social Media</label>
-    <label><input type="checkbox" title="notetaking" id="notetaking"/>Notetaking</label>
-    <label><input type="checkbox" title="drawingWriting" id="drawingWriting"/>Drawing/Writing</label>
-    <label><input type="checkbox" title="personalVoice" id="personalVoice"/>Personal Voice</label>
-    <label><input type="checkbox" title="personalPhrase" id="personalPhrase"/>Personal Phrase</label>
-    <label><input type="checkbox" title="symbols" id="symbols"/>Symbols</label>
-    <label><input type="checkbox" title="camera" id="camera"/>Camera</label>
-    <label><input type="checkbox" title="wearable" id="wearable"/>Wearable</label>
 </div>
 
 <button onclick="check()">Search</button>

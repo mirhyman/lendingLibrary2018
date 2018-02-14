@@ -1,0 +1,268 @@
+body {
+    background: #0F4880;
+}
+
+#glossary, #home {
+    position: absolute;
+    width: 220px;
+    height: 29px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+#home:hover {
+    color: #1478cb;
+}
+
+#glossary {
+    left: 20vw;
+}
+
+#back {
+    position: fixed;
+    width: 24vw;
+    height: 7vh;
+    top: 64vh;
+    left: 20vw;
+
+    background: #FFFFFF;
+    border: 4px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 40px;
+    visibility: hidden;
+}
+
+
+#glossary:hover {
+    color: #1478cb;
+}
+
+#navBar {
+    padding: 0;
+    top: 0;
+    position: absolute;
+    display: inline-block;
+}
+
+
+#intro, #intro2, #intro3, #intro4, #intro5 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    margin-left: 20vw;
+}
+
+#intro3 {
+    top: 10vh;
+    position: fixed;
+}
+
+#intro {
+    top:15vh;
+    position: relative;
+}
+
+#thirdQuestion .questions {
+    position: fixed;
+    left: 45vw;
+    top: 25vh;
+}
+
+#intro2 {
+    margin-left: 10px;
+    position: relative;
+    top: 10vh;
+
+}
+
+#intro4 {
+    position: fixed;
+    top: 15vh;
+}
+
+#intro5 {
+    position: fixed;
+    top: 15vh;
+}
+
+#fourfthQuestion .questions {
+    column-count: 2;
+    column-width: inherit;
+    position: fixed;
+    left: 37vw;
+    top: 35vh;
+}
+
+#secondQuestion .questions {
+
+    column-count: 2;
+    column-width: 300px;
+    font-family: Roboto;
+    font-size: 14px;
+    margin-left: 0px;
+    margin-top: 90px;
+    left: 10vw;
+    position: relative;
+}
+
+#sixthQuestion .questions {
+
+    column-count: 4;
+    column-width: 200px;
+    font-family: Roboto;
+    font-size: 14px;
+    left: 10vw;
+    top: 25vh;
+    position: fixed;
+}
+
+#intro6 {
+    position: fixed;
+    top: 10vh;
+    text-align: center;
+    left: 20vw;
+}
+
+#fifthQuestion .questions {
+
+    column-count: 2;
+    column-width: 250px;
+    font-family: Roboto;
+    font-size: 14px;
+    margin-left: 0px;
+    top: 30vh;
+    left: 25vw;
+    position: fixed;
+}
+
+/* The container */
+
+#firstQuestion {
+    visibility: visible;
+    position: fixed;
+}
+
+#firstQuestion .questions{
+    top: 25vh;
+    left: 42vw;
+    position: relative;
+}
+
+#secondQuestion, #thirdQuestion, #fourfthQuestion,
+#fifthQuestion, #sixthQuestion {
+    visibility:hidden;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 36px;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #0F4880;
+    border-radius: 40px;
+    border: 1px solid white;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: white;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#next_question {
+     position: fixed;
+     width: 24vw;
+     height: 7vh;
+     left: 39vw;
+     top: 64vh;
+
+     background: #FFFFFF;
+     border: 4px solid #FFFFFF;
+     box-sizing: border-box;
+     border-radius: 40px;
+ }
+
+#submitSearch {
+    position: fixed;
+    width: 24vw;
+    height: 7vh;
+    left: 55vw;
+    top: 64vh;
+
+    background: #FFFFFF;
+    border: 4px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 40px;
+    visibility: hidden;
+}

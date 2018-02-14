@@ -1,3 +1,58 @@
+let currQuestions = [];
+
+
+
+function next() {
+    if (currQuestions.length === 0) {
+        currQuestions.push("firstQuestion");
+    }
+    let last = currQuestions.pop();
+    document.getElementById(last).style.visibility = "hidden";
+    currQuestions.push(last);
+    if (currQuestions.length === 1) {
+        currQuestions.push("secondQuestion");
+        document.getElementById("back").style.visibility = "visible";
+        document.getElementById("next_question").style.left = "55vw";
+    } else if (currQuestions.length === 2) {
+        currQuestions.push("thirdQuestion");
+        document.getElementById("back").style.visibility = "visible";
+        document.getElementById("next_question").style.left = "55vw";
+    } else if (currQuestions.length === 3) {
+        currQuestions.push("fourfthQuestion");
+        document.getElementById("back").style.visibility = "visible";
+        document.getElementById("next_question").style.left = "55vw";
+    } else if (currQuestions.length === 4) {
+        currQuestions.push("fifthQuestion");
+        document.getElementById("back").style.visibility = "visible";
+        document.getElementById("next_question").style.left = "55vw";
+    } else if (currQuestions.length === 5) {
+        currQuestions.push("sixthQuestion");
+        document.getElementById("back").style.visibility = "visible";
+        document.getElementById("next_question").style.visibility = "hidden";
+        document.getElementById("submitSearch").style.visibility = "visible";
+    }
+    console.log(currQuestions);
+    let nxt = currQuestions.pop();
+    console.log(nxt);
+    document.getElementById(nxt).style.visibility = "visible";
+    currQuestions.push(nxt);
+}
+
+function back() {
+
+    let last = currQuestions.pop();
+    if(last === "firstQuestion") {
+        document.getElementById("back").style.visibility = "hidden";
+        document.getElementById("next_question").style.left = "39vw";
+    }
+    document.getElementById(last).style.visibility = "hidden";
+    console.log(currQuestions);
+    let nxt = currQuestions.pop();
+    console.log(nxt);
+    document.getElementById(nxt).style.visibility = "visible";
+    currQuestions.push(nxt);
+}
+
 function check() {
     let queryString = "";
     // will fix this
@@ -119,21 +174,6 @@ function check() {
         }
         queryString += "languages[" + idx + "]=spanish";
         idx = '4';
-        addAnd = true;
-    }
-    if (document.getElementById("german").checked) {
-        if (addAnd) {
-            queryString += "&";
-        }
-        queryString += "languages[" + idx + "]=german";
-        idx = '5';
-        addAnd = true;
-    }
-    if (document.getElementById("japanese").checked) {
-        if (addAnd) {
-            queryString += "&";
-        }
-        queryString += "languages[" + idx + "]=japanese";
         addAnd = true;
     }
     if (document.getElementById("freeTo50").checked) {
@@ -266,4 +306,8 @@ function getAll() {
         console.log(oReq.responseText);
     };
     oReq.send();
+}
+
+function glossary() {
+    window.location = "/glossary";
 }
