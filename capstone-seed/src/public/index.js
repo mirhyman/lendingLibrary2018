@@ -11,3 +11,7 @@ function searchQuery() {
     let queryString = document.getElementById('search').value;
     window.location = "/loadProduct?Q" + queryString;
 }
+
+function glossary() {
+    window.location = "/glossary";
+}

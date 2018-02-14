@@ -153,28 +153,35 @@ function displayResults() {
     let build = "";
     let i;
     for (i = 0; i < currResults.length; i++) {
-        build += "<a href='/productPage?" + currResults[i].name + "'<li>";
+
+        build += "<li><div id='info'>";
+        build += "<div id='name'>" +
+            currResults[i].name.charAt(0).toUpperCase() +
+            currResults[i].name.substring(1) + "</div>";
+        build += "<div id='price'>$" + currResults[i].price + "</div></div>";
+
         build += "<img src=/images/";
         build += currResults[i].img;
-        build += " height=42 width=42><br>";
-        build += "Name: " + currResults[i].name;
-        build += "<br>Hardware: " +
+        build += " >";
+        build += "<div id='description'>Hardware: " +
             currResults[i].hardware;
-        build += "<br> Access: ";
+        build += ", Access: ";
         build += currResults[i].access.toString().replace("[", "").replace("]", "");
-        build += "<br>Languages: ";
+        build += ", Languages: ";
         build += currResults[i].languages.toString().replace("[", "").replace("]", "");
-        build += "<br>Price: ";
-        build += currResults[i].price;
-        build += "<br>Extra Feature: ";
+        build += ", Extra Feature: ";
         build +=
             currResults[i].features.toString().replace("[", "").replace("]", "");
-        build += "</li></a>" +
-            "<button id='" + currResults[i].id +"' onclick='storeCompare(this)'>" +
-            "Compare</button><br>";
+        build += "</div>";
+        build += "<div id='btns'>";
+        build += "<button id='view' name='" +
+                    currResults[i].name + "'onclick='goTo(this)'>View</button>";
+        build += "<button id='compare' name='" + currResults[i].id +"' onclick='storeCompare(this)'>" +
+            "Compare</button></div></li>";
     }
-    document.getElementById("resultList").innerHTML = currResults.length
-        + " result(s) found <br><br>" + build;
+    document.getElementById("resultPanel").innerHTML = currResults.length
+        + " result(s) found <br><br>";
+    document.getElementById("resultList").innerHTML = build;
 }
 
 function storeCompare(btn) {
@@ -213,5 +220,18 @@ function compare() {
         //console.log(s);
         window.location = s;
     }
+}
+
+function goHome() {
+    window.location = "/";
+}
+
+function goTo(name) {
+    console.log(name);
+    window.location = "/productPage?" + name.name;
+}
+
+function glossary() {
+    window.location = "/glossary";
 }
 
