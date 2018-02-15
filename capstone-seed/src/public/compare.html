@@ -2,10 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="compare.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<div id="navBar">
+<button id="home" onclick="goHome()">Home</button>
+<button id="glossary" onclick="glossary()">Glossary</button>
+    <div id="logo">Website Logo  <i class="fas fa-child fa-2x"></i></div>
+</div>
+<div id="compareTitle">
+    <p>
+        Compare your devices</p>
+</div>
 <table id="resultTable"></table>
-
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script src="compare.js"></script>
 </body>
 </html>

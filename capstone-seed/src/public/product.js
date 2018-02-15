@@ -186,13 +186,13 @@ function displayResults() {
 
 function storeCompare(btn) {
     if (compareList.length < 3) {
-        if (compareList.includes(btn.id)) {
-            let idx = compareList.indexOf(btn.id);
+        if (compareList.includes(btn.name)) {
+            let idx = compareList.indexOf(btn.name);
             compareList.splice(idx, 1);
             document.getElementById('compare_all_your_items').textContent = "Compare(" +
                 compareList.length + ")";
         } else {
-            compareList.push(btn.id);
+            compareList.push(btn.name);
             document.getElementById('compare_all_your_items').textContent = "Compare(" +
                 compareList.length + ")";
         }

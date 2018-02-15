@@ -1,0 +1,75 @@
+table {
+    font-family: Roboto;
+    border-collapse: collapse;
+    width: 85%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+    width: 50px;
+}
+
+tr:nth-child(even) {
+    background-color: lightblue;
+}
+
+#navBar {
+    background: #0F4880;;
+    height: 44px;
+    width: 100%;
+    top: 0px;
+    position: fixed;
+    right: 0px;
+    left: 0px;
+}
+
+#home {
+    color: white;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-family: Roboto;
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+}
+
+#glossary {
+    color: white;
+    position: fixed;
+    top: 10px;
+    left: 120px;
+    font-family: Roboto;
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+}
+
+#logo {
+    left: 900px;
+    position: absolute;
+    top: 3.5px;
+    font-size: 15px;
+    color: white;
+    font-family: Roboto;
+    text-align: center;
+}
+
+#compareTitle {
+    color: black;
+    position: fixed;
+    top: 50px;
+    left: 495px;
+    font-family: Roboto;
+    font-size: 20px;
+}
