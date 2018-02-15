@@ -7,6 +7,12 @@ window.onload = function() {
     let idx = str.indexOf("?");
     str = str.substring(idx + 1);
     name = str;
+    let idx_space = name.indexOf("%20");
+    if (idx_space !== -1) {
+        name = name.substring(0, idx_space) + "+" + name.substring(idx_space + 3);
+    }
+    console.log(name);
+
     let oReq = new XMLHttpRequest();
     oReq.open("GET", "/product/" + str, true);
     oReq.responseType = 'json';
