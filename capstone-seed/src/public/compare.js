@@ -49,7 +49,123 @@ function checkList() {
         for (let i = 0; i < compare_list.length; i++) {
             build += "<td>" + compare_list[i].price + "</td>";
         }
+
+        build += "</tr>";
+        build += "<tr><td>Type of Device</td>";
+        for (let i = 0; i < compare_list.length; i++) {
+            if (compare_list[i].hardware) {
+                build += "<td>Hardware</td>";
+            } else {
+                build += "<td>Software</td>";
+            }
+        }
+        build += "</tr>";
+        // figure out what access to display
+
+                let accessList = [];
+                for(let i = 0; i < compare_list.length; i++) {
+                    let curProd = compare_list[i];
+                    for (let j = 0; j < curProd.access.length; j++) {
+                        if (!accessList.includes(curProd.access[j])) {
+                            accessList.push(curProd.access[j]);
+                        }
+                    }
+                }
+                console.log(accessList);
+                for (let i = 0; i < accessList.length; i++) {
+                    build += "<tr><td>" + accessList[i].charAt(0).toUpperCase() + accessList[i].substring(1) + "</td>";
+                    for (let j = 0; j < compare_list.length; j++) {
+                        build += "<td>";
+                        if (compare_list[j].access.includes(accessList[i])) {
+                            build += "Yes</td>";
+                        } else {
+                            build += "No</td>";
+                        }
+                    }
+                }
+
+        build += "</tr>";
+        // figure out what access to display
+
+        let languageList = [];
+        for(let i = 0; i < compare_list.length; i++) {
+            let curProd = compare_list[i];
+            for (let j = 0; j < curProd.languages.length; j++) {
+                if (!languageList.includes(curProd.languages[j])) {
+                    languageList.push(curProd.languages[j]);
+                }
+            }
+        }
+        console.log(languageList);
+        for (let i = 0; i < languageList.length; i++) {
+            build += "<tr><td>" + languageList[i].charAt(0).toUpperCase() + languageList[i].substring(1) + "</td>";
+            for (let j = 0; j < compare_list.length; j++) {
+                build += "<td>";
+                if (compare_list[j].languages.includes(languageList[i])) {
+                    build += "Yes</td>";
+                } else {
+                    build += "No</td>";
+                }
+            }
+        }
+        build += "</tr>";
+
+        let platformList = [];
+        for(let i = 0; i < compare_list.length; i++) {
+            let curProd = compare_list[i];
+            for (let j = 0; j < curProd.platform.length; j++) {
+                if (!platformList.includes(curProd.platform[j])) {
+                    platformList.push(curProd.platform[j]);
+                }
+            }
+        }
+        console.log(platformList);
+        for (let i = 0; i < platformList.length; i++) {
+            build += "<tr><td>" + platformList[i].charAt(0).toUpperCase() + platformList[i].substring(1) + "</td>";
+            for (let j = 0; j < compare_list.length; j++) {
+                build += "<td>";
+                if (compare_list[j].platform.includes(platformList[i])) {
+                    build += "Yes</td>";
+                } else {
+                    build += "No</td>";
+                }
+            }
+        }
+        build += "</tr>";
+
+        let featuresList = [];
+        for(let i = 0; i < compare_list.length; i++) {
+            let curProd = compare_list[i];
+            for (let j = 0; j < curProd.features.length; j++) {
+                if (!featuresList.includes(curProd.features[j])) {
+                    featuresList.push(curProd.features[j]);
+                }
+            }
+        }
+        console.log(featuresList);
+        for (let i = 0; i < featuresList.length; i++) {
+            build += "<tr><td>" + featuresList[i].charAt(0).toUpperCase() + featuresList[i].substring(1) + "</td>";
+            for (let j = 0; j < compare_list.length; j++) {
+                build += "<td>";
+                if (compare_list[j].features.includes(featuresList[i])) {
+                    build += "Yes</td>";
+                } else {
+                    build += "No</td>";
+                }
+            }
+        }
+
         build += "</tr></table>";
         document.getElementById("resultTable").innerHTML = build;
+
     }
 }
+
+function goHome() {
+    window.location = "/";
+}
+
+function glossary() {
+    window.location = "/glossary";
+}
+

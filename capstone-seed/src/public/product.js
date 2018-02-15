@@ -192,7 +192,7 @@ function storeCompare(btn) {
             document.getElementById('compare_all_your_items').textContent = "Compare(" +
                 compareList.length + ")";
         } else {
-            compareList.push(btn.id);
+            compareList.push(btn.name);
             document.getElementById('compare_all_your_items').textContent = "Compare(" +
                 compareList.length + ")";
         }
