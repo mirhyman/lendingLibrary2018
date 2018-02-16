@@ -19,7 +19,7 @@
 
 #navBar #compare_all_your_items {
     position: relative;
-    left: 80vw;
+    left: 70vw;
 
     background: #FFFFFF;
     border: 4px solid #0F4880;
@@ -29,7 +29,7 @@
     font-style: normal;
     font-weight: lighter;
     line-height: normal;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -90,10 +90,10 @@ input[type="checkBox"] {
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
 
-    color: #000000;
+    color: white;
     background-color: transparent;
     border: none;
 }
@@ -153,11 +153,12 @@ input[type="checkBox"] {
     font-style: normal;
     font-weight: bold;
     line-height: normal;
-    font-size: 24px;
+    font-size: 15px;
     text-align: center;
     color: white;
     border-radius: 40px;
     right: 2px;
+    padding: 10px;
 
     display:-webkit-inline-box;
     background: #0F4880;
@@ -187,11 +188,12 @@ input[type="checkBox"] {
     font-style: normal;
     font-weight: bold;
     line-height: normal;
-    font-size: 24px;
+    font-size: 15px;
     text-align: center;
     color: white;
     border-radius: 40px;
     right: 130px;
+    padding: 10px;
 
 
     background: #0F4880;
@@ -302,4 +304,27 @@ button {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+#navBar {
+    background: #0F4880;;
+    height: 44px;
+    width: 100%;
+    top: 0px;
+    position: fixed;
+    right: 0px;
+    left: 0px;
+}
+
+#logo {
+    color: white;
+    left: 85vw;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    font-family: Roboto;
+}
+
+#name {
+    font-family: Roboto;
 }

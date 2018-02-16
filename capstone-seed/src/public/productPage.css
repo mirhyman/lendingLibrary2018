@@ -108,10 +108,10 @@ li {
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
 
-    color: black;
+    color: white;
     background-color: transparent;
     border: none;
 }
@@ -126,10 +126,14 @@ li {
 
 #glossary {
     left: 20vw;
+    color: white;
+    font-size: 20px;
 }
 
 #update {
     left: 40vw;
+    font-size: 20px;
+    color: white;
 }
 
 #back {
@@ -156,4 +160,16 @@ li {
     position: absolute;
     display: inline-block;
     margin-bottom: 60px;
+}
+
+
+#navBar {
+    background: #0F4880;;
+    height: 44px;
+    width: 100%;
+    top: 0px;
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    z-index: 1;
 }

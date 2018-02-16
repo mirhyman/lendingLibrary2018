@@ -5,11 +5,14 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
     <link href="guidedSearch.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div id="navBar">
     <button id="home" onclick="goHome()">Home</button>
     <button id="glossary" onclick="glossary()">Glossary</button>
+    <div id="logo">Website Logo  <i class="fas fa-child fa-2x"></i></div>
 </div>
 <!-- note to change this -->
 
@@ -83,6 +86,7 @@
         <input type="checkbox" title="softwareAndroid" id="softwareAndroid"/>
         <span class="checkmark"></span>
     </label>
+    </div>
 </div>
 
 
@@ -90,7 +94,7 @@
     <div id="intro4">We'd like to ask you a few questions to make sure we can find the right
         technology for you. Second question:
         <br><br>
-        What kind of software compatibility do you want?
+        What kind of language compatibility do you need?
     </div>
     <div class ="questions">
         <label class="container">French
@@ -116,7 +120,7 @@
     <div id="intro5">We'd like to ask you a few questions to make sure we can find the right
         technology for you. Second question:
         <br><br>
-        What kind of software compatibility do you want?
+        What price range are you looking for?
     </div>
     <div class ="questions">
     <label class="container">Free
@@ -146,7 +150,7 @@
     <div id="intro6">We'd like to ask you a few questions to make sure we can find the right
         technology for you. Second question:
         <br><br>
-        What kind of software compatibility do you want?
+        Do you want any extra features?
     </div>
     <div class="questions">
     <label class="container"> Email
@@ -192,10 +196,8 @@
 </div>
 </div>
 
-<button onclick="check()">Search</button>
-<button onclick="getAll()">Get all!</button>
 
-
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script src="guidedSearch.js"></script>
 </body>
 </html>

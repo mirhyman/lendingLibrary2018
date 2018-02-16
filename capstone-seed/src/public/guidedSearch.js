@@ -41,7 +41,7 @@ function next() {
 function back() {
 
     let last = currQuestions.pop();
-    if(last === "firstQuestion") {
+    if(last === "secondQuestion") {
         document.getElementById("back").style.visibility = "hidden";
         document.getElementById("next_question").style.left = "39vw";
     }
@@ -310,4 +310,8 @@ function getAll() {
 
 function glossary() {
     window.location = "/glossary";
+}
+
+function goHome() {
+    window.location = "/";
 }

@@ -130,6 +130,10 @@ function update() {
     window.location = "/saveProducts"
 }
 
+function goHome() {
+    window.location = "/";
+}
+
 function glossary() {
     window.location = "/glossary";
 };
