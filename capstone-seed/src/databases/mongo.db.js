@@ -42,7 +42,11 @@ function validateName(value) {
         price: {type: Number, required: false},
         features: {type: Array, required: false},
         id: {type: Number, required: true},
-        img: {type: String, required: false}
+        img: {type: String, required: false},
+        professional: {type: Boolean, required: true},
+        badges: {type: Array, required: true},
+        spec: {type: Array, requried: true},
+        description: {type: String, required: true}
     }, {timestamps: true, autoIndex: false});
     /* first time you run on a new DB must remove the auto index to create the index*/
     ProductSchema.set('autoIndex', false);
@@ -308,13 +312,19 @@ function validateName(value) {
             }
             // results now has products sorted by best match with matches by product description above matches by reviews
             // need to remove duplicates still
-            let temp = {};
+            let duplicates = new Map();
+            let toRemove = [];
             for (let i = 0; i < results.length; i++) {
-                temp[results[i]['id']] = results[i];
+                if (duplicates.has(results[i].id)) {
+                    toRemove.push(i);
+                } else {
+                    duplicates.set(results[i].id, results[i]);
+                }
             }
-            results = [];
-            for (var key in temp) {
-                results.push(temp[key]);
+
+            for (let i = 0; i < toRemove.length; i++) {
+                let removeIndex = toRemove[i] - i;
+                results.splice(removeIndex, removeIndex + 1);
             }
             return results.map(res => Product.fromDb(res));
         } catch (e) {

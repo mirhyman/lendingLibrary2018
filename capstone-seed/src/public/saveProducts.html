@@ -7,6 +7,20 @@
 <form method="post" name="product">
     <label for="name">Enter name:</label>
     <input id="name" type="text" name="name" value="Product name" required><br>
+    <label for="id">Enter product id: </label>
+    <input id="id" type="text" name="id" value="id" required>
+    <br>
+    Are you a medical professional?: <br>
+    <ul style="list-style-type: none; ">
+        <li><label for="professionalTrue"> Yes
+            <input id="professionalTrue" type="checkbox">
+        </label></li>
+        <li><label for="professionalFalse"> No
+            <input id="professionalFalse" type="checkbox">
+        </label></li>
+    </ul>
+    <br>
+
     <label for="hardware">Hardware</label>
     <input id="hardware" type="checkbox"  name="hardware">
     <label for="software">Software</label>
@@ -19,7 +33,7 @@
             <input id="accessKeyboard" type="checkbox" name="accessKeyboard"></li>
         <li><label for="accessVoice">Voice</label>
             <input id="accessVoice" type="checkbox" name="accessVoice"></li>
-        <li><label for="accessEyes">Eyes</label>
+        <li><label for="accessEyes">Eye Tracking</label>
             <input id="accessEyes" type="checkbox" name="accessEyes"></li>
         <li><label for="accessECU">ECU Accessible</label>
             <input id="accessECU" type="checkbox" name="accessECU"></li>
@@ -29,27 +43,36 @@
     <br>
     Available platforms: <br>
     <ul style="list-style-type: none; ">
-        <li><label for="macOSPlatform"> Mac OS
-        <input id="macOSPlatform" type="checkbox">
-    </label></li>
+        <li><label for="macOSPlatform"> MacOS Compatible
+            <input id="macOSPlatform" type="checkbox">
+        </label></li>
+        <li><label for="iOSPlatform"> iOS Compatible
+            <input id="iOSPlatform" type="checkbox">
+        </label></li>
+        <li><label for="windowsPlatform"> Windows Compatible
+            <input id="windowsPlatform" type="checkbox">
+        </label></li>
+        <li><label for="androidPlatform"> Android Compatible
+            <input id="androidPlatform" type="checkbox">
+        </label></li>
     </ul>
     <br>
     Languages: <br>
     <ul style="list-style-type: none; ">
-        <li><label for="frenchLang"> French
-            <input id="frenchLang" type="checkbox" value="french">
-        </label></li>
-        <li><label for="japaneseLang"> Japanese
-            <input id="japaneseLang" type="checkbox" value="japanese">
-        </label></li>
-        <li><label for="germanLang"> German
-            <input id="germanLang" type="checkbox" value="german">
+        <li><label for="englishLang"> English
+            <input id="englishLang" type="checkbox" value="english">
         </label></li>
         <li><label for="spanishLang"> Spanish
             <input id="spanishLang" type="checkbox" value="spanish">
         </label></li>
-        <li><label for="chineseLang"> Chinese
-            <input id="chineseLang" type="checkbox" value="chinese">
+        <li><label for="mandarinLang"> Mandarin
+            <input id="mandarinLang" type="checkbox" value="mandarin">
+        </label></li>
+        <li><label for="frenchLang"> French
+            <input id="frenchLang" type="checkbox" value="french">
+        </label></li>
+        <li><label for="multilingualLang"> Multilingual/Other
+            <input id="multilingualLang" type="checkbox" value="multilingual">
         </label></li>
     </ul>
     <br>
@@ -59,19 +82,79 @@
     <label for="price">Enter price:</label>
     <input required pattern="d{1,1000}.d{1,99}"
            id="price" type="text" name="price" value="Product price"><br>
-    Extra features: <br>
+    Features: <br>
     <ul style="list-style-type: none; ">
         <li><label for="emailFeat"> Email
-        <input id="emailFeat" type="checkbox">
-    </label></li>
+            <input id="emailFeat" type="checkbox">
+        </label></li>
         <li><label for="textFeat"> Texting
             <input id="textFeat" type="checkbox">
         </label></li>
+        <li><label for="socialFeat"> Social Media
+            <input id="socialFeat" type="checkbox">
+        </label></li>
+        <li><label for="drawFeat"> Free Draw/Write
+            <input id="drawFeat" type="checkbox">
+        </label></li>
+        <li><label for="cameraFeat"> Built-in Camera
+            <input id="cameraFeat" type="checkbox">
+        </label></li>
+        <li><label for="mountableFeat"> Mountable
+            <input id="mountableFeat" type="checkbox">
+        </label></li>
+        <li><label for="wearableFeat"> Wearable
+            <input id="wearableFeat" type="checkbox">
+        </label></li>
     </ul>
     <br>
-    <label for="id">Enter product id: </label>
-    <input id="id" type="text" name="id" value="id" required>
+    Speech Capability: <br>
+    <ul style="list-style-type: none; ">
+        <li><label for="digitizedSpeech"> Digitized Speech
+            <input id="digitizedSpeech" type="checkbox">
+        </label></li>
+        <li><label for="naturalisticSpeech"> Naturalistic Speech
+            <input id="naturalisticSpeech" type="checkbox">
+        </label></li>
+        <li><label for="recordSpeech"> Record Your Own Voice
+            <input id="recordSpeech" type="checkbox">
+        </label></li>
+    </ul>
     <br>
+    Vocabulary Capability: <br>
+    <ul style="list-style-type: none; ">
+        <li><label for="symbolVocab"> Symbol-based Vocabulary
+            <input id="symbolVocab" type="checkbox">
+        </label></li>
+        <li><label for="photoVocab"> Photo-based Vocabulary
+            <input id="photoVocab" type="checkbox">
+        </label></li>
+        <li><label for="wordVocab"> Word-based Vocabulary
+            <input id="wordVocab" type="checkbox">
+        </label></li>
+        <li><label for="phraseVocab"> Phrase-based Vocabulary
+            <input id="phraseVocab" type="checkbox">
+        </label></li>
+        <li><label for="textVocab"> Text-based Communication
+            <input id="textVocab" type="checkbox">
+        </label></li>
+    </ul>
+    <br>
+    Prediction Capability: <br>
+    <ul style="list-style-type: none; ">
+        <li><label for="wordPrediction"> Word Prediction
+            <input id="wordPrediction" type="checkbox">
+        </label></li>
+        <li><label for="phrasePrediction"> Phrase Prediction
+            <input id="phrasePrediction" type="checkbox">
+        </label></li>
+        <li><label for="sentencePrediction"> Sentence Prediction
+            <input id="sentencePrediction" type="checkbox">
+        </label></li>
+        <li><label for="programShortcut"> Programmable Shortcuts
+            <input id="programShortcut" type="checkbox">
+        </label></li>
+    </ul>
+
 </form>
     <button id="addProduct" onclick="addProduct()">Submit Product!</button>
 <script src="saveProducts.js"></script>
