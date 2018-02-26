@@ -13,20 +13,25 @@ img {
 }
 
 #name {
-    font-family: Roboto;
+    font-family:  'Roboto', sans-serif;
     font-style: Bold;
     font-size: 25px;
     left: 430px;
     position: absolute;
 }
 
-#price {
-    font-family: Roboto;
+#price, #brand {
+    font-family:  'Roboto', sans-serif;
     font-style: bold;
     font-size: 20px;
     left: 430px;
     position: absolute;
     top: 50px;
+}
+
+#brand {
+    left: 700px;
+    top: 10px;
 }
 
 #info {
@@ -47,9 +52,9 @@ img {
 
 #rev {
     position: absolute;
-    top: 355px;
+    top: 1490px;
     left: 45%;
-    font-family: Roboto;
+    font-family:  'Roboto', sans-serif;
     font-style: bold;
     font-size: 20px;
 }
@@ -67,8 +72,10 @@ li {
 
 #toAdd {
     position: absolute;
-    top: 605px;
+    top: 740px;
     left: 170px;
+    margin-top: 800px;
+
 }
 
 #title, #author, .ctx{
@@ -104,7 +111,7 @@ li {
     width: 220px;
     height: 29px;
 
-    font-family: Roboto;
+    font-family:  'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
     line-height: normal;
@@ -172,4 +179,153 @@ li {
     right: 0px;
     left: 0px;
     z-index: 1;
+}
+
+#features {
+    -webkit-column-count: 4;
+    position: absolute;
+    -moz-column-count: 3;
+    column-count: 3;
+    margin: 40px;
+    column-gap: 100px;
+    top: 400px;
+    margin-bottom: 100px;
+    text-align: center;
+    left: 10vw;
+
+}
+
+#features li {
+    border-bottom: white;
+    list-style: none;
+    margin-bottom: 20px;
+    font-family:  'Roboto', sans-serif;
+    font-size: 15px;
+    font-style: bold;
+
+}
+
+
+
+#feats {
+    position: absolute;
+    top: 375px;
+    font-size:20px;
+    font-family:  'Roboto', sans-serif;
+    font-style: bold;
+    left: 50vw;
+}
+
+#badges {
+    margin-bottom: 500px;
+}
+
+#badges {
+    margin-bottom:auto;
+}
+
+#icon1 {
+    color: #738ffc;
+}
+
+#icon7 {
+    color: #a9e34b;
+}
+
+#icon18 {
+    color: #e7497f;
+}
+
+#icon2 {
+    color: #f1bf77;
+}
+
+#icon8 {
+    color: #fcc2d7;
+}
+
+#icon4 {
+    color: #3bc9dc;
+}
+
+#icon5 {
+    color: #3959de;
+}
+
+#icon13 {
+    color: #f9045d;
+}
+
+#icon15 {
+    color: #d9efb5;
+}
+
+#icon20 {
+    color:  #bf4adb;
+}
+
+#icon23 {
+    color: #95dde6;
+}
+
+#icon22 {
+    color: #f10471;
+}
+
+#icon0 {
+    color:  #bf4adb;
+}
+
+#icon3 {
+    color: #009688;
+}
+
+#icon6 {
+    color: #f7659a;
+}
+
+#icon9 {
+    color: #7b2190;;
+}
+
+#icon10 {
+    color: #4CAF50;
+}
+
+#icon11 {
+    color: #363679;
+}
+
+#icon12 {
+    color: #FF5722;
+}
+
+#icon14 {
+    color: #00BCD4;
+}
+
+#icon16 {
+    color: #e6bfec;
+}
+
+#access li {
+    border: white;
+}
+
+
+#more {
+    position: absolute;
+    top: 1500px;
+}
+
+#icon17 {
+    color: #FF9800;
+}
+
+#icon21 {
+    color: #f39476;
+}
+
+#icon19 {
+    color: #d8f7fb;
 }

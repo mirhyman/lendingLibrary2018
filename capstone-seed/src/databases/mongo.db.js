@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const winston = require('winston');
 const Product = require('../modules/model');
 const Review = require('../modules/reviews-model');
+const Image = require('../modules/image');
+const fs = require('fs');
+
 
 const logPrefix = 'MongoDB: ';
 
@@ -18,6 +21,14 @@ function validateName(value) {
         id: {type: Number, required: true},
         reviews: {type: Array, required: true}
     });
+
+let PicSchema = new mongoose.Schema(
+    {image:
+        {data: Buffer, contentType: String},
+    id: {type: Number, required: false}}
+);
+
+let PicModel = mongoose.model('Image', PicSchema);
 
     ReviewSchema.set('autoIndex', false);
     ReviewSchema.index({"$**": "text"}, {"background": false});
@@ -107,6 +118,21 @@ function validateName(value) {
             throw e;
         }
     }
+
+/*async function saveImage(img) {
+    try {
+        let newPic = new PicModel();
+        newPic.image.data = fs.readFileSync(img.files.userPhoto.path);
+        newPic.image.contentType = 'image/png';
+        const savedImg = await PicModel.findOneAndUpdate({id: rev.id},
+            newPic);
+        //winston.debug(`${logPrefix}${savedRev.title} saved, returning ${JSON.stringify(savedRev)}`);
+        return Image.fromDb(savedImg);
+    } catch (e) {
+        console.log(e);
+        throw e;
+    }
+}*/
 
     async function getReviewById(id) {
         try {

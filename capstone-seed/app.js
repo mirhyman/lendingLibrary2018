@@ -11,7 +11,6 @@ const port = 8081;
 // make a call to handle any possible direction
 const route = require('./src/routers/router.js');
 
-
 app.use(express.static('src/public'));
 app.use('/loadProduct', express.static('src/public/product.html'));
 app.use('/productPage', express.static('src/public/productPage.html'));

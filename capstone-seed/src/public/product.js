@@ -163,15 +163,7 @@ function displayResults() {
         build += "<img src=/images/";
         build += currResults[i].img;
         build += " >";
-        build += "<div id='description'>Hardware: " +
-            currResults[i].hardware;
-        build += ", Access: ";
-        build += currResults[i].access.toString().replace("[", "").replace("]", "");
-        build += ", Languages: ";
-        build += currResults[i].languages.toString().replace("[", "").replace("]", "");
-        build += ", Extra Feature: ";
-        build +=
-            currResults[i].features.toString().replace("[", "").replace("]", "");
+        build += "<div id='description'>" + currResults[i].description;
         build += "</div>";
         build += "<div id='btns'>";
         build += "<button id='view' name='" +

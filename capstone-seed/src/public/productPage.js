@@ -1,6 +1,39 @@
 let id = 0;
 let name = '';
 
+const badgesTitle = ["MacOS Compatible", "ECU Compatible",
+    "iOS Compatible", "Windows Compatible", "Android Compatible",
+    "Multilingual", "Email", "Texting", "Social Media", "Free Draw/Write",
+    "Built-in Camera", "Mountable", "Wearable", "Digitized Speech",
+    "Naturalistic Speech", "Record Your Own Voice", "Symbol-based Vocabulary",
+    "Photo-based Vocabulary", "Word-based Vocabulary", "Phrase-based Vocabulary",
+    "Text-based Communication", "Word Prediction", "Phrase Prediction",
+    "Sentence Prediction", "Programmable Shortcuts"];
+
+let badgesIcon = ["<i class=\"fab fa-apple fa-5x\"></i>",
+    "<i class=\"fas fa-save fa-5x\"></i>", "<i class=\"fas fa-mobile fa-5x\"></i>",
+"<i class=\"fab fa-windows fa-5x\"></i>",
+"<i class=\"fab fa-android fa-5x\"></i>", "<i class=\"fas fa-language fa-5x\"></i>",
+    "<i class=\"fas fa-envelope fa-5x\"></i>", "<i class=\"fas fa-comments fa-5x\"></i>",
+    "<i class=\"fab fa-facebook-square fa-5x\"></i>",
+    "<i class=\"fas fa-pencil-alt fa-5x\"></i>",
+    "<i class=\"fas fa-camera fa-5x\"></i>",
+    "<i class=\"fas fa-sort-amount-up fa-5x\"></i>",
+    "<i class=\"fab fa-shirtsinbulk fa-5x\"></i>",
+    "<i class=\"far fa-comment-alt fa-5x\"></i>",
+    "<i class=\"fas fa-leaf fa-5x\"></i>",
+    "<i class=\"fas fa-microphone fa-5x\"></i>",
+    "<i class=\"fas fa-briefcase fa-5x\"></i>",
+    "<i class=\"fas fa-images fa-5x\"></i>",
+    "<i class=\"fas fa-file-word fa-5x\"></i>",
+    "<i class=\"fab fa-stack-exchange fa-5x\"></i>",
+    "<i class=\"fas fa-font fa-5x\"></i>",
+    "<i class=\"fas fa-quidditch fa-5x\"></i>",
+    "<i class=\"fas fa-bars fa-5x\"></i>", "<i class=\"fas fa-code fa-5x\"></i>"
+
+
+];
+
 window.onload = function() {
     addReview();
     let str = window.location.href;
@@ -26,17 +59,40 @@ window.onload = function() {
                 oReq.response.name.charAt(0).toUpperCase()
                 + oReq.response.name.substring(1) + "</div>";
             build += "<div id='price'>$" + oReq.response.price + "</div>";
-            build += "<div id='info'>Hardware: " +
-                oReq.response.hardware;
-            build += "Access: ";
-            build += oReq.response.access.toString().replace("[", "").replace("]", "");
-            build += "Languages: ";
-            build += oReq.response.languages.toString().replace("[", "").replace("]", "");
-            build += "Extra Feature: ";
-            build +=
-                oReq.response.features.toString().replace("[", "").replace("]", "")
+            console.log(oReq.response.description);
+            build += "<div id='brand'>" + oReq.response.brand + "</div>";
+            if (oReq.response.specs) {
+                build += "<div id='specs'>Specs";
+                build += oReq.response.specs[0] + ", " +
+                    oReq.response.specs[1] + ", " + oReq.response.specs[2] + ", ";
+                build += "</div>";
+            }
+            build += "<div id='info'>" + oReq.response.description
             + "</div>";
+            let badges = oReq.response.badges;
+            let build3 = '';
+        for (let i = 0; i < badgesTitle.length; i++) {
 
+            if (badges[i] === 'true') {
+                build3 += "<li><div id='icon" + i + "'>";
+                build3 += badgesIcon[i] + "</div>" + badgesTitle[i] + "</li>";
+            }
+        }
+        console.log(build3);
+
+        let build4 = '';
+        let acc = oReq.response.access;
+        for (let i = 0; i < acc.length; i++) {
+            build4 += "<li>";
+            if (acc[i] === 'eyes') {
+                build4 += "Eye Gaze";
+            } else if (acc[i] === 'keys' || acc[i] === 'keyboard') {
+                build4 += "Keyboard"
+            } else {
+                build4 += acc[i];
+            }
+            build4 += "</li>";
+        }
 
         let oReq2 = new XMLHttpRequest();
         oReq2.open("GET", "/product/review/" + id, true);
@@ -59,6 +115,9 @@ window.onload = function() {
 
             document.getElementById("resultList").innerHTML = build;
             document.getElementById("reviews").innerHTML = build2;
+
+            document.getElementById("features").innerHTML = build3;
+            document.getElementById("access").innerHTML = build4;
 
          };
 
