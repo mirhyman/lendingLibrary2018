@@ -19,6 +19,6 @@ router.delete('/product/:name', controller.deleteProduct);
 
 router.get('/textSearch', controller.getProductByText);
 
-//router.post('/productImage', controller.saveImage);
+router.post('/productImage', controller.saveImage);
 
 module.exports = router;

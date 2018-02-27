@@ -329,3 +329,9 @@ li {
 #icon19 {
     color: #d8f7fb;
 }
+
+#specs {
+    position: absolute;
+    top: 200px;
+    left: 40vw;
+}

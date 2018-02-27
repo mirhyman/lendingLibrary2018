@@ -61,10 +61,10 @@ window.onload = function() {
             build += "<div id='price'>$" + oReq.response.price + "</div>";
             console.log(oReq.response.description);
             build += "<div id='brand'>" + oReq.response.brand + "</div>";
-            if (oReq.response.specs) {
-                build += "<div id='specs'>Specs";
-                build += oReq.response.specs[0] + ", " +
-                    oReq.response.specs[1] + ", " + oReq.response.specs[2] + ", ";
+            if (oReq.response.spec) {
+                build += "<div id='specs'>Specs<br>";
+                build += oReq.response.spec[0] + ", " +
+                    oReq.response.spec[1] + ", " + oReq.response.spec[2] + " hours";
                 build += "</div>";
             }
             build += "<div id='info'>" + oReq.response.description

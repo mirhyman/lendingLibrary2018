@@ -56,6 +56,12 @@ function addProduct() {
             obj += 'professional=true';
         } else if (pair[0] === 'professionalFalse') {
             obj += 'professional=false';
+        } else if (pair[0] === 'weight') {
+            obj += 'spec[0]=' + pair[1];
+        } else if (pair[0] === 'dimensions') {
+            obj += 'spec[1]=' + pair[1];
+        }else if (pair[0] === 'battery') {
+            obj += 'spec[2]=' + pair[1];
         } else {
             obj = obj.substring(0, obj.length - 1);
         }
@@ -289,6 +295,9 @@ function myFunction() {
             for (let i = 0; i < x.files.length; i++) {
                 let file = x.files[i];
                 imgSrc = file;
+                var formData = new FormData();
+                formData.append('file', file);
+                formData.append('id', id);
                 var oReq = new XMLHttpRequest();
                 let obj = {
                     file: file,
@@ -296,12 +305,15 @@ function myFunction() {
                 };
 
                 oReq.open("post", '/productImage', true);
-                oReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                oReq.setRequestHeader("Content-type", "multipart/form-data");
                 oReq.onload = function (oEvent) {
                     console.log(oReq.responseText);
                 };
-                console.log(obj);
-                oReq.send(obj);
+                for (let str of formData.entries()) {
+                    console.log(str[0]);
+                    console.log(str[1]);
+                }
+                oReq.send(formData);
             }
         }
     }

@@ -79,18 +79,18 @@ async function saveProduct(req, res) {
     }
 }
 
-/*async function saveImage(req, res) {
+async function saveImage(req, res) {
     try {
 
         let saved = await service.saveImage(req);
         console.log(`debug: ${JSON.stringify(saved)} added to db`);
         res.json(saved).status(200);
     } catch (err) {
-        console.log(req.body.id);
+        console.log(req);
         //console.log(err);
         res.status(500).send(err);
     }
-}*/
+}
 
 
 async function saveReview(req, res) {
@@ -153,5 +153,6 @@ module.exports = {
     deleteProduct,
     saveReview,
     getReview,
-    getProductByText
+    getProductByText,
+    saveImage
 };

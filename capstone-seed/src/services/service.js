@@ -16,10 +16,10 @@ async function saveReview (user) {
     return await db.saveReview(user);
 }
 
-/*async function saveImage(user) {
+async function saveImage(user) {
     return await db.saveImage(user);
 }
-*/
+
 async function getProductByQuery (prod) {
     return await db.getProductByQuery(prod);
 }
@@ -50,5 +50,6 @@ module.exports = {
     deleteProduct,
     saveReview,
     getReview,
-    getProductByText
+    getProductByText,
+    saveImage
 };

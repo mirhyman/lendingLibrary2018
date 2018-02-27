@@ -96,7 +96,8 @@ let PicModel = mongoose.model('Image', PicSchema);
 
     async function saveProduct(prod) {
         try {
-            const savedProd = await ProductModel.findOneAndUpdate({name: prod.name},
+            let prodName = prod.name.toLowerCase();
+            const savedProd = await ProductModel.findOneAndUpdate({name: prodName},
                 prod,
                 {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true});
             winston.debug(`${logPrefix}${savedProd.name} saved, returning ${JSON.stringify(savedProd)}`);
@@ -120,7 +121,7 @@ let PicModel = mongoose.model('Image', PicSchema);
         }
     }
 
-/*async function saveImage(img) {
+async function saveImage(img) {
     try {
         let newPic = new PicModel();
         newPic.image.data = fs.readFileSync(img.files.userPhoto.path);
@@ -133,7 +134,7 @@ let PicModel = mongoose.model('Image', PicSchema);
         console.log(e);
         throw e;
     }
-}*/
+}
 
     async function getReviewById(id) {
         try {
@@ -379,6 +380,7 @@ let PicModel = mongoose.model('Image', PicSchema);
         deleteProduct,
         saveReview,
         getReviewById,
-        getProductByText
+        getProductByText,
+        saveImage
     };
 
