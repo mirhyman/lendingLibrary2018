@@ -88,6 +88,8 @@ let PicModel = mongoose.model('Image', PicSchema);
     }
 
 
+
+
     async function getAllProducts() {
         try {
             let results = await ProductModel.find({});
@@ -157,170 +159,181 @@ async function saveImage(img) {
 // takes in a product json, if a certan field
 // did not have a search requirement then we will
 // just not include it.
-    async function getProductByQuery(prod) {
-        try {
-            var productMap = new Map();
-            //prod.name = prod.name.toLowerCase();
-            const hardware = prod.hardware;
-            // if no hardware preference
-            if (hardware !== null) {
-                let hardwareProds = await ProductModel.find({hardware: {$eq: hardware}});
-                // probably make this a helper method.. find out how to
-                // do this, does async not make it work?
-                let i;
-                for (i = 0; i < hardwareProds.length; i++) {
-                    let currProd = hardwareProds[i];
-                    if (!productMap.has(currProd.id)) {
-                        productMap.set(currProd.id, currProd);
-                    }
-                }
-            }
-            const accessList = prod.access;
-            if (accessList) {
-                let i;
-                for (i = 0; i < accessList.length; i++) {
-                    let field = accessList[i];
-                    let fieldProds = await ProductModel.find({access: field});
-                    let j;
-                    for (j = 0; j < fieldProds.length; j++) {
-                        let currProd = fieldProds[j];
-                        if (!productMap.has(currProd.id)) {
-                            productMap.set(currProd.id, currProd);
-                        }
-                    }
-                }
-            }
-            const platformList = prod.platform;
-            if (platformList) {
-                let i;
-                for (i = 0; i < platformList.length; i++) {
-                    let currPlat = platformList[i];
-                    let platProds = await ProductModel.find({platform: currPlat});
-                    let j;
-                    for (j = 0; j < platProds.length; j++) {
-                        let currProd = platProds[j];
-                        if (!productMap.has(currProd.id)) {
-                            productMap.set(currProd.id, currProd);
-                        }
-                    }
-                }
-            }
-            const languageList = prod.languages;
+    async function getProductByAccess(access) {
+    try {
+        let fieldProds = await ProductModel.find({access: access});
+        return fieldProds.map(res => Product.fromDb(res));
 
-            if (languageList) {
-
-                let i;
-                for (i = 0; i < languageList.length; i++) {
-                    let currLang = languageList[i];
-
-                    let langProds = await ProductModel.find({languages: currLang});
-                    let j;
-                    for (j = 0; j < langProds.length; j++) {
-                        let currProd = langProds[j];
-                        if (!productMap.has(currProd.id)) {
-                            productMap.set(currProd.id, currProd);
-                        }
-                    }
-                }
-            }
-            const minPrice = prod.minPrice;
-            const maxPrice = prod.maxPrice;
-            if (maxPrice !== 0) {
-                let priceProds = await
-                    ProductModel.find({price: {$lt: maxPrice, $gte: minPrice}});
-                console.log(priceProds);
-                let i;
-                for (i = 0; i < priceProds.length; i++) {
-                    let currProd = priceProds[i];
-                    if (!productMap.has(currProd.id)) {
-                        productMap.set(currProd.id, currProd);
-                    }
-                }
-            }
-            const featuresList = prod.features;
-            if (featuresList) {
-                let i;
-                for (i = 0; i < featuresList.length; i++) {
-                    let currFeat = featuresList[i];
-                    let featProds = await ProductModel.find({features: currFeat});
-                    let j;
-                    for (j = 0; j < featProds.length; j++) {
-                        let currProd = featProds[j];
-                        if (!productMap.has(currProd.id)) {
-                            productMap.set(currProd.id, currProd);
-                        }
-                    }
-                }
-            }
-
-            var result = [];
-            // calculate scores
-            console.log(productMap);
-            for (var curProd of productMap.values()) {
-                var curScore = 0;
-                // hardware
-                if (hardware !== null && prod.hardware === curProd.hardware) {
-                    curScore += 3;
-                }
-                // acccess
-                //console.log(curProd.access);
-                if (prod.access) {
-                    //console.log('got into access');
-                    for (var curAccess of curProd.access) {
-                        if (prod.access.includes(curAccess)) {
-                            curScore += 5;
-                        }
-                    }
-                }
-                // platform
-                //console.log(curProd.platform);
-                if (prod.platform) {
-                    //console.log('got into platform');
-                    for (var curPlat of curProd.platform) {
-                        if (prod.platform.includes(curPlat)) {
-                            curScore += 1;
-                        }
-                    }
-                }
-                // language
-                if (prod.languages) {
-                    for (var curLang of curProd.languages) {
-                        if (prod.languages.includes(curLang)) {
-                            curScore += 1;
-                        }
-                    }
-                }
-                // price
-                if (prod.minPrice <= curProd.price && prod.maxPrice > curProd.price) {
-                    curScore += 2;
-                }
-                if (prod.features) {
-                    for (var curFeat of curProd.features) {
-                        if (prod.features.includes(curFeat)) {
-                            curScore += 1;
-                        }
-                    }
-                }
-                result.push({product: curProd, score: curScore});
-            }
-            // order resulting array by descending score
-            result.sort(function (a, b) {
-                return b.score - a.score;
-            });
-
-            var results = [];
-            for (let i = 0; i < result.length; i++) {
-                results.push(result[i].product);
-            }
-
-            //console.log(results);
-            return results.map(res => Product.fromDb(res));
-
-        } catch (e) {
-            console.log(e);
-            throw(e);
-        }
+    } catch (e) {
+        console.log(e);
+        throw(e);
     }
+}
+
+async function getProductByQuery(prod) {
+    try {
+        var productMap = new Map();
+        //prod.name = prod.name.toLowerCase();
+        const hardware = prod.hardware;
+        // if no hardware preference
+        if (hardware !== null) {
+            let hardwareProds = await ProductModel.find({hardware: {$eq: hardware}});
+            // probably make this a helper method.. find out how to
+            // do this, does async not make it work?
+            let i;
+            for (i = 0; i < hardwareProds.length; i++) {
+                let currProd = hardwareProds[i];
+                if (!productMap.has(currProd.id)) {
+                    productMap.set(currProd.id, currProd);
+                }
+            }
+        }
+        const accessList = prod.access;
+        if (accessList) {
+            let i;
+            for (i = 0; i < accessList.length; i++) {
+                let field = accessList[i];
+                let fieldProds = await ProductModel.find({access: field});
+                let j;
+                for (j = 0; j < fieldProds.length; j++) {
+                    let currProd = fieldProds[j];
+                    if (!productMap.has(currProd.id)) {
+                        productMap.set(currProd.id, currProd);
+                    }
+                }
+            }
+        }
+        const platformList = prod.platform;
+        if (platformList) {
+            let i;
+            for (i = 0; i < platformList.length; i++) {
+                let currPlat = platformList[i];
+                let platProds = await ProductModel.find({platform: currPlat});
+                let j;
+                for (j = 0; j < platProds.length; j++) {
+                    let currProd = platProds[j];
+                    if (!productMap.has(currProd.id)) {
+                        productMap.set(currProd.id, currProd);
+                    }
+                }
+            }
+        }
+        const languageList = prod.languages;
+
+        if (languageList) {
+
+            let i;
+            for (i = 0; i < languageList.length; i++) {
+                let currLang = languageList[i];
+
+                let langProds = await ProductModel.find({languages: currLang});
+                let j;
+                for (j = 0; j < langProds.length; j++) {
+                    let currProd = langProds[j];
+                    if (!productMap.has(currProd.id)) {
+                        productMap.set(currProd.id, currProd);
+                    }
+                }
+            }
+        }
+        const minPrice = prod.minPrice;
+        const maxPrice = prod.maxPrice;
+        if (maxPrice !== 0) {
+            let priceProds = await
+                ProductModel.find({price: {$lt: maxPrice, $gte: minPrice}});
+            console.log(priceProds);
+            let i;
+            for (i = 0; i < priceProds.length; i++) {
+                let currProd = priceProds[i];
+                if (!productMap.has(currProd.id)) {
+                    productMap.set(currProd.id, currProd);
+                }
+            }
+        }
+        const featuresList = prod.features;
+        if (featuresList) {
+            let i;
+            for (i = 0; i < featuresList.length; i++) {
+                let currFeat = featuresList[i];
+                let featProds = await ProductModel.find({features: currFeat});
+                let j;
+                for (j = 0; j < featProds.length; j++) {
+                    let currProd = featProds[j];
+                    if (!productMap.has(currProd.id)) {
+                        productMap.set(currProd.id, currProd);
+                    }
+                }
+            }
+        }
+
+        var result = [];
+        // calculate scores
+        console.log(productMap);
+        for (var curProd of productMap.values()) {
+            var curScore = 0;
+            // hardware
+            if (hardware !== null && prod.hardware === curProd.hardware) {
+                curScore += 3;
+            }
+            // acccess
+            //console.log(curProd.access);
+            if (prod.access) {
+                //console.log('got into access');
+                for (var curAccess of curProd.access) {
+                    if (prod.access.includes(curAccess)) {
+                        curScore += 5;
+                    }
+                }
+            }
+            // platform
+            //console.log(curProd.platform);
+            if (prod.platform) {
+                //console.log('got into platform');
+                for (var curPlat of curProd.platform) {
+                    if (prod.platform.includes(curPlat)) {
+                        curScore += 1;
+                    }
+                }
+            }
+            // language
+            if (prod.languages) {
+                for (var curLang of curProd.languages) {
+                    if (prod.languages.includes(curLang)) {
+                        curScore += 1;
+                    }
+                }
+            }
+            // price
+            if (prod.minPrice <= curProd.price && prod.maxPrice > curProd.price) {
+                curScore += 2;
+            }
+            if (prod.features) {
+                for (var curFeat of curProd.features) {
+                    if (prod.features.includes(curFeat)) {
+                        curScore += 1;
+                    }
+                }
+            }
+            result.push({product: curProd, score: curScore});
+        }
+        // order resulting array by descending score
+        result.sort(function (a, b) {
+            return b.score - a.score;
+        });
+
+        var results = [];
+        for (let i = 0; i < result.length; i++) {
+            results.push(result[i].product);
+        }
+
+        //console.log(results);
+        return results.map(res => Product.fromDb(res));
+
+    } catch (e) {
+        console.log(e);
+        throw(e);
+    }
+}
 
     async function getProductByText(searchString) {
         try {
@@ -384,6 +397,7 @@ async function saveImage(img) {
         saveReview,
         getReviewById,
         getProductByText,
-        saveImage
+        saveImage,
+        getProductByAccess
     };
 

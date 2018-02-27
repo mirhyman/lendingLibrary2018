@@ -54,10 +54,6 @@ function addProduct() {
             obj += 'name=' + pair[1];
         } else if (pair[0] === 'description') {
             obj += 'description=' + pair[1] + "&";
-        } else if (pair[0] === 'professionalTrue') {
-            obj += 'professional=true';
-        } else if (pair[0] === 'professionalFalse') {
-            obj += 'professional=false';
         } else if (pair[0] === 'weight') {
             obj += 'spec[0]=' + pair[1];
         } else if (pair[0] === 'dimensions') {
@@ -68,6 +64,11 @@ function addProduct() {
             obj = obj.substring(0, obj.length - 1);
         }
         i++;
+    }
+    if (document.getElementById('professionalTrue').checked === true) {
+        obj += 'professional=true&';
+    } else {
+        obj += 'professional=false&';
     }
     if (document.getElementById('accessTouch').checked === true) {
         obj += "access[" + accessIdx + "]=touch&";

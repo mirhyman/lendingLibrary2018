@@ -39,7 +39,9 @@ function onCheckUpdate(filter) {
         for (let i = 0; i < currResults.length; i++) {
             //console.log(currResults[i].access.includes("keys"));
             // note this is so redundant I really need to fix it. omg. ew. ick.
-            if (filter.id === 'hardware' && currResults[i].hardware) {
+            if (filter.id === 'professional' && currResults[i].professional) {
+                newCurr.push(currResults[i]);
+            } else if (filter.id === 'hardware' && currResults[i].hardware) {
                 newCurr.push(currResults[i]);
             } else if (filter.id === 'software' && !currResults[i].hardware) {
                 newcurr.push(currResults[i]);
@@ -158,6 +160,10 @@ function displayResults() {
         build += "<div id='name'>" +
             currResults[i].name.charAt(0).toUpperCase() +
             currResults[i].name.substring(1) + "</div>";
+        if (currResults[i].professional === true) {
+            build += "<div id='professional'>" +
+                "<i class=\"fas fa-user-md\"></i></div>";
+        }
         build += "<div id='price'>$" + currResults[i].price + "</div></div>";
 
         build += "<img src=/images/";

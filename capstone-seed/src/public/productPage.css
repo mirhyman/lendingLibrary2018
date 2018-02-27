@@ -42,7 +42,7 @@ img {
 
 #reviews {
     position: absolute;
-    top: 385px;
+    top: 2000px;
     width: 75%;
     height: 200px;
     overflow: hidden;
@@ -52,7 +52,7 @@ img {
 
 #rev {
     position: absolute;
-    top: 2000px;
+    top: 1900px;
     left: 45%;
     font-family:  'Roboto', sans-serif;
     font-style: bold;
@@ -72,7 +72,7 @@ li {
 
 #toAdd {
     position: absolute;
-    top: 1255px;
+    top: 1400px;
     left: 170px;
     margin-top: 800px;
 
@@ -336,4 +336,14 @@ li {
     position: absolute;
     top: 200px;
     left: 40vw;
+}
+
+#professional {
+    position: absolute;
+    left: 600px;
+    color: #4CAF50;
+}
+
+#otherFeatures li {
+    border-color: white;
 }

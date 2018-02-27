@@ -26,3 +26,11 @@ function getAll() {
     };
     oReq.send();
 }
+
+document.getElementById("search")
+    .addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("submitSearch").click();
+        }
+    });

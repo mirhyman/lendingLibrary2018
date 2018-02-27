@@ -328,3 +328,10 @@ button {
 #name {
     font-family: Roboto;
 }
+
+#professional {
+    position: relative;
+    left: 260px;
+    top: -17px;
+    color: #4CAF50;
+}

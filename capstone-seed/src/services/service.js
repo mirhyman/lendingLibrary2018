@@ -42,6 +42,10 @@ async function getProductByText(id) {
     return await db.getProductByText(id);
 }
 
+async function getProductByAccess(access) {
+
+}
+
 module.exports = {
     getProductByName,
     saveProduct,

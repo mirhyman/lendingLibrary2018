@@ -1,5 +1,6 @@
 let id = 0;
 let name = '';
+let professional = false;
 
 const badgesTitle = ["MacOS Compatible", "ECU Compatible",
     "iOS Compatible", "Windows Compatible", "Android Compatible",
@@ -58,6 +59,14 @@ window.onload = function() {
             build += "<div id='name'>" +
                 oReq.response.name.charAt(0).toUpperCase()
                 + oReq.response.name.substring(1) + "</div>";
+            build += "<div id='professional'>";
+            console.log(oReq.response.professional);
+            if (oReq.response.professional === true) {
+                professional = true;
+                console.log('got here');
+                build += "<i class=\"fas fa-user-md fa-2x\"></i>";
+            }
+            build += "</div>";
             build += "<div id='price'>$" + oReq.response.price + "</div>";
             console.log(oReq.response.description);
             build += "<div id='brand'>" + oReq.response.brand + "</div>";
@@ -132,6 +141,8 @@ window.onload = function() {
                         oReq2.response.reviews[j].rev.body + "</div>";
                     build2 += "<br></li>";
                 }
+            } else {
+                build2 += "<li>no reviews";
             }
             build += "</li><br>";
 
@@ -209,7 +220,17 @@ function submitReview() {
 }
 
 function update() {
-    window.location = "/saveProducts"
+    if (professional) {
+        if (window.confirm('WARNING! Professional only zone!')) {
+            if (window.confirm('are you sure you are a professional?')) {
+                window.location = "/saveProducts";
+            }
+        } else {
+            alert('You can only update this if you are a professional');
+        }
+    } else {
+        window.location = "/saveProducts";
+    }
 }
 
 function goHome() {
