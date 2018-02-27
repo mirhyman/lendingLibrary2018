@@ -1,5 +1,7 @@
 let imgSrc;
 let id =0;
+let bulletList = [];
+let otherList = [];
 
 let badgesTitle = ["MacOS Compatible", "ECU Compatible",
 "iOS Compatible", "Windows Compatible", "Android Compatible",
@@ -269,6 +271,14 @@ function addProduct() {
     }
     badgesIdx++;
 
+    for (let i = 0; i < bulletList.length; i++) {
+        obj += "&longDescription[" + i + "]=" + bulletList[i];
+    }
+
+    for (let i = 0; i < otherList.length; i++) {
+        obj += "&other[" + i + "]=" + otherList[i];
+    }
+
 
     console.log(obj);
     var oReq = new XMLHttpRequest();
@@ -279,6 +289,64 @@ function addProduct() {
         console.log(oReq.responseText);
     };
     oReq.send(obj);
+}
+
+function addBullet() {
+    let bullet = document.getElementById("point1").value;
+    bulletList.push(bullet);
+    let curList = Array.from(document.getElementById("bullets").getElementsByTagName("li"));
+    let s = "";
+    for (let i = 0; i < curList.length; i++) {
+        s += "<li>" + curList[i].textContent + "</li>";
+    }
+    console.log(curList);
+    s += "<li>" + bullet + "</li>";
+    document.getElementById("bullets").innerHTML = s;
+    document.getElementById("point1").value = "";
+}
+
+function addInfo() {
+    let bullet = document.getElementById("info1").value;
+    otherList.push(bullet);
+    let curList = Array.from(document.getElementById("infoList").getElementsByTagName("li"));
+    let s = "";
+    for (let i = 0; i < curList.length; i++) {
+        s += "<li>" + curList[i].textContent + "</li>";
+    }
+    console.log(curList);
+    s += "<li>" + bullet + "</li>";
+    document.getElementById("infoList").innerHTML = s;
+    document.getElementById("info1").value = "";
+}
+
+function removeBullet(){
+    if (bulletList.length === 0) {
+        alert("No bullets to remove!");
+    } else {
+        bulletList.pop();
+        let curList = Array.from(document.getElementById("bullets").getElementsByTagName("li"));
+        let s = "";
+        for (let i = 0; i < curList.length - 1; i++) {
+            s += "<li>" + curList[i].textContent + "</li>";
+        }
+        console.log(curList);
+        document.getElementById("bullets").innerHTML = s;
+    }
+}
+
+function removeInfo(){
+    if (otherList.length === 0) {
+        alert("No bullets to remove!");
+    } else {
+        otherList.pop();
+        let curList = Array.from(document.getElementById("infoList").getElementsByTagName("li"));
+        let s = "";
+        for (let i = 0; i < curList.length - 1; i++) {
+            s += "<li>" + curList[i].textContent + "</li>";
+        }
+        console.log(curList);
+        document.getElementById("infoList").innerHTML = s;
+    }
 }
 
 function goHome() {

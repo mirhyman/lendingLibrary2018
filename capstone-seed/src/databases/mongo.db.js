@@ -57,7 +57,9 @@ let PicModel = mongoose.model('Image', PicSchema);
         professional: {type: Boolean, required: true},
         badges: {type: Array, required: true},
         spec: {type: Array, requried: true},
-        description: {type: String, required: true}
+        description: {type: String, required: true},
+        longDescription: {type: Array, required: true},
+        other: {type: Array, required: false}
 
     }, {timestamps: true, autoIndex: false});
     /* first time you run on a new DB must remove the auto index to create the index*/
@@ -71,6 +73,7 @@ let PicModel = mongoose.model('Image', PicSchema);
 
     async function getProductByName(name) {
         try {
+            //prod.name = prod.name.toLowerCase();
             const product = await ProductModel.findOne({name});
             if (!product) {
                 winston.debug(`${logPrefix}${name} not in db`);
@@ -157,7 +160,7 @@ async function saveImage(img) {
     async function getProductByQuery(prod) {
         try {
             var productMap = new Map();
-
+            //prod.name = prod.name.toLowerCase();
             const hardware = prod.hardware;
             // if no hardware preference
             if (hardware !== null) {

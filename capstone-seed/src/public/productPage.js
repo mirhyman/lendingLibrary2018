@@ -61,14 +61,18 @@ window.onload = function() {
             build += "<div id='price'>$" + oReq.response.price + "</div>";
             console.log(oReq.response.description);
             build += "<div id='brand'>" + oReq.response.brand + "</div>";
-            if (oReq.response.spec) {
+            if (oReq.response.spec && oReq.response.hardware === "true") {
                 build += "<div id='specs'>Specs<br>";
                 build += oReq.response.spec[0] + ", " +
                     oReq.response.spec[1] + ", " + oReq.response.spec[2] + " hours";
                 build += "</div>";
             }
-            build += "<div id='info'>" + oReq.response.description
-            + "</div>";
+            build += "<div id='info'> <ul>";
+            let long = oReq.response.longDescription;
+            for (let i = 0; i < long.length; i++) {
+                build += "<li>" + long[i] + "</li>";
+            }
+            build += "</ul>" + "</div>";
             let badges = oReq.response.badges;
             let build3 = '';
         for (let i = 0; i < badgesTitle.length; i++) {
@@ -82,7 +86,10 @@ window.onload = function() {
 
         let build4 = '';
         let acc = oReq.response.access;
+        console.log(acc.length);
         for (let i = 0; i < acc.length; i++) {
+            //console.log(i);
+            console.log(acc[i]);
             build4 += "<li>";
             if (acc[i] === 'eyes' || acc[i] === 'eye') {
                 build4 += "Eye Gaze";
@@ -94,17 +101,20 @@ window.onload = function() {
                 build4 += acc[i];
             }
             build4 += "</li>";
+            console.log(build4);
         }
 
-        /*let build5 = '';
+        let build5 = '';
         let other = oReq.response.other;
-        for (let i = 0; i < other.length; i++) {
-            build5 += "<li>";
+        if (other) {
+            for (let i = 0; i < other.length; i++) {
+                build5 += "<li>";
 
                 build5 += other[i];
 
-            build5 += "</li>";
-        }*/
+                build5 += "</li>";
+            }
+        }
 
         let oReq2 = new XMLHttpRequest();
         oReq2.open("GET", "/product/review/" + id, true);
@@ -130,7 +140,7 @@ window.onload = function() {
 
             document.getElementById("features").innerHTML = build3;
             document.getElementById("access").innerHTML = build4;
-           // document.getElementById("otherFeatures").innerHTML = build5;
+            document.getElementById("otherFeatures").innerHTML = build5;
 
          };
 
