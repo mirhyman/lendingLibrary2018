@@ -58,6 +58,7 @@ let PicModel = mongoose.model('Image', PicSchema);
         badges: {type: Array, required: true},
         spec: {type: Array, requried: true},
         description: {type: String, required: true}
+
     }, {timestamps: true, autoIndex: false});
     /* first time you run on a new DB must remove the auto index to create the index*/
     ProductSchema.set('autoIndex', false);

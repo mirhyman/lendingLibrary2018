@@ -84,15 +84,27 @@ window.onload = function() {
         let acc = oReq.response.access;
         for (let i = 0; i < acc.length; i++) {
             build4 += "<li>";
-            if (acc[i] === 'eyes') {
+            if (acc[i] === 'eyes' || acc[i] === 'eye') {
                 build4 += "Eye Gaze";
             } else if (acc[i] === 'keys' || acc[i] === 'keyboard') {
                 build4 += "Keyboard"
+            } else if (acc[i] === 'touch') {
+                build4 += "Touchscreen";
             } else {
                 build4 += acc[i];
             }
             build4 += "</li>";
         }
+
+        /*let build5 = '';
+        let other = oReq.response.other;
+        for (let i = 0; i < other.length; i++) {
+            build5 += "<li>";
+
+                build5 += other[i];
+
+            build5 += "</li>";
+        }*/
 
         let oReq2 = new XMLHttpRequest();
         oReq2.open("GET", "/product/review/" + id, true);
@@ -118,6 +130,7 @@ window.onload = function() {
 
             document.getElementById("features").innerHTML = build3;
             document.getElementById("access").innerHTML = build4;
+           // document.getElementById("otherFeatures").innerHTML = build5;
 
          };
 

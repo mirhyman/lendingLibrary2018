@@ -52,7 +52,7 @@ img {
 
 #rev {
     position: absolute;
-    top: 1490px;
+    top: 2000px;
     left: 45%;
     font-family:  'Roboto', sans-serif;
     font-style: bold;
@@ -72,7 +72,7 @@ li {
 
 #toAdd {
     position: absolute;
-    top: 740px;
+    top: 1255px;
     left: 170px;
     margin-top: 800px;
 

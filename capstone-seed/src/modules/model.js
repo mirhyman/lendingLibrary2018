@@ -3,7 +3,8 @@
 class Product {
 
     constructor(name = '', hardware = false, access = undefined, platform = undefined, languages = undefined, brand = '',
-    price = 0, features = undefined, id =0, img = '', professional = false, badges = undefined, spec = undefined, description = '') {
+    price = 0, features = undefined, id =0, img = '', professional = false, badges = undefined, spec = undefined, description = ''
+               ) {
         this.name = name;
         this.hardware = hardware;
         this.access = access;
@@ -18,6 +19,8 @@ class Product {
         this.badges = badges;
         this.spec = spec;
         this.description = description;
+
+
 
     }
 
