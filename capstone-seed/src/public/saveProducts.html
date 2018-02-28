@@ -13,6 +13,9 @@
     <button id="glossary" onclick="glossary()">Glossary</button>
     <div id="logo">Website Logo  <i class="fas fa-child fa-2x"></i></div>
 </div>
+<div id="header">Add a new Product
+    <div id="line"></div>
+</div>
 <div id="content">
     <input type="file" id="myFile" multiple size="50" onchange="myFunction()">
 
@@ -75,7 +78,7 @@
     Types of access: <br>
     <ul style="list-style-type: none; ">
         <li>
-            <label class = "container" for="accessTouch">Touchable
+            <label class = "container" for="accessTouch">Touchscreen
                 <input id="accessTouch" type="checkbox" name="accessTouch"/>
                 <span class="checkmark"></span>
             </label>
@@ -87,13 +90,19 @@
         </label>
         </li>
         <li>
-            <label class = "container" for="accessVoice">Voice
-                <input id="accessVoice" type="checkbox" name="accessVoice">
-                <span class="checkmark"></span>
+        <label class = "container" for="accessSwitch">Switch
+            <input id="accessSwitch" type="checkbox" name="accessSwitch">
+            <span class="checkmark"></span>
         </label>
         </li>
         <li>
-            <label class = "container" for="accessEyes">Eye Tracking
+            <label class = "container" for="accessMouse">Mouse Alternative
+                <input id="accessMouse" type="checkbox" name="accessMouse">
+                <span class="checkmark"></span>
+            </label>
+        </li>
+        <li>
+            <label class = "container" for="accessEyes">Built-in Eye Gaze
                 <input id="accessEyes" type="checkbox" name="accessEyes">
                 <span class="checkmark"></span>
         </label>
@@ -108,8 +117,20 @@
     <br>
     Available platforms: <br>
     <ul style="list-style-type: none; ">
+        <li><label class = "container" for="iOSPlatform"> iOS Compatible
+            <input id="iOSPlatform" type="checkbox">
+            <span class="checkmark"></span>
+        </label></li>
         <li><label class = "container" for="macOSPlatform"> MacOS Compatible
             <input id="macOSPlatform" type="checkbox">
+            <span class="checkmark"></span>
+        </label></li>
+        <li><label class = "container" for="androidPlatform"> Android Compatible
+            <input id="androidPlatform" type="checkbox">
+            <span class="checkmark"></span>
+        </label></li>
+        <li><label class = "container" for="windowsPlatform"> Windows Compatible
+            <input id="windowsPlatform" type="checkbox">
             <span class="checkmark"></span>
         </label></li>
         <li>
@@ -118,18 +139,6 @@
                 <span class="checkmark"></span>
             </label>
         </li>
-        <li><label class = "container" for="iOSPlatform"> iOS Compatible
-            <input id="iOSPlatform" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="windowsPlatform"> Windows Compatible
-            <input id="windowsPlatform" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="androidPlatform"> Android Compatible
-            <input id="androidPlatform" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
     </ul>
     <br>
     Languages: <br>

@@ -78,8 +78,12 @@ function addProduct() {
         obj += "access[" + accessIdx + "]=keyboard&";
         accessIdx++;
     }
-    if (document.getElementById('accessVoice').checked === true) {
-        obj += "access[" + accessIdx + "]=voice&";
+    if (document.getElementById('accessSwitch').checked === true) {
+        obj += "access[" + accessIdx + "]=switch&";
+        accessIdx++;
+    }
+    if (document.getElementById('accessMouse').checked === true) {
+        obj += "access[" + accessIdx + "]=mouse&";
         accessIdx++;
     }
     if (document.getElementById('accessEyes').checked === true) {

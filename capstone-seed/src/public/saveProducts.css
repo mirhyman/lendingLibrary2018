@@ -131,6 +131,29 @@
     color: #1478cb;
 }
 
+#header #line {
+    width: 100vw;
+    background: linear-gradient(#e66465, #9198e5);
+    position: absolute;
+    height: 2px;
+    top: 30px;
+    left: -45vw;
+}
+
+
+#header {
+    color: #0f487f;
+    font-size: 25px;
+    position: absolute;
+    margin-bottom: 100px;
+    font-family: Roboto;
+    left: 45vw;
+}
+
+#myFile {
+    margin-top: 60px;
+}
+
 #glossary {
     left: 20vw;
     color: white;

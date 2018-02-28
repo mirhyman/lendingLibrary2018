@@ -13,18 +13,26 @@ function next() {
         currQuestions.push("secondQuestion");
         document.getElementById("back").style.visibility = "visible";
         document.getElementById("next_question").style.left = "55vw";
+        document.getElementById("submitSearch").style.visibility = "hidden";
+        document.getElementById("next_question").style.visibility = "visible";
     } else if (currQuestions.length === 2) {
         currQuestions.push("thirdQuestion");
         document.getElementById("back").style.visibility = "visible";
         document.getElementById("next_question").style.left = "55vw";
+        document.getElementById("submitSearch").style.visibility = "hidden";
+        document.getElementById("next_question").style.visibility = "visible";
     } else if (currQuestions.length === 3) {
         currQuestions.push("fourfthQuestion");
         document.getElementById("back").style.visibility = "visible";
         document.getElementById("next_question").style.left = "55vw";
+        document.getElementById("submitSearch").style.visibility = "hidden";
+        document.getElementById("next_question").style.visibility = "visible";
     } else if (currQuestions.length === 4) {
         currQuestions.push("fifthQuestion");
         document.getElementById("back").style.visibility = "visible";
         document.getElementById("next_question").style.left = "55vw";
+        document.getElementById("submitSearch").style.visibility = "hidden";
+        document.getElementById("next_question").style.visibility = "visible";
     } else if (currQuestions.length === 5) {
         currQuestions.push("sixthQuestion");
         document.getElementById("back").style.visibility = "visible";
@@ -51,6 +59,8 @@ function back() {
     console.log(nxt);
     document.getElementById(nxt).style.visibility = "visible";
     currQuestions.push(nxt);
+    document.getElementById("submitSearch").style.visibility = "hidden";
+    document.getElementById("next_question").style.visibility = "visible";
 }
 
 function check() {

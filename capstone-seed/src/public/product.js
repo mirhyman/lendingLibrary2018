@@ -39,31 +39,42 @@ window.onload = function() {
 function onCheckUpdate(filter) {
     if (filter.checked) {
         let newCurr = [];
-        //console.log(filter.id);
+        console.log(filter.id);
         for (let i = 0; i < currResults.length; i++) {
             //console.log(currResults[i].access.includes("keys"));
             // note this is so redundant I really need to fix it. omg. ew. ick.
-            if (filter.id === 'professional' && currResults[i].professional) {
+            console.log(currResults[i].professional === 'true');
+            if (filter.id === 'professional' &&
+                currResults[i].professional) {
+                console.log('got into professional');
                 newCurr.push(currResults[i]);
             } else if (filter.id === 'hardware' && currResults[i].hardware) {
+                console.log('got into hardware');
                 newCurr.push(currResults[i]);
             } else if (filter.id === 'software' && !currResults[i].hardware) {
                 newcurr.push(currResults[i]);
+                console.log('got into software');
             } else if (filter.id === 'keyboard'
-                && currResults[i].access.includes("keys")) {
+                && (currResults[i].access.includes("keys") ||
+            currResults[i].access.includes("keyboard"))) {
                 newCurr.push(currResults[i]);
+                console.log('got into keys');
             } else if (filter.id === 'accessTouch'
-                && currResults[i].access.includes("touchscreen")) {
+                && currResults[i].access.includes("touch")) {
                 newCurr.push(currResults[i]);
+                console.log('got into');
             } else if (filter.id === 'accessVoice'
                 && currResults[i].access.includes("voice")) {
                 newCurr.push(currResults[i]);
+                console.log('got into ');
             } else if (filter.id === 'accessEyes'
                 && currResults[i].access.includes("eyes")) {
                 newCurr.push(currResults[i]);
+                console.log('got into ');
             } else if (filter.id === 'accessECU'
                 && currResults[i].access.includes("ecu")) {
                 newCurr.push(currResults[i]);
+                console.log('got into ');
             } else if (filter.id === 'softwareIOS'
                 && currResults[i].platform.includes("ios")) {
                 newCurr.push(currResults[i]);
