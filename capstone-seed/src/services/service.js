@@ -43,7 +43,7 @@ async function getProductByText(id) {
 }
 
 async function getProductByAccess(access) {
-
+    return await db.getProductByAccess(access);
 }
 
 module.exports = {
@@ -55,5 +55,6 @@ module.exports = {
     saveReview,
     getReview,
     getProductByText,
-    saveImage
+    saveImage,
+    getProductByAccess
 };

@@ -209,6 +209,25 @@
     color: white;
 }
 
+#keys {
+
+    position: absolute;
+    width: 220px;
+    height: 29px;
+    left: 690px;
+    top: 10px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
 #logo {
     left: 900px;
     position: absolute;

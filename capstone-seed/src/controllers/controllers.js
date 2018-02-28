@@ -1,4 +1,3 @@
-
 var service = require('../services/service.js');
 
 async function getProductByName(req, res) {
@@ -145,6 +144,23 @@ async function getProductByText(req, res) {
     }
 }
 
+async function getProductsByAccess(req, res) {
+    let access = req.query.query;
+    if(!access) {
+        return res.status(400).send('Must include access');
+    }
+    try {
+        const products = await service.getProductByAccess(access.toLowerCase());
+        if(products) {
+            res.json(products).status(200);
+        } else {
+            res.status(404).send('Not Found');
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}
+
 module.exports = {
     saveProduct,
     getProductByName,
@@ -154,5 +170,6 @@ module.exports = {
     saveReview,
     getReview,
     getProductByText,
-    saveImage
+    saveImage,
+    getProductsByAccess
 };

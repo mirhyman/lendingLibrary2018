@@ -8,9 +8,13 @@ window.onload = function() {
     let idx = str.indexOf("?");
     str = str.substring(idx);
     let sub = str.indexOf("Q");
+    let sub1 = str.indexOf("$ACC");
     let oReq = new XMLHttpRequest();
     //console.log(sub);
-    if (sub !== -1) {
+    if (sub1 != -1) {
+        str = str.substring(5);
+        oReq.open("GET", "/productAccess?query=" + str, true);
+    } else if (sub !== -1) {
         str = str.substring(2);
         oReq.open("GET", "/textSearch?query=" + str, true);
     } else if (str === "?") {

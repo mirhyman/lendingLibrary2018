@@ -27,6 +27,20 @@ function getAll() {
     oReq.send();
 }
 
+function getBy(access) {
+    /*
+    let oReq = new XMLHttpRequest();
+
+    oReq.open("GET", "/productAccess/" + access, true);
+    oReq.onload = function(oEvent) {
+        window.location = "/loadProduct?";
+        console.log(oReq.responseText);
+    };
+    oReq.send();
+    */
+    window.location = "/loadProduct?$ACC" + access;
+}
+
 document.getElementById("search")
     .addEventListener("keyup", function(event) {
         event.preventDefault();

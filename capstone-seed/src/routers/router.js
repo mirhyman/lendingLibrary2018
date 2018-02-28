@@ -21,4 +21,6 @@ router.get('/textSearch', controller.getProductByText);
 
 router.post('/productImage', controller.saveImage);
 
+router.get('/productAccess', controller.getProductsByAccess);
+
 module.exports = router;
