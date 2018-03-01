@@ -6,7 +6,7 @@ let otherList = [];
 let badgesTitle = ["MacOS Compatible", "ECU Compatible",
 "iOS Compatible", "Windows Compatible", "Android Compatible",
 "Multilingual", "Email", "Texting", "Social Media", "Free Draw/Write",
-"Built-in Camera", "Mountable", "Wearable", "Digitized Speech",
+"Built-in Camera", "Mountable", "Wearable", "Warranty", "Digitized Speech",
 "Naturalistic Speech", "Record Your Own Voice", "Symbol-based Vocabulary",
 "Photo-based Vocabulary", "Word-based Vocabulary", "Phrase-based Vocabulary",
 "Text-based Communication", "Word Prediction", "Phrase Prediction",
@@ -15,7 +15,7 @@ let badgesTitle = ["MacOS Compatible", "ECU Compatible",
 let badgesCheckbox = ["macOSPlatform", "platformECU",
 "iOSPlatform", "windowsPlatform", "androidPlatform", "multilingualLang",
 "emailFeat", "textFeat", "socialFeat", "drawFeat", "cameraFeat",
-"mountableFeat", "wearableFeat", "digitizedSpeech",
+"mountableFeat", "wearableFeat", "warrantyFeat", "digitizedSpeech",
 "naturalisticSpeech", "recordSpeech", "symbolVocab",
 "photoVocab", "wordVocab", "phraseVocab", "textVocab",
 "wordPrediction", "phrasePrediction", "sentencePrediction", "programShortcut"];
@@ -203,6 +203,14 @@ function addProduct() {
         obj += "badges[" + badgesIdx + "]=false&";
     }
     badgesIdx++;
+    if (document.getElementById('warrantyFeat').checked === true) {
+        obj += "features[" + featuresIdx + "]=warranty&";
+        obj += "badges[" + badgesIdx + "]=true&";
+        featuresIdx++;
+    } else {
+        obj += "badges[" + badgesIdx + "]=false&";
+    }
+    badgesIdx++;
     if (document.getElementById('digitizedSpeech').checked === true) {
         obj += "badges[" + badgesIdx + "]=true&";
     } else {
@@ -352,6 +360,44 @@ function removeInfo(){
         console.log(curList);
         document.getElementById("infoList").innerHTML = s;
     }
+}
+
+function idHelp() {
+    alert("This is a product's Amazon ID. Please find your product on Amazon, scroll down to the Product" +
+        " details section, and copy the ASIN");
+}
+
+function profHelp() {
+    alert("While anyone can add products to Access for All, some of our product descriptions are written by" +
+        " medical professionals. Let us know who you are!");
+}
+
+function softwareHelp() {
+    alert("Hardware is a physical device, and software is something you can download onto a device you already" +
+        " have. Microsoft Word is software, while a laptop is hardware.");
+}
+
+function accessHelp() {
+    alert("Types of Access describe the different ways users can interact with your product.");
+}
+
+function platformHelp() {
+    alert("Platforms are the different operating systems that your product is compatible with. " +
+        "You should be able to find this information in any other description of your product. You " +
+        "can also visit the glossary for more information about ECU compatibility.");
+}
+
+function languageHelp() {
+    alert("Select the languages that your product can communicate in.");
+}
+
+function featureHelp() {
+    alert("Features are any other additional functionality of your product that is not accounted for in the" +
+        " previous categories.");
+}
+
+function shortHelp() {
+    alert("This description of your product should be a short blurb that will appear in the search results page.");
 }
 
 function goHome() {

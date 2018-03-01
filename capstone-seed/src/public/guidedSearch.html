@@ -18,9 +18,9 @@
 
 <div id="firstQuestion">
     <div id="intro">We'd like to ask you a few questions to make sure we can find the right
-        technology for you. First question:
+        technology for you. You can check as multiple bubbles or no bubbles for each question.
         <br><br>
-        What type of device do you want?</div>
+        What kind of AAC device are you looking for?</div>
     <div class ="questions">
     <label class="container">Hardware
         <input type="checkBox" title="hardware" id="hardware"/>
@@ -36,10 +36,9 @@
 <button id="back" onclick="back()">Back</button>
 <button id="submitSearch" onclick="check()">Search</button>
 <div id="secondQuestion">
-    <div id="intro2">We'd like to ask you a few questions to make sure we can find the right
-        technology for you. Second question:
-        <br><br>
-        What type of access would you like the device to have?</div>
+    <div id="intro2">
+        How would you like to interact with your AAC device?
+    </div>
     <div class="questions">
     <label class="container"> Keyboard
         <input type="checkbox" title="accessKeyboard" id="keyboard"/>
@@ -64,13 +63,11 @@
     </div>
 </div>
 <div id="thirdQuestion">
-    <div id="intro3">We'd like to ask you a few questions to make sure we can find the right
-        technology for you. Second question:
-        <br><br>
-        What kind of software compatibility do you want?
+    <div id="intro3">
+        Select your preferred operating system.  Would you like your AAC device to have ECU compatibility?
     </div>
     <div class="questions">
-    <label class="container"> IOS
+    <label class="container"> iOS
         <input type="checkbox" title="softwareIOS" id="softwareIOS"/>
         <span class="checkmark"></span>
     </label>
@@ -78,23 +75,25 @@
         <input type="checkbox" title="softwareMacOS" id="softwareMacOS"/>
         <span class="checkmark"></span>
     </label>
-    <label class="container"> Windows
-        <input type="checkbox" title="softwareWindows" id="softwareWindows"/>
-        <span class="checkmark"></span>
-    </label>
     <label class="container">Android
         <input type="checkbox" title="softwareAndroid" id="softwareAndroid"/>
         <span class="checkmark"></span>
     </label>
+        <label class="container"> Windows
+            <input type="checkbox" title="softwareWindows" id="softwareWindows"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">ECU Compatible
+            <input type="checkbox" title="softwareAndroid" id="softwareECU"/>
+            <span class="checkmark"></span>
+        </label>
     </div>
 </div>
 
 
 <div id="fourfthQuestion">
-    <div id="intro4">We'd like to ask you a few questions to make sure we can find the right
-        technology for you. Second question:
-        <br><br>
-        What kind of language compatibility do you need?
+    <div id="intro4">
+        What language options do you prefer?
     </div>
     <div class ="questions">
         <label class="container">French
@@ -117,10 +116,8 @@
 </div>
 
 <div id="fifthQuestion">
-    <div id="intro5">We'd like to ask you a few questions to make sure we can find the right
-        technology for you. Second question:
-        <br><br>
-        What price range are you looking for?
+    <div id="intro5">
+        What is your price range?
     </div>
     <div class ="questions">
     <label class="container">Free
@@ -147,10 +144,8 @@
 </div>
 
 <div id="sixthQuestion">
-    <div id="intro6">We'd like to ask you a few questions to make sure we can find the right
-        technology for you. Second question:
-        <br><br>
-        Do you want any extra features?
+    <div id="intro6">
+        Would you like your AAC device to include any of the following additional features?
     </div>
     <div class="questions">
     <label class="container"> Email

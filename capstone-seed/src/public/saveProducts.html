@@ -25,14 +25,15 @@
     <input id="name" type="text" name="name" placeholder="Product name" required><br>
     <label for="id">Enter product id: </label>
     <input id="id" type="text" name="id" placeholder="id" required>
+    <input type="button" value="?" onclick="idHelp()"/>
     <br>
     <label for="brand">Enter brand:</label>
     <input id="brand" type="text" name="brand" placeholder="Product brand"
            required><br>
     <label for="price">Enter price:</label>
     <input required pattern="d{1,1000}.d{1,99}"
-           id="price" type="text" name="price" placeholder="Product price"><br>
-    Are you a medical professional?: <br>
+           id="price" type="text" name="price" placeholder="Product price"><br><br>
+    Are you a medical professional? <input type="button" value="?" onclick="profHelp()"/> <br><br>
 
             <label class="container" for="professionalTrue"> Yes
                 <input id="professionalTrue" type="checkbox"/>
@@ -45,7 +46,7 @@
         </label>
 
     <br>
-
+    Is your product hardware or software? <input type="button" value="?" onclick="softwareHelp()"/><br><br>
     <label class = "container" for="hardware">Hardware
         <input id="hardware" type="checkbox"  name="hardware"
         onchange = 'checkHardware()'/>
@@ -74,8 +75,8 @@
     </label>
     <div id="specs">
 
-    </div>
-    Types of access: <br>
+    </div><br>
+    Types of access: <input type="button" value="?" onclick="accessHelp()"/><br>
     <ul style="list-style-type: none; ">
         <li>
             <label class = "container" for="accessTouch">Touchscreen
@@ -115,7 +116,7 @@
         </li>
     </ul>
     <br>
-    Available platforms: <br>
+    Available platforms: <input type="button" value="?" onclick="platformHelp()"/> <br>
     <ul style="list-style-type: none; ">
         <li><label class = "container" for="iOSPlatform"> iOS Compatible
             <input id="iOSPlatform" type="checkbox">
@@ -141,7 +142,7 @@
         </li>
     </ul>
     <br>
-    Languages: <br>
+    Languages: <input type="button" value="?" onclick="languageHelp()"/> <br>
     <ul style="list-style-type: none; ">
         <li><label class = "container" for="englishLang"> English
             <input id="englishLang" type="checkbox" value="english">
@@ -166,7 +167,7 @@
     </ul>
     <br>
 
-    Features: <br>
+    Features: <input type="button" value="?" onclick="featureHelp()"/> <br>
     <ul style="list-style-type: none; ">
         <li><label class = "container" for="emailFeat"> Email
             <input id="emailFeat" type="checkbox">
@@ -196,9 +197,12 @@
             <input id="wearableFeat" type="checkbox">
             <span class="checkmark"></span>
         </label></li>
+        <li><label class = "container" for="warrantyFeat"> Warranty
+            <input id="warrantyFeat" type="checkbox">
+            <span class="checkmark"></span>
+        </label></li>
     </ul>
     <br>
-    Speech Capability: <br>
     <ul style="list-style-type: none; ">
         <li><label class = "container" for="digitizedSpeech"> Digitized Speech
             <input id="digitizedSpeech" type="checkbox">
@@ -214,7 +218,6 @@
         </label></li>
     </ul>
     <br>
-    Vocabulary Capability: <br>
     <ul style="list-style-type: none; ">
         <li><label class = "container" for="symbolVocab"> Symbol-based Vocabulary
             <input id="symbolVocab" type="checkbox">
@@ -238,7 +241,6 @@
         </label></li>
     </ul>
     <br>
-    Prediction Capability: <br>
     <ul style="list-style-type: none; ">
         <li><label class = "container" for="wordPrediction"> Word Prediction
             <input id="wordPrediction" type="checkbox">
@@ -258,7 +260,7 @@
         </label></li>
     </ul>
 
-    <label for="description">Enter Short Description:</label>
+    <label for="description">Enter Short Description:</label> <input type="button" value="?" onclick="shortHelp()"/>
     <input
            id="description" type="text" name="description"
            placeholder="description here"><br>
@@ -282,7 +284,7 @@
             placeholder="bullet here"><br>
 </div>
 <button id = "addInfo" onclick="addInfo()">Add More Info</button>
-<button id = "removeInfo" onclick="removeInfo()">Remove Last Info</button>
+<button id = "removeInfo" onclick="removeInfo()">Remove Last Info</button><br><br>
 <button id="addProduct" onclick="addProduct()">Submit Product!</button>
 </div>
 <script src="saveProducts.js"></script>

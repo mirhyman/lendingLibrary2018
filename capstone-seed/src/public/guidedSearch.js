@@ -137,20 +137,28 @@ function check() {
         idx = '2';
         addAnd = true;
     }
-    if (document.getElementById("softwareWindows").checked) {
-        if (addAnd) {
-            queryString += "&";
-        }
-        queryString += "software[" + idx + "]=windows";
-        idx = '3';
-        addAnd = true;
-    }
     if (document.getElementById("softwareAndroid").checked) {
         if (addAnd) {
             queryString += "&";
         }
         queryString += "software[" + idx + "]=android";
+        idx = '3';
+        addAnd = true;
+    }
+    if (document.getElementById("softwareWindows").checked) {
+        if (addAnd) {
+            queryString += "&";
+        }
+        queryString += "software[" + idx + "]=windows";
         idx = '4';
+        addAnd = true;
+    }
+    if (document.getElementById("softwareECU").checked) {
+        if (addAnd) {
+            queryString += "&";
+        }
+        queryString += "software[" + idx + "]=ecu";
+        idx = '5';
         addAnd = true;
     }
     idx = '0';
