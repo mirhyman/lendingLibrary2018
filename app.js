@@ -9,7 +9,7 @@ app.use(bodyparser.urlencoded({ extended: true}));
 const port = process.env.PORT || 8081;
 
 // make a call to handle any possible direction
-const route = require('src/routers/router.js');
+const route = require('./src/routers/router.js');
 
 app.use(express.static('src/public'));
 app.use('/loadProduct', express.static('src/public/product.html'));
