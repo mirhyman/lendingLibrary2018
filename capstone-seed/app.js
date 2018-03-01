@@ -6,7 +6,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true}));
 
 // set up an arbitrary port to access on localhost
-const port = 8081;
+const port = process.env.PORT || 8081;
 
 // make a call to handle any possible direction
 const route = require('./src/routers/router.js');
