@@ -1,0 +1,21 @@
+{
+  "name": "lendinglibrary2018",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  	     "postinstall": "cd capstone-seed && npm install",
+"start": "node capstone-seed/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirhyman/lendingLibrary2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirhyman/lendingLibrary2018/issues"
+  },
+  "homepage": "https://github.com/mirhyman/lendingLibrary2018#readme"
+}
