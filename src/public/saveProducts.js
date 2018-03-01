@@ -292,6 +292,11 @@ function addProduct() {
         obj += "&other[" + i + "]=" + otherList[i];
     }
 
+    let img = document.getElementById(img).value;
+    if (img) {
+        obj += "&img=" + img;
+    }
+
 
     console.log(obj);
     var oReq = new XMLHttpRequest();
