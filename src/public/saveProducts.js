@@ -2,6 +2,7 @@ let imgSrc;
 let id =0;
 let bulletList = [];
 let otherList = [];
+let currImage = '';
 
 let badgesTitle = ["MacOS Compatible", "ECU Compatible",
 "iOS Compatible", "Windows Compatible", "Android Compatible",
@@ -19,6 +20,14 @@ let badgesCheckbox = ["macOSPlatform", "platformECU",
 "naturalisticSpeech", "recordSpeech", "symbolVocab",
 "photoVocab", "wordVocab", "phraseVocab", "textVocab",
 "wordPrediction", "phrasePrediction", "sentencePrediction", "programShortcut"];
+
+function addImg(btn) {
+    if (currImage === btn.id) {
+        currImage = '';
+    } else {
+        currImage = btn.id;
+    }
+}
 
 function addProduct() {
     //let btn = document.getElementById("get_name");
@@ -292,9 +301,9 @@ function addProduct() {
         obj += "&other[" + i + "]=" + otherList[i];
     }
 
-    let img = document.getElementById('img').value;
-    if (img) {
-        obj += "&img=" + img;
+
+    if (currImg !== '') {
+        obj += "&img=" + currImg;
     }
 
 

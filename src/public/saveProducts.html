@@ -16,9 +16,16 @@
 <div id="header">Add a new Product
     <div id="line"></div>
 </div>
-<div id="content">
-    <input type="file" id="myFile" multiple size="50" onchange="myFunction()">
 
+<div id="content">
+    <!--
+    <input type="file" id="myFile" multiple size="50" onchange="myFunction()">-->
+
+<div id="image_select">
+    <ul id="images">
+        <li id="cat1"><input id="cat1.jpg" type="image" src="images/cat1.jpg" onclick="addImg(this)"></li>
+        <li id="echo"><input id="echo.jpg" type="image" src="images/echo.jpg" onclick="addImg(this)"></li>
+    </ul>
     <p id="demo"></p>
 <form method="post" name="product">
     <label for="name">Enter name:</label>
@@ -275,10 +282,6 @@
     </div>
     <button id = "addBullet" onclick="addBullet()">Add Another Bullet Point</button>
     <button id = "removeBullet" onclick="removeBullet()">Remove Last Bullet Point</button>
-</div>
-<div id ="imgSrc">
-    <label for="img">Enter Image:
-        <input id="img" type="text" name="img"></label>
 </div>
 <div id = "other">
     <ul id = "infoList"></ul>
