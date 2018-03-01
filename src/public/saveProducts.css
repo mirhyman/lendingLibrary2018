@@ -170,7 +170,7 @@
 }
 
 #images {
-    width: 75%;
+    width: 60%;
     height: 150px;
     border: #0f487f 3px solid;
     overflow-y: scroll;
@@ -179,4 +179,10 @@
 #image_select {
     position: relative;
     top: 50px;
+}
+
+#displayImg {
+    position: relative;
+    left: 65%;
+    bottom: 40px;
 }

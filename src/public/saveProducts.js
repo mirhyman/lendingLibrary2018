@@ -25,10 +25,14 @@ function addImg(btn) {
 
     if (currImage === btn.id) {
         currImage = '';
+        document.getElementById('displayImg').innerHTML = "<p>You have not selected an image.</p>";
     } else {
         currImage = btn.id;
+        document.getElementById('displayImg').innerHTML = "<p>You have selected " +
+            currImage + " as your image!</p>";
     }
     console.log(currImage);
+
 }
 
 function addProduct() {
