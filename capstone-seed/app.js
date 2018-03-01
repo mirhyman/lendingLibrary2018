@@ -12,12 +12,12 @@ const port = process.env.PORT || 8081;
 const route = require('./src/routers/router.js');
 
 app.use(express.static('src/public'));
-app.use('/loadProduct', express.static('src/public/product.html'));
-app.use('/productPage', express.static('src/public/productPage.html'));
-app.use('/saveProducts', express.static('src/public/saveProducts.html'));
-app.use('/guidedSearch', express.static('src/public/guidedSearch.html'));
-app.use('/compareProducts', express.static('src/public/compare.html'));
-app.use('/glossary', express.static('src/public/glossary.html'));
+app.use('/loadProduct', express.static('capstone-seed/src/public/product.html'));
+app.use('/productPage', express.static('capstone-seed/src/public/productPage.html'));
+app.use('/saveProducts', express.static('capstone-seed/src/public/saveProducts.html'));
+app.use('/guidedSearch', express.static('capstone-seed/src/public/guidedSearch.html'));
+app.use('/compareProducts', express.static('capstone-seed/src/public/compare.html'));
+app.use('/glossary', express.static('capstone-seed/src/public/glossary.html'));
 app.use('/', route);
 
 app.listen(port, () => {
