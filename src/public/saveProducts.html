@@ -17,15 +17,45 @@
     <div id="line"></div>
 </div>
 
-<div id="content">
+
     <!--
     <input type="file" id="myFile" multiple size="50" onchange="myFunction()">-->
 
 <div id="image_select">
-    <ul id="images">
-        <li id="cat1"><input id="cat1.jpg" type="image" src="images/cat1.jpg" onclick="addImg(this)"></li>
-        <li id="echo"><input id="echo.jpg" type="image" src="images/echo.jpg" onclick="addImg(this)"></li>
+    <br>
+    Select an image for your product:
+    <ul style="list-style-type: none; " id="images">
+        <li id="cat1"><input id="cat1.jpg" type="image" src="images/cat1.jpg" onclick="addImg(this)"
+         width="100px" height=100px"></li>
+        <li id="echo"><input id="echo.jpg" type="image" src="images/echo.jpg" onclick="addImg(this)"
+        width="100px" height="100px"></li>
+        <li id="cat2">
+            <input id="cat2.jpg" type="image" src="images/cat2.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
+        <li id="dog1">
+            <input id="dog1.jpg" type="image" src="images/dog1.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
+        <li id="dog2">
+        <input id="dog2.jpg" type="image" src="images/dog2.jpg" onclick="addImg(this)"
+               width="100px" height=100px">
+    </li>
+        <li id="frog">
+            <input id="frog.jpg" type="image" src="images/frog.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
+        <li id="giraffe1">
+            <input id="giraffe1.jpg" type="image" src="images/giraffe1.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
+        <li id="penguin">
+            <input id="penguin.jpg" type="image" src="images/penguin.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
     </ul>
+</div>
+<div id="content">
     <p id="demo"></p>
 <form method="post" name="product">
     <label for="name">Enter name:</label>

@@ -22,11 +22,13 @@ let badgesCheckbox = ["macOSPlatform", "platformECU",
 "wordPrediction", "phrasePrediction", "sentencePrediction", "programShortcut"];
 
 function addImg(btn) {
+
     if (currImage === btn.id) {
         currImage = '';
     } else {
         currImage = btn.id;
     }
+    console.log(currImage);
 }
 
 function addProduct() {

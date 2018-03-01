@@ -144,10 +144,10 @@
 #header {
     color: #0f487f;
     font-size: 25px;
-    position: absolute;
-    margin-bottom: 100px;
     font-family: Roboto;
     left: 45vw;
+    position: relative;
+    top: 50px;
 }
 
 #myFile {
@@ -158,4 +158,25 @@
     left: 20vw;
     color: white;
     font-size: 20px;
+}
+
+#image_select li:hover{
+    opacity: 0.5;
+}
+
+
+#image_select li:focus{
+    opacity: 0.25;
+}
+
+#images {
+    width: 75%;
+    height: 150px;
+    border: #0f487f 3px solid;
+    overflow-y: scroll;
+}
+
+#image_select {
+    position: relative;
+    top: 50px;
 }
