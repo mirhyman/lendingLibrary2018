@@ -10,7 +10,9 @@ const fs = require('fs');
 
 const logPrefix = 'MongoDB: ';
 
-mongoose.connect('mongodb://localhost/Products', { useMongoClient: true }).catch(e => {winston.error(`${logPrefix}connection error ${e}`); process.exit(1);});
+var mongoDB = process.env.MONGODB_URI || 'mongodb://localhost/Products';
+
+mongoose.connect(mongoDB, { useMongoClient: true }).catch(e => {winston.error(`${logPrefix}connection error ${e}`); process.exit(1);});
 
 function validateName(value) {
     if (!value || value.length < 4) return false; // too short
