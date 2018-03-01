@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto: 400, 600, 700, 800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -12,15 +13,18 @@
     <button id="update" onclick="updateDatabase()">Add Products</button>
     <button id="glossary" onclick="glossary()">Glossary</button>
         <button id="products" onclick="getAll()">All Products</button>
-        <button id="eye_gaze" onclick="getBy('eyes')">Eye Gaze</button>
+        <!--<button id="eye_gaze" onclick="getBy('eyes')">Eye Gaze</button>
         <button id="voice" onclick="getBy('voice')">Voice Access</button>
         <button id="touch" onclick="getBy('touch')">Touchscreen</button>
-        <button id="keys" onclick="getBy('key')">Keyboard</button>
-        <div id="logo">Website Logos <i class="fas fa-child fa-2x"></i></div>
+        <button id="keys" onclick="getBy('key')">Keyboard</button> -->
+        <div id="logoSpace">
+        <div id="logo"><i class="fas fa-child fa-2x"></i></div>
+        <div id="nameLogo">ACCESS FOR ALL</div>
+        </div>
     </div>
     <div id="welcome">
     <p>
-    Welcome to our website. We're here to help find the perfect solution for you.</p></div>
+    Welcome to Access for All. We're here to help find the perfect solution for you.</p></div>
     <label for="search"><input type="text"
                                placeholder= "  I'm looking for..." id="search"></label>
     <button id="submitSearch" onclick="searchQuery()">Go!</button>
