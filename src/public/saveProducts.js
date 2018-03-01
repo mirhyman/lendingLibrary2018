@@ -174,6 +174,7 @@ window.onload = function() {
         oReq.send();
     } else {
         document.getElementById('displayImg').innerHTML = "You have not selected an image.";
+        document.getElementById('name').readOnly = false;
     }
 };
 
