@@ -223,7 +223,7 @@ function update() {
     if (professional) {
         if (window.confirm('WARNING! Professional only zone!')) {
             if (window.confirm('are you sure you are a professional?')) {
-                window.location = "/saveProducts";
+                window.location = "/saveProducts?" + name;
             }
         } else {
             alert('You can only update this if you are a professional');
