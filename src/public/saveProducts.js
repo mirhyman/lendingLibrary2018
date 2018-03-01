@@ -26,14 +26,156 @@ function addImg(btn) {
     if (currImage === btn.id) {
         currImage = '';
         document.getElementById('displayImg').innerHTML = "<p>You have not selected an image.</p>";
+        document.getElementById('displayImg').style = "position: relative;" +
+        "left: 500px;" +
+        "bottom: 35px;";
+        document.getElementById('content').style = "margin-top: 60px;";
     } else {
         currImage = btn.id;
-        document.getElementById('displayImg').innerHTML = "<p>You have selected " +
-            currImage + " as your image!</p>";
+        document.getElementById('displayImg').innerHTML = "Current Image:" +
+            `<img src=/images/${currImage} width='210px' height='210px'>`;
+        document.getElementById('displayImg').style = "position: relative;\n" +
+            "    left: 510px;\n" +
+            "    bottom: 220px;";
+        document.getElementById('content').style = "margin-top: -150px;";
     }
-    console.log(currImage);
 
 }
+
+window.onload = function() {
+    let str = window.location.href;
+    let idx = str.indexOf("?");
+    if (idx !== -1) {
+        str = str.substring(idx + 1);
+        console.log(str);
+        let oReq = new XMLHttpRequest();
+        oReq.open("GET", "/product/" + str, true);
+        oReq.responseType = 'json';
+        oReq.onload = function (oEvent) {
+            let img = oReq.response.img;
+
+            if (!img || img === '') {
+                document.getElementById('displayImg').innerHTML = "<p>No product Image yet</p>";
+            } else {
+                console.log(img);
+                document.getElementById('displayImg').innerHTML = "Current Image:" +
+                    `<img src=/images/${img} width='210px' height='210px'>`;
+                document.getElementById('displayImg').style = "position: relative;\n" +
+                    "    left: 510px;\n" +
+                    "    bottom: 220px;";
+                document.getElementById('content').style = "margin-top: -150px;";
+            }
+            let name2 = oReq.response.name;
+            document.getElementById('name').value = name2;
+            document.getElementById('name').readOnly = true;
+            document.getElementById('name').style = "background: lightgrey;" +
+                "border: lightgrey 1px solid;";
+
+            let id2 = oReq.response.id;
+            document.getElementById('id').value = id2;
+            document.getElementById('id').readOnly = true;
+            document.getElementById('id').style = "background: lightgrey;" +
+                "border: lightgrey 1px solid;";
+
+            let brand = oReq.response.brand;
+            document.getElementById('brand').value = brand;
+
+            let price = oReq.response.price;
+            document.getElementById('price').value = price;
+
+            let professional = oReq.response.professional;
+            if (professional === 'true') {
+                document.getElementById('professionalTrue').checked = true;
+            } else {
+                document.getElementById('professionalFalse').checked = true;
+            }
+
+            let hardware = oReq.response.professional;
+            if (hardware === 'true') {
+                document.getElementById('hardware').checked = true;
+                if (document.getElementById('hardware').checked === true) {
+                    document.getElementById('specs').innerHTML =
+                        "<label for='weight'>Enter weight:</label>\n" +
+                        "        <input id='weight' type='text' name='weight' " +
+                        "value='0.0lbs'\n" +
+                        '           required>' +
+                        '<label for="dimensions">Enter dimensions:</label>'+
+                        '<input id=\"dimensions\" type=\"text\"' +
+                        'name="dimensions" value="0 x 0" required>' +
+                        "<label for='battery'>Enter Battery life:</label>" +
+                        '<input id="battery" type="text" name="battery"' +
+                        "value ='0' required>(in hours)";
+                }
+                let weight = oReq.response.specs[0];
+                document.getElementById('weight').value = weight;
+                let dimensions = oReq.response.specs[1];
+                document.getElementById('dimensions').value = dimensions;
+                let battery = oReq.response.specs[2];
+                document.getElementById('battery').value = battery;
+            } else {
+                document.getElementById('software').checked = true;
+            }
+
+            let accessArr = oReq.response.access;
+            if (accessArr) {
+                for (let i = 0; i < accessArr.length; i++) {
+                    if (accessArr[i] === "touch") {
+                        document.getElementById('accessTouch').checked = true;
+                    }
+                    if (accessArr[i] === "keys" || accessArr[i] === "keyboard") {
+                        document.getElementById('accessKeyboard').checked = true;
+                    }
+                    if (accessArr[i] === "switch") {
+                        document.getElementById('accessSwitch').checked = true;
+                    }
+                }
+            }
+            let platformArr = oReq.response.platforms;
+            if (platformArr) {
+                for (let i = 0; i < platformArr.length; i++) {
+                    if (platformArr[i] === "ios") {
+                        document.getElementById('iOSPlatform').checked = true;
+                    }
+                    if (accessArr[i] === "mac") {
+                        document.getElementById('macOSPlatform').checked = true;
+                    }
+                    if (accessArr[i] === "android") {
+                        document.getElementById('androidPlatform').checked = true;
+                    }
+                }
+            }
+
+            let short = oReq.response.description;
+            console.log(short);
+            document.getElementById('description').value = short;
+
+            let longer = oReq.response.longDescription;
+            if (longer) {
+                let s = '';
+                for (let i = 0; i < longer.length; i++) {
+                    bulletList.push(longer[i]);
+                    s += "<li>" + longer[i] + "</li>";
+                }
+                document.getElementById("bullets").innerHTML = s;
+            }
+
+            let otherIn = oReq.response.other;
+            if (otherIn) {
+                let s = '';
+                for (let i = 0; i < otherIn.length; i++) {
+                    otherList.push(otherIn[i]);
+                    s += "<li>" + otherIn[i] + "</li>";
+                }
+                document.getElementById("infoList").innerHTML = s;
+            }
+
+
+        };
+        oReq.send();
+    } else {
+        document.getElementById('displayImg').innerHTML = "You have not selected an image.";
+    }
+};
 
 function addProduct() {
     //let btn = document.getElementById("get_name");
@@ -307,9 +449,9 @@ function addProduct() {
         obj += "&other[" + i + "]=" + otherList[i];
     }
 
-
-    if (currImg !== '') {
-        obj += "&img=" + currImg;
+    console.log(currImage);
+    if (currImage !== '') {
+        obj += "&img=" + currImage;
     }
 
 

@@ -229,7 +229,7 @@ function update() {
             alert('You can only update this if you are a professional');
         }
     } else {
-        window.location = "/saveProducts";
+        window.location = "/saveProducts?" + name;
     }
 }
 

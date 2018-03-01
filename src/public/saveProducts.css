@@ -133,7 +133,7 @@
 
 #header #line {
     width: 100vw;
-    background: linear-gradient(#e66465, #9198e5);
+    background: lightgrey;
     position: absolute;
     height: 2px;
     top: 30px;
@@ -169,8 +169,9 @@
     opacity: 0.25;
 }
 
+
 #images {
-    width: 60%;
+    width: 450px;
     height: 150px;
     border: #0f487f 3px solid;
     overflow-y: scroll;
@@ -181,8 +182,9 @@
     top: 50px;
 }
 
+
 #displayImg {
     position: relative;
-    left: 65%;
-    bottom: 40px;
+    left: 500px;
+    bottom: 35px;
 }
