@@ -65,6 +65,34 @@
             <input id="chatAble.jpg" type="image" src="images/chatAble.jpg" onclick="addImg(this)"
                    width="100px" height=100px">
         </li>
+        <li id="tobii">
+            <input id="tobii.jpg" type="image" src="images/tobii.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
+        <li id="tobii2">
+        <input id="tobii2.jpg" type="image" src="images/tobii2.jpg" onclick="addImg(this)"
+               width="100px" height=100px">
+    </li>
+        <li id="verbally">
+            <input id="verbally.jpg" type="image" src="images/verbally.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
+        <li id="communicator5">
+            <input id="communicator5.jpg" type="image" src="images/communicator5.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
+        <li id="nova_chat">
+            <input id="nova_chat.jpg" type="image" src="images/nova_chat.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
+        <li id="nova_8">
+            <input id="nova_8.jpg" type="image" src="images/nova_8.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
+        <li id="nova_10">
+            <input id="nova_10.jpg" type="image" src="images/nova_10.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
     </ul>
     <div id="displayImg"></div>
 </div>
@@ -409,6 +437,18 @@
             placeholder="contact info here"><br>
     <button id = "addContact" onclick="addContact()">Add Another Contact</button>
     <button id = "removeContact" onclick="removeContact()">Remove Last Contact</button>
+        <p id="trainingTitle">
+            Available Training:
+        </p>
+        <ul id = "trainingPurchase"></ul>
+
+        Enter Support Links:
+
+        <input
+                id="training1" type="text" name="training1"
+                placeholder="contact info here"><br>
+        <button id = "addTraining" onclick="addTraining()">Add Another Training link</button>
+        <button id = "removeTraining" onclick="removeTraining()">Remove Last Training link</button>
     </div>
     <div id = "longDescription">
         <p id="longTitle">

@@ -244,6 +244,16 @@ window.onload = function() {
             }
             build6 += "</ul></td></tr>";
         }
+
+        let training = oReq.response.training;
+        //console.log(purchase);
+        if (training) {
+            build6 += "<tr><td>Available Training</td><td><ul id='training'>";
+            for (let i = 0; i < training.length; i++) {
+                build6 += "<li>" + training[i] + "</li>";
+            }
+            build6 += "</ul></td></tr>";
+        }
         document.getElementById('purchaseTable').innerHTML = build6;
 
         let oReq2 = new XMLHttpRequest();

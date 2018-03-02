@@ -7,6 +7,7 @@ let objName = '';
 let purchaseList = [];
 let supportList = [];
 let contactList = [];
+let trainingList = [];
 let setup = 0;
 
 let badgesTitle = ["MacOS Compatible", "ECU Compatible",
@@ -283,6 +284,22 @@ window.onload = function() {
                 }
                 console.log(s);
                 document.getElementById("supportPurchase").innerHTML = s;
+            }
+
+            let training = oReq.response.training;
+            console.log(training);
+            if (training) {
+                document.getElementById('purchaseDeets').style.visibility = 'visible';
+                let s = '';
+                for (let i = 0; i < training.length; i++) {
+                    trainingList.push(training[i]);
+                    s += "<li>" + training[i] + "</li>";
+                }
+                if (training.length > 0) {
+                    document.getElementById('trainingTitle').style.visibility = "visible";
+                }
+                console.log(s);
+                document.getElementById("trainingPurchase").innerHTML = s;
             }
 
             let otherIn = oReq.response.other;
@@ -667,6 +684,10 @@ function addProduct() {
         obj += "&support[" + i + "]=" + supportList[i];
     }
 
+    for (let i = 0; i < trainingList.length; i++) {
+        obj += "&training[" + i + "]=" + trainingList[i];
+    }
+
     console.log(currImage);
     if (currImage !== '') {
         obj += "&img=" + currImage;
@@ -750,6 +771,22 @@ function addSupport() {
     document.getElementById("support1").value = "";
 }
 
+function addTraining() {
+    let bullet = document.getElementById("training1").value;
+    trainingList.push(bullet);
+    let curList = Array.from(document.getElementById("trainingPurchase").getElementsByTagName("li"));
+    document.getElementById('trainingTitle').style.visibility = "visible";
+
+    let s = "";
+    for (let i = 0; i < curList.length; i++) {
+        s += "<li>" + curList[i].textContent + "</li>";
+    }
+    console.log(curList);
+    s += "<li>" + bullet + "</li>";
+    document.getElementById("trainingPurchase").innerHTML = s;
+    document.getElementById("training1").value = "";
+}
+
 function addContact() {
     let bullet = document.getElementById("contact1").value;
     contactList.push(bullet);
@@ -817,6 +854,24 @@ function removeSupport(){
         document.getElementById("supportPurchase").innerHTML = s;
         if (bulletList.length === 0) {
             document.getElementById('supportTitle').style.visibility = "hidden";
+        }
+    }
+}
+
+function removeTraining(){
+    if (trainingList.length === 0) {
+        alert("No bullets to remove!");
+    } else {
+        trainingList.pop();
+        let curList = Array.from(document.getElementById("trainingPurchase").getElementsByTagName("li"));
+        let s = "";
+        for (let i = 0; i < curList.length - 1; i++) {
+            s += "<li>" + curList[i].textContent + "</li>";
+        }
+        console.log(curList);
+        document.getElementById("trainingPurchase").innerHTML = s;
+        if (bulletList.length === 0) {
+            document.getElementById('trainingTitle').style.visibility = "hidden";
         }
     }
 }
