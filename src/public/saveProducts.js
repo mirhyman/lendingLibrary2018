@@ -461,12 +461,14 @@ function addProduct() {
 
     console.log(obj);
     var oReq = new XMLHttpRequest();
+    console.log(objName);
 
     oReq.open("post", '/product/', true);
     oReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     oReq.onload = function (oEvent) {
         console.log(oReq.responseText);
-        window.location.href = "/productPage?" + name;
+
+        window.location.href = "/productPage?" + objName;
     };
     oReq.send(obj);
 }
