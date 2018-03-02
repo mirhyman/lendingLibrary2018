@@ -188,7 +188,8 @@ label[for=professionalTrue], [for=professionalFalse], [for=hardware], [for=softw
     margin-left: 90px;
 }
 
-#name, #id, #brand, #price, #description, #point1, #info1, .ctx {
+#name, #id, #brand, #price, #description, #point1, #info1,
+#purchase1, #support1, #contact1, .ctx {
     font-family: Roboto;
     font-style: normal;
     font-size: 15px;
@@ -208,11 +209,13 @@ label[for=professionalTrue], [for=professionalFalse], [for=hardware], [for=softw
     height: 10vh;
 }
 
-#info1, #point1 {
+#info1, #point1, #purchase1, #contact1,
+#support1 {
     height: 5vh;
 }
 
-#info1, #point1 {
+#info1, #point1, #purchase1, #contact1,
+#support1 {
     margin-bottom: 10px;
 }
 
@@ -242,7 +245,10 @@ input[type=file] {
     margin-left: 50px;
 }
 
-#addBullet, #removeBullet, #addInfo, #removeInfo, #addProduct {
+#addBullet, #removeBullet, #addInfo, #removeInfo, #addProduct,
+#addPurchase, #removePurchase, #addSupport,
+#removeSupport, #addContact, #removeContact,
+#purchaseInfo {
     font-family: Roboto;
     font-size: calc(12px + (13 - 12) * ((50vw - 300px) / (1600 - 300)));
     color: white;
@@ -339,4 +345,27 @@ button:focus {outline:0;}
 
 #title, #longTitle {
     visibility: hidden;
+}
+
+
+#purchaseDeets {
+    border: 2px #0f487f solid;
+    visibility: hidden;
+    border-radius: 10px;
+}
+
+#close {
+    float: right;
+    color: #e02c2c;
+}
+
+#close:hover {
+    color: #2196F3;
+}
+
+
+#purchaseStart {
+    font-weight: 900;
+    font-size: 18px;
+    text-align: center;
 }

@@ -7,6 +7,7 @@ let objName = '';
 let purchaseList = [];
 let supportList = [];
 let contactList = [];
+let setup = 0;
 
 let badgesTitle = ["MacOS Compatible", "ECU Compatible",
 "iOS Compatible", "Windows Compatible", "Android Compatible",
@@ -24,6 +25,28 @@ let badgesCheckbox = ["macOSPlatform", "platformECU",
 "naturalisticSpeech", "recordSpeech", "symbolVocab",
 "photoVocab", "wordVocab", "phraseVocab", "textVocab",
 "wordPrediction", "phrasePrediction", "sentencePrediction", "programShortcut"];
+
+function setupCheck(chk) {
+    let num = chk.id.charAt(chk.id.length - 1);
+    if (chk.checked === false) {
+        if (parseInt(num) < 5) {
+            let nxt = parseInt(num) + 1;
+            let str = 'setup' + nxt;
+            if (document.getElementById(str).checked === true) {
+                alert("sorry you can't uncheck this box! please uncheck the ones after it first");
+                document.getElementById(chk.id).checked = true;
+            }
+        }
+    } else if (parseInt(num) !== 1) {
+        let prev = parseInt(num) - 1;
+        let str2 = 'setup' + prev;
+        if (document.getElementById(str2).checked === false) {
+            alert("sorry you have to check the boxes before this one first.");
+            document.getElementById(chk.id).checked = false;
+        }
+    }
+}
+
 
 function addImg(btn) {
 
@@ -248,8 +271,14 @@ function addProduct() {
             obj += 'id=' + pair[1];
             id = pair[1];
         } else if (pair[0] === 'name') {
-            obj += 'name=' + pair[1];
-            objName = pair[1];
+            let nm = pair[1].toLowerCase();
+            let spaceIdx = nm.indexOf(" ");
+            while (spaceIdx !== -1) {
+                nm = nm.substring(0, spaceIdx) + nm.substring(spaceIdx + 1);
+                spaceIdx = nm.indexOf(" ");
+            }
+            obj += 'name=' + nm;
+            objName = nm;
         } else if (pair[0] === 'description') {
             obj += 'description=' + pair[1] + "&";
         } else if (pair[0] === 'weight') {
@@ -262,6 +291,31 @@ function addProduct() {
             obj = obj.substring(0, obj.length - 1);
         }
         i++;
+    }
+    if (document.getElementById('setup1').checked === true) {
+        obj += 'setup[0]=true&';
+    } else {
+        obj += 'setup[0]=false&';
+    }
+    if (document.getElementById('setup2').checked === true) {
+        obj += 'setup[1]=true&';
+    } else {
+        obj += 'setup[1]=false&';
+    }
+    if (document.getElementById('setup3').checked === true) {
+        obj += 'setup[2]=true&';
+    } else {
+        obj += 'setup[2]=false&';
+    }
+    if (document.getElementById('setup4').checked === true) {
+        obj += 'setup[3]=true&';
+    } else {
+        obj += 'setup[3]=false&';
+    }
+    if (document.getElementById('setup5').checked === true) {
+        obj += 'setup[4]=true&';
+    } else {
+        obj += 'setup[4]=false&';
     }
     if (document.getElementById('professionalTrue').checked === true) {
         obj += 'professional=true&';

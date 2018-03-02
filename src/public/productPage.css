@@ -395,3 +395,55 @@ tr:nth-child(even) {
     font-size: 20px;
     font-family: Roboto;
 }
+
+#setUp #circle1{
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+}
+
+#circle1 {
+    left: 90px;
+
+}
+
+#circle2 {
+    left: 30px;
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+    position: relative;
+    top: -22.5px;
+}
+
+#circle3 {
+    left: 60px;
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+    position: relative;
+    top: -44.5px;
+}
+
+#circle4 {
+    left: 90px;
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+    position: relative;
+    top: -66.5px;
+}
+
+#circle5 {
+    left: 120px;
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+    position: relative;
+    top: -88.5px;
+}

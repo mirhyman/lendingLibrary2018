@@ -118,6 +118,19 @@ window.onload = function() {
             console.log(build4);
         }
 
+        let build7 = '';
+        let setup = oReq.response.setup;
+        console.log(setup);
+        if (setup) {
+            for (let i = 0; i < setup.length; i++) {
+                let str = 'circle' + (i + 1);
+                console.log(str);
+                if (setup[i] === 'true') {
+                    document.getElementById(str).style.backgroundColor = '#0F4880';
+                }
+            }
+        }
+
         let build5 = '';
         let otherNum = 0;
         let other = oReq.response.other;
@@ -134,7 +147,7 @@ window.onload = function() {
         console.log(otherNum);
         if (badgeNum <= 3) {
             document.getElementById('more').style.top = "620px";
-            let dist = (otherNum * 80) + (accNum * 80) + 630;
+            let dist = (otherNum * 100) + (accNum * 100) + 630;
             document.getElementById('resources').style.top = dist + "px";
         }
         if (badgeNum > 3 && badgeNum <= 6) {
@@ -152,37 +165,39 @@ window.onload = function() {
         }
         if (badgeNum > 12 && badgeNum <= 16) {
             document.getElementById('more').style.top = "1090px";
-            let dist = (otherNum * 80) + (accNum * 80) + 1090;
+            let dist = (otherNum * 100) + (accNum * 100) + 1090;
             document.getElementById('resources').style.top = dist + "px";
         }
         if (badgeNum > 16 && badgeNum <= 20) {
             document.getElementById('more').style.top = "1200px";
-            let dist = (otherNum * 80) + (accNum * 80) + 1100;
+            let dist = (otherNum * 100) + (accNum * 100) + 1100;
             document.getElementById('resources').style.top = dist + "px";
             document.getElementById('rev').style.top = "2000px";
             document.getElementById('reviews').style.top = "2100px";
         }
         if (badgeNum > 20 && badgeNum <= 24) {
             document.getElementById('more').style.top = "1300px";
-            let dist = (otherNum * 80) + (accNum * 80) + 1200;
-            document.getElementById('resources').style.top = dist + "px";
-            document.getElementById('rev').style.top = "2100px";
-            document.getElementById('reviews').style.top = "1800px";
-        }
-        if (badgeNum > 24 && badgeNum <= 28) {
-            document.getElementById('more').style.top = "1450px";
-            let dist = (otherNum * 80) + (accNum * 80) + 1400;
+            let dist = (otherNum * 100) + (accNum * 100) + 1200;
             document.getElementById('resources').style.top = dist + "px";
             document.getElementById('rev').style.top = "2300px";
             document.getElementById('reviews').style.top = "2400px";
             document.getElementById('toAdd').style.top = "1800px";
+
+        }
+        if (badgeNum > 24 && badgeNum <= 28) {
+            document.getElementById('more').style.top = "1450px";
+            let dist = (otherNum * 100) + (accNum * 100) + 1400;
+            document.getElementById('resources').style.top = dist + "px";
+            document.getElementById('rev').style.top = "2800px";
+            document.getElementById('reviews').style.top = "2900px";
+            document.getElementById('toAdd').style.top = "3000px";
         }
         if (badgeNum > 28 && badgeNum <= 32) {
             document.getElementById('more').style.top = "1600px";
-            let dist = (otherNum * 80) + (accNum * 80) + 1400;
+            let dist = (otherNum * 100) + (accNum * 100) + 1400;
             document.getElementById('resources').style.top = dist + "px";
-            document.getElementById('rev').style.top = "2300px";
-            document.getElementById('reviews').style.top = "2400px";
+            document.getElementById('rev').style.top = "3100px";
+            document.getElementById('reviews').style.top = "3300px";
         }
 
         let build6 = '';

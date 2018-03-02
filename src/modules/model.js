@@ -5,7 +5,7 @@ class Product {
     constructor(name = '', hardware = false, access = undefined, platform = undefined, languages = undefined, brand = '',
     price = 0, features = undefined, id =0, img = '', professional = false, badges = undefined, spec = undefined, description = '',
                 longDescription = undefined, other = undefined, purchase = undefined,
-                support = undefined, contact = undefined
+                support = undefined, contact = undefined, setup =undefined
                ) {
         this.name = name;
         this.hardware = hardware;
@@ -26,16 +26,18 @@ class Product {
         this.purchase = purchase;
         this.support = support;
         this.contact = contact;
+        this.setup = setup;
 
 
 
     }
 
     static fromDb({name, hardware, access, platform, languages, brand, price, features,id,img, professional,
-                      badges, spec, description, longDescription, other, purchase, support, contact}) {
+                      badges, spec, description, longDescription, other, purchase, support, contact,
+                  setup}) {
         return new Product(name.toLowerCase(), hardware, access, platform, languages,
             brand, price, features, id, img, professional, badges, spec, description, longDescription, other
-        ,purchase, support, contact);
+        ,purchase, support, contact, setup);
     }
 }
 

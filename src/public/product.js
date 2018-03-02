@@ -2,6 +2,7 @@ let allResults = [];
 let currResults = [];
 let pastResults = [];
 let compareList = [];
+let checkboxToIdx = new Map();
 
 window.onload = function() {
     let str = window.location.href;
@@ -154,14 +155,23 @@ function onCheckUpdate(filter) {
                 newCurr.push(allResults[i]);
             }
         }
+
         pastResults.push(newCurr);
+        checkboxToIdx.set(filter.id, pastResults.length - 1);
         currResults = newCurr;
         displayResults();
     } else {
+        if (checkboxToIdx.get(filter.id) === pastResults.length - 1) {
+            pastResults.pop();
+            console.log(pastResults);
+            currResults = pastResults[pastResults.length - 1];
+            checkboxToIdx.delete(filter.id);
+            console.log(checkboxToIdx);
+        } else {
+            alert('for now, please unclick the last filter you selected first!');
+            document.getElementById(filter.id).checked = true;
 
-        pastResults.pop();
-        console.log(pastResults);
-        currResults = pastResults[pastResults.length - 1];
+        }
         displayResults();
     }
 }

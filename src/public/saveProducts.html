@@ -53,8 +53,12 @@
         <input id="penguin.jpg" type="image" src="images/penguin.jpg" onclick="addImg(this)"
                width="100px" height=100px">
     </li>
+        <li id="loc">
+            <input id="locabulary_lite.jpg" type="image" src="images/locabulary_lite.jpg" onclick="addImg(this)"
+                   width="100px" height=100px">
+        </li>
         <li id="chat">
-            <input id="chatAble.jpg" type="image" src="images/chatAble.jpg" onclick="addImg(this)"
+            <input id="prolo2go.jpg" type="image" src="images/prolo2go.jpg" onclick="addImg(this)"
                    width="100px" height=100px">
         </li>
     </ul>
@@ -304,6 +308,28 @@
             <span class="checkmark"></span>
         </label></li>
     </ul>
+    <div id="setup"> Ease of Set-Up
+
+            <input id="setup1" type="checkbox" onchange="setupCheck(this)">
+
+
+
+            <input id="setup2" type="checkbox" onchange="setupCheck(this)">
+
+
+
+            <input id="setup3" type="checkbox" onchange="setupCheck(this)">
+
+
+
+            <input id="setup4" type="checkbox" onchange="setupCheck(this)">
+
+
+
+            <input id="setup5" type="checkbox" onchange="setupCheck(this)">
+
+
+    </div>
 
     <label for="description">Enter Short Description:</label> <input type="button" value="?" onclick="shortHelp()"/>
     <input
@@ -312,7 +338,14 @@
 
 </form>
 
-    <div id="purchaseDeets">
+    <div id="but">
+
+    <button id="purchaseInfo" onclick="changePurchase()">Click to Enter Purchasing Information</button>
+    </div>
+
+    <div id="purchaseDeets" style="visibility: hidden">
+        <span id = "close" onclick="changePurchase()">Collapse Box</span>
+        <p id="purchaseStart">Purchasing Information</p>
         <p id="purchaseTitle">
             Where to purchase:
         </p>
@@ -323,7 +356,7 @@
         <input
                 id="purchase1" type="text" name="purchase1"
                 placeholder="purchase place here"><br>
-    </div>
+
     <button id = "addPurchase" onclick="addPurchase()">Add Another Purchase option</button>
     <button id = "removePurchase" onclick="removePurchase()">Remove Last Purchase option</button>
     <p id="supportTitle">
@@ -350,6 +383,7 @@
             placeholder="contact info here"><br>
     <button id = "addContact" onclick="addContact()">Add Another Contact</button>
     <button id = "removeContact" onclick="removeContact()">Remove Last Contact</button>
+    </div>
     <div id = "longDescription">
         <p id="longTitle">
         Longer Description:
@@ -377,6 +411,16 @@
 <button id = "removeInfo" onclick="removeInfo()">Remove Last Info</button><br><br>
 <button id="addProduct" onclick="addProduct()" class="action-button shadow animate blue">Submit Product!</button>
 </div>
+<script>
+    function changePurchase() {
+        console.log(document.getElementById('purchaseDeets.style.visibility'));
+        if (document.getElementById('purchaseDeets').style.visibility === 'hidden') {
+            document.getElementById('purchaseDeets').style.visibility = 'visible';
+        } else {
+            document.getElementById('purchaseDeets').style.visibility = 'hidden';
+        }
+    }
+</script>
 <script src="saveProducts.js"></script>
 </body>
 </html>
