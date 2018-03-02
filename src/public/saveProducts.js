@@ -463,7 +463,7 @@ function addProduct() {
     oReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     oReq.onload = function (oEvent) {
         console.log(oReq.responseText);
-        window.href = "/productPage/" + name;
+        window.location.href = "/productPage/" + name;
     };
     oReq.send(obj);
 }
