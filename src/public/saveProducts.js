@@ -4,6 +4,9 @@ let bulletList = [];
 let otherList = [];
 let currImage = '';
 let objName = '';
+let purchaseList = [];
+let supportList = [];
+let contactList = [];
 
 let badgesTitle = ["MacOS Compatible", "ECU Compatible",
 "iOS Compatible", "Windows Compatible", "Android Compatible",
@@ -31,14 +34,16 @@ function addImg(btn) {
         "left: 500px;" +
         "bottom: 35px;";
         document.getElementById('content').style = "margin-top: 60px;";
+        document.getElementById('image_select').style.marginBottom = "0px";
     } else {
         currImage = btn.id;
-        document.getElementById('displayImg').innerHTML = "Current Image:" +
+        document.getElementById('displayImg').innerHTML = "Current Image:           " +
             `<img src=/images/${currImage} width='210px' height='210px'>`;
         document.getElementById('displayImg').style = "position: relative;\n" +
-            "    left: 510px;\n" +
-            "    bottom: 220px;";
+            "    left: 515px;\n" +
+            "    bottom: 210px;";
         document.getElementById('content').style = "margin-top: -150px;";
+        document.getElementById('image_select').style.marginBottom = "220px";
     }
 
 }
@@ -59,12 +64,14 @@ window.onload = function() {
                 document.getElementById('displayImg').innerHTML = "<p>No product Image yet</p>";
             } else {
                 console.log(img);
-                document.getElementById('displayImg').innerHTML = "Current Image:" +
+                document.getElementById('displayImg').innerHTML = "Current Image:           " +
                     `<img src=/images/${img} width='210px' height='210px'>`;
                 document.getElementById('displayImg').style = "position: relative;\n" +
-                    "    left: 510px;\n" +
+                    "    left: 515px;\n" +
                     "    bottom: 220px;";
                 document.getElementById('content').style = "margin-top: -150px;";
+                document.getElementById('image_select').style.marginBottom = "220px";
+
             }
             let name2 = oReq.response.name;
             objName = name2;
@@ -130,19 +137,42 @@ window.onload = function() {
                     if (accessArr[i] === "switch") {
                         document.getElementById('accessSwitch').checked = true;
                     }
+                    if (accessArr[i] === "mouse") {
+                        document.getElementById('accessMouse').checked = true;
+                    }
+                    if (accessArr[i] === "eyes") {
+                        document.getElementById('accessEyes').checked = true;
+                    }
+                    if (accessArr[i] === "other") {
+                        document.getElementById('access').checked = true;
+                    }
+
                 }
             }
-            let platformArr = oReq.response.platforms;
+
+            let languagesArr = oReq.response.languages;
+            if (languagesArr) {
+                for (let i = 0; i < languagesArr.length; i++) {
+                    if (languagesArr[i] === "english") {
+                        document.getElementById('englishLang').checked = true;
+                    }
+                    if (languagesArr[i] === "spanish") {
+                        document.getElementById('spanishLang').checked = true;
+                    }
+                    if (languagesArr[i] === "mandarin") {
+                        document.getElementById('mandarinLang').checked = true;
+                    }
+                    if (languagesArr[i] === "french") {
+                        document.getElementById('frenchLang').checked = true;
+                    }
+
+                }
+            }
+            let platformArr = oReq.response.badges;
             if (platformArr) {
                 for (let i = 0; i < platformArr.length; i++) {
-                    if (platformArr[i] === "ios") {
-                        document.getElementById('iOSPlatform').checked = true;
-                    }
-                    if (accessArr[i] === "mac") {
-                        document.getElementById('macOSPlatform').checked = true;
-                    }
-                    if (accessArr[i] === "android") {
-                        document.getElementById('androidPlatform').checked = true;
+                    if (platformArr[i] === 'true') {
+                        document.getElementById(badgesCheckbox[i]).checked = true;
                     }
                 }
             }
@@ -158,6 +188,10 @@ window.onload = function() {
                     bulletList.push(longer[i]);
                     s += "<li>" + longer[i] + "</li>";
                 }
+                if (longer.length > 0) {
+                    document.getElementById('longTitle').style.visibility = "visible";
+                }
+                console.log(s);
                 document.getElementById("bullets").innerHTML = s;
             }
 
@@ -167,6 +201,9 @@ window.onload = function() {
                 for (let i = 0; i < otherIn.length; i++) {
                     otherList.push(otherIn[i]);
                     s += "<li>" + otherIn[i] + "</li>";
+                }
+                if (otherIn.length > 0) {
+                    document.getElementById('title').style.visibility = "visible";
                 }
                 document.getElementById("infoList").innerHTML = s;
             }
@@ -453,6 +490,14 @@ function addProduct() {
         obj += "&other[" + i + "]=" + otherList[i];
     }
 
+    for (let i = 0; i < purchaseList.length; i++) {
+        obj += "&purchase[" + i + "]=" + purchaseList[i];
+    }
+
+    for (let i = 0; i < contactList.length; i++) {
+        obj += "&contact[" + i + "]=" + contactList[i];
+    }
+
     console.log(currImage);
     if (currImage !== '') {
         obj += "&img=" + currImage;
@@ -477,6 +522,7 @@ function addBullet() {
     let bullet = document.getElementById("point1").value;
     bulletList.push(bullet);
     let curList = Array.from(document.getElementById("bullets").getElementsByTagName("li"));
+    document.getElementById('longTitle').style.visibility = "visible";
     let s = "";
     for (let i = 0; i < curList.length; i++) {
         s += "<li>" + curList[i].textContent + "</li>";
@@ -491,6 +537,8 @@ function addInfo() {
     let bullet = document.getElementById("info1").value;
     otherList.push(bullet);
     let curList = Array.from(document.getElementById("infoList").getElementsByTagName("li"));
+    document.getElementById('title').style.visibility = "visible";
+
     let s = "";
     for (let i = 0; i < curList.length; i++) {
         s += "<li>" + curList[i].textContent + "</li>";
@@ -499,6 +547,54 @@ function addInfo() {
     s += "<li>" + bullet + "</li>";
     document.getElementById("infoList").innerHTML = s;
     document.getElementById("info1").value = "";
+}
+
+function addPurchase() {
+    let bullet = document.getElementById("purchase1").value;
+    purchaseList.push(bullet);
+    let curList = Array.from(document.getElementById("bulletsPurchase").getElementsByTagName("li"));
+    document.getElementById('purchaseTitle').style.visibility = "visible";
+
+    let s = "";
+    for (let i = 0; i < curList.length; i++) {
+        s += "<li>" + curList[i].textContent + "</li>";
+    }
+    console.log(curList);
+    s += "<li>" + bullet + "</li>";
+    document.getElementById("bulletsPurchase").innerHTML = s;
+    document.getElementById("purchase1").value = "";
+}
+
+function addSupport() {
+    let bullet = document.getElementById("support1").value;
+    supportList.push(bullet);
+    let curList = Array.from(document.getElementById("supportPurchase").getElementsByTagName("li"));
+    document.getElementById('supportTitle').style.visibility = "visible";
+
+    let s = "";
+    for (let i = 0; i < curList.length; i++) {
+        s += "<li>" + curList[i].textContent + "</li>";
+    }
+    console.log(curList);
+    s += "<li>" + bullet + "</li>";
+    document.getElementById("supportPurchase").innerHTML = s;
+    document.getElementById("support1").value = "";
+}
+
+function addContact() {
+    let bullet = document.getElementById("contact1").value;
+    contactList.push(bullet);
+    let curList = Array.from(document.getElementById("contactPurchase").getElementsByTagName("li"));
+    document.getElementById('contactTitle').style.visibility = "visible";
+
+    let s = "";
+    for (let i = 0; i < curList.length; i++) {
+        s += "<li>" + curList[i].textContent + "</li>";
+    }
+    console.log(curList);
+    s += "<li>" + bullet + "</li>";
+    document.getElementById("contactPurchase").innerHTML = s;
+    document.getElementById("contact1").value = "";
 }
 
 function removeBullet(){
@@ -513,6 +609,64 @@ function removeBullet(){
         }
         console.log(curList);
         document.getElementById("bullets").innerHTML = s;
+        if (bulletList.length === 0) {
+            document.getElementById('longTitle').style.visibility = "hidden";
+        }
+    }
+}
+
+function removePurchase(){
+    if (purchaseList.length === 0) {
+        alert("No bullets to remove!");
+    } else {
+        purchaseList.pop();
+        let curList = Array.from(document.getElementById("bulletsPurchase").getElementsByTagName("li"));
+        let s = "";
+        for (let i = 0; i < curList.length - 1; i++) {
+            s += "<li>" + curList[i].textContent + "</li>";
+        }
+        console.log(curList);
+        document.getElementById("bulletsPurchase").innerHTML = s;
+        if (bulletList.length === 0) {
+            document.getElementById('purchaseTitle').style.visibility = "hidden";
+        }
+    }
+}
+
+
+function removeSupport(){
+    if (supportList.length === 0) {
+        alert("No bullets to remove!");
+    } else {
+        supportList.pop();
+        let curList = Array.from(document.getElementById("supportPurchase").getElementsByTagName("li"));
+        let s = "";
+        for (let i = 0; i < curList.length - 1; i++) {
+            s += "<li>" + curList[i].textContent + "</li>";
+        }
+        console.log(curList);
+        document.getElementById("supportPurchase").innerHTML = s;
+        if (bulletList.length === 0) {
+            document.getElementById('supportTitle').style.visibility = "hidden";
+        }
+    }
+}
+
+function removeContact(){
+    if (contactList.length === 0) {
+        alert("No bullets to remove!");
+    } else {
+        contactList.pop();
+        let curList = Array.from(document.getElementById("contactPurchase").getElementsByTagName("li"));
+        let s = "";
+        for (let i = 0; i < curList.length - 1; i++) {
+            s += "<li>" + curList[i].textContent + "</li>";
+        }
+        console.log(curList);
+        document.getElementById("contactPurchase").innerHTML = s;
+        if (bulletList.length === 0) {
+            document.getElementById('contactTitle').style.visibility = "hidden";
+        }
     }
 }
 
@@ -528,6 +682,9 @@ function removeInfo(){
         }
         console.log(curList);
         document.getElementById("infoList").innerHTML = s;
+        if (otherList.length === 0) {
+        document.getElementById('title').style.visibility = "hidden";
+            }
     }
 }
 

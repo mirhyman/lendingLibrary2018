@@ -28,10 +28,28 @@ window.onload = function() {
         oReq.onload = function (oEvent) {
             compare_list.push(oReq.response);
             checkList();
+            pictures();
         };
         oReq.send();
     }
 };
+
+function pictures() {
+    let s = '';
+    for (let i = 0; i < compare_list.length; i++) {
+        s += "<img src='/images/" + compare_list[i].img + "' width='200px' height='200px' id='a"
+            + i + "'>";
+        console.log(s);
+    }
+    document.getElementById('images').innerHTML = s;
+    if (compare_list.length > 2) {
+        document.getElementById('a1').style = "margin-left: 50px";
+        document.getElementById('a2').style = "margin-left: 80px";
+        document.getElementById('images').style = " position: absolute;\n" +
+            "    top: 140px;\n" +
+            "    left: 345px;";
+    }
+}
 
 function checkList() {
     //console.log(compare_list.length);
@@ -73,13 +91,15 @@ function checkList() {
                 }
                 console.log(accessList);
                 for (let i = 0; i < accessList.length; i++) {
-                    build += "<tr><td>" + accessList[i].charAt(0).toUpperCase() + accessList[i].substring(1) + "</td>";
-                    for (let j = 0; j < compare_list.length; j++) {
-                        build += "<td>";
-                        if (compare_list[j].access.includes(accessList[i])) {
-                            build += "Yes</td>";
-                        } else {
-                            build += "No</td>";
+                    if (accessList[i] !== '') {
+                        build += "<tr><td>" + accessList[i].charAt(0).toUpperCase() + accessList[i].substring(1) + "</td>";
+                        for (let j = 0; j < compare_list.length; j++) {
+                            build += "<td>";
+                            if (compare_list[j].access.includes(accessList[i])) {
+                                build += "Yes</td>";
+                            } else {
+                                build += "No</td>";
+                            }
                         }
                     }
                 }

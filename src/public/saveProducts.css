@@ -1,3 +1,8 @@
+body {
+    font-family: Roboto;
+}
+
+
 .container {
     display: block;
     position: relative;
@@ -71,9 +76,23 @@
     transform: rotate(45deg);
 }
 
+.container [for=professionalTrue] {
+    padding-left: 200px;
+
+}
+#header {
+    font-family: Roboto;
+    font-size: 2vw;
+    font-weight: 800;
+    width: 100%;
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: 1.5vh;
+}
+
 #navBar {
-    background: #0F4880;;
-    height: 44px;
+    background: #0F4880;
+    height: 60px;
     width: 100%;
     top: 0px;
     position: fixed;
@@ -82,44 +101,17 @@
     z-index: 1;
 }
 
-#logo {
-    color: white;
-    left: 85vw;
+#glossary{
     position: absolute;
-    z-index: 1;
-    top: 0px;
-    font-family: Roboto;
-}
-
-#name {
-    font-family: Roboto;
-}
-
-
-#content {
-    margin-top: 60px;
-    z-index: 1;
-}
-
-
-
-#name, #id, #brand, #price, #description, .ctx{
-    border-color: #0F4880;
-    border-radius: 20px;
-    width: 40vw;
-    margin: 10px;
-}
-
-#glossary, #home{
-    position: absolute;
-    width: 220px;
-    height: 29px;
+    width: 18%;
+    height: 60px;
+    left: 20%;
 
     font-family: Roboto;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 700;
     line-height: normal;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
 
     color: white;
@@ -127,37 +119,168 @@
     border: none;
 }
 
-#home:hover {
-    color: #1478cb;
-}
-
-#header #line {
-    width: 100vw;
-    background: lightgrey;
+#home {
     position: absolute;
-    height: 2px;
-    top: 30px;
-    left: -45vw;
-}
-
-
-#header {
-    color: #0f487f;
-    font-size: 25px;
+    width: 15%;
+    height: 60px;
+    left: 5%;
     font-family: Roboto;
-    left: 45vw;
-    position: relative;
-    top: 50px;
-}
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
 
-#myFile {
-    margin-top: 60px;
-}
-
-#glossary {
-    left: 20vw;
     color: white;
+    background-color: transparent;
+    border: none;
+}
+#home:hover {
+    color: #38c7f5;
+}
+
+#glossary:hover {
+    color: #38c7f5;
+}
+
+#logo {
+    position: absolute;
+    width: 20%;
+    height: 60px;
+    color: white;
+    left: 75%;
+    top: 30%;
+    z-index: 1;
+    font-family: Roboto;
     font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+}
+
+/*styling for "?" button*/
+input[type=button] {
+    margin-left: 15px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100px;
+    border: 1px solid grey;
+    font-family: Roboto;
+    font-size: 14px;
+}
+
+input[type=button]:hover{
+    background-color: lightskyblue;
+}
+
+label {
+    font-family: Roboto;
+    font-weight: 800;
+    font-size: 1em;
+    margin-left: 50px;
+}
+
+label[for=name] {
+    margin-left: 50px;
+    padding-top: 0%;
+}
+
+label[for=professionalTrue], [for=professionalFalse], [for=hardware], [for=software] {
+    margin-left: 90px;
+}
+
+#name, #id, #brand, #price, #description, #point1, #info1, .ctx {
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 15px;
+    padding-left: 8px;
+
+    border-color: #0F4880;
+    border-radius: 10px;
+    border: 2px solid #0066b9;
+    width: 40%;
+    height: 3vh;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+#description {
+    height: 10vh;
+}
+
+#info1, #point1 {
+    height: 5vh;
+}
+
+#info1, #point1 {
+    margin-bottom: 10px;
+}
+
+input[for=id]{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+#content {
+    margin-top: 60px;
+    z-index: -1;
+}
+
+ul {
+    margin-bottom: 0em;
+    margin-top: 0em;
+}
+input[type=file] {
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+#surveyquestion {
+    font-family: Roboto;
+    font-weight: 800;
+    font-size: 1em;
+    margin-left: 50px;
+}
+
+#addBullet, #removeBullet, #addInfo, #removeInfo, #addProduct {
+    font-family: Roboto;
+    font-size: calc(12px + (13 - 12) * ((50vw - 300px) / (1600 - 300)));
+    color: white;
+    text-align: center;
+    margin-left: 50px;
+    margin-bottom: 25px;
+    background-color: #0F4880;
+    border: 1px solid #0F4880;
+    border-radius: 60px;
+    width: 150px;
+    height: 5vh;
+}
+
+#addProduct {
+    font-size: calc(14px + (18 - 14) * ((50vw - 300px) / (1600 - 300)));;
+    font-weight: bold;
+    height: 8vh;
+    margin-top: 15px;
+}
+
+#addBullet:hover {
+    background-color: #1478cb;
+}
+
+#removeBullet:hover {
+    background-color: #1478cb;
+}
+
+#addInfo:hover {
+    background-color: #1478cb;
+}
+
+#removeInfo:hover {
+    background-color: #1478cb;
+}
+
+#addProduct:hover {
+    background-color: #1478cb;
 }
 
 #image_select li:hover{
@@ -174,12 +297,14 @@
     width: 450px;
     height: 150px;
     border: #0f487f 3px solid;
+    border-radius: 10px;
     overflow-y: scroll;
 }
 
 #image_select {
     position: relative;
-    top: 50px;
+    height: 220px;
+    top: 55px;
 }
 
 
@@ -187,4 +312,31 @@
     position: relative;
     left: 500px;
     bottom: 35px;
+}
+
+.animate
+{
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+}
+
+
+.blue
+{
+    background-color: #0f487f;
+    border-bottom: 5px solid #082846;
+}
+
+button:focus {outline:0;}
+
+.action-button:active
+{
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
+}
+
+
+#title, #longTitle {
+    visibility: hidden;
 }

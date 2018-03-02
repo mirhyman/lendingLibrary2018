@@ -53,11 +53,12 @@ img {
 #rev {
     position: absolute;
     top: 1900px;
-    left: 45%;
+    left: 45vw;
     font-family:  'Roboto', sans-serif;
-    font-style: bold;
     font-size: 20px;
+    font-weight: 900;
 }
+
 
 li {
     border-bottom: solid 2px #0F4880;
@@ -69,10 +70,16 @@ li {
     position: absolute;
 }
 
+#moreHeader {
+    font-weight: 900;
+    position: relative;
+    left: 41vw;
+    font-size: 20px;
+}
 
 #toAdd {
     position: absolute;
-    top: 1400px;
+    top: 1450px;
     left: 170px;
     margin-top: 800px;
 
@@ -212,10 +219,10 @@ li {
 #feats {
     position: absolute;
     top: 375px;
-    font-size:20px;
     font-family:  'Roboto', sans-serif;
-    font-style: bold;
-    left: 50vw;
+    font-weight: 900;
+    left: 47vw;
+    font-size: 20px;
 }
 
 #badges {
@@ -318,6 +325,7 @@ li {
 #more {
     position: absolute;
     top: 1500px;
+    font-family: Roboto;
 }
 
 #icon17 {
@@ -346,4 +354,44 @@ li {
 
 #otherFeatures li {
     border-color: white;
+}
+
+#resources {
+    position: relative;
+    top: 1300px;
+    left: 20%;
+}
+
+table {
+    font-family: Roboto;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+table li {
+    border: white;
+}
+
+td, th {
+    border-left: black 1px solid;
+    text-align: left;
+    padding: 8px;
+    width: 50px;
+}
+
+td:nth-child(1) {
+    border-left: white;
+}
+
+tr:nth-child(even) {
+    background-color: lightblue;
+}
+
+
+#resc {
+    font-weight: 900;
+    position: relative;
+    left: 24vw;
+    font-size: 20px;
+    font-family: Roboto;
 }

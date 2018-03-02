@@ -74,3 +74,13 @@ tr:nth-child(even) {
     font-family: Roboto;
     font-size: 20px;
 }
+
+#a1 {
+    margin-left: 140px;
+}
+
+#images {
+    position: absolute;
+    top: 175px;
+    left: 475px;
+}

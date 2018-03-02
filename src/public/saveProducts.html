@@ -74,7 +74,8 @@
            required><br>
     <label for="price">Enter price:</label>
     <input required pattern="d{1,1000}.d{1,99}"
-           id="price" type="text" name="price" placeholder="Product price"><br><br>
+           id="price" type="text" name="price" placeholder="Product price">
+    <br><br>
     Are you a medical professional? <input type="button" value="?" onclick="profHelp()"/> <br><br>
 
             <label class="container" for="professionalTrue"> Yes
@@ -108,6 +109,8 @@
                 "<label for='battery'>Enter Battery life:</label>" +
                         '<input id="battery" type="text" name="battery"' +
                         "value ='0' required>(in hours)";
+            } else {
+                document.getElementById('specs').innerHTML = "";
             }
         }
     </script>
@@ -308,17 +311,62 @@
            placeholder="description here"><br>
 
 </form>
+
+    <div id="purchaseDeets">
+        <p id="purchaseTitle">
+            Where to purchase:
+        </p>
+        <ul id = "bulletsPurchase"></ul>
+
+        Enter Purchasing Options:
+
+        <input
+                id="purchase1" type="text" name="purchase1"
+                placeholder="purchase place here"><br>
+    </div>
+    <button id = "addPurchase" onclick="addPurchase()">Add Another Purchase option</button>
+    <button id = "removePurchase" onclick="removePurchase()">Remove Last Purchase option</button>
+    <p id="supportTitle">
+        Where to get support:
+    </p>
+    <ul id = "supportPurchase"></ul>
+
+    Enter Support Links:
+
+    <input
+            id="support1" type="text" name="support1"
+            placeholder="support link here"><br>
+<button id = "addSupport" onclick="addSupport()">Add Another Support link</button>
+<button id = "removeSupport" onclick="removeSupport()">Remove Last Support link</button>
+    <p id="contactTitle">
+        Who to contact:
+    </p>
+    <ul id = "contactPurchase"></ul>
+
+    Enter Support Links:
+
+    <input
+            id="contact1" type="text" name="contact1"
+            placeholder="contact info here"><br>
+    <button id = "addContact" onclick="addContact()">Add Another Contact</button>
+    <button id = "removeContact" onclick="removeContact()">Remove Last Contact</button>
     <div id = "longDescription">
+        <p id="longTitle">
+        Longer Description:
+        </p>
         <ul id = "bullets"></ul>
+
         Enter Longer Description:
+
         <input
                 id="point1" type="text" name="point1"
                 placeholder="bullet here"><br>
     </div>
     <button id = "addBullet" onclick="addBullet()">Add Another Bullet Point</button>
     <button id = "removeBullet" onclick="removeBullet()">Remove Last Bullet Point</button>
-</div>
 <div id = "other">
+    <p id="title">
+        Additional Info:</p>
     <ul id = "infoList"></ul>
     Enter any additional information:
     <input
@@ -327,7 +375,7 @@
 </div>
 <button id = "addInfo" onclick="addInfo()">Add More Info</button>
 <button id = "removeInfo" onclick="removeInfo()">Remove Last Info</button><br><br>
-<button id="addProduct" onclick="addProduct()">Submit Product!</button>
+<button id="addProduct" onclick="addProduct()" class="action-button shadow animate blue">Submit Product!</button>
 </div>
 <script src="saveProducts.js"></script>
 </body>
