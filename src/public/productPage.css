@@ -38,25 +38,24 @@ img {
     position: absolute;
     left: 430px;
     top: 100px;
+    width: 400px;
 }
 
 #reviews {
-    position: absolute;
-    top: 2000px;
     width: 75%;
     height: 200px;
     overflow: hidden;
     overflow-y: scroll;
-    left:140px;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #rev {
-    position: absolute;
-    top: 1900px;
-    left: 45vw;
     font-family:  'Roboto', sans-serif;
     font-size: 20px;
     font-weight: 900;
+    text-align: center;
 }
 
 
@@ -79,10 +78,8 @@ li {
 
 #toAdd {
     position: absolute;
-    top: 1450px;
-    left: 170px;
-    margin-top: 800px;
-
+    left: 15vw;
+    font-family: Roboto;
 }
 
 #title, #author, .ctx{
@@ -190,15 +187,14 @@ li {
 
 #features {
     -webkit-column-count: 4;
-    position: absolute;
     -moz-column-count: 3;
     column-count: 3;
     margin: 40px;
     column-gap: 100px;
-    top: 400px;
     margin-bottom: 100px;
     text-align: center;
     left: 10vw;
+    margin-top: 450px;
 
 }
 
@@ -214,6 +210,9 @@ li {
 
 #info li {
     border-bottom: white;
+    font-family: Roboto;
+    font-size: 14px;
+    margin-bottom: 3px;
 }
 
 #feats {
@@ -323,9 +322,8 @@ li {
 
 
 #more {
-    position: absolute;
-    top: 1500px;
     font-family: Roboto;
+    margin-bottom: 100px;
 }
 
 #icon17 {
@@ -357,15 +355,17 @@ li {
 }
 
 #resources {
-    position: relative;
-    top: 1300px;
-    left: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
 }
 
 table {
     font-family: Roboto;
     border-collapse: collapse;
     width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table li {
@@ -390,8 +390,7 @@ tr:nth-child(even) {
 
 #resc {
     font-weight: 900;
-    position: relative;
-    left: 24vw;
+    text-align: center;
     font-size: 20px;
     font-family: Roboto;
 }
@@ -446,4 +445,64 @@ tr:nth-child(even) {
     border-radius: 100px;
     position: relative;
     top: -88.5px;
+}
+
+#use #use_circle1{
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+}
+
+#use_circle1 {
+    left: 90px;
+
+}
+
+#use_circle2 {
+    left: 30px;
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+    position: relative;
+    top: -22.5px;
+}
+
+#use_circle3 {
+    left: 60px;
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+    position: relative;
+    top: -44.5px;
+}
+
+#use_circle4 {
+    left: 90px;
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+    position: relative;
+    top: -66.5px;
+}
+
+#use_circle5 {
+    left: 120px;
+    height: 20px;
+    width: 20px;
+    border: 1px black solid;
+    border-radius: 100px;
+    position: relative;
+    top: -88.5px;
+}
+
+
+#submitTitle {
+    text-align: center;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 900;
 }

@@ -47,6 +47,27 @@ function setupCheck(chk) {
     }
 }
 
+function useCheck(chk) {
+    let num = chk.id.charAt(chk.id.length - 1);
+    if (chk.checked === false) {
+        if (parseInt(num) < 5) {
+            let nxt = parseInt(num) + 1;
+            let str = 'use' + nxt;
+            if (document.getElementById(str).checked === true) {
+                alert("sorry you can't uncheck this box! please uncheck the ones after it first");
+                document.getElementById(chk.id).checked = true;
+            }
+        }
+    } else if (parseInt(num) !== 1) {
+        let prev = parseInt(num) - 1;
+        let str2 = 'use' + prev;
+        if (document.getElementById(str2).checked === false) {
+            alert("sorry you have to check the boxes before this one first.");
+            document.getElementById(chk.id).checked = false;
+        }
+    }
+}
+
 
 function addImg(btn) {
 
@@ -218,6 +239,52 @@ window.onload = function() {
                 document.getElementById("bullets").innerHTML = s;
             }
 
+            let purchase = oReq.response.purchase;
+            if (purchase) {
+                document.getElementById('purchaseDeets').style.visibility = 'visible';
+                let s = '';
+                for (let i = 0; i < purchase.length; i++) {
+                    purchaseList.push(purchase[i]);
+                    s += "<li>" + purchase[i] + "</li>";
+                }
+                if (purchase.length > 0) {
+                    document.getElementById('purchaseTitle').style.visibility = "visible";
+                }
+                console.log(s);
+                document.getElementById("bulletsPurchase").innerHTML = s;
+            }
+
+            let contact = oReq.response.contact;
+            if (contact) {
+                document.getElementById('purchaseDeets').style.visibility = 'visible';
+                let s = '';
+                for (let i = 0; i < contact.length; i++) {
+                    contactList.push(contact[i]);
+                    s += "<li>" + contact[i] + "</li>";
+                }
+                if (contact.length > 0) {
+                    document.getElementById('contactTitle').style.visibility = "visible";
+                }
+                console.log(s);
+                document.getElementById("contactPurchase").innerHTML = s;
+            }
+
+            let support = oReq.response.support;
+            console.log(support);
+            if (support) {
+                document.getElementById('purchaseDeets').style.visibility = 'visible';
+                let s = '';
+                for (let i = 0; i < support.length; i++) {
+                    supportList.push(support[i]);
+                    s += "<li>" + support[i] + "</li>";
+                }
+                if (support.length > 0) {
+                    document.getElementById('supportTitle').style.visibility = "visible";
+                }
+                console.log(s);
+                document.getElementById("supportPurchase").innerHTML = s;
+            }
+
             let otherIn = oReq.response.other;
             if (otherIn) {
                 let s = '';
@@ -229,6 +296,25 @@ window.onload = function() {
                     document.getElementById('title').style.visibility = "visible";
                 }
                 document.getElementById("infoList").innerHTML = s;
+            }
+
+            let setupLst = oReq.response.setup;
+            if (setupLst) {
+                for (let i = 0; i < setupLst.length; i++) {
+                    let str = 'setup' + (i + 1);
+                    if (setupLst[i] === 'true') {
+                        document.getElementById(str).checked = true;
+                    }
+                }
+            }
+            let useLst = oReq.response.use;
+            if (useLst) {
+                for (let i = 0; i < useLst.length; i++) {
+                    let str = 'use' + (i + 1);
+                    if (useLst[i] === 'true') {
+                        document.getElementById(str).checked = true;
+                    }
+                }
             }
 
 
@@ -316,6 +402,31 @@ function addProduct() {
         obj += 'setup[4]=true&';
     } else {
         obj += 'setup[4]=false&';
+    }
+    if (document.getElementById('use1').checked === true) {
+        obj += 'use[0]=true&';
+    } else {
+        obj += 'use[0]=false&';
+    }
+    if (document.getElementById('use2').checked === true) {
+        obj += 'use[1]=true&';
+    } else {
+        obj += 'use[1]=false&';
+    }
+    if (document.getElementById('use3').checked === true) {
+        obj += 'use[2]=true&';
+    } else {
+        obj += 'use[2]=false&';
+    }
+    if (document.getElementById('use4').checked === true) {
+        obj += 'use[3]=true&';
+    } else {
+        obj += 'use[3]=false&';
+    }
+    if (document.getElementById('use5').checked === true) {
+        obj += 'use[4]=true&';
+    } else {
+        obj += 'use[4]=false&';
     }
     if (document.getElementById('professionalTrue').checked === true) {
         obj += 'professional=true&';
@@ -550,6 +661,10 @@ function addProduct() {
 
     for (let i = 0; i < contactList.length; i++) {
         obj += "&contact[" + i + "]=" + contactList[i];
+    }
+
+    for (let i = 0; i < supportList.length; i++) {
+        obj += "&support[" + i + "]=" + supportList[i];
     }
 
     console.log(currImage);

@@ -131,6 +131,18 @@ window.onload = function() {
             }
         }
 
+        let use = oReq.response.use;
+        console.log(use);
+        if (use) {
+            for (let i = 0; i < use.length; i++) {
+                let str = 'use_circle' + (i + 1);
+                console.log(str);
+                if (use[i] === 'true') {
+                    document.getElementById(str).style.backgroundColor = '#0F4880';
+                }
+            }
+        }
+
         let build5 = '';
         let otherNum = 0;
         let other = oReq.response.other;
@@ -145,6 +157,7 @@ window.onload = function() {
             }
         }
         console.log(otherNum);
+        /*
         if (badgeNum <= 3) {
             document.getElementById('more').style.top = "620px";
             let dist = (otherNum * 100) + (accNum * 100) + 630;
@@ -199,6 +212,7 @@ window.onload = function() {
             document.getElementById('rev').style.top = "3100px";
             document.getElementById('reviews').style.top = "3300px";
         }
+        */
 
         let build6 = '';
         let purchase = oReq.response.purchase;
@@ -213,6 +227,7 @@ window.onload = function() {
         let support = oReq.response.support;
         //console.log(purchase);
         if (support) {
+            console.log(support);
             build6 += "<tr><td>Support</td><td><ul id='support'>";
             for (let i = 0; i < support.length; i++) {
                 build6 += "<li><a href='" + support[i] + "'>" + support[i] + "</a></li>";
@@ -271,7 +286,7 @@ window.onload = function() {
 
 function addReview() {
     document.getElementById("toAdd").innerHTML =
-        "Submit a Review <br><br>" +
+        "<p id='submitTitle'>Submit a Review</p> <br><br>" +
         "<form method=\"post\" name = \"review\">" +
         "        <label for=\"title\">Title</label><br>" +
         "    <input id=\"title\" type=\"text\" name=\"title\"><br>" +

@@ -65,7 +65,8 @@ let PicModel = mongoose.model('Image', PicSchema);
         purchase: {type: Array, required: false},
         support: {type:Array, required: false},
         contact: {type: Array, required: false},
-        setup: {type:Array, required: false}
+        setup: {type:Array, required: false},
+        use: {type:Array, required: false}
 
     }, {timestamps: true, autoIndex: false});
     /* first time you run on a new DB must remove the auto index to create the index*/
