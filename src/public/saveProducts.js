@@ -3,6 +3,7 @@ let id =0;
 let bulletList = [];
 let otherList = [];
 let currImage = '';
+let objName = '';
 
 let badgesTitle = ["MacOS Compatible", "ECU Compatible",
 "iOS Compatible", "Windows Compatible", "Android Compatible",
@@ -66,6 +67,7 @@ window.onload = function() {
                 document.getElementById('content').style = "margin-top: -150px;";
             }
             let name2 = oReq.response.name;
+            objName = name2;
             document.getElementById('name').value = name2;
             document.getElementById('name').readOnly = true;
             document.getElementById('name').style = "background: lightgrey;" +
@@ -210,6 +212,7 @@ function addProduct() {
             id = pair[1];
         } else if (pair[0] === 'name') {
             obj += 'name=' + pair[1];
+            objName = pair[1];
         } else if (pair[0] === 'description') {
             obj += 'description=' + pair[1] + "&";
         } else if (pair[0] === 'weight') {
