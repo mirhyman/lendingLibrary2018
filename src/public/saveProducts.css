@@ -189,7 +189,7 @@ label[for=professionalTrue], [for=professionalFalse], [for=hardware], [for=softw
 }
 
 #name, #id, #brand, #price, #description, #point1, #info1,
-#purchase1, #support1, #contact1, .ctx {
+#purchase1, #support1, #contact1, #training1, .ctx {
     font-family: Roboto;
     font-style: normal;
     font-size: 15px;
@@ -210,12 +210,12 @@ label[for=professionalTrue], [for=professionalFalse], [for=hardware], [for=softw
 }
 
 #info1, #point1, #purchase1, #contact1,
-#support1 {
+#support1, #training1 {
     height: 5vh;
 }
 
 #info1, #point1, #purchase1, #contact1,
-#support1 {
+#support1, #training1 {
     margin-bottom: 10px;
 }
 
@@ -248,7 +248,7 @@ input[type=file] {
 #addBullet, #removeBullet, #addInfo, #removeInfo, #addProduct,
 #addPurchase, #removePurchase, #addSupport,
 #removeSupport, #addContact, #removeContact,
-#purchaseInfo {
+#purchaseInfo, #trainingInfo {
     font-family: Roboto;
     font-size: calc(12px + (13 - 12) * ((50vw - 300px) / (1600 - 300)));
     color: white;

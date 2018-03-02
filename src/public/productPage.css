@@ -17,6 +17,7 @@ img {
     font-style: Bold;
     font-size: 25px;
     left: 430px;
+    width: 400px;
     position: absolute;
 }
 
@@ -505,4 +506,29 @@ tr:nth-child(even) {
     font-family: Roboto;
     font-size: 20px;
     font-weight: 900;
+}
+
+/*Added from here*/
+label[for=title], label[for=author], label[for=context], label[for=body] {
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 14pt;
+}
+
+button[id=submitReview] {
+    background-color: #0f4880;
+    color: white;
+    border-radius: 40px;
+    font-size: calc(14px + (18 - 14) * ((50vw - 300px) / (1600 - 300)));;
+    font-weight: bold;
+    height: 8vh;
+    min-height: 6vh;
+    width: 20vw;
+    position: absolute;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+button[id=submitReview]:hover {
+    background-color: #1478cb;
 }
