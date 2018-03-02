@@ -35,6 +35,7 @@ window.onload = function() {
 };
 
 function pictures() {
+    /*
     let s = '';
     for (let i = 0; i < compare_list.length; i++) {
         s += "<img src='/images/" + compare_list[i].img + "' width='200px' height='200px' id='a"
@@ -42,6 +43,7 @@ function pictures() {
         console.log(s);
     }
     document.getElementById('images').innerHTML = s;
+
     if (compare_list.length > 2) {
         document.getElementById('a1').style = "margin-left: 50px";
         document.getElementById('a2').style = "margin-left: 80px";
@@ -49,13 +51,21 @@ function pictures() {
             "    top: 140px;\n" +
             "    left: 345px;";
     }
+    */
 }
 
 function checkList() {
     //console.log(compare_list.length);
     if (compare_list.length === names_lst.length) {
         //ev.preventDefault();
-        let build = "<tr><th>Product</th>";
+        let build = "<tr><th id='firstImg'></th>";
+        for (let i = 0; i < compare_list.length; i++) {
+            build += "<td id='a" +
+                               + i + "'><img src='/images/" + compare_list[i].img + "' width='200px' height='200px'></td>";
+
+        }
+        build += "</tr>";
+        build += "<tr><th>Product</th>";
         // name loop
         for (let i = 0; i < compare_list.length; i++) {
             build += "<th>" + compare_list[i].name + "</th>";

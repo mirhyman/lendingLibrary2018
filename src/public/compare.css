@@ -9,6 +9,7 @@ table {
     bottom: 0;
     margin: auto;
     top: 600px;
+    z-index: -1;
 }
 
 td, th {
@@ -68,19 +69,19 @@ tr:nth-child(even) {
 
 #compareTitle {
     color: black;
-    position: fixed;
+    position: absolute;
     top: 50px;
     left: 495px;
     font-family: Roboto;
     font-size: 20px;
+    z-index: -1;
 }
 
-#a1 {
-    margin-left: 140px;
-}
 
-#images {
-    position: absolute;
-    top: 175px;
-    left: 475px;
+
+#a0, #a1, #a2, #firstImg {
+    border: 1px white solid;
+    border-bottom: 1px black solid;
+    padding-left: 10%;
+    padding-right: 10%;
 }
