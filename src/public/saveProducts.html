@@ -144,7 +144,10 @@
                         'name="dimensions" value="0 x 0" required>' +
                 "<label for='battery'>Enter Battery life:</label>" +
                         '<input id="battery" type="text" name="battery"' +
-                        "value ='0' required>(in hours)";
+                        "value ='0' required>(in hours)" +
+                "<label for='screenSize'>Enter Screen Size:</label>" +
+                '<input id="screenSize" type="text" name="screenSize"' +
+                "value ='0' required>";
             } else {
                 document.getElementById('specs').innerHTML = "";
             }
@@ -340,6 +343,7 @@
             <span class="checkmark"></span>
         </label></li>
     </ul>
+    <!--
     <div id="setup"> Ease of Set-Up
 
             <input id="setup1" type="checkbox" onchange="setupCheck(this)">
@@ -389,6 +393,7 @@
     <input
            id="description" type="text" name="description"
            placeholder="description here"><br>
+           -->
 
 </form>
 
@@ -428,15 +433,35 @@
     <p id="contactTitle">
         Who to contact:
     </p>
-    <ul id = "contactPurchase"></ul>
+    <ul id = "contactPhoneList"></ul>
 
-    Enter Support Links:
+    Enter Contact Phone Numbers:
 
     <input
-            id="contact1" type="text" name="contact1"
-            placeholder="contact info here"><br>
-    <button id = "addContact" onclick="addContact()">Add Another Contact</button>
-    <button id = "removeContact" onclick="removeContact()">Remove Last Contact</button>
+            id="contactPhone" type="text" name="contactPhone"
+            placeholder="contact phone number"><br>
+    <button id = "addContactPhone" onclick="addContactPhone()">Add Another Phone Number</button>
+    <button id = "removeContactPhone" onclick="removeContactPhone()">Remove Last Phone Number</button>
+
+        <ul id = "contactEmailList"></ul>
+
+        Enter Contact Email Addresses:
+
+        <input
+                id="contactEmail" type="text" name="contactEmail"
+                placeholder="contact email"><br>
+        <button id = "addContactEmail" onclick="addContactEmail()">Add Another Email</button>
+        <button id = "removeContactEmail" onclick="removeContactEmail()">Remove Last Email</button>
+
+        <ul id = "contactLinkList"></ul>
+
+        Enter Contact Links:
+
+        <input
+                id="contactLink" type="text" name="contactLink"
+                placeholder="contact link"><br>
+        <button id = "addContactLink" onclick="addContactLink()">Add Another Link</button>
+        <button id = "removeContactLink" onclick="removeContactLinks()">Remove Last Link</button>
         <p id="trainingTitle">
             Available Training:
         </p>
@@ -445,8 +470,12 @@
         Enter Support Links:
 
         <input
+                id="trainingContext" type="text" name="trainingContext"
+                placeholder="context info here"><br>
+        <input
                 id="training1" type="text" name="training1"
                 placeholder="contact info here"><br>
+
         <button id = "addTraining" onclick="addTraining()">Add Another Training link</button>
         <button id = "removeTraining" onclick="removeTraining()">Remove Last Training link</button>
     </div>

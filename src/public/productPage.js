@@ -2,7 +2,9 @@ let id = 0;
 let name = '';
 let professional = false;
 
-const badgesTitle = ["MacOS Compatible", "ECU Compatible",
+const badgesTitle = ["Touchscreen", "Keyboard",
+    "Switch", "Mouse Alternative", "Built-in Eye Gaze",
+    "MacOS Compatible", "ECU Compatible",
     "iOS Compatible", "Windows Compatible", "Android Compatible",
     "Multilingual", "Email", "Texting", "Social Media", "Free Draw/Write",
     "Built-in Camera", "Mountable", "Wearable", "Digitized Speech",
@@ -11,7 +13,12 @@ const badgesTitle = ["MacOS Compatible", "ECU Compatible",
     "Text-based Communication", "Word Prediction", "Phrase Prediction",
     "Sentence Prediction", "Programmable Shortcuts"];
 
-let badgesIcon = ["<i class=\"fab fa-apple fa-5x\"></i>",
+let badgesIcon = ["<i class='fas fa-hand-point-up fa-5x'></i>",
+    "<i class=\"fas fa-keyboard fa-5x\"></i>",
+    "<i class=\"fas fa-toggle-on fa-5x\"></i>",
+    "<i class=\"fas fa-mouse-pointer fa-5x\"></i>",
+    "<i class=\"fas fa-eye fa-5x\"></i>",
+    "<i class=\"fab fa-apple fa-5x\"></i>",
     "<i class=\"fas fa-save fa-5x\"></i>", "<i class=\"fas fa-mobile fa-5x\"></i>",
 "<i class=\"fab fa-windows fa-5x\"></i>",
 "<i class=\"fab fa-android fa-5x\"></i>", "<i class=\"fas fa-language fa-5x\"></i>",
@@ -95,6 +102,7 @@ window.onload = function() {
         }
 
         console.log(build3);
+        /*
 
         let build4 = '';
         let acc = oReq.response.access;
@@ -142,6 +150,7 @@ window.onload = function() {
                 }
             }
         }
+        */
 
         let build5 = '';
         let otherNum = 0;
@@ -157,62 +166,7 @@ window.onload = function() {
             }
         }
         console.log(otherNum);
-        /*
-        if (badgeNum <= 3) {
-            document.getElementById('more').style.top = "620px";
-            let dist = (otherNum * 100) + (accNum * 100) + 630;
-            document.getElementById('resources').style.top = dist + "px";
-        }
-        if (badgeNum > 3 && badgeNum <= 6) {
-            document.getElementById('more').style.top = "750px";
-            let dist = (otherNum * 80) + (accNum * 80) + 760;
-            document.getElementById('resources').style.top = dist + "px";
-        }
-        if (badgeNum > 6 && badgeNum <= 9) {
-            document.getElementById('more').style.top = "830px";
-            let dist = (otherNum * 80) + (accNum * 80) + 830;
-            document.getElementById('resources').style.top = dist + "px";
-        }
-        if (badgeNum > 9 && badgeNum <= 12) {
-            document.getElementById('more').style.top = "1000px";
-        }
-        if (badgeNum > 12 && badgeNum <= 16) {
-            document.getElementById('more').style.top = "1090px";
-            let dist = (otherNum * 100) + (accNum * 100) + 1090;
-            document.getElementById('resources').style.top = dist + "px";
-        }
-        if (badgeNum > 16 && badgeNum <= 20) {
-            document.getElementById('more').style.top = "1200px";
-            let dist = (otherNum * 100) + (accNum * 100) + 1100;
-            document.getElementById('resources').style.top = dist + "px";
-            document.getElementById('rev').style.top = "2000px";
-            document.getElementById('reviews').style.top = "2100px";
-        }
-        if (badgeNum > 20 && badgeNum <= 24) {
-            document.getElementById('more').style.top = "1300px";
-            let dist = (otherNum * 100) + (accNum * 100) + 1200;
-            document.getElementById('resources').style.top = dist + "px";
-            document.getElementById('rev').style.top = "2300px";
-            document.getElementById('reviews').style.top = "2400px";
-            document.getElementById('toAdd').style.top = "1800px";
 
-        }
-        if (badgeNum > 24 && badgeNum <= 28) {
-            document.getElementById('more').style.top = "1450px";
-            let dist = (otherNum * 100) + (accNum * 100) + 1400;
-            document.getElementById('resources').style.top = dist + "px";
-            document.getElementById('rev').style.top = "2800px";
-            document.getElementById('reviews').style.top = "2900px";
-            document.getElementById('toAdd').style.top = "3000px";
-        }
-        if (badgeNum > 28 && badgeNum <= 32) {
-            document.getElementById('more').style.top = "1600px";
-            let dist = (otherNum * 100) + (accNum * 100) + 1400;
-            document.getElementById('resources').style.top = dist + "px";
-            document.getElementById('rev').style.top = "3100px";
-            document.getElementById('reviews').style.top = "3300px";
-        }
-        */
 
         let build6 = '';
         let purchase = oReq.response.purchase;
@@ -235,12 +189,32 @@ window.onload = function() {
             build6 += "</ul></td></tr>";
         }
 
-        let contact = oReq.response.contact;
+        let contactPhone = oReq.response.contactPhone;
         //console.log(purchase);
-        if (contact) {
-            build6 += "<tr><td>Contact</td><td><ul id='contact'>";
-            for (let i = 0; i < contact.length; i++) {
-                build6 += "<li>" + contact[i] + "</li>";
+        if (contactPhone) {
+            build6 += "<tr><td>Contact Phone</td><td><ul id='contact'>";
+            for (let i = 0; i < contactPhone.length; i++) {
+                build6 += contactPhone[i];
+            }
+            build6 += "</ul></td></tr>";
+        }
+
+        let contactEmail = oReq.response.contactEmail;
+        //console.log(purchase);
+        if (contactEmail) {
+            build6 += "<tr><td>Contact Email</td><td><ul id='contactEmail'>";
+            for (let i = 0; i < contactEmail.length; i++) {
+                build6 += "<a href='mailto:" + contactEmail[i] + "'></a>";
+            }
+            build6 += "</ul></td></tr>";
+        }
+
+        let contactLink = oReq.response.contactLink;
+        //console.log(purchase);
+        if (contactLink) {
+            build6 += "<tr><td>Contact Link</td><td><ul id='contactLink'>";
+            for (let i = 0; i < contactLink.length; i++) {
+                build6 += "<href='" + contactLink[i] + "'>";
             }
             build6 += "</ul></td></tr>";
         }
@@ -252,7 +226,12 @@ window.onload = function() {
             for (let i = 0; i < training.length; i++) {
                 build6 += "<li>" + training[i] + "</li>";
             }
-            build6 += "</ul></td></tr>";
+            build6 += "</ul>";
+            let context = oReq.response.trainContext;
+            if (context) {
+                build6 += context;
+            }
+                build6 += "</td></tr>";
         }
         document.getElementById('purchaseTable').innerHTML = build6;
 
@@ -281,7 +260,7 @@ window.onload = function() {
             document.getElementById("reviews").innerHTML = build2;
 
             document.getElementById("features").innerHTML = build3;
-            document.getElementById("access").innerHTML = build4;
+            //document.getElementById("access").innerHTML = build4;
             document.getElementById("otherFeatures").innerHTML = build5;
 
          };

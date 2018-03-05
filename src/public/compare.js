@@ -106,9 +106,9 @@ function checkList() {
                         for (let j = 0; j < compare_list.length; j++) {
                             build += "<td>";
                             if (compare_list[j].access.includes(accessList[i])) {
-                                build += "Yes</td>";
+                                build += "X</td>";
                             } else {
-                                build += "No</td>";
+                                build += " </td>";
                             }
                         }
                     }
@@ -132,9 +132,9 @@ function checkList() {
             for (let j = 0; j < compare_list.length; j++) {
                 build += "<td>";
                 if (compare_list[j].languages.includes(languageList[i])) {
-                    build += "Yes</td>";
+                    build += "X</td>";
                 } else {
-                    build += "No</td>";
+                    build += "</td>";
                 }
             }
         }
@@ -155,9 +155,9 @@ function checkList() {
             for (let j = 0; j < compare_list.length; j++) {
                 build += "<td>";
                 if (compare_list[j].platform.includes(platformList[i])) {
-                    build += "Yes</td>";
+                    build += "X</td>";
                 } else {
-                    build += "No</td>";
+                    build += "</td>";
                 }
             }
         }
@@ -178,9 +178,9 @@ function checkList() {
             for (let j = 0; j < compare_list.length; j++) {
                 build += "<td>";
                 if (compare_list[j].features.includes(featuresList[i])) {
-                    build += "Yes</td>";
+                    build += "X</td>";
                 } else {
-                    build += "No</td>";
+                    build += "</td>";
                 }
             }
         }

@@ -64,10 +64,13 @@ let PicModel = mongoose.model('Image', PicSchema);
         other: {type: Array, required: false},
         purchase: {type: Array, required: false},
         support: {type:Array, required: false},
-        contact: {type: Array, required: false},
-        setup: {type:Array, required: false},
-        use: {type:Array, required: false},
-        training: {type: Array, required: false}
+        contactPhone: {type: Array, required: false},
+        //setup: {type:Array, required: false},
+        //use: {type:Array, required: false},
+        training: {type: Array, required: false},
+        contactEmail: {type:Array, required:false},
+        contactLink: {type: Array, required:false},
+        trainContext: {type:String, required:false}
 
     }, {timestamps: true, autoIndex: false});
     /* first time you run on a new DB must remove the auto index to create the index*/

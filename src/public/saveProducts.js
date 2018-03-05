@@ -7,6 +7,8 @@ let objName = '';
 let purchaseList = [];
 let supportList = [];
 let contactList = [];
+let contactEmails = [];
+let contactLinks = [];
 let trainingList = [];
 let setup = 0;
 
@@ -19,7 +21,8 @@ let badgesTitle = ["MacOS Compatible", "ECU Compatible",
 "Text-based Communication", "Word Prediction", "Phrase Prediction",
 "Sentence Prediction", "Programmable Shortcuts"];
 
-let badgesCheckbox = ["macOSPlatform", "platformECU",
+let badgesCheckbox = ["accessTouch", "accessKeyboard", "accessSwitch",
+    "accessMouse", "accessEyes","macOSPlatform", "platformECU",
 "iOSPlatform", "windowsPlatform", "androidPlatform", "multilingualLang",
 "emailFeat", "textFeat", "socialFeat", "drawFeat", "cameraFeat",
 "mountableFeat", "wearableFeat", "warrantyFeat", "digitizedSpeech",
@@ -27,6 +30,7 @@ let badgesCheckbox = ["macOSPlatform", "platformECU",
 "photoVocab", "wordVocab", "phraseVocab", "textVocab",
 "wordPrediction", "phrasePrediction", "sentencePrediction", "programShortcut"];
 
+/*
 function setupCheck(chk) {
     let num = chk.id.charAt(chk.id.length - 1);
     if (chk.checked === false) {
@@ -68,6 +72,7 @@ function useCheck(chk) {
         }
     }
 }
+*/
 
 
 function addImg(btn) {
@@ -153,12 +158,15 @@ window.onload = function() {
                         "        <input id='weight' type='text' name='weight' " +
                         "value='0.0lbs'\n" +
                         '           required>' +
-                        '<label for="dimensions">Enter dimensions:</label>'+
+                        '<label for="dimensions">Enter dimensions:</label>' +
                         '<input id=\"dimensions\" type=\"text\"' +
                         'name="dimensions" value="0 x 0" required>' +
                         "<label for='battery'>Enter Battery life:</label>" +
                         '<input id="battery" type="text" name="battery"' +
-                        "value ='0' required>(in hours)";
+                        "value ='0' required>(in hours)" +
+                        "<label for='screenSize'>Enter Screen Size:</label>" +
+                        '<input id="screenSize" type="text" name="screenSize"' +
+                        "value ='0' required>";
                 }
                 let weight = oReq.response.specs[0];
                 document.getElementById('weight').value = weight;
@@ -166,6 +174,11 @@ window.onload = function() {
                 document.getElementById('dimensions').value = dimensions;
                 let battery = oReq.response.specs[2];
                 document.getElementById('battery').value = battery;
+                if (oReq.response.specs.length > 3) {
+                    let screenSize = oReq.response.specs[3];
+                    document.getElementById('screenSize').value = screenSize;
+                }
+
             } else {
                 document.getElementById('software').checked = true;
             }
@@ -314,6 +327,7 @@ window.onload = function() {
                 }
                 document.getElementById("infoList").innerHTML = s;
             }
+            /*
 
             let setupLst = oReq.response.setup;
             if (setupLst) {
@@ -333,6 +347,7 @@ window.onload = function() {
                     }
                 }
             }
+            */
 
 
         };
@@ -390,11 +405,14 @@ function addProduct() {
             obj += 'spec[1]=' + pair[1];
         }else if (pair[0] === 'battery') {
             obj += 'spec[2]=' + pair[1];
+        } else if (pair[0] === 'screenSize') {
+            obj += 'spec[3]=' + pair[1];
         } else {
             obj = obj.substring(0, obj.length - 1);
         }
         i++;
     }
+    /*
     if (document.getElementById('setup1').checked === true) {
         obj += 'setup[0]=true&';
     } else {
@@ -445,6 +463,7 @@ function addProduct() {
     } else {
         obj += 'use[4]=false&';
     }
+    */
     if (document.getElementById('professionalTrue').checked === true) {
         obj += 'professional=true&';
     } else {
@@ -453,23 +472,43 @@ function addProduct() {
     if (document.getElementById('accessTouch').checked === true) {
         obj += "access[" + accessIdx + "]=touch&";
         accessIdx++;
+        obj += "badges[" + badgesIdx + "]=true&";
+    } else {
+        obj += "badges[" + badgesIdx + "]=false&";
     }
+    badgesIdx++;
     if (document.getElementById('accessKeyboard').checked === true) {
         obj += "access[" + accessIdx + "]=keyboard&";
         accessIdx++;
+        obj += "badges[" + badgesIdx + "]=true&";
+    } else {
+        obj += "badges[" + badgesIdx + "]=false&";
     }
+    badgesIdx++;
     if (document.getElementById('accessSwitch').checked === true) {
         obj += "access[" + accessIdx + "]=switch&";
         accessIdx++;
+        obj += "badges[" + badgesIdx + "]=true&";
+    } else {
+        obj += "badges[" + badgesIdx + "]=false&";
     }
+    badgesIdx++;
     if (document.getElementById('accessMouse').checked === true) {
         obj += "access[" + accessIdx + "]=mouse&";
         accessIdx++;
+        obj += "badges[" + badgesIdx + "]=true&";
+    } else {
+        obj += "badges[" + badgesIdx + "]=false&";
     }
+    badgesIdx++;
     if (document.getElementById('accessEyes').checked === true) {
         obj += "access[" + accessIdx + "]=eye&";
         accessIdx++;
+        obj += "badges[" + badgesIdx + "]=true&";
+    } else {
+        obj += "badges[" + badgesIdx + "]=false&";
     }
+    badgesIdx++;
     if (document.getElementById('access').checked === true) {
         obj += "access[" + accessIdx + "]=other&";
     }
@@ -512,6 +551,7 @@ function addProduct() {
         obj += "languages[" + languagesIdx + "]=spanish&";
         languagesIdx++;
     }
+
     if (document.getElementById('mandarinLang').checked === true) {
         obj += "languages[" + languagesIdx + "]=mandarin&";
         languagesIdx++;
@@ -677,7 +717,15 @@ function addProduct() {
     }
 
     for (let i = 0; i < contactList.length; i++) {
-        obj += "&contact[" + i + "]=" + contactList[i];
+        obj += "&contactPhone[" + i + "]=" + contactList[i];
+    }
+
+    for (let i = 0; i < contactEmails.length; i++) {
+        obj += "&contactEmail[" + i + "]=" + contactList[i];
+    }
+
+    for (let i = 0; i < contactLinks.length; i++) {
+        obj += "&contactLink[" + i + "]=" + contactList[i];
     }
 
     for (let i = 0; i < supportList.length; i++) {
@@ -686,6 +734,11 @@ function addProduct() {
 
     for (let i = 0; i < trainingList.length; i++) {
         obj += "&training[" + i + "]=" + trainingList[i];
+    }
+
+    let context = document.getElementById('trainingContext');
+    if (context && context !== '') {
+        obj += "&trainContext=" + context;
     }
 
     console.log(currImage);
@@ -787,10 +840,10 @@ function addTraining() {
     document.getElementById("training1").value = "";
 }
 
-function addContact() {
-    let bullet = document.getElementById("contact1").value;
+function addContactPhone() {
+    let bullet = document.getElementById("contactPhone").value;
     contactList.push(bullet);
-    let curList = Array.from(document.getElementById("contactPurchase").getElementsByTagName("li"));
+    let curList = Array.from(document.getElementById("contactPhoneList").getElementsByTagName("li"));
     document.getElementById('contactTitle').style.visibility = "visible";
 
     let s = "";
@@ -799,8 +852,40 @@ function addContact() {
     }
     console.log(curList);
     s += "<li>" + bullet + "</li>";
-    document.getElementById("contactPurchase").innerHTML = s;
-    document.getElementById("contact1").value = "";
+    document.getElementById("contactPhoneList").innerHTML = s;
+    document.getElementById("contactPhone").value = "";
+}
+
+function addContactEmail() {
+    let bullet = document.getElementById("contactEmail").value;
+    contactEmails.push(bullet);
+    let curList = Array.from(document.getElementById("contactEmailList").getElementsByTagName("li"));
+    document.getElementById('contactTitle').style.visibility = "visible";
+
+    let s = "";
+    for (let i = 0; i < curList.length; i++) {
+        s += "<li>" + curList[i].textContent + "</li>";
+    }
+    console.log(curList);
+    s += "<li>" + bullet + "</li>";
+    document.getElementById("contactEmailList").innerHTML = s;
+    document.getElementById("contactEmail").value = "";
+}
+
+function addContactLink() {
+    let bullet = document.getElementById("contactLink").value;
+    contactLinks.push(bullet);
+    let curList = Array.from(document.getElementById("contactLinkList").getElementsByTagName("li"));
+    document.getElementById('contactTitle').style.visibility = "visible";
+
+    let s = "";
+    for (let i = 0; i < curList.length; i++) {
+        s += "<li>" + curList[i].textContent + "</li>";
+    }
+    console.log(curList);
+    s += "<li>" + bullet + "</li>";
+    document.getElementById("contactLinkList").innerHTML = s;
+    document.getElementById("contactLink").value = "";
 }
 
 function removeBullet(){
@@ -876,19 +961,55 @@ function removeTraining(){
     }
 }
 
-function removeContact(){
+function removeContactPhone(){
     if (contactList.length === 0) {
         alert("No bullets to remove!");
     } else {
         contactList.pop();
-        let curList = Array.from(document.getElementById("contactPurchase").getElementsByTagName("li"));
+        let curList = Array.from(document.getElementById("contactPhoneList").getElementsByTagName("li"));
         let s = "";
         for (let i = 0; i < curList.length - 1; i++) {
             s += "<li>" + curList[i].textContent + "</li>";
         }
         console.log(curList);
-        document.getElementById("contactPurchase").innerHTML = s;
-        if (bulletList.length === 0) {
+        document.getElementById("contactPhoneList").innerHTML = s;
+        if (contactList.length === 0) {
+            document.getElementById('contactTitle').style.visibility = "hidden";
+        }
+    }
+}
+
+function removeContactLinks(){
+    if (contactLinks.length === 0) {
+        alert("No bullets to remove!");
+    } else {
+        contactLinks.pop();
+        let curList = Array.from(document.getElementById("contactLinkList").getElementsByTagName("li"));
+        let s = "";
+        for (let i = 0; i < curList.length - 1; i++) {
+            s += "<li>" + curList[i].textContent + "</li>";
+        }
+        console.log(curList);
+        document.getElementById("contactLinkList").innerHTML = s;
+        if (contactLinks.length === 0) {
+            document.getElementById('contactTitle').style.visibility = "hidden";
+        }
+    }
+}
+
+function removeContactEmail(){
+    if (contactEmails.length === 0) {
+        alert("No bullets to remove!");
+    } else {
+        contactEmails.pop();
+        let curList = Array.from(document.getElementById("contactEmailList").getElementsByTagName("li"));
+        let s = "";
+        for (let i = 0; i < curList.length - 1; i++) {
+            s += "<li>" + curList[i].textContent + "</li>";
+        }
+        console.log(curList);
+        document.getElementById("contactEmailList").innerHTML = s;
+        if (contactEmails.length === 0) {
             document.getElementById('contactTitle').style.visibility = "hidden";
         }
     }
