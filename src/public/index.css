@@ -1,15 +1,53 @@
-#search {
+body {
+    background: #0F4880;
+    overflow-y: scroll;
+    margin: none;
+    /*overflow: hidden;*/
+    background-image: url('images/hands.jpg');
+
+}
+.navBar {
+    background: #ffffff;
+    opacity: 70%;
+    height: 80px;
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    top: 0;
+    z-index: 1;
+}
+
+.welcome, #seeProduct {
+    color: #ffffff;
     position: absolute;
-    width: 55%;
-    height: 8%;
+    top: 38%;
     left: 50%;
-    top: 40vh;
+    width: 65%;
+    transform: translate(-50%, -30%);
+    font-family: Roboto;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: calc(24px + (42 - 24) * ((55vw - 300px) / (1600 - 300)));
+    text-align: center;
+    line-height: 45px;
+
+}
+
+#search {
+    position: fixed;
+    width: 38%;
+    height: 52px;
+    left: 75%;
+    top: 2.3%;
     transform: translate(-50%, -2%);
     box-sizing: border-box;
     border-radius: 40px;
     font-size: 1.5vw;
     padding-left: 15px;
-    border: 4px solid #0F4880;
+    border: 3px solid #30a0fc;
+    z-index: 1;
 }
 
 search.placholder {
@@ -17,14 +55,14 @@ search.placholder {
 }
 
 #submitSearch {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    left: 80%;
-
-    top: 40vh;
-    background: #0F4880;
-    border: 4px solid #0F4880;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    left: 95%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    top: 3vh;
+    background: #30a0fc;
+    border: 4px solid #30a0fc;
     box-sizing: border-box;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -33,15 +71,19 @@ search.placholder {
     font-style: normal;
     font-weight: bold;
     line-height: normal;
-    font-size: 22px;
+    font-size: 13pt;
     text-align: center;
-    color: white;
+    color: #ffffff;
+    z-index: 1;
 }
 
+#submitSearch:active {
+    background-color: #ffffff;
+    box-shadow: 0 3px #666;
+    transform: translateY(3px);
+}
 
 #submitSearch:hover {
-
-
     background: #1478cb;
     border: 4px solid #1478cb;
     box-sizing: border-box;
@@ -49,37 +91,61 @@ search.placholder {
     color: white;
 }
 
-#guidedSearch {
+#addProduct {
+    width: 70%;
+}
+
+#guidedSearch, #addProduct {
     position: absolute;
-    width: 15%;
+    width: 20%;
     height: 8%;
     left: 50%;
-    top: 60vh;
+    top: 65%;
     transform: translate(-50%, 80%);
+    background: #ffffff;
+    border: 4px solid #ffffff;
     box-sizing: border-box;
     border-radius: 40px;
     font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
+    font-weight: 800;
     line-height: normal;
-    font-size: calc(0.3rem + 1vw);
+    font-size: calc(0.5rem + 1vw);
     text-align: center;
-    color: white;
+    color: #0f4880;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#addProduct {
+    height: 45%;
+    width: 30%;
 }
 
+/*#guidedSearch:active {
+background-color: #ffffff;
+box-shadow: 0 3px #666;
+transform: translateY(-0.5%);
+}*/
+
 #guidedSearch:hover {
-    background: #1478cb;
-    border: 4px solid #1478cb;
+    background: #30a0fc;
+    border: 4px solid #30a0fc;
     box-sizing: border-box;
     border-radius: 40px;
     color: white;
 }
 
-#update {
+#addProduct:hover {
+    background: #30a0fc;
+    border: 4px solid #30a0fc;
+    box-sizing: border-box;
+    border-radius: 40px;
+    color: white;
+}
+
+#about {
     position: absolute;
     width: 15%;
-    height: 60px;
-    left: 20%;
+    height: 80px;
+    left: 0%;
     top: 0px;
 
     font-family: Roboto;
@@ -88,16 +154,17 @@ search.placholder {
     line-height: normal;
     font-size: 16px;
     text-align: center;
+
+    color: #0F4880;
     background-color: transparent;
     border: none;
-    color: white;
 }
 
 #products {
     position: absolute;
     width: 15%;
-    height: 60px;
-    left: 5%;
+    height: 80px;
+    left: 15%;
     top: 0px;
 
     font-family: Roboto;
@@ -106,18 +173,18 @@ search.placholder {
     line-height: normal;
     font-size: 16px;
     text-align: center;
-
-    color: white;
     background-color: transparent;
     border: none;
+    color: #0F4880;
 }
+
 
 #glossary {
     position: absolute;
     width: 15%;
-    height: 60px;
-    left: 35%;
-    top: 0px;
+    height: 80px;
+    left: 30%;
+
 
     font-family: Roboto;
     font-style: normal;
@@ -126,7 +193,7 @@ search.placholder {
     font-size: 16px;
     text-align: center;
 
-    color: white;
+    color: #0F4880;
     background-color: transparent;
     border: none;
 }
@@ -134,9 +201,9 @@ search.placholder {
 #keys {
     position: absolute;
     width: 15%;
-    height: 60px;
-    left: 50%;
-    top: 0px;
+    height: 80px;
+    left: 45%;
+
 
     font-family: Roboto;
     font-style: normal;
@@ -145,27 +212,24 @@ search.placholder {
     font-size: 16px;
     text-align: center;
 
-    color: white;
+    color: #0F4880;
     background-color: transparent;
     border: none;
 
 }
 
 #glossary:hover {
-    color: #38c7f5;
+    color: #1478cb;
 }
 
-#update:hover {
-    color: #38c7f5;
+#about:hover {
+    color: #1478cb;
 }
 
 #products:hover {
-    color: #38c7f5;
+    color: #1478cb;
 }
 
-#keys:hover {
-    color: #38c7f5;
-}
 /*
 .eqi-container {
     display: flex;
@@ -180,15 +244,7 @@ search.placholder {
     background: blue;
 }
 */
-#navBar {
-    background: #0F4880;;
-    height: 60px;
-    width: 100%;
-    top: 0px;
-    position: fixed;
-    right: 0px;
-    left: 0px;
-}
+
 /*
 .eqi-container div products {
     position: absolute;
@@ -280,26 +336,124 @@ search.placholder {
 
 
 
-#welcome {
-    color: black;
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    font-family: Roboto;
-    font-size: calc(20px + (23 - 20) * ((50vw - 300px) / (1600 - 300)));
-    text-align: center;
-}
 
-#start {
-    color: black;
+
+#start, #contribute {
+    color: white;
     position: absolute;
-    top: 55%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, 20%);
     font-family: Roboto;
-    font-size: calc(18px + (20 - 18) * ((50vw - 300px) / (1600 - 300)));
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: calc(20px + (26 - 20) * ((50vw - 300px) / (1600 - 300)));
 }
+.addingProduct {
+    font-family: Roboto;
+    margin-top: 150vh;
+    visibility: hidden;
+}
+
+.addingProduct {
+    color: #ffffff;
+    position: absolute;
+    top: -225%;
+    left: 50%;
+    width: 65%;
+    transform: translate(-50%, -30%);
+    font-family: Roboto;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: calc(24px + (42 - 24) * ((55vw - 300px) / (1600 - 300)));
+    text-align: center;
+
+}
+
+#seeProduct {
+    top: 103vh;
+}
+
+#contribute {
+    top: 127vh;
+}
+
+#addProduct {
+    top: 165vh;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 10vh;
+    margin-top: 125px;
+    width: 100%;
+    height: 80px;
+    background-color: #0f4880;
+    color: white;
+    text-align: center;
+}
+
+
+.slideDown {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    font-family: Roboto;
+}
+
+.slide {
+    background: transparent;
+    border-color: transparent;
+    color: white;
+
+}
+.fa-angle-double-down {
+    color: white;
+    text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+.fa-angle-double-down:hover {
+    color: #30a0fc;
+}
+
+#slideUp {
+    position: absolute;
+    top: 13%;
+    left: 47.9%;
+    visibility: hidden;
+}
+
+.slideup {
+    background: transparent;
+    border-color: transparent;
+    color: white;
+
+}
+
+.fa-angle-double-up {
+    color: white;
+    text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+.fa-angle-double-up:hover {
+    color: #30a0fc;
+}
+
+#slidingBox {
+    overflow-y: hidden;
+    max-height: 500px; /* approximate max height */
+
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    visibility: hidden;
+}
+
+
+/*button:focus {outline:0}
+input:focus{outline: 0} */
 
 .animate
 {
@@ -310,11 +464,11 @@ search.placholder {
 
 .blue
 {
-    background-color: #0f487f;
-    border-bottom: 5px solid #082846;
+    background-color: #f6f8f9;
+    border-bottom: 5px solid #e7eaec;
 }
 
-button:focus {outline:0;}
+/*button:focus {outline:0;}*/
 
 .action-button:active
 {

@@ -18,6 +18,7 @@ app.use('/saveProducts', express.static('src/public/saveProducts.html'));
 app.use('/guidedSearch', express.static('src/public/guidedSearch.html'));
 app.use('/compareProducts', express.static('src/public/compare.html'));
 app.use('/glossary', express.static('src/public/glossary.html'));
+app.use('/about', express.static('src/public/about.html'));
 app.use('/', route);
 
 app.listen(port, () => {

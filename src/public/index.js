@@ -3,6 +3,19 @@ function guide() {
 }
 
 
+function slideMove() {
+    document.getElementById('firstBox').style.visibility="hidden";
+    document.getElementById('adding').style.visibility="visible";
+    document.getElementById('slideUp').style.visibility = "visible";
+}
+
+function slideUp() {
+
+    document.getElementById('firstBox').style.visibility="visible";
+    document.getElementById('adding').style.visibility="hidden";
+    document.getElementById('slideUp').style.visibility = "hidden";
+}
+
 function updateDatabase() {
     window.location = "/saveProducts";
 }
@@ -14,6 +27,10 @@ function searchQuery() {
 
 function glossary() {
     window.location = "/glossary";
+}
+
+function about() {
+    window.location = "/about";
 }
 
 function getAll() {
@@ -48,3 +65,5 @@ document.getElementById("search")
             document.getElementById("submitSearch").click();
         }
     });
+
+
