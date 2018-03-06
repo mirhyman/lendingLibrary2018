@@ -4,6 +4,7 @@ body {
     margin: none;
     /*overflow: hidden;*/
     background-image: url('images/hands.jpg');
+    background-size: cover;
 
 }
 .navBar {
