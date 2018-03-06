@@ -21,7 +21,8 @@
    <li> <b>Professional Reviewed Only?</b>
        <ul style="list-style-type:none" class="filterSections">
        <li><label class="container"> Professional
-    <input type="checkBox" title="professional" id="professional"
+    <input type="checkBox" title="pro" class="pro" id="professional"
+
            onchange="onCheckUpdate(this)"/>
     <span class="checkmark"></span>
     </label>
@@ -31,14 +32,16 @@
     <li><b>Hardware or Software</b>
         <ul style="list-style-type:none" class="filterSections">
             <li><label class="container"> Hardware
-                <input type="checkBox" title="hardware" id="hardware"
+                <input type="checkBox"  id="hardware"
+                       title ="hardware"
                        onchange="onCheckUpdate(this)"/>
             <span class="checkmark"></span>
             </label>
             </li>
             <li>
                 <label class="container"> Software
-                    <input type="checkBox" title="software" id="software"
+                    <input type="checkBox"  id="software"
+                           title="notHardware"
                               onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
@@ -49,35 +52,40 @@
         <ul style="list-style-type:none" class="filterSections">
             <li>
                 <label class="container">Keyboard
-                    <input type="checkbox" title="accessKeyboard"
+                    <input type="checkbox"
+                           title="access"
                               id="keyboard" onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
                 <label class="container">Touchscreen
-                    <input type="checkbox" title="accessTouch" id="accessTouch"
+                    <input type="checkbox" id="accessTouch"
+                           title="access"
                               onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
-                <label class="container">Voice Accessible
-                    <input type="checkbox" title="accessVoice" id="accessVoice"
+                <label class="container">Switch Accessible
+                    <input type="checkbox" title="access" id="accessSwitch"
+
                                onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
                 <label class="container">Eye Gaze Accessible
-                    <input type="checkbox" title="accessEyes" id="accessEyes"
+                    <input type="checkbox" title="access" id="accessEyes"
+
                               onchange="onCheckUpdate(this)">
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
-                <label class="container">ECU Accessible
-                    <input type="checkbox" title="accessECU" id="accessECU"
+                <label class="container">Mouse Alternative
+                    <input type="checkbox" title="access" id="accessMouse"
+
                               onchange="onCheckUpdate(this)">
                     <span class="checkmark"></span>
                 </label>
@@ -88,14 +96,16 @@
     <ul style="list-style-type:none" class="filterSections">
         <li>
             <label class="container">ios
-                <input type="checkbox" title="softwareIOS" id="softwareIOS"
+                <input type="checkbox" title="software" id="softwareIOS"
+
                           onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
             </label>
         </li>
         <li>
             <label class="container">Mac OS
-                <input type="checkbox" title="softwareMacOS" id="softwareMacOS"
+                <input type="checkbox" title="software" id="softwareMacOS"
+
                           onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
             </label>
@@ -103,7 +113,8 @@
         <li>
             <label class="container">Windows
                 <input type="checkbox"
-                          title="softwareWindows" id="softwareWindows"
+                       title="software" id="softwareWindows"
+
                           onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
             </label>
@@ -111,7 +122,8 @@
         <li>
             <label class="container">Android
                 <input type="checkbox"
-                          title="softwareAndroid" id="softwareAndroid"
+                       title="software" id="softwareAndroid"
+
                           onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
             </label>
@@ -122,46 +134,36 @@
     <ul style="list-style-type:none" class="filterSections">
         <li>
             <label class="container">French
-                <input type="checkbox" title="french" id="french"
+                <input type="checkbox" title="language" id="french"
+
             onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
             </label>
         </li>
         <li>
             <label class="container">English
-            <input type="checkbox" title="english" id="english"
+            <input type="checkbox" title="language" id="english"
+
             onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
             </label>
         </li>
         <li>
             <label class="container">Chinese
-                <input type="checkbox" title="chinese" id="chinese"
+                <input type="checkbox" title="language" id="chinese"
+                       class="language"
             onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
             </label>
         </li>
         <li>
             <label class="container">Spanish
-                <input type="checkbox" title="spanish" id="spanish"
+                <input type="checkbox" title="language" id="spanish"
+                       class="language"
                        onchange="onCheckUpdate(this)">
                 <span class="checkmark"></span>
             </label>
 
-        </li>
-        <li>
-            <label class="container">German
-                <input type="checkbox" title="german" id="german"
-            onchange="onCheckUpdate(this)"/>
-                <span class="checkmark"></span>
-            </label>
-        </li>
-        <li>
-            <label class="container">Japanese
-                <input type="checkbox" title="japanese" id="japanese"
-            onchange="onCheckUpdate(this)"/>
-                <span class="checkmark"></span>
-            </label>
         </li>
     </ul>
     </li>
@@ -170,21 +172,24 @@
         <ul style="list-style-type:none" class="filterSections">
             <li>
                 <label class="container">Free
-                    <input type="checkbox" title="freeTo50" id="freeTo50"
+                    <input type="checkbox" title="price" id="freeTo50"
+
                 onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
                 <label class="container">$0-$99.99
-                    <input type="checkbox" title="0to99" id="0to99"
+                    <input type="checkbox" title="price"  id="0to99"
+                           class="price"
                 onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
                 <label class="container">$100-$599.99
-                    <input type="checkbox" title="100to599" id="100to599"
+                    <input type="checkbox" title="price"  id="100to599"
+                           class="price"
                 onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
 
@@ -192,7 +197,8 @@
             </li>
             <li>
                 <label class="container">$600-$999.99
-                    <input type="checkbox" title="600to999" id="600to999"
+                    <input type="checkbox" title="price"  id="600to999"
+                           class="price"
                 onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
 
@@ -200,7 +206,8 @@
             </li>
             <li>
                 <label class="container">$1000.00 +up
-                    <input type="checkbox" title="1000up" id="1000up"
+                    <input type="checkbox" title="price"  id="1000up"
+                           class="price"
                 onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
@@ -212,70 +219,64 @@
         <ul style="list-style-type:none" class="filterSections">
             <li>
                 <label class="container">Email
-                    <input type="checkbox" title="emailExtra"
-                          id="emailExtra" onchange="onCheckUpdate(this)"/>
+                    <input type="checkbox" title="features"
+                          id="emailExtra"
+                           class="features" onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
                 <label class="container">Texting
-                    <input type="checkbox" title="textingExtra"
-                          id="textingExtra" onchange="onCheckUpdate(this)"/>
+                    <input type="checkbox" title="features"
+                          id="textingExtra" class="features"
+                           onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                     </label>
             </li>
             <li>
                 <label class="container">Social Media
-                <input type="checkbox" title="socialMedia"
-                              id="socialMedia" onchange="onCheckUpdate(this)"/>
+                <input type="checkbox" title="features"
+                              id="socialMedia" class="features"
+                       onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
-                <label class="container">Notetaking
-                    <input type="checkbox" title="notetaking"
-                              id="notetaking" onchange="onCheckUpdate(this)"/>
+                <label class="container">Free Draw/Write
+                    <input type="checkbox" title="features"
+                              id="drawingWriting" class="features"
+                           onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
-                <label class="container">Drawing/Writing
-                    <input type="checkbox" title="drawingWriting"
-                              id="drawingWriting" onchange="onCheckUpdate(this)"/>
-                    <span class="checkmark"></span>
-                </label>
-            </li>
-            <li>
-                <label class="container">Personal Voice
-                    <input type="checkbox" title="personalVoice"
-                              id="personalVoice" onchange="onCheckUpdate(this)"/>
-                    <span class="checkmark"></span>
-                </label>
-            </li>
-            <li>
-                <label class="container">Personal Phrase
-                    <input type="checkbox" title="personalPhrase"
-                              id="personalPhrase" onchange="onCheckUpdate(this)"/>
+                <label class="container">Mountable
+                    <input type="checkbox" title="features"
+                              id="mount" class="features"
+                           onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
                 <label class="container">Symbols
-                    <input type="checkbox" title="symbols" id="symbols"
+                    <input type="checkbox" title="features" id="symbols"
+                           class="features"
                                onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
                 <label class="container">Camera
-                    <input type="checkbox" title="camera" id="camera"
+                    <input type="checkbox" title="features" id="warranty"
+                           class="features"
                             onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
             <li>
                 <label class="container">Wearable
-                    <input type="checkbox" title="wearable" id="wearable"
+                    <input type="checkbox" title="features" id="wearable"
+                           class="features"
                         onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
