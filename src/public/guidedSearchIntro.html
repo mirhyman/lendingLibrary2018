@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <link href="guidedSearchIntro.css" rel="stylesheet">
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div id="navBar">
+    <button id="home" onclick="goHome()">Home</button>
+    <button id="glossary" onclick="glossary()">Glossary</button>
+    <div id="logo">Website Logo  <i class="fas fa-child fa-2x"></i></div>
+</div>
+<div id="searchIntroduction">
+    <div id="introHeader">
+        <h1>
+            Welcome to our guided search.
+        </h1>
+        <p id="paragraph1">
+            We are going to ask you a series of questions that will narrow down our
+            database of assistive technologies to the ones that best meet your needs.
+        </p>
+        <p id="paragraph2">
+            For each question you can select as many options as you want. You can also select
+            none of the options.
+        </p>
+    </div>
+    <button id="goBack" onclick="goHome()" class="action-button shadow animate blue">Go Back</button>
+    <button id="startSearch" onclick="startSearch()" class="action-button shadow animate blue">Start Searching</button>
+</div>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="guidedSearchIntro.js"></script>
+</body>
+</html>

@@ -83,12 +83,9 @@ window.onload = function() {
                     oReq.response.spec[1] + ", " + oReq.response.spec[2] + " hours";
                 build += "</div>";
             }
-            build += "<div id='info'> <ul>";
-            let long = oReq.response.longDescription;
-            for (let i = 0; i < long.length; i++) {
-                build += "<li>" + long[i] + "</li>";
-            }
-            build += "</ul>" + "</div>";
+            build += "<div id='info'>";
+            let long = oReq.response.description;
+            build += long + "</div>";
             let badges = oReq.response.badges;
             let build3 = '';
             let badgeNum = 0;

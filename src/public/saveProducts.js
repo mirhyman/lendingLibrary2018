@@ -11,6 +11,7 @@ let contactEmails = [];
 let contactLinks = [];
 let trainingList = [];
 let setup = 0;
+let pages = [];
 
 let badgesTitle = ["MacOS Compatible", "ECU Compatible",
 "iOS Compatible", "Windows Compatible", "Android Compatible",
@@ -30,50 +31,31 @@ let badgesCheckbox = ["accessTouch", "accessKeyboard", "accessSwitch",
 "photoVocab", "wordVocab", "phraseVocab", "textVocab",
 "wordPrediction", "phrasePrediction", "sentencePrediction", "programShortcut"];
 
-/*
-function setupCheck(chk) {
-    let num = chk.id.charAt(chk.id.length - 1);
-    if (chk.checked === false) {
-        if (parseInt(num) < 5) {
-            let nxt = parseInt(num) + 1;
-            let str = 'setup' + nxt;
-            if (document.getElementById(str).checked === true) {
-                alert("sorry you can't uncheck this box! please uncheck the ones after it first");
-                document.getElementById(chk.id).checked = true;
-            }
-        }
-    } else if (parseInt(num) !== 1) {
-        let prev = parseInt(num) - 1;
-        let str2 = 'setup' + prev;
-        if (document.getElementById(str2).checked === false) {
-            alert("sorry you have to check the boxes before this one first.");
-            document.getElementById(chk.id).checked = false;
-        }
+function nextPages() {
+    if (pages.length === 0) {
+        pages.push("basicInfo");
+        document.getElementById('basicInfo').style.visibility = "hidden";
+        document.getElementById('image_select').style.visibility = "hidden";
+        document.getElementById('accessInfo').style.visibility = "visible";
+        document.getElementById('nextPage').style.marginTop = "450px";
+        document.getElementById("page_intro").innerHTML =
+            "Please check all the bubbles that apply to your product. These " +
+            "criteria will be displayed as visual badges under the desription " +
+            "of your product. If you're not sure what something means, click the" +
+            " question mark next to its category."
+    } else {
+        pages.push("accessInfo");
+        document.getElementById('accessInfo').style.visibility = "hidden";
+        document.getElementById('purchaseDeets').style.visibility = "visible";
+        document.getElementById('extraProductInfo').style.visibility = "visible";
+        document.getElementById('nextPage').style.visibility = "hidden";
+        document.getElementById("page_intro").innerHTML = "Please enter any " +
+            "additional information about your product. Also, provide some resources " +
+            "for your product so that other users can purchase or get support for it." +
+            " If you're not sure what something means, click the" +
+        " question mark next to its category.";
     }
 }
-
-function useCheck(chk) {
-    let num = chk.id.charAt(chk.id.length - 1);
-    if (chk.checked === false) {
-        if (parseInt(num) < 5) {
-            let nxt = parseInt(num) + 1;
-            let str = 'use' + nxt;
-            if (document.getElementById(str).checked === true) {
-                alert("sorry you can't uncheck this box! please uncheck the ones after it first");
-                document.getElementById(chk.id).checked = true;
-            }
-        }
-    } else if (parseInt(num) !== 1) {
-        let prev = parseInt(num) - 1;
-        let str2 = 'use' + prev;
-        if (document.getElementById(str2).checked === false) {
-            alert("sorry you have to check the boxes before this one first.");
-            document.getElementById(chk.id).checked = false;
-        }
-    }
-}
-*/
-
 
 function addImg(btn) {
 

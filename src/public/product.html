@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="product.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -48,7 +50,7 @@
             </li>
         </ul>
     </li>
-    <li><b>Access</b>
+    <li><b>Types of Access</b>
         <ul style="list-style-type:none" class="filterSections">
             <li>
                 <label class="container">Keyboard
@@ -92,7 +94,7 @@
             </li>
         </ul>
     </li>
-    <li><b>Software</b>
+    <li><b>Available Platforms</b>
     <ul style="list-style-type:none" class="filterSections">
         <li>
             <label class="container">ios
@@ -125,6 +127,15 @@
                        title="software" id="softwareAndroid"
 
                           onchange="onCheckUpdate(this)"/>
+                <span class="checkmark"></span>
+            </label>
+        </li>
+        <li>
+            <label class="container">ECU Compatible
+                <input type="checkbox"
+                       title="software" id="softwareECU"
+
+                       onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
             </label>
         </li>
@@ -179,7 +190,7 @@
                 </label>
             </li>
             <li>
-                <label class="container">$0-$99.99
+                <label class="container">Under $100
                     <input type="checkbox" title="price"  id="0to99"
                            class="price"
                 onchange="onCheckUpdate(this)"/>
@@ -187,7 +198,7 @@
                 </label>
             </li>
             <li>
-                <label class="container">$100-$599.99
+                <label class="container">$100 to $600
                     <input type="checkbox" title="price"  id="100to599"
                            class="price"
                 onchange="onCheckUpdate(this)"/>
@@ -196,7 +207,7 @@
                 </label>
             </li>
             <li>
-                <label class="container">$600-$999.99
+                <label class="container">$600 to $1000
                     <input type="checkbox" title="price"  id="600to999"
                            class="price"
                 onchange="onCheckUpdate(this)"/>
@@ -205,7 +216,7 @@
                 </label>
             </li>
             <li>
-                <label class="container">$1000.00 +up
+                <label class="container">$1000 & Above
                     <input type="checkbox" title="price"  id="1000up"
                            class="price"
                 onchange="onCheckUpdate(this)"/>

@@ -13,397 +13,348 @@
     <button id="glossary" onclick="glossary()">Glossary</button>
     <div id="logo">Website Logo  <i class="fas fa-child fa-2x"></i></div>
 </div>
-<div id="header">Add a new Product
+<div id="header"><h1>Add a New Product</h1>
     <div id="line"></div>
+    <h2>Add a product to our database that you have experience with so other users can learn about it too!</h2>
+    <h5 id="page_intro">First, please fill in some basic info about your product. If you're not sure what
+    something means, click the question mark next to its category</h5>
 </div>
 
 
     <!--
     <input type="file" id="myFile" multiple size="50" onchange="myFunction()">-->
 
-<div id="image_select">
-    <br>
-    Select an image for your product:
-    <ul style="list-style-type: none; " id="images">
-        <li id="cat1"><input id="cat1.jpg" type="image" src="images/cat1.jpg" onclick="addImg(this)"
-         width="100px" height=100px"></li>
-        <li id="echo"><input id="echo.jpg" type="image" src="images/echo.jpg" onclick="addImg(this)"
-        width="100px" height="100px"></li>
-        <li id="cat2">
-            <input id="cat2.jpg" type="image" src="images/cat2.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="dog1">
-            <input id="dog1.jpg" type="image" src="images/dog1.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="dog2">
-        <input id="dog2.jpg" type="image" src="images/dog2.jpg" onclick="addImg(this)"
-               width="100px" height=100px">
-    </li>
-        <li id="frog">
-            <input id="frog.jpg" type="image" src="images/frog.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="giraffe1">
-            <input id="giraffe1.jpg" type="image" src="images/giraffe1.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="penguin">
-        <input id="penguin.jpg" type="image" src="images/penguin.jpg" onclick="addImg(this)"
-               width="100px" height=100px">
-    </li>
-        <li id="loc">
-            <input id="locabulary_lite.jpg" type="image" src="images/locabulary_lite.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="prolo">
-            <input id="prolo2go.jpg" type="image" src="images/prolo2go.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="chat">
-            <input id="chatAble.jpg" type="image" src="images/chatAble.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="tobii">
-            <input id="tobii.jpg" type="image" src="images/tobii.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="tobii2">
-        <input id="tobii2.jpg" type="image" src="images/tobii2.jpg" onclick="addImg(this)"
-               width="100px" height=100px">
-    </li>
-        <li id="verbally">
-            <input id="verbally.jpg" type="image" src="images/verbally.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="communicator5">
-            <input id="communicator5.jpg" type="image" src="images/communicator5.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="nova_chat">
-            <input id="nova_chat.jpg" type="image" src="images/nova_chat.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="nova_8">
-            <input id="nova_8.jpg" type="image" src="images/nova_8.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-        <li id="nova_10">
-            <input id="nova_10.jpg" type="image" src="images/nova_10.jpg" onclick="addImg(this)"
-                   width="100px" height=100px">
-        </li>
-    </ul>
-    <div id="displayImg"></div>
-</div>
-<div id="content">
-    <p id="demo"></p>
-<form method="post" name="product">
-    <label for="name">Enter name:</label>
-    <input id="name" type="text" name="name" placeholder="Product name" required><br>
-    <label for="id">Enter product id: </label>
-    <input id="id" type="text" name="id" placeholder="id" required>
-    <input type="button" value="?" onclick="idHelp()"/>
-    <br>
-    <label for="brand">Enter brand:</label>
-    <input id="brand" type="text" name="brand" placeholder="Product brand"
-           required><br>
-    <label for="price">Enter price:</label>
-    <input required pattern="d{1,1000}.d{1,99}"
-           id="price" type="text" name="price" placeholder="Product price">
-    <br><br>
-    Are you a medical professional? <input type="button" value="?" onclick="profHelp()"/> <br><br>
+    <div id="image_select">
+        <br>
+        Select an image for your product:
+        <ul style="list-style-type: none; " id="images">
+            <li id="cat1"><input id="cat1.jpg" type="image" src="images/cat1.jpg" onclick="addImg(this)"
+                                 width="100px" height=100px"></li>
+            <li id="echo"><input id="echo.jpg" type="image" src="images/echo.jpg" onclick="addImg(this)"
+                                 width="100px" height="100px"></li>
+            <li id="cat2">
+                <input id="cat2.jpg" type="image" src="images/cat2.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="dog1">
+                <input id="dog1.jpg" type="image" src="images/dog1.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="dog2">
+                <input id="dog2.jpg" type="image" src="images/dog2.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="frog">
+                <input id="frog.jpg" type="image" src="images/frog.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="giraffe1">
+                <input id="giraffe1.jpg" type="image" src="images/giraffe1.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="penguin">
+                <input id="penguin.jpg" type="image" src="images/penguin.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="loc">
+                <input id="locabulary_lite.jpg" type="image" src="images/locabulary_lite.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="prolo">
+                <input id="prolo2go.jpg" type="image" src="images/prolo2go.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="chat">
+                <input id="chatAble.jpg" type="image" src="images/chatAble.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="tobii">
+                <input id="tobii.jpg" type="image" src="images/tobii.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="tobii2">
+                <input id="tobii2.jpg" type="image" src="images/tobii2.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="verbally">
+                <input id="verbally.jpg" type="image" src="images/verbally.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="communicator5">
+                <input id="communicator5.jpg" type="image" src="images/communicator5.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="nova_chat">
+                <input id="nova_chat.jpg" type="image" src="images/nova_chat.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="nova_8">
+                <input id="nova_8.jpg" type="image" src="images/nova_8.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+            <li id="nova_10">
+                <input id="nova_10.jpg" type="image" src="images/nova_10.jpg" onclick="addImg(this)"
+                       width="100px" height=100px">
+            </li>
+        </ul>
+        <div id="displayImg"></div>
+    </div>
+    <div id="content">
+        <p id="demo"></p>
+        <form method="post" name="product">
+            <div id="basicInfo">
+
+            <label for="name">Enter name:</label>
+            <input id="name" type="text" name="name" placeholder="Product name" required><br>
+            <label for="id">Enter product id: </label>
+            <input id="id" type="text" name="id" placeholder="id" required>
+            <input type="button" value="?" onclick="idHelp()"/>
+            <br>
+            <label for="brand">Enter brand:</label>
+            <input id="brand" type="text" name="brand" placeholder="Product brand"
+                   required><br>
+            <label for="price">Enter price:</label>
+            <input required pattern="d{0,10000000000000}.d{0,99}"
+                   id="price" type="text" name="price" placeholder="Product price">
+            <br><br>
+            Are you a medical professional? <input type="button" value="?" onclick="profHelp()"/> <br><br>
 
             <label class="container" for="professionalTrue"> Yes
                 <input id="professionalTrue" type="checkbox"/>
                 <span class="checkmark"></span>
-        </label>
+            </label>
 
             <label class = "container" for="professionalFalse"> No
                 <input id="professionalFalse" type="checkbox"/>
                 <span class="checkmark"></span>
-        </label>
+            </label>
 
-    <br>
-    Is your product hardware or software? <input type="button" value="?" onclick="softwareHelp()"/><br><br>
-    <label class = "container" for="hardware">Hardware
-        <input id="hardware" type="checkbox"  name="hardware"
-        onchange = 'checkHardware()'/>
-        <span class="checkmark"></span>
-    </label>
-    <script>
-        function checkHardware() {
-            if (document.getElementById('hardware').checked === true) {
-                document.getElementById('specs').innerHTML =
-                    "<label for='weight'>Enter weight:</label>\n" +
-                    "        <input id='weight' type='text' name='weight' " +
-                    "value='0.0lbs'\n" +
-                    '           required>' +
-                    '<label for="dimensions">Enter dimensions:</label>'+
-                        '<input id=\"dimensions\" type=\"text\"' +
-                        'name="dimensions" value="0 x 0" required>' +
-                "<label for='battery'>Enter Battery life:</label>" +
-                        '<input id="battery" type="text" name="battery"' +
-                        "value ='0' required>(in hours)" +
-                "<label for='screenSize'>Enter Screen Size:</label>" +
-                '<input id="screenSize" type="text" name="screenSize"' +
-                "value ='0' required>";
-            } else {
-                document.getElementById('specs').innerHTML = "";
-            }
-        }
-    </script>
-    <label class = "container" for="software">Software
-        <input id="software" type="checkbox" name="software"/>
-        <span class="checkmark"></span>
-    </label>
-    <div id="specs">
-
-    </div><br>
-    Types of access: <input type="button" value="?" onclick="accessHelp()"/><br>
-    <ul style="list-style-type: none; ">
-        <li>
-            <label class = "container" for="accessTouch">Touchscreen
-                <input id="accessTouch" type="checkbox" name="accessTouch"/>
+            <br>
+            Is your product hardware or software? <input type="button" value="?" onclick="softwareHelp()"/><br><br>
+            <label class = "container" for="hardware">Hardware
+                <input id="hardware" type="checkbox"  name="hardware"
+                       onchange = 'checkHardware()'/>
                 <span class="checkmark"></span>
             </label>
-        </li>
-        <li>
-            <label class = "container" for="accessKeyboard">Keyboard
-                <input  id="accessKeyboard" type="checkbox" name="accessKeyboard">
-                <span class="checkmark"></span>
-        </label>
-        </li>
-        <li>
-        <label class = "container" for="accessSwitch">Switch
-            <input id="accessSwitch" type="checkbox" name="accessSwitch">
-            <span class="checkmark"></span>
-        </label>
-        </li>
-        <li>
-            <label class = "container" for="accessMouse">Mouse Alternative
-                <input id="accessMouse" type="checkbox" name="accessMouse">
-                <span class="checkmark"></span>
-            </label>
-        </li>
-        <li>
-            <label class = "container" for="accessEyes">Built-in Eye Gaze
-                <input id="accessEyes" type="checkbox" name="accessEyes">
-                <span class="checkmark"></span>
-        </label>
-        </li>
-        <li>
-            <label class = "container" for="access">Other
-                <input id="access" type="checkbox" name="access"/>
-                <span class="checkmark"></span>
-        </label>
-        </li>
-    </ul>
-    <br>
-    Available platforms: <input type="button" value="?" onclick="platformHelp()"/> <br>
-    <ul style="list-style-type: none; ">
-        <li><label class = "container" for="iOSPlatform"> iOS Compatible
-            <input id="iOSPlatform" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="macOSPlatform"> MacOS Compatible
-            <input id="macOSPlatform" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="androidPlatform"> Android Compatible
-            <input id="androidPlatform" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="windowsPlatform"> Windows Compatible
-            <input id="windowsPlatform" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li>
-            <label class = "container" for="platformECU">ECU Accessible
-                <input id="platformECU" type="checkbox" name="platformECU">
+            <script>
+                function checkHardware() {
+                    if (document.getElementById('hardware').checked === true) {
+                        document.getElementById('specs').innerHTML =
+                            "<label for='weight'>Enter weight:</label>\n" +
+                            "        <input id='weight' type='text' name='weight' " +
+                            "value='0.0lbs'\n" +
+                            '           required>' +
+                            '<label for="dimensions">Enter dimensions:</label>'+
+                            '<input id=\"dimensions\" type=\"text\"' +
+                            'name="dimensions" value="0 x 0" required>' +
+                            "<label for='battery'>Enter Battery life:</label>" +
+                            '<input id="battery" type="text" name="battery"' +
+                            "value ='0' required>(in hours)" +
+                            "<label for='screenSize'>Enter Screen Size:</label>" +
+                            '<input id="screenSize" type="text" name="screenSize"' +
+                            "value ='0' required>";
+                    } else {
+                        document.getElementById('specs').innerHTML = "";
+                    }
+                }
+            </script>
+            <label class = "container" for="software">Software
+                <input id="software" type="checkbox" name="software"/>
                 <span class="checkmark"></span>
             </label>
-        </li>
-    </ul>
-    <br>
-    Languages: <input type="button" value="?" onclick="languageHelp()"/> <br>
-    <ul style="list-style-type: none; ">
-        <li><label class = "container" for="englishLang"> English
-            <input id="englishLang" type="checkbox" value="english">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="spanishLang"> Spanish
-            <input id="spanishLang" type="checkbox" value="spanish">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="mandarinLang"> Mandarin
-            <input id="mandarinLang" type="checkbox" value="mandarin">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="frenchLang"> French
-            <input id="frenchLang" type="checkbox" value="french">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="multilingualLang"> Multilingual/Other
-            <input id="multilingualLang" type="checkbox" value="multilingual">
-            <span class="checkmark"></span>
-        </label></li>
-    </ul>
-    <br>
+            <div id="specs">
+            </div>
+            </div>
+    <button id="nextPage" onclick="nextPages()">Continue</button>
+    <div id="accessInfo">
+        Types of access: <input type="button" value="?" onclick="accessHelp()"/><br>
+        <ul style="list-style-type: none; ">
+            <li>
+                <label class = "container" for="accessTouch">Touchscreen
+                    <input id="accessTouch" type="checkbox" name="accessTouch"/>
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class = "container" for="accessKeyboard">Keyboard
+                    <input  id="accessKeyboard" type="checkbox" name="accessKeyboard">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class = "container" for="accessSwitch">Switch
+                    <input id="accessSwitch" type="checkbox" name="accessSwitch">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class = "container" for="accessMouse">Mouse Alternative
+                    <input id="accessMouse" type="checkbox" name="accessMouse">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class = "container" for="accessEyes">Built-in Eye Gaze
+                    <input id="accessEyes" type="checkbox" name="accessEyes">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class = "container" for="access">Other
+                    <input id="access" type="checkbox" name="access"/>
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+        </ul>
+        <br>
+        Available platforms: <input type="button" value="?" onclick="platformHelp()"/> <br>
+        <ul style="list-style-type: none; ">
+            <li><label class = "container" for="iOSPlatform"> iOS Compatible
+                <input id="iOSPlatform" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="macOSPlatform"> MacOS Compatible
+                <input id="macOSPlatform" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="androidPlatform"> Android Compatible
+                <input id="androidPlatform" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="windowsPlatform"> Windows Compatible
+                <input id="windowsPlatform" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li>
+                <label class = "container" for="platformECU">ECU Accessible
+                    <input id="platformECU" type="checkbox" name="platformECU">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+        </ul>
+        <br>
+        Languages: <input type="button" value="?" onclick="languageHelp()"/> <br>
+        <ul style="list-style-type: none; ">
+            <li><label class = "container" for="englishLang"> English
+                <input id="englishLang" type="checkbox" value="english">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="spanishLang"> Spanish
+                <input id="spanishLang" type="checkbox" value="spanish">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="mandarinLang"> Mandarin
+                <input id="mandarinLang" type="checkbox" value="mandarin">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="frenchLang"> French
+                <input id="frenchLang" type="checkbox" value="french">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="multilingualLang"> Multilingual/Other
+                <input id="multilingualLang" type="checkbox" value="multilingual">
+                <span class="checkmark"></span>
+            </label></li>
+        </ul>
+        <br>
 
-    Features: <input type="button" value="?" onclick="featureHelp()"/> <br>
-    <ul style="list-style-type: none; ">
-        <li><label class = "container" for="emailFeat"> Email
-            <input id="emailFeat" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="textFeat"> Texting
-            <input id="textFeat" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="socialFeat"> Social Media
-            <input id="socialFeat" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="drawFeat"> Free Draw/Write
-            <input id="drawFeat" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="cameraFeat"> Built-in Camera
-            <input id="cameraFeat" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="mountableFeat"> Mountable
-            <input id="mountableFeat" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="wearableFeat"> Wearable
-            <input id="wearableFeat" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="warrantyFeat"> Warranty
-            <input id="warrantyFeat" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-    </ul>
-    <br>
-    <ul style="list-style-type: none; ">
-        <li><label class = "container" for="digitizedSpeech"> Digitized Speech
-            <input id="digitizedSpeech" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="naturalisticSpeech"> Naturalistic Speech
-            <input id="naturalisticSpeech" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="recordSpeech"> Record Your Own Voice
-            <input id="recordSpeech" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-    </ul>
-    <br>
-    <ul style="list-style-type: none; ">
-        <li><label class = "container" for="symbolVocab"> Symbol-based Vocabulary
-            <input id="symbolVocab" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="photoVocab"> Photo-based Vocabulary
-            <input id="photoVocab" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="wordVocab"> Word-based Vocabulary
-            <input id="wordVocab" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="phraseVocab"> Phrase-based Vocabulary
-            <input id="phraseVocab" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="textVocab"> Text-based Communication
-            <input id="textVocab" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-    </ul>
-    <br>
-    <ul style="list-style-type: none; ">
-        <li><label class = "container" for="wordPrediction"> Word Prediction
-            <input id="wordPrediction" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="phrasePrediction"> Phrase Prediction
-            <input id="phrasePrediction" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="sentencePrediction"> Sentence Prediction
-            <input id="sentencePrediction" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-        <li><label class = "container" for="programShortcut"> Programmable Shortcuts
-            <input id="programShortcut" type="checkbox">
-            <span class="checkmark"></span>
-        </label></li>
-    </ul>
-    <!--
-    <div id="setup"> Ease of Set-Up
-
-            <input id="setup1" type="checkbox" onchange="setupCheck(this)">
-
-
-
-            <input id="setup2" type="checkbox" onchange="setupCheck(this)">
-
-
-
-            <input id="setup3" type="checkbox" onchange="setupCheck(this)">
-
-
-
-            <input id="setup4" type="checkbox" onchange="setupCheck(this)">
-
-
-
-            <input id="setup5" type="checkbox" onchange="setupCheck(this)">
-
-
+        Features: <input type="button" value="?" onclick="featureHelp()"/> <br>
+        <ul style="list-style-type: none; ">
+            <li><label class = "container" for="emailFeat"> Email
+                <input id="emailFeat" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="textFeat"> Texting
+                <input id="textFeat" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="socialFeat"> Social Media
+                <input id="socialFeat" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="drawFeat"> Free Draw/Write
+                <input id="drawFeat" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="cameraFeat"> Built-in Camera
+                <input id="cameraFeat" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="mountableFeat"> Mountable
+                <input id="mountableFeat" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="wearableFeat"> Wearable
+                <input id="wearableFeat" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="warrantyFeat"> Warranty
+                <input id="warrantyFeat" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+        </ul>
+        <br>
+        <ul style="list-style-type: none; ">
+            <li><label class = "container" for="digitizedSpeech"> Digitized Speech
+                <input id="digitizedSpeech" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="naturalisticSpeech"> Naturalistic Speech
+                <input id="naturalisticSpeech" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="recordSpeech"> Record Your Own Voice
+                <input id="recordSpeech" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+        </ul>
+        <br>
+        <ul style="list-style-type: none; ">
+            <li><label class = "container" for="symbolVocab"> Symbol-based Vocabulary
+                <input id="symbolVocab" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="photoVocab"> Photo-based Vocabulary
+                <input id="photoVocab" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="wordVocab"> Word-based Vocabulary
+                <input id="wordVocab" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="phraseVocab"> Phrase-based Vocabulary
+                <input id="phraseVocab" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="textVocab"> Text-based Communication
+                <input id="textVocab" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+        </ul>
+        <br>
+        <ul style="list-style-type: none; ">
+            <li><label class = "container" for="wordPrediction"> Word Prediction
+                <input id="wordPrediction" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="phrasePrediction"> Phrase Prediction
+                <input id="phrasePrediction" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="sentencePrediction"> Sentence Prediction
+                <input id="sentencePrediction" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+            <li><label class = "container" for="programShortcut"> Programmable Shortcuts
+                <input id="programShortcut" type="checkbox">
+                <span class="checkmark"></span>
+            </label></li>
+        </ul>
     </div>
-    <div id="use"> Ease of Use
-
-        <input id="use1" type="checkbox" onchange="useCheck(this)">
-
-
-
-        <input id="use2" type="checkbox" onchange="useCheck(this)">
-
-
-
-        <input id="use3" type="checkbox" onchange="useCheck(this)">
-
-
-
-        <input id="use4" type="checkbox" onchange="useCheck(this)">
-
-
-
-        <input id="use5" type="checkbox" onchange="useCheck(this)">
-
-
-    </div>
-
-    <label for="description">Enter Short Description:</label> <input type="button" value="?" onclick="shortHelp()"/>
-    <input
-           id="description" type="text" name="description"
-           placeholder="description here"><br>
-           -->
-
 </form>
 
-    <div id="but">
-
-    <button id="purchaseInfo" onclick="changePurchase()">Click to Enter Purchasing Information</button>
-    </div>
-
-    <div id="purchaseDeets" style="visibility: hidden">
-        <span id = "close" onclick="changePurchase()">Collapse Box</span>
+<div id="extraProductInfo">
+    <div id="purchaseDeets">
         <p id="purchaseStart">Purchasing Information</p>
         <p id="purchaseTitle">
             Where to purchase:
@@ -479,20 +430,7 @@
         <button id = "addTraining" onclick="addTraining()">Add Another Training link</button>
         <button id = "removeTraining" onclick="removeTraining()">Remove Last Training link</button>
     </div>
-    <div id = "longDescription">
-        <p id="longTitle">
-        Longer Description:
-        </p>
-        <ul id = "bullets"></ul>
 
-        Enter Longer Description:
-
-        <input
-                id="point1" type="text" name="point1"
-                placeholder="bullet here"><br>
-    </div>
-    <button id = "addBullet" onclick="addBullet()">Add Another Bullet Point</button>
-    <button id = "removeBullet" onclick="removeBullet()">Remove Last Bullet Point</button>
 <div id = "other">
     <p id="title">
         Additional Info:</p>
@@ -506,16 +444,8 @@
 <button id = "removeInfo" onclick="removeInfo()">Remove Last Info</button><br><br>
 <button id="addProduct" onclick="addProduct()" class="action-button shadow animate blue">Submit Product!</button>
 </div>
-<script>
-    function changePurchase() {
-        console.log(document.getElementById('purchaseDeets.style.visibility'));
-        if (document.getElementById('purchaseDeets').style.visibility === 'hidden') {
-            document.getElementById('purchaseDeets').style.visibility = 'visible';
-        } else {
-            document.getElementById('purchaseDeets').style.visibility = 'hidden';
-        }
-    }
-</script>
+</div>
+
 <script src="saveProducts.js"></script>
 </body>
 </html>

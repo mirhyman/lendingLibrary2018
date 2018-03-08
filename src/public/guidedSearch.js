@@ -1,7 +1,6 @@
 let currQuestions = [];
 
 
-
 function next() {
     if (currQuestions.length === 0) {
         currQuestions.push("firstQuestion");
@@ -96,11 +95,11 @@ function check() {
         idx = '2';
         addAnd = true;
     }
-    if (document.getElementById("accessVoice").checked) {
+    if (document.getElementById("accessSwitch").checked) {
         if (addAnd) {
             queryString += "&";
         }
-        queryString += "access[" + idx + "]=voice";
+        queryString += "access[" + idx + "]=switch";
         idx = '3';
         addAnd = true;
     }
@@ -110,14 +109,6 @@ function check() {
         }
         queryString += "access[" + idx + "]=eyes";
         idx = '4';
-        addAnd = true;
-    }
-    if (document.getElementById("accessECU").checked) {
-        if (addAnd) {
-            queryString += "&";
-        }
-        queryString += "access[" + idx + "]=ecu";
-        idx = '5';
         addAnd = true;
     }
     idx = '0';

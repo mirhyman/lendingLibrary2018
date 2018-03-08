@@ -1,5 +1,5 @@
 function guide() {
-    window.location = '/guidedSearch';
+    window.location = '/guidedSearchIntro';
 }
 
 

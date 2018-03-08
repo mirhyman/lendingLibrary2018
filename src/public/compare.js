@@ -58,19 +58,20 @@ function checkList() {
     //console.log(compare_list.length);
     if (compare_list.length === names_lst.length) {
         //ev.preventDefault();
-        let build = "<tr><th id='firstImg'></th>";
+        let build = "<tr><td id='name'>name</td>";
+        // name loop
+        for (let i = 0; i < compare_list.length; i++) {
+            build += "<th id='b" + i + "'>" + compare_list[i].name + "</th>";
+        }
+        build += "</tr>";
+        build = "<tr><th id='firstImg'></th>";
         for (let i = 0; i < compare_list.length; i++) {
             build += "<td id='a" +
                                + i + "'><img src='/images/" + compare_list[i].img + "' width='200px' height='200px'></td>";
 
         }
         build += "</tr>";
-        build += "<tr><th>Product</th>";
-        // name loop
-        for (let i = 0; i < compare_list.length; i++) {
-            build += "<th>" + compare_list[i].name + "</th>";
-        }
-        build += "</tr>";
+
 
         // just to get price -- need to add in all the other parts too still
         build += "<tr><td>Price</td>";

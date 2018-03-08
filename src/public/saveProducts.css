@@ -349,10 +349,10 @@ button:focus {outline:0;}
 
 
 #purchaseDeets {
-    border: 2px #0f487f solid;
-    visibility: hidden;
-    border-radius: 10px;
-}
+
+     visibility: hidden;
+
+ }
 
 #close {
     float: right;
@@ -364,8 +364,22 @@ button:focus {outline:0;}
 }
 
 
+
 #purchaseStart {
     font-weight: 900;
     font-size: 18px;
     text-align: center;
 }
+
+#accessInfo {
+    visibility: hidden;
+    top: 400px;
+    position: absolute;
+}
+
+#extraProductInfo {
+    visibility: hidden;
+    position: absolute;
+    top: 400px;
+}
+

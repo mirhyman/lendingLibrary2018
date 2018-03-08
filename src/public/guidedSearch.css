@@ -37,6 +37,7 @@ body {
     box-sizing: border-box;
     border-radius: 40px;
     visibility: hidden;
+    
 
     font-family: 'Roboto';
     font-size: 15px;
@@ -157,8 +158,9 @@ body {
 
 /* The container */
 
+
+
 #firstQuestion {
-    visibility: visible;
     position: fixed;
 }
 
@@ -255,6 +257,7 @@ body {
     right: 41vw;
     top: 64vh;
 
+
     box-sizing: border-box;
     border-radius: 40px;
 
@@ -349,6 +352,7 @@ button:focus {outline:0;}
     -webkit-transform: translate(0px,5px);
     border-bottom: 1px solid;
 }
+
 
 
 
