@@ -64,7 +64,7 @@ function checkList() {
             build += "<th id='b" + i + "'>" + compare_list[i].name + "</th>";
         }
         build += "</tr>";
-        build = "<tr><th id='firstImg'></th>";
+        build += "<tr><th id='firstImg'></th>";
         for (let i = 0; i < compare_list.length; i++) {
             build += "<td id='a" +
                                + i + "'><img src='/images/" + compare_list[i].img + "' width='200px' height='200px'></td>";

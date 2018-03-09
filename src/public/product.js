@@ -364,7 +364,7 @@ function filterOnList(listToFilter, filterBy, category) {
                 newItems.push(item);
             }
         } else if (category === 'language') {
-            let prodLanguages = item.langauges;
+            let prodLanguages = item.languages;
             if (prodLanguages.includes(checkBoxToField.get(filterBy))) {
                 newItems.push(item);
             }

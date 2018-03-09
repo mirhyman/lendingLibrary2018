@@ -340,6 +340,14 @@ window.onload = function() {
     }
 };
 
+function hashCode(name) {
+    let hash = 7;
+    for (let i = 0; i < name.length; i++) {
+        hash = hash * 31 + name.charCodeAt(i);
+    }
+    return hash;
+}
+
 function addProduct() {
     //let btn = document.getElementById("get_name");
     let form = document.querySelector("form");
@@ -367,9 +375,6 @@ function addProduct() {
             obj += 'price=' + pair[1];
         } else if (pair[0] === 'brand') {
             obj += 'brand=' + pair[1];
-        } else if (pair[0] === 'id') {
-            obj += 'id=' + pair[1];
-            id = pair[1];
         } else if (pair[0] === 'name') {
             let nm = pair[1].toLowerCase();
             let spaceIdx = nm.indexOf(" ");
@@ -394,58 +399,8 @@ function addProduct() {
         }
         i++;
     }
-    /*
-    if (document.getElementById('setup1').checked === true) {
-        obj += 'setup[0]=true&';
-    } else {
-        obj += 'setup[0]=false&';
-    }
-    if (document.getElementById('setup2').checked === true) {
-        obj += 'setup[1]=true&';
-    } else {
-        obj += 'setup[1]=false&';
-    }
-    if (document.getElementById('setup3').checked === true) {
-        obj += 'setup[2]=true&';
-    } else {
-        obj += 'setup[2]=false&';
-    }
-    if (document.getElementById('setup4').checked === true) {
-        obj += 'setup[3]=true&';
-    } else {
-        obj += 'setup[3]=false&';
-    }
-    if (document.getElementById('setup5').checked === true) {
-        obj += 'setup[4]=true&';
-    } else {
-        obj += 'setup[4]=false&';
-    }
-    if (document.getElementById('use1').checked === true) {
-        obj += 'use[0]=true&';
-    } else {
-        obj += 'use[0]=false&';
-    }
-    if (document.getElementById('use2').checked === true) {
-        obj += 'use[1]=true&';
-    } else {
-        obj += 'use[1]=false&';
-    }
-    if (document.getElementById('use3').checked === true) {
-        obj += 'use[2]=true&';
-    } else {
-        obj += 'use[2]=false&';
-    }
-    if (document.getElementById('use4').checked === true) {
-        obj += 'use[3]=true&';
-    } else {
-        obj += 'use[3]=false&';
-    }
-    if (document.getElementById('use5').checked === true) {
-        obj += 'use[4]=true&';
-    } else {
-        obj += 'use[4]=false&';
-    }
-    */
+    id = hashCode(objName);
+    obj += "&id=" + id + "&";
     if (document.getElementById('professionalTrue').checked === true) {
         obj += 'professional=true&';
     } else {

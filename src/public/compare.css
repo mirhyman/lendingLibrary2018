@@ -85,3 +85,15 @@ tr:nth-child(even) {
     padding-left: 10%;
     padding-right: 10%;
 }
+
+#b0, #b1, #b2 {
+    border: 1px white solid;
+    border-bottom: 1px white solid;
+    padding-left: 18%;
+    padding-right: 18%;
+}
+
+#name {
+    border: 1px white solid;
+    visibility: hidden;
+}
