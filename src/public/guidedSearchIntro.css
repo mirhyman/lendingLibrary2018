@@ -2,21 +2,25 @@ body {
     background: #0F4880;
 }
 
-#glossary, #home {
+#home {
     position: absolute;
-    width: 220px;
-    height: 29px;
+    width: 15%;
+    height: 80px;
+    left: 0%;
+    top: 0px;
 
     font-family: Roboto;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 700;
     line-height: normal;
-    font-size: 24px;
+    font-size: 16px;
     text-align: center;
 
-    color: white;
+    color: #0F4880;
     background-color: transparent;
     border: none;
+
+    cursor: pointer; /*added cursor styling to elements that can be clicked*/
 }
 
 #home:hover {
@@ -24,7 +28,27 @@ body {
 }
 
 #glossary {
-    left: 20vw;
+    position: absolute;
+    width: 15%;
+    height: 80px;
+    left: 15%;
+    top: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #0F4880;
+
+    cursor: pointer;
+}
+
+#glossary:hover {
+    color: #1478cb;
 }
 
 #back {
@@ -49,240 +73,74 @@ body {
     color: #1478cb;
 }
 
-#navBar {
-    padding: 0;
+.navBar {
+    background: #ffffff;
+    opacity: 70%;
+    height: 80px;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    right: 0px;
+    left: 0px;
     top: 0;
-    position: absolute;
-    display: inline-block;
+    box-shadow: 0px 3px 8px rgb(48, 48, 48);
 }
 
+#searchIntroduction {
+    position: absolute;
+    top: 8vh;
+}
 
-#intro, #intro2, #intro3, #intro4, #intro5, #intro6 {
+#introHeader {
     font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
-    font-size: 15px;
+    font-weight: bolder;
+    font-size: calc(20px + (30 - 20) * ((55vw - 300px) / (1600 - 300)));
+    color: white;
+    letter-spacing: 2px;
+    width: 60%;
+    transform: translate(33%, 50%);
     text-align: center;
-    color: white;
-    margin-left: 25vw;
-    margin-right: 25vw;
-    top: 20vh;             /*looks like each intro sets its own top */
 }
 
-#intro3 {
-    top: 10vh;
-    position: fixed;
+#paragraph1, #paragraph2 {
+    font-size: calc(16px + (26 - 16) * ((55vw - 300px) / (1600 - 300)));
+    letter-spacing: 1px;
 }
 
-#intro {
-    top:15vh;
+#goBack {
     position: relative;
-}
-
-#thirdQuestion .questions {
-    position: fixed;
-    left: 45vw;
+    left: 30vw;
     top: 25vh;
-}
-
-#intro2 {
-
-    position: relative;
-    top: 10vh;
-
-}
-
-#intro4 {
-    position: fixed;
-    top: 15vh;
-}
-
-#intro5 {
-    position: fixed;
-    top: 15vh;
-}
-
-#fourfthQuestion .questions {
-    column-count: 2;
-    column-width: inherit;
-    position: fixed;
-    left: 37vw;
-    top: 35vh;
-}
-
-#secondQuestion .questions {
-
-    column-count: 2;
-    column-width: 300px;
-    font-family: Roboto;
-    font-size: 14px;
-    margin-left: 0px;
-    margin-top: 90px;
-    left: 10vw;
-    position: relative;
-}
-
-#sixthQuestion .questions {
-
-    column-count: 4;
-    column-width: 200px;
-    font-family: Roboto;
-    font-size: 14px;
-    left: 10vw;
-    top: 25vh;
-    position: fixed;
-}
-
-#intro6 {
-    position: fixed;
-    top: 10vh;
-    text-align: center;
-    left: 1vw;
-    color: white;
-    font-family: Roboto;
-}
-
-#fifthQuestion .questions {
-
-    column-count: 2;
-    column-width: 250px;
-    font-family: Roboto;
-    font-size: 14px;
-    margin-left: 0px;
-    top: 30vh;
-    left: 25vw;
-    position: fixed;
-}
-
-/* The container */
-
-
-
-#firstQuestion {
-    position: fixed;
-}
-
-#firstQuestion .questions{
-    top: 25vh;
-    left: 42vw;
-    position: relative;
-}
-
-#secondQuestion, #thirdQuestion, #fourfthQuestion,
-#fifthQuestion, #sixthQuestion {
-    visibility:hidden;
-}
-
-.container {
-    display: block;
-    position: relative;
-    padding-left: 60px;
-    margin-bottom: 25px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 25px;
-    color: white;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-}
-
-/* Hide the browser's default checkbox */
-.container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #0F4880;
-    border-radius: 40px;
-    border: 1px solid white;
-}
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-    background-color: white;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-#next_question {
-    position: fixed;
-    width: 19vw;
     height: 8vh;
-    left: 41vw;
-    right: 41vw;
-    top: 64vh;
-
-
+    width: 15%;
+    text-align: center;
     box-sizing: border-box;
     border-radius: 40px;
-
     font-family: 'Roboto';
+    font-weight: 900;
     font-size: 15px;
     font-weight: bold;
     color: #0F4880;
 }
 
-#submitSearch {
-    position: fixed;
-    width: 19vw;
+#startSearch {
+    position: relative;
+    left: 40vw;
+    top: 25vh;
     height: 8vh;
-    left: 55vw;
-    top: 64vh;
-
+    width: 15%;
+    text-align: center;
     box-sizing: border-box;
     border-radius: 40px;
-    visibility: hidden;
-
     font-family: 'Roboto';
+    font-weight: 900;
     font-size: 15px;
     font-weight: bold;
     color: #0F4880;
 }
 
+
+/*
 #navBar {
     background: #0000000f;
     height: 44px;
@@ -329,7 +187,7 @@ body
 {
     padding: 50px;
 }
-
+*/
 .animate
 {
     transition: all 0.1s;

@@ -403,6 +403,7 @@ function displayResults() {
             build += "<div id='professional'>" +
                 "<i class=\"fas fa-user-md\"></i></div>";
         }
+        build += "<div id='brand'>" + currResults[i].brand + "</div>"
         build += "<div id='price'>$" + currResults[i].price + "</div></div>";
 
         build += "<img src=/images/";

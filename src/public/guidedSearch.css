@@ -2,7 +2,70 @@ body {
     background: #0F4880;
 }
 
-#glossary, #home {
+.navBar {
+    background: #ffffff;
+    opacity: 70%;
+    height: 80px;
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    top: 0;
+    box-shadow: 0px 3px 8px rgb(48, 48, 48);
+
+}
+
+#home {
+    position: absolute;
+    width: 15%;
+    height: 80px;
+    left: 0%;
+    top: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+
+    color: #0F4880;
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer; /*added cursor styling to elements that can be clicked*/
+}
+
+#home:hover {
+    color: #1478cb;
+}
+
+#glossary {
+    position: absolute;
+    width: 15%;
+    height: 80px;
+    left: 15%;
+    top: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #0F4880;
+
+    cursor: pointer;
+}
+
+#glossary:hover {
+    color: #1478cb;
+}
+
+/*#glossary, #home {
     position: absolute;
     width: 220px;
     height: 29px;
@@ -19,25 +82,20 @@ body {
     border: none;
 }
 
-#home:hover {
-    color: #1478cb;
-}
-
 #glossary {
     left: 20vw;
-}
+}*/
 
 #back {
     position: fixed;
     width: 19vw;
     height: 8vh;
-    top: 64vh;
+    top: 75vh;
     left: 20vw;
 
     box-sizing: border-box;
     border-radius: 40px;
     visibility: hidden;
-    
 
     font-family: 'Roboto';
     font-size: 15px;
@@ -46,37 +104,165 @@ body {
 }
 
 
-#glossary:hover {
-    color: #1478cb;
-}
-
-#navBar {
+/*#navBar {
     padding: 0;
     top: 0;
     position: absolute;
     display: inline-block;
-}
+}*/
 
-
-#intro, #intro2, #intro3, #intro4, #intro5, #intro6 {
+.container {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 40px;
+    width: 100%;
+    cursor: pointer;
     font-family: Roboto;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 900;
     line-height: normal;
-    font-size: 15px;
-    text-align: center;
+    font-size: calc(18px + (24 - 18) * ((55vw - 300px) / (1600 - 300)));
     color: white;
-    margin-left: 25vw;
-    margin-right: 25vw;
-    top: 20vh;             /*looks like each intro sets its own top */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
+.firstQuestion, .secondQuestion, .thirdQuestion, .fourthQuestion,
+.fifthQuestion, .sixthQuestion {
+    position: fixed;
+    width: 50%;
+    transform: translate(50%, 50%);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: calc(18px + (24 - 18) * ((55vw - 300px) / (1600 - 300)));
+    color: white;
+    letter-spacing: 1px;
+    visibility: visible;
+}
+
+
+
+.firstQuestion #instruction, .secondQuestion #instruction,
+.thirdQuestion #instruction, .fourthQuestion #instruction,
+.fifthQuestion #instruction, .sixthQuestion #instruction { /*styles the guided search on every page*/
+    font-size: calc(14px + (20 - 14) * ((55vw - 300px) / (1600 - 300)));
+    padding-bottom: 7vh;
+    text-align: center;
+    top: 90vh;
+}
+
+.firstQuestion #intro1, .secondQuestion #intro2, .thirdQuestion #intro3,
+.fourthQuestion #intro4, .fifthQuestion #intro5, .sixthQuestion #intro6 {
+    font-size: calc(20px + (28 - 20) * ((55vw - 300px) / (1600 - 300)));
+    text-align: center;
+    margin-bottom: 7vh;
+}
+
+.firstQuestion .questions, .secondQuestion .questions, .fourthQuestion .questions {
+    columns: 2;
+}
+
+.thirdQuestion .questions,
+.fifthQuestion .questions {
+    columns: 3;
+    left: 40%;
+}
+
+.firstQuestion #instruction {
+    margin-top: 35px;
+}
+
+.firstQuestion .questions {
+    transform: translate(14%, 0);
+}
+
+.secondQuestion .questions {
+    transform: translate(7%, 0);
+}
+
+.thirdQuestion {
+    width: 70%;
+    transform: translate(20%, 50%);
+}
+
+.thirdQuestion .questions {
+    transform: translate(5%, 0);
+}
+
+.thirdQuestion .container {
+    padding-top: 20px;
+}
+
+.fourthQuestion .questions{
+    transform: translate(15%, 0);
+}
+
+.fifthQuestion {
+    width: 70%;
+    transform: translate(20%, 50%);
+}
+
+.fifthQuestion .questions {
+    transform: translate(8%, 0);
+    height: 100%;
+}
+
+.fifthQuestion .container {
+    padding-top: 20px;
+}
+
+.sixthQuestion {
+    width: 90%;
+    transform: translate(5%, 50%);
+}
+
+.sixthQuestion #instruction {
+    width: 50%;
+    transform: translate(50%, 0%);
+
+}
+
+.sixthQuestion .questions  {
+    columns: 5;
+    column-width: 100px;
+    transform: translate(5%, 0%);
+    width: 100%;
+    margin-right: 100px;
+}
+
+.sixthQuestion .container {
+    padding-top: 20px;
+}
+
+
+
+/*#intro, #intro2, #intro3, #intro4, #intro5, #intro6 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    font-size: calc(18px + (24 - 18) * ((55vw - 300px) / (1600 - 300)));
+    text-align: center;
+    color: white;
+    letter-spacing: 1px;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    top: 50%;             /*looks like each intro sets its own top */
+/*}*/
+
+/*
 #intro3 {
     top: 10vh;
     position: fixed;
 }
 
-#intro {
+*#intro {
     top:15vh;
     position: relative;
 }
@@ -88,10 +274,8 @@ body {
 }
 
 #intro2 {
-
     position: relative;
     top: 10vh;
-
 }
 
 #intro4 {
@@ -104,7 +288,7 @@ body {
     top: 15vh;
 }
 
-#fourfthQuestion .questions {
+#fourthQuestion .questions {
     column-count: 2;
     column-width: inherit;
     position: fixed;
@@ -158,42 +342,22 @@ body {
 
 /* The container */
 
-
-
-#firstQuestion {
+.firstQuestion {
+    visibility: visible;
     position: fixed;
 }
-
+/*
 #firstQuestion .questions{
     top: 25vh;
     left: 42vw;
     position: relative;
+}*/
+.sixthQuestion, .fifthQuestion, .fourthQuestion, .thirdQuestion, .secondQuestion {
+    visibility: hidden;
 }
 
-#secondQuestion, #thirdQuestion, #fourfthQuestion,
-#fifthQuestion, #sixthQuestion {
-    visibility:hidden;
-}
 
-.container {
-    display: block;
-    position: relative;
-    padding-left: 60px;
-    margin-bottom: 25px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 25px;
-    color: white;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 
-}
 
 /* Hide the browser's default checkbox */
 .container input {
@@ -209,6 +373,8 @@ body {
     left: 0;
     height: 25px;
     width: 25px;
+    margin-bottom: 15px;
+    margin-top: 15px;
     background-color: #0F4880;
     border-radius: 40px;
     border: 1px solid white;
@@ -251,16 +417,16 @@ body {
 
 #next_question {
     position: fixed;
-    width: 19vw;
+    /*  width: 19vw;
+        left: 41vw;
+        right: 41vw; */
+    left: 42vw;
+    top: 75vh;
     height: 8vh;
-    left: 41vw;
-    right: 41vw;
-    top: 64vh;
-
-
+    width: 15%;
+    text-align: center;
     box-sizing: border-box;
     border-radius: 40px;
-
     font-family: 'Roboto';
     font-size: 15px;
     font-weight: bold;
@@ -272,7 +438,7 @@ body {
     width: 19vw;
     height: 8vh;
     left: 55vw;
-    top: 64vh;
+    top: 75vh;
 
     box-sizing: border-box;
     border-radius: 40px;
@@ -284,6 +450,7 @@ body {
     color: #0F4880;
 }
 
+/*
 #navBar {
     background: #0000000f;
     height: 44px;
@@ -330,7 +497,7 @@ body
 {
     padding: 50px;
 }
-
+*/
 .animate
 {
     transition: all 0.1s;
@@ -352,7 +519,6 @@ button:focus {outline:0;}
     -webkit-transform: translate(0px,5px);
     border-bottom: 1px solid;
 }
-
 
 
 

@@ -3,37 +3,38 @@ let currQuestions = [];
 
 function next() {
     if (currQuestions.length === 0) {
-        currQuestions.push("firstQuestion");
+        currQuestions.push("firstQ");
     }
     let last = currQuestions.pop();
+    console.log(last);
     document.getElementById(last).style.visibility = "hidden";
     currQuestions.push(last);
     if (currQuestions.length === 1) {
-        currQuestions.push("secondQuestion");
+        currQuestions.push("secondQ");
         document.getElementById("back").style.visibility = "visible";
         document.getElementById("next_question").style.left = "55vw";
         document.getElementById("submitSearch").style.visibility = "hidden";
         document.getElementById("next_question").style.visibility = "visible";
     } else if (currQuestions.length === 2) {
-        currQuestions.push("thirdQuestion");
+        currQuestions.push("thirdQ");
         document.getElementById("back").style.visibility = "visible";
         document.getElementById("next_question").style.left = "55vw";
         document.getElementById("submitSearch").style.visibility = "hidden";
         document.getElementById("next_question").style.visibility = "visible";
     } else if (currQuestions.length === 3) {
-        currQuestions.push("fourfthQuestion");
+        currQuestions.push("fourQ");
         document.getElementById("back").style.visibility = "visible";
         document.getElementById("next_question").style.left = "55vw";
         document.getElementById("submitSearch").style.visibility = "hidden";
         document.getElementById("next_question").style.visibility = "visible";
     } else if (currQuestions.length === 4) {
-        currQuestions.push("fifthQuestion");
+        currQuestions.push("fiveQ");
         document.getElementById("back").style.visibility = "visible";
         document.getElementById("next_question").style.left = "55vw";
         document.getElementById("submitSearch").style.visibility = "hidden";
         document.getElementById("next_question").style.visibility = "visible";
     } else if (currQuestions.length === 5) {
-        currQuestions.push("sixthQuestion");
+        currQuestions.push("sixQ");
         document.getElementById("back").style.visibility = "visible";
         document.getElementById("next_question").style.visibility = "hidden";
         document.getElementById("submitSearch").style.visibility = "visible";
@@ -48,9 +49,9 @@ function next() {
 function back() {
 
     let last = currQuestions.pop();
-    if(last === "secondQuestion") {
+    if(last === "secondQ") {
         document.getElementById("back").style.visibility = "hidden";
-        document.getElementById("next_question").style.left = "39vw";
+        document.getElementById("next_question").style.left = "42vw";
     }
     document.getElementById(last).style.visibility = "hidden";
     console.log(currQuestions);

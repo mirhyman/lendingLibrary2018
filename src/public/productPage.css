@@ -8,42 +8,43 @@
 img {
     height: 250px;
     width: 250px;
-    left: 170px;
+
     position: absolute;
 }
 
 #name {
     font-family:  'Roboto', sans-serif;
-    font-style: Bold;
+    font-weight: Bold;
     font-size: 25px;
-    left: 430px;
+    left: 290px;
     width: 400px;
-    position: absolute;
+    position: relative;
 }
 
 #price, #brand {
     font-family:  'Roboto', sans-serif;
-    font-style: bold;
+    font-weight: bold;
     font-size: 20px;
-    left: 430px;
-    position: absolute;
-    top: 50px;
+    left: 290px;
+    position: relative;
 }
 
-#brand {
-    left: 700px;
-    top: 10px;
+#price {
+    top: -27px;
+    left: 43vw;
 }
 
 #info {
-    position: absolute;
-    left: 430px;
-    top: 100px;
-    width: 400px;
+    position: relative;
+    left: 290px;
+    top: 30px;
+    width: 25vw;
+    font-family: Roboto;
+    font-size: 16px;
 }
 
 #reviews {
-    width: 75%;
+    width: 60%;
     height: 200px;
     overflow: hidden;
     overflow-y: scroll;
@@ -57,6 +58,7 @@ img {
     font-size: 20px;
     font-weight: 900;
     text-align: center;
+    margin-bottom: 24px;
 }
 
 
@@ -68,18 +70,23 @@ li {
 #resultList {
     top: 60px;
     position: absolute;
+    margin-top: 80px;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-left: 0px;
 }
 
 #moreHeader {
     font-weight: 900;
     position: relative;
-    left: 41vw;
+    text-align: center;
     font-size: 20px;
 }
 
 #toAdd {
     position: absolute;
-    left: 15vw;
+    margin-left: 20%;
+    margin-right: 20%;
     font-family: Roboto;
 }
 
@@ -87,18 +94,14 @@ li {
     border-color: #0F4880;
     border-radius: 20px;
     width: 40vw;
-}
-
-#author {
-    width: 20vw;
+    height: 25px;
 }
 
 #body {
     border-color: #0F4880;
     border-radius: 20px;
-    width: 70vw;
-    height: 85px;
-
+    width: 60vw;
+    height: 100px;
 }
 
 #submitReview {
@@ -107,11 +110,10 @@ li {
     border-radius: 40px;
     font-size: 20px;
     margin-top: 20px;
-    left: 27vw;;
     position: absolute;
 }
 
-#glossary, #home, #update{
+/*#glossary, #home, #update{
     position: absolute;
     width: 220px;
     height: 29px;
@@ -146,6 +148,70 @@ li {
     left: 40vw;
     font-size: 20px;
     color: white;
+}*/
+
+#home {
+    position: absolute;
+    width: 15%;
+    height: 80px;
+    left: 0%;
+    top: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+
+    color: #FFFFFF;
+    background-color: transparent;
+    border: none;
+}
+#home:hover {
+    color: #38c7f5;
+}
+
+#glossary {
+    position: absolute;
+    width: 15%;
+    height: 80px;
+    left: 15%;
+    top: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+}
+#glossary:hover {
+    color: #38c7f5;
+}
+
+#update {
+    position: absolute;
+    width: 15%;
+    height: 80px;
+    left: 30%;
+    top: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+}
+#update:hover {
+    color: #38c7f5;
 }
 
 #back {
@@ -167,7 +233,7 @@ li {
     color: #1478cb;
 }
 
-#navBar {
+/*#navBar {
     padding: 0;
     position: absolute;
     display: inline-block;
@@ -184,19 +250,39 @@ li {
     right: 0px;
     left: 0px;
     z-index: 1;
+}*/
+
+#navBar {
+    background: #0F4880;
+    opacity: 70%;
+    height: 80px;
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0px 3px 8px #999999;
+}
+
+#information {
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 #features {
     -webkit-column-count: 4;
     -moz-column-count: 3;
-    column-count: 3;
-    margin: 40px;
+    column-count: 4;
+    margin-right: 40px;
     column-gap: 100px;
     margin-bottom: 100px;
     text-align: center;
     left: 10vw;
-    margin-top: 450px;
-
+    margin-top: 530px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 #features li {
@@ -205,8 +291,11 @@ li {
     margin-bottom: 20px;
     font-family:  'Roboto', sans-serif;
     font-size: 15px;
-    font-style: bold;
+    font-weight: bold;
+}
 
+#features li div {
+    margin-bottom: 10px;
 }
 
 #info li {
@@ -217,11 +306,11 @@ li {
 }
 
 #feats {
-    position: absolute;
-    top: 375px;
+    position: relative;
+    top: 490px;
     font-family:  'Roboto', sans-serif;
     font-weight: 900;
-    left: 47vw;
+    text-align: center;
     font-size: 20px;
 }
 
@@ -325,6 +414,8 @@ li {
 #more {
     font-family: Roboto;
     margin-bottom: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 #icon17 {
@@ -506,6 +597,8 @@ tr:nth-child(even) {
     font-family: Roboto;
     font-size: 20px;
     font-weight: 900;
+    margin-bottom: 0px;
+    margin-top: 100px;
 }
 
 /*Added from here*/
@@ -513,6 +606,7 @@ label[for=title], label[for=author], label[for=context], label[for=body] {
     font-family: Roboto;
     font-weight: 600;
     font-size: 14pt;
+    margin-bottom: 10px;
 }
 
 button[id=submitReview] {
@@ -523,18 +617,16 @@ button[id=submitReview] {
     font-weight: bold;
     height: 8vh;
     min-height: 6vh;
-    width: 20vw;
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
     position: absolute;
     margin-top: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 100px;
 }
 
 button[id=submitReview]:hover {
     background-color: #1478cb;
-}
-
-.modal {
-
 }
 
 .modal {

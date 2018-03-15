@@ -2,20 +2,187 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="glossary.css" rel="stylesheet">
-    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="glossary.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<h1>Glossary of Terms</h1>
-<div id="terms">
-    <ul id="termsList"  style="list-style-type:none;">
 
-    </ul>
+<div class="navBar">
+    <button id="home" onclick="goHome()">Home</button>
+    <div><button id="about" onclick="about()">About</button></div>
+    <div><button id="products" onclick="getAll()">All Products</button></div>
+    <!--<div id="logo">Access for All--> <!--<i class="fas fa-child fa-2x"></i></div>-->
+</div>
+
+<div class="glossary">
+    <table class="termAndDefinition">
+        <tr>
+            <th style="letter-spacing: 2px; font-size: 30px; border-bottom: 0px; padding-bottom: 40px; color:black;">Glossary</th>
+        </tr>
+        <tr>
+            <th style="letter-spacing: 2px; font-size: 22px;">TERM</th>
+            <th style="letter-spacing: 2px; font-size: 22px;">DEFINITION</th>
+        </tr>
+        <tr>
+            <th>AAC</th>
+            <td>Augmentive and Assisitve Communication (AAC) is any method of communication that replaces or supplements speech for people with speech impairments.</td>
+        </tr>
+        <tr>
+            <th>Abbreviation Expansion</th>
+            <td>A short series of letters or numbers programmed to expand into an entire message. Example: Typing NG could generate the message or short cut "I need my glasses please."</td>
+        </tr>
+        <tr>
+            <th>Access Methods</th>
+            <td>Various methods used to control an AAC device (i.e. switch, eye-gaze, joystick, etc.)  </td>
+        </tr>
+        <tr>
+            <th>Alphabet-Based Methods</th>
+            <td>These include spelling, word prediction, letter codes, and whole words. Literacy is required</td>
+        </tr>
+        <tr>
+            <th>Alternative Access</th>
+            <td>The use of alternative areas of the body, specialized technologies, and modfications to allow individuals with limited physical abilities to access AAC systems. Examples include: styluses, trackballs, head tracking, scanning, eye  tracking, and switches.</td>
+        </tr>
+        <tr>
+            <th>Alternative Mouse</th>
+            <td>Use of direct selection with an external device suck as a trackpad, trackball, or joystick frequently used when an individual has difficulty with direct pointing on a touchscreen.</td>
+        </tr>
+        <tr>
+            <th>Assistive Technology </th>
+            <td>Any item, piece of equipment, software program, or product system used to improve skills, abilities, lifestyle, and overal independence of individuals with disabilities.  Often environmental controls, AAC, assisted writing, or assisted listening tools</td>
+        </tr>
+        <tr>
+            <th>Built-in Eye Gaze</th>
+            <td>A direct selection access method in which a camera reads the reflection of light from the user's eyes to determine where the individual is looking on the screen. Individual selections of this content are made through dwelling on a location, blinking, or activating swtich when the cursor is hovering over the preferred location on the screen.</td>
+        </tr>
+        <tr>
+            <th>Cognitive-Communication Impairments</th>
+            <td>Refers to difficulties with language and communication that occur as a result of cognitive deficits underlying these processes. Such as problems with organizing and integrating language, difficulty with word finding in conversation, challenges with abstract language, and poor adherence to conventional rules of social communication.</td>
+        </tr>
+        <tr>
+            <th>Core Vocabulary:</th>
+            <td>Words that speakers use at a high frequency across mutliple environments.  Typically pronouns, verbs, and demonstratives, such as "it, go, want, eat, I, this, and no".</td>
+        </tr>
+        <tr>
+            <th>Digitized Speech</th>
+            <td>A type of electronic speech that consists primarily of natural speech that has been recorded, stored and reproduced.</td>
+        </tr>
+        <tr>
+            <th>Direct Selection</th>
+            <td>Pointing with some part of your body (like a finger or eyes) to select or choose something. Direct selection is the fastest way to make choices.</td>
+        </tr>
+        <tr>
+            <th>Directed Scanning</th>
+            <td>The scanning pattern is under the control of the user. This requires the users to have multiple switches that they can use to move the scanning indicator forward, back, up, down, left, right or diagonal. The number of directions someone is able to move is dependent on the number of switches a user has.</td>
+        </tr>
+        <tr>
+            <th>Dynamic Display</th>
+            <td>A feature within high-tech AAC devices that allow activation of a particular item or button on the screen, resulting in linking to a new page of vocabulary which is either relevant to a particular topic or continues a sentence structure.</td>
+        </tr>
+        <tr>
+            <th>Encoding</th>
+            <td>The user learns to use specific codes for each message. Numerical codes (1 = Can I talk with you a minute?, 2 = I'd like to have pizza for lunch, 3 = Let's pick a movie to see) are the most common, but sequences of letters and shapes also have been used. Encoding can be a very rapid way of expressing lengthy messages</td>
+        </tr>
+        <tr>
+            <th>Environmental Control Unit (ECU) </th>
+            <td>Devices that allow people with mobility impairments to operate electronic devices, including televisions, computers, lights, appliances, and more</td>
+        </tr>
+        <tr>
+            <th>Extended Vocabulary</th>
+            <td>Words that are used for the 15% of communication not covered by core vocabulary</td>
+        </tr>
+        <tr>
+            <th>Fixed Display</th>
+            <td>A display in which the symbols or items on a board overlap are fixed in a particular location.</td>
+        </tr>
+        <tr>
+            <th>Fringe Vocabulary </th>
+            <td>Low frequency vocabulary words that are often specific to a particular person or activity. Typically nouns. Examples of fringe vocabulary words include "bat, home run, base, and pitcher" - these words are specific to one activity </td>
+        </tr>
+        <tr>
+            <th>Keyguard</th>
+            <td>A keyguard lays over the top of a communciation display and has holes cut out over the locations of different buttons on the display to prevent accidental activation and reduce unitended selections.</td>
+        </tr>
+        <tr>
+            <th>Language Representation Methods</th>
+            <td>Speech output AAC systems use one or a combination of three basic language representation methods: single meaning pictures, alphabet-based methods, and semantic compaction. An understanding of the performance differences and appropriate choices of method(s) are very important to the effectiveness of the communication system.</td>
+        </tr>
+        <tr>
+            <th>Mean Length of Utterance</th>
+            <td>The mean number of morphemes produced per sentence, used as a measure of child language development.</td>
+        </tr>
+        <tr>
+            <th>Morpheme</th>
+            <td>The smallest meaningful unit in the grammar of a language </td>
+        </tr>
+        <tr>
+            <th>Natural speech</th>
+            <td>Natural speech is recorded with a microphone, stored and passed through a series of filters and a digital-to-analog converter and is reproduced as a voice source by the communication aid.</td>
+        </tr>
+        <tr>
+            <th>Pages</th>
+            <td>A form of vocabulary organization that uses configurations of grids,like pages, and arranged in either paper or electronic formats as if they were pages in a book.</td>
+        </tr>
+        <tr>
+            <th>Phrase Prediction</th>
+            <td>A dynamic retrieval process in which suggested phrase options are offered to the AAC user based on the portion of the phrase that has already been formulated.</td>
+        </tr>
+        <tr>
+            <th>Picture Exchange Communication System (PECS)</th>
+            <td>Communication system requiring a person to hand a card displaying a picture/photo of an item or activity over to a communication partner in order to receive the item or participate in the activity.</td>
+        </tr>
+        <tr>
+            <th>Scanning</th>
+            <td>Symbol choices are presented to the user one at a time. The user chooses the symbol, or group of symbols, wanted by signaling at the appropriate time. Scanning selection allows someone using switches to navigate using a single switch selection.</td>
+        </tr>
+        <tr>
+            <th>Switch Control</th>
+            <td>Switch Control is an accessibility feature of iOS 7 and later that allows users with motor impairments to access their iPhone, iPod touch, or iPad by sequentially highlighting items on the screen.</td>
+        </tr>
+        <tr>
+            <th>Switch</th>
+            <td>An input-output device that allows an individual, who is not physically able, to opperate a device or piece of technology. There are various types of switches that can be activated in different ways (some examples include infrared, mechanical, and proximity).</td>
+        </tr>
+        <tr>
+            <th>Semantic Compaction</th>
+            <td>This method uses sequences of multi-meaning icons to represent vocabulary items.</td>
+        </tr>
+        <tr>
+            <th>Sentence Prediction</th>
+            <td>A dynamic retrieval process in which suggested sentence options are offered to the AAC user based on the portion of the sentence that has already been formulated.</td>
+        </tr>
+        <tr>
+            <th>Single Meaning Pictures</th>
+            <td>Each word in the vocabulary is represented by a different picture. Thousands of pictures are needed for a modest vocabulary size. Meanings must be taught since most words are not naturally represented by pictures.</td>
+        </tr>
+        <tr>
+            <th>Speech Generating Devices (SGD)</th>
+            <td>These devices are covered by Medicare and most insurance providers as DME (durable medical equipment).</td>
+        </tr>
+        <tr>
+            <th>Stored Phrases</th>
+            <td>Messages, stories, compents, requests, directions, questions and even speeches can be stored and then retrieved with the selection of a single key or button on a speech generating device.</td>
+        </tr>
+        <tr>
+            <th>Symbols</th>
+            <td>Somethign that stands or represents something else. The symbol could use visual, auditory, and/or tactile representation of conventional concepts (gestures, photos, picto-ideographs, printed words, or objects).</td>
+        </tr>
+        <tr>
+            <th>Text-to-Speech</th>
+            <td>A method of producing speech. Messages are entered as written words and "translated" electronically into speech.</td>
+        </tr>
+        <tr>
+            <th>Wheelchair mounting systems</th>
+            <td>Adaptations to wheelchairs (custom or commercial) designed to support AAC devices at the correct height and viewing angle for users.</td>
+        </tr>
+        <tr>
+            <th>Word Prediction</th>
+            <td>As you enter the first letters of a word the, the device offers a list of common words beginning with those letters from which you can select your desired word.</td>
+        </tr>
+    </table>
 </div>
 <script src="glossary.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>

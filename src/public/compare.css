@@ -1,79 +1,115 @@
+#navBar {
+    background: #0f4880;
+    opacity: 70%;
+    height: 80px;
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    top: 0;
+    box-shadow: 0px 3px 8px #999999;
+}
+
+#glossary {
+    position: absolute;
+    width: 15%;
+    height: 80px;
+    left: 15%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+#home {
+    position: absolute;
+    width: 15%;
+    height: 80px;
+    left: 0%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+#logo {
+    position: absolute;
+    left: 80%;
+    top: 35%;
+    width: 15%;
+    height: 80px;
+    color: white;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+#home:hover {
+    color: #38c7f5;
+}
+
+#glossary:hover {
+    color: #38c7f5;
+}
+
 table {
     font-family: Roboto;
-    border-collapse: collapse;
-    width: 85%;
+    width: 80%;
     position: absolute;
-    top: 0;
+    top: 30vh;
     right: 0;
     left: 0;
     bottom: 0;
-    margin: auto;
-    top: 600px;
+    margin-left: 10%;
+    margin-bottom: 10%;
     z-index: -1;
+    border-collapse: collapse;
 }
+
+/*
+tbody {
+    width: 45%;
+}*/
 
 td, th {
     border: 1px solid black;
-    text-align: left;
-    padding: 8px;
-    width: 50px;
+    text-align: center;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 tr:nth-child(even) {
     background-color: lightblue;
 }
 
-#navBar {
-    background: #0F4880;;
-    height: 44px;
-    width: 100%;
-    top: 0px;
-    position: fixed;
-    right: 0px;
-    left: 0px;
-}
-
-#home {
-    color: white;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    font-family: Roboto;
-    font-size: 15px;
-    text-align: center;
-    background-color: transparent;
-    border: none;
-}
-
-#glossary {
-    color: white;
-    position: fixed;
-    top: 10px;
-    left: 120px;
-    font-family: Roboto;
-    font-size: 15px;
-    text-align: center;
-    background-color: transparent;
-    border: none;
-}
-
-#logo {
-    left: 900px;
-    position: absolute;
-    top: 3.5px;
-    font-size: 15px;
-    color: white;
-    font-family: Roboto;
-    text-align: center;
-}
-
 #compareTitle {
     color: black;
     position: absolute;
-    top: 50px;
-    left: 495px;
+    width: 100%;
+    text-align: center;
+    top: 15%;
     font-family: Roboto;
-    font-size: 20px;
+    font-size: calc(18px + (24 - 18) * ((55vw - 300px) / (1600 - 300)));
+    font-weight: 900;
     z-index: -1;
 }
 
@@ -82,15 +118,18 @@ tr:nth-child(even) {
 #a0, #a1, #a2, #firstImg {
     border: 1px white solid;
     border-bottom: 1px black solid;
-    padding-left: 10%;
-    padding-right: 10%;
+    background-color: white;
+    align-content: center;
+}
+
+#firstImg {
+    background-color: white;
 }
 
 #b0, #b1, #b2 {
     border: 1px white solid;
     border-bottom: 1px white solid;
-    padding-left: 18%;
-    padding-right: 18%;
+    font-size: 1.5vw;
 }
 
 #name {

@@ -5,84 +5,84 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
     <link href="guidedSearch.css" rel="stylesheet">
-    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-    <link rel="icon" href="icon.ico" type="image/x-icon">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="navBar">
+<div class="navBar">
     <button id="home" onclick="goHome()">Home</button>
     <button id="glossary" onclick="glossary()">Glossary</button>
-    <div id="logo">Website Logo  <i class="fas fa-child fa-2x"></i></div>
+    <!-- going to comment this out for now <div id="logo">Website Logo  <i class="fas fa-child fa-2x"></i></div>-->
 </div>
 <!-- note to change this -->
 
 
-<div id="firstQuestion">
-    <div id="intro">We'd like to ask you a few questions to make sure we can find the right
-        technology for you. You can check as multiple bubbles or no bubbles for each question.
-        <br><br>
-        What kind of device are you looking for?</div>
+
+<div class="firstQuestion" id="firstQ"> <!--changed from id to class, the styling depends on this but let me know if it messes up the-->
+    <div id="instruction"> <!--changed id name-->We'd like to ask you a few questions to make sure we can find the right
+        technology for you. You can check as multiple bubbles or no bubbles for each question.</div>
+    <div id="intro1">What kind of AAC device are you looking for?</div> <!--put it into div-->
+    <!--nothing changed here-->
     <div class ="questions">
-    <label class="container">Hardware
-        <input type="checkBox" title="hardware" id="hardware"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Software
-        <input type="checkBox" title="software" id="software"/>
-        <span class="checkmark"></span>
-    </label>
+        <label class="container">Hardware
+            <input type="checkBox" title="hardware" id="hardware"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Software
+            <input type="checkBox" title="software" id="software"/>
+            <span class="checkmark"></span>
+        </label>
     </div>
 </div>
+
 <button id="next_question" onclick="next()" class="action-button shadow animate blue">Next Question</button>
 <button id="back" onclick="back()" class="action-button shadow animate blue">Back</button>
 <button id="submitSearch" onclick="check()" class="action-button shadow animate blue">Search</button>
-<div id="secondQuestion">
-    <div id="intro2">
+
+<div class="secondQuestion" id="secondQ"> <!--changed from id to class-->
+    <div id="instruction"> <!--this has been changed to "instruction" for every page-->
         We'd like to ask you a few questions to make sure we can find the right
-        technology for you. You can check as multiple bubbles or no bubbles for each question.
-        <br><br>
-        How would you like to interact with your device?
-    </div>
+        technology for you. You can check as multiple bubbles or no bubbles for each question.</div>
+    <div id='intro2'>How would you like to interact with your device?</div>
     <div class="questions">
-    <label class="container"> Keyboard
-        <input type="checkbox" title="accessKeyboard" id="keyboard"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container"> Touchscreen
-        <input type="checkbox" title="accessTouch" id="accessTouch"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container"> Switch Accessible
-        <input type="checkbox" title="accessSwitch" id="accessSwitch"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container"> Eye Gaze
-        <input type="checkbox" title="accessEyes" id="accessEyes">
-        <span class="checkmark"></span>
-    </label>
+        <label class="container"> Keyboard
+            <input type="checkbox" title="accessKeyboard" id="keyboard"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container"> Touchscreen
+            <input type="checkbox" title="accessTouch" id="accessTouch"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container"> Switch Accessible
+            <input type="checkbox" title="accessSwitch" id="accessSwitch"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container"> Eye Gaze
+            <input type="checkbox" title="accessEyes" id="accessEyes">
+            <span class="checkmark"></span>
+        </label>
     </div>
 </div>
-<div id="thirdQuestion">
-    <div id="intro3">
+
+<div class="thirdQuestion" id="thirdQ"> <!--changed from id to class-->
+    <div id="instruction">
         We'd like to ask you a few questions to make sure we can find the right
         technology for you. You can check as multiple bubbles or no bubbles for each question.
-        Select your preferred operating system.  Would you like your device to have ECU compatibility?
     </div>
+    <div id="intro3">Select your preferred operating system. Would you like your device to have ECU compatibility?</div>
     <div class="questions">
-    <label class="container"> iOS
-        <input type="checkbox" title="softwareIOS" id="softwareIOS"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container"> Mac OS
-        <input type="checkbox" title="softwareMacOS" id="softwareMacOS"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Android
-        <input type="checkbox" title="softwareAndroid" id="softwareAndroid"/>
-        <span class="checkmark"></span>
-    </label>
+        <label class="container"> iOS
+            <input type="checkbox" title="softwareIOS" id="softwareIOS"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container"> Mac OS
+            <input type="checkbox" title="softwareMacOS" id="softwareMacOS"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Android
+            <input type="checkbox" title="softwareAndroid" id="softwareAndroid"/>
+            <span class="checkmark"></span>
+        </label>
         <label class="container"> Windows
             <input type="checkbox" title="softwareWindows" id="softwareWindows"/>
             <span class="checkmark"></span>
@@ -95,117 +95,115 @@
 </div>
 
 
-<div id="fourfthQuestion">
-    <div id="intro4">
+<div class="fourthQuestion" id="fourQ"> <!--changed from id to class-->
+    <div id="instruction">
         We'd like to ask you a few questions to make sure we can find the right
         technology for you. You can check as multiple bubbles or no bubbles for each question.
-        <br><br>
-        What language options do you prefer?
     </div>
+    <div id="intro4">What language options do you prefer?</div>
+
     <div class ="questions">
+        <label class="container">English <!--changed the order of English to be first-->
+            <input type="checkbox" title="english" id="english"/>
+            <span class="checkmark"></span>
+        </label>
         <label class="container">French
             <input type="checkbox" title="french" id="french"/>
             <span class="checkmark"></span>
         </label>
-        <label class="container">English
-            <input type="checkbox" title="english" id="english"/>
+        <label class="container">Chinese
+            <input type="checkbox" title="chinese" id="chinese"/>
             <span class="checkmark"></span>
         </label>
-    <label class="container">Chinese
-        <input type="checkbox" title="chinese" id="chinese"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container"> Spanish
-        <input type="checkbox" title="spanish" id="spanish"/>
-        <span class="checkmark"></span>
-    </label>
+        <label class="container"> Spanish
+            <input type="checkbox" title="spanish" id="spanish"/>
+            <span class="checkmark"></span>
+        </label>
     </div>
 </div>
 
-<div id="fifthQuestion">
-    <div id="intro5">
+<div class="fifthQuestion" id="fiveQ"> <!--changed from id to class-->
+    <div id="instruction">
         We'd like to ask you a few questions to make sure we can find the right
         technology for you. You can check as multiple bubbles or no bubbles for each question.
-        <br><br>
-        What is your price range?
     </div>
+    <div id="intro5">What is your price range?</div>
     <div class ="questions">
-    <label class="container">Free
-        <input type="checkbox" title="freeTo50" id="freeTo50"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">$0-$99.99
-        <input type="checkbox" title="0to99" id="0to99"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container"> $100-$599.99
-    <input type="checkbox" title="100to599" id="100to599"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container"> $600-$999.99
-        <input type="checkbox" title="600to999" id="600to999"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">
-        <input type="checkbox" title="1000up" id="1000up"/>$1000.00 +up
-
-    </label>
+        <label class="container">Free
+            <input type="checkbox" title="freeTo50" id="freeTo50"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">$0-$99.99
+            <input type="checkbox" title="0to99" id="0to99"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container"> $100-$599.99
+            <input type="checkbox" title="100to599" id="100to599"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container"> $600-$999.99
+            <input type="checkbox" title="600to999" id="600to999"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            <input type="checkbox" title="1000up" id="1000up"/>$1000.00 +up
+            <span class="checkmark"></span>
+        </label>
     </div>
 </div>
 
-<div id="sixthQuestion">
-    <div id="intro6">
+<div class="sixthQuestion" id="sixQ"> <!--changed from id to class-->
+    <div id="instruction">
         We'd like to ask you a few questions to make sure we can find the right
-        technology for you. You can check as multiple bubbles or no bubbles for each question.
-        <br><br>
-        Would you like your device to include any of the following additional features?
-    </div>
+        technology for you. You can check as multiple bubbles or no bubbles for each question. </div>
+    <div id="intro6">Would you like your device to include any of the following additional features?</div>
+
     <div class="questions">
-    <label class="container"> Email
-        <input type="checkbox" title="emailExtra" id="emailExtra"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Texting
-        <input type="checkbox" title="textingExtra" id="textingExtra"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Social Media
-        <input type="checkbox" title="socialMedia" id="socialMedia"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Notetaking
-        <input type="checkbox" title="notetaking" id="notetaking"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Drawing/Writing
-        <input type="checkbox" title="drawingWriting" id="drawingWriting"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Personal Voice
-        <input type="checkbox" title="personalVoice" id="personalVoice"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Personal Phrase
-        <input type="checkbox" title="personalPhrase" id="personalPhrase"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Symbols
-        <input type="checkbox" title="symbols" id="symbols"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container"> Camera
-        <input type="checkbox" title="camera" id="camera"/>
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">Wearable
-        <input type="checkbox" title="wearable" id="wearable"/>
-        <span class="checkmark"></span>
-    </label>
-</div>
+        <label class="container"> Email
+            <input type="checkbox" title="emailExtra" id="emailExtra"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Texting
+            <input type="checkbox" title="textingExtra" id="textingExtra"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Social Media
+            <input type="checkbox" title="socialMedia" id="socialMedia"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Notetaking
+            <input type="checkbox" title="notetaking" id="notetaking"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Drawing/Writing
+            <input type="checkbox" title="drawingWriting" id="drawingWriting"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Personal Voice
+            <input type="checkbox" title="personalVoice" id="personalVoice"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Personal Phrase
+            <input type="checkbox" title="personalPhrase" id="personalPhrase"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Symbols
+            <input type="checkbox" title="symbols" id="symbols"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container"> Camera
+            <input type="checkbox" title="camera" id="camera"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Wearable
+            <input type="checkbox" title="wearable" id="wearable"/>
+            <span class="checkmark"></span>
+        </label>
+    </div>
 </div>
 
 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script src="guidedSearch.js"></script>
 </body>
 </html>
