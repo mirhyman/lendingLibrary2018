@@ -84,8 +84,12 @@ window.onload = function() {
                 build += "</div>";
             }
             build += "<div id='info'>";
-            let long = oReq.response.description[1];
-            build += long + "</div>";
+        let desc = "";
+        if (oReq.response.longDescription) {
+            desc = oReq.response.longDescription;
+        }
+
+            build += desc + "</div>";
             let badges = oReq.response.badges;
             let build3 = '';
             let badgeNum = 0;

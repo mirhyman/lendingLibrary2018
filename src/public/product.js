@@ -409,7 +409,11 @@ function displayResults() {
         build += "<img src=/images/";
         build += currResults[i].img;
         build += " >";
-        build += "<div id='description'>" + currResults[i].longDescription[1];
+        let desc = "";
+        if (currResults[i].longDescription) {
+            desc = currResults[i].longDescription;
+        }
+        build += "<div id='description'>" + desc;
         build += "</div>";
         build += "<div id='btns'>";
         build += "<button id='view' name='" +
