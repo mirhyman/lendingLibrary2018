@@ -456,4 +456,5 @@ b {
     left: 500px;
     top: -17px;
     color: #4CAF50;
+    visibility: hidden;
 }
