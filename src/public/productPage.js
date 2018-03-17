@@ -212,7 +212,7 @@ window.onload = function() {
 
         let contactLink = oReq.response.contactLink;
         //console.log(purchase);
-        if (contactLink) {
+        if (contactLink && contactLink.length !== 0) {
             build6 += "<tr><td>Contact Link</td><td><ul id='contactLink'>";
             for (let i = 0; i < contactLink.length; i++) {
                 build6 += "<href='" + contactLink[i] + "'>";
@@ -228,11 +228,6 @@ window.onload = function() {
                 build6 += "<li>" + training[i] + "</li>";
             }
             build6 += "</ul>";
-            let context = oReq.response.trainContext;
-            if (context) {
-                build6 += context;
-            }
-                build6 += "</td></tr>";
         }
         document.getElementById('purchaseTable').innerHTML = build6;
 
