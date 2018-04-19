@@ -20,7 +20,7 @@ function validateName(value) {
 }
 
     let ReviewSchema = new mongoose.Schema({
-        id: {type: Number, required: true},
+        id: {type: String, required: true},
         reviews: {type: Array, required: true}
     });
 
@@ -54,7 +54,7 @@ let PicModel = mongoose.model('Image', PicSchema);
         brand: {type: String, required: false},
         price: {type: Number, required: false},
         features: {type: Array, required: false},
-        id: {type: Number, required: true},
+        id: {type: String, required: true},
         img: {type: String, required: false},
         professional: {type: Boolean, required: true},
         badges: {type: Array, required: true},
@@ -85,6 +85,7 @@ let PicModel = mongoose.model('Image', PicSchema);
     async function getProductByName(name) {
         try {
             //prod.name = prod.name.toLowerCase();
+            console.log(name);
             const product = await ProductModel.findOne({name});
             if (!product) {
                 winston.debug(`${logPrefix}${name} not in db`);

@@ -377,11 +377,7 @@ function addProduct() {
             obj += 'brand=' + pair[1];
         } else if (pair[0] === 'name') {
             let nm = pair[1].toLowerCase();
-            let spaceIdx = nm.indexOf(" ");
-            while (spaceIdx !== -1) {
-                nm = nm.substring(0, spaceIdx) + nm.substring(spaceIdx + 1);
-                spaceIdx = nm.indexOf(" ");
-            }
+
             obj += 'name=' + nm;
             objName = nm;
         } else if (pair[0] === 'description') {

@@ -49,8 +49,9 @@ window.onload = function() {
     str = str.substring(idx + 1);
     name = str;
     let idx_space = name.indexOf("%20");
-    if (idx_space !== -1) {
+    while (idx_space !== -1) {
         name = name.substring(0, idx_space) + "+" + name.substring(idx_space + 3);
+        idx_space = name.indexOf("%20");
     }
     console.log(name);
 
@@ -63,9 +64,30 @@ window.onload = function() {
         let build = "<img src=/images/";
             build += oReq.response.img;
             build += "></img>";
+            let name = oReq.response.name;
+            let name_split = name.split(" ");
+            console.log(name_split);
+            let name_final = "";
+            // ooh this is weird haha...
+            let known_weird = ["ihome", "ipad"];
+            for (let i = 0; i < name_split.length; i++) {
+                if (known_weird.includes(name_split[i])) {
+                    name_final += known_weird[i].charAt(0) +
+                        known_weird[i].charAt(1).toUpperCase() +
+                        known_weird[i].substring(2) + " ";
+                } else if (i === 0 || i === name_split.size - 1) {
+                    name_final += name_split[i].charAt(0).toUpperCase() +
+                        name_split[i].substring(1) + " ";
+                } else if (name_split[i].length > 4) {
+                    name_final += name_split[i].charAt(0).toUpperCase() +
+                        name_split[i].substring(1) + " ";
+                } else {
+                    name_final += name_split[i] + " ";
+                }
+            }
+            console.log(name_final);
             build += "<div id='name'>" +
-                oReq.response.name.charAt(0).toUpperCase()
-                + oReq.response.name.substring(1) + "</div>";
+                name_final + "</div>";
             build += "<div id='professional'>";
             console.log(oReq.response.professional);
             if (oReq.response.professional === true) {

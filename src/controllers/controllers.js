@@ -6,6 +6,12 @@ async function getProductByName(req, res) {
         return res.status(400).send('Must include name');
     }
     try {
+        let idx = name.indexOf("+");
+        while(idx !== -1) {
+            name = name.substring(0, idx) + " " + name.substring(idx + 1);
+            idx = name.indexOf("+");
+            console.log(name);
+        }
         const product = await service.getProductByName(name.toLowerCase());
         if(product) {
             res.json(product).status(200);

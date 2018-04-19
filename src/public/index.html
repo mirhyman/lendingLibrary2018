@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-    <link rel="icon" href="icon.ico" type="image/x-icon">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="overLay">
 <div class="navBar">
     <div><button id="about" onclick="about()">About</button></div>
     <div><button id="products" onclick="getAll()">All Products</button></div>
@@ -20,31 +17,22 @@
 
 <div class='searchBar'>
     <label for="search"><input type="text" placeholder= "I'm looking for..." id="search"></label>
-    <button id="submitSearch" onclick="searchQuery()">Go</button>
+    <button id="submitSearch" onclick="searchQuery()"><i class="fa fa-search"></i></button> <!--changed to magnifying icon-->
 </div>
 
-<div id="slideUp">
-    <button class="slideup" onclick="slideUp()">
-        <i class="fa fa-angle-up fa-4x" aria-hidden="true"
-        ></i>
-    </button>
-</div>
 
 <div id="firstBox">
-<div class="welcome"><p>Welcome to Access for All. <br> We are here to help you find the assistive technology that meets your needs.</p></div>
-/*
-<div class="guidedSearch">
-    <button id="guidedSearch" onclick="guide()">Get started</button>
+    <div class="welcome"><p>Welcome to Access for All. <br>Helping you navigate the world of communication technology.</p></div>
+    /*
+    <div class="guidedSearch">
+        <button id="guidedSearch" onclick="guide()">Get started</button>
+    </div>
+
+    <div class="slideDown"><button class="slide" onclick="slideMove()">
+        <i class="fa fa-angle-down fa-4x" aria-hidden="true"
+        ></i>
+    </button></div>
 </div>
-
-<div class="slideDown"><button class="slide" onclick="slideMove()">
-    <i class="fa fa-angle-down fa-4x" aria-hidden="true"
-       ></i>
-   </button></div>
-</div>
-
-
-
 
 <div class="addingProduct" id="adding">
 
@@ -57,8 +45,13 @@
         <p>Footer</p>
     </div>
 
+    <div id="slideUp">
+        <button class="slideup" onclick="slideUp()">
+            <i class="fa fa-angle-up fa-4x" aria-hidden="true"
+            ></i>
+        </button>
+    </div>
     <script src="index.js"></script>
-</div>
 </div>
 </body>
 </html>
