@@ -397,8 +397,7 @@ function displayResults() {
 
         build += "<li><div id='info'>";
         build += "<div id='name'>" +
-            currResults[i].name.charAt(0).toUpperCase() +
-            currResults[i].name.substring(1) + "</div>";
+            currResults[i].upperName + "</div>";
         if (currResults[i].professional === true) {
             build += "<div id='professional'>" +
                 "<i class=\"fas fa-user-md\"></i></div>";

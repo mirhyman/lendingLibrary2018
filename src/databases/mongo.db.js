@@ -20,7 +20,7 @@ function validateName(value) {
 }
 
     let ReviewSchema = new mongoose.Schema({
-        id: {type: String, required: true},
+        id: {type: Number, required: true},
         reviews: {type: Array, required: true}
     });
 
@@ -47,6 +47,7 @@ let PicModel = mongoose.model('Image', PicSchema);
             index: true,
             unique: true
         },
+        upperName: {type: String, required: false},
         hardware: {type: Boolean, required: false},
         access: {type: Array, required: false},
         platform: {type: Array, required: false},
@@ -54,7 +55,7 @@ let PicModel = mongoose.model('Image', PicSchema);
         brand: {type: String, required: false},
         price: {type: Number, required: false},
         features: {type: Array, required: false},
-        id: {type: String, required: true},
+        id: {type: Number, required: true},
         img: {type: String, required: false},
         professional: {type: Boolean, required: true},
         badges: {type: Array, required: true},
