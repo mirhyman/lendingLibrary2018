@@ -65,7 +65,7 @@ window.onload = function() {
             build += oReq.response.img;
             build += "></img>";
             let name = oReq.response.upperName;
-            console.log(name_final);
+            //console.log(name_final);
             build += "<div id='name'>" +
                 name + "</div>";
             build += "<div id='professional'>";
