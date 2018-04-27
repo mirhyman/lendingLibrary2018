@@ -3,10 +3,10 @@ body {
     overflow-y: scroll;
     margin: none;
     /*overflow: hidden;*/
-    background-image: url('images/hands.jpg');
+    /*background-image: url('images/hands.jpg');*/
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #666;
+   /* background-color: #666;*/
 
 }
 
