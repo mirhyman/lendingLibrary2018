@@ -195,7 +195,7 @@ input[type="checkBox"] {
     border-left-style: solid;
     border-left-width: 3px;
     height: 160px;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 #resultList li:hover {
@@ -203,10 +203,11 @@ input[type="checkBox"] {
 }
 
 #resultList li img{
-    height: 160px;
-    width: 160px;
+    height: 150px;
+    width: 150px;
     padding-left: 10px;
-    margin-top: -21px;
+    position: relative;
+    top: -65px;
 }
 
 #resultList li #info #name {
@@ -220,14 +221,13 @@ input[type="checkBox"] {
 }
 
 #resultList li #info #price {
-    float: right;
-    margin: 0 230px 0 0;
+    right: -450px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     line-height: normal;
     font-size: calc(14px + (24 - 12) * ((55vw - 300px) / (1600 - 300)));;
-
+    position: relative;
 }
 
 #resultList li #info #brand {
@@ -240,7 +240,7 @@ input[type="checkBox"] {
 
 
 #resultList li #btns #compare{
-    position: absolute;
+    position: relative;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -249,7 +249,7 @@ input[type="checkBox"] {
     text-align: center;
     color: white;
     border-radius: 40px;
-    right: 15px;
+    right: -575px;
     padding: 10px;
 
     display:-webkit-inline-box;
@@ -275,7 +275,6 @@ input[type="checkBox"] {
 }
 
 #resultList li #btns #view{
-    position: absolute;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -284,8 +283,9 @@ input[type="checkBox"] {
     text-align: center;
     color: white;
     border-radius: 40px;
-    right: 130px;
+    right: -550px;
     padding: 10px;
+    position: relative;
 
 
     background: #0F4880;
