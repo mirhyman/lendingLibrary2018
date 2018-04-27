@@ -426,17 +426,23 @@ function displayResults() {
 }
 
 function storeCompare(btn) {
-    if (compareList.length < 3) {
-        if (compareList.includes(btn.name)) {
-            let idx = compareList.indexOf(btn.name);
-            compareList.splice(idx, 1);
-            document.getElementById('compare_all_your_items').textContent = "Compare(" +
-                compareList.length + ")";
-        } else {
-            compareList.push(btn.name);
-            document.getElementById('compare_all_your_items').textContent = "Compare(" +
-                compareList.length + ")";
-        }
+
+        if (compareList.length < 3) {
+            if (compareList.includes(btn.name)) {
+                let idx = compareList.indexOf(btn.name);
+                compareList.splice(idx, 1);
+                document.getElementById('compare_all_your_items').textContent = "Compare(" +
+                    compareList.length + ")";
+                btn.style.background = "#0F4880";
+                btn.style.border = "4px solid #0F4880";
+            } else {
+                compareList.push(btn.name);
+                document.getElementById('compare_all_your_items').textContent = "Compare(" +
+                    compareList.length + ")";
+                btn.style.background = "#1478cb";
+                btn.style.border = "4px solid #1478cb";
+            }
+
     } else {
         alert("You can only compare up to 3 items!");
     }

@@ -1,18 +1,12 @@
 #filterList {
-
-    -moz-column-count: 2;
-    -moz-column-gap: 1px;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 1px;
-    column-count: 2;
-    column-gap: 10px;
     position: fixed;
-    height: 90vh;
-    column-width: 10vw;
-    left: -30px;
+    height: 75vh;
     font-family: Roboto;
     font-size: 18px;
     margin-left: 27px;
+    overflow-y: scroll;
+    width: 225px;
+    overflow-x: hidden;
 }
 
 /*#home {
@@ -156,7 +150,7 @@ input[type="checkBox"] {
     height: 75%;
     float: right;
     position: fixed;
-    margin-left: 405px;
+    margin-left: 275px;
 }
 
 #resultPanel {
@@ -222,6 +216,7 @@ input[type="checkBox"] {
 
 #resultList li #info #price {
     right: -450px;
+    top: -20px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -251,6 +246,7 @@ input[type="checkBox"] {
     border-radius: 40px;
     right: -575px;
     padding: 10px;
+    top: -55px;
 
     display:-webkit-inline-box;
     background: #0F4880;
@@ -284,6 +280,7 @@ input[type="checkBox"] {
     color: white;
     border-radius: 40px;
     right: -550px;
+    top: -55px;
     padding: 10px;
     position: relative;
 
@@ -304,13 +301,12 @@ input[type="checkBox"] {
     position: relative;
     left: 190px;
     width: 20vw;
-    bottom: 130px;
+    bottom: 160px;
     font-family: Roboto;
     font-size: calc(12px + (18 - 12) * ((55vw - 300px) / (1600 - 300)));
 }
 
 #resultList {
-    left: -45px;
     width: 65%;
     position: fixed;
 }
