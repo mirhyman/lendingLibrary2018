@@ -31,20 +31,20 @@ img {
 
 #price {
     top: -27px;
-    left: 43vw;
+    left: 52vw;
 }
 
 #info {
     position: relative;
     left: 290px;
     top: 30px;
-    width: 25vw;
+    width: 30vw;
     font-family: Roboto;
     font-size: 16px;
 }
 
 #reviews {
-    width: 60%;
+    width: 68%;
     height: 200px;
     overflow: hidden;
     overflow-y: scroll;
@@ -71,8 +71,8 @@ li {
     top: 60px;
     position: absolute;
     margin-top: 80px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 20%;
+    margin-right: 20%;
     padding-left: 0px;
 }
 
@@ -85,8 +85,8 @@ li {
 
 #toAdd {
     position: absolute;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 16%;
+    margin-right: 16%;
     font-family: Roboto;
 }
 
@@ -100,7 +100,7 @@ li {
 #body {
     border-color: #0F4880;
     border-radius: 20px;
-    width: 60vw;
+    width: 68vw;
     height: 100px;
 }
 
@@ -267,8 +267,8 @@ li {
 }
 
 #information {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 16%;
+    margin-right: 16%;
 }
 
 #features {
@@ -288,7 +288,7 @@ li {
 #features li {
     border-bottom: white;
     list-style: none;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     font-family:  'Roboto', sans-serif;
     font-size: 15px;
     font-weight: bold;
@@ -438,7 +438,8 @@ li {
 
 #professional {
     position: absolute;
-    left: 600px;
+    left: 260px;
+    top: -5px;
     color: #4CAF50;
 }
 

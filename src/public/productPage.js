@@ -223,7 +223,7 @@ window.onload = function() {
         }
 
         let training = oReq.response.training;
-        //console.log(purchase);
+        console.log(training);
         if (training) {
             build6 += "<tr><td>Available Training</td><td><ul id='training'>";
             for (let i = 0; i < training.length; i++) {
@@ -250,7 +250,7 @@ window.onload = function() {
                     build2 += "<br></li>";
                 }
             } else {
-                build2 += "<li>no reviews";
+                build2 += "<li>there are no reviews yet - be the first to add one below!";
             }
             build += "</li><br>";
 

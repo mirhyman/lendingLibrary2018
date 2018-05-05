@@ -61,7 +61,7 @@ function checkList() {
         let build = "<tr><td id='name'>name</td>";
         // name loop
         for (let i = 0; i < compare_list.length; i++) {
-            build += "<th id='b" + i + "'>" + compare_list[i].name + "</th>";
+            build += "<th id='b" + i + "'>" + compare_list[i].upperName + "</th>";
         }
         build += "</tr>";
         build += "<tr><th id='firstImg'></th>";
