@@ -322,24 +322,20 @@ li {
     margin-bottom:auto;
 }
 
+#icon0 {
+    color:  #bf4adb;
+}
+
 #icon1 {
     color: #738ffc;
-}
-
-#icon7 {
-    color: #a9e34b;
-}
-
-#icon18 {
-    color: #e7497f;
 }
 
 #icon2 {
     color: #f1bf77;
 }
 
-#icon8 {
-    color: #fcc2d7;
+#icon3 {
+    color: #009688;
 }
 
 #icon4 {
@@ -350,36 +346,16 @@ li {
     color: #3959de;
 }
 
-#icon13 {
-    color: #f9045d;
-}
-
-#icon15 {
-    color: #d9efb5;
-}
-
-#icon20 {
-    color:  #bf4adb;
-}
-
-#icon23 {
-    color: #95dde6;
-}
-
-#icon22 {
-    color: #f10471;
-}
-
-#icon0 {
-    color:  #bf4adb;
-}
-
-#icon3 {
-    color: #009688;
-}
-
 #icon6 {
     color: #f7659a;
+}
+
+#icon7 {
+    color: #a9e34b;
+}
+
+#icon8 {
+    color: #fcc2d7;
 }
 
 #icon9 {
@@ -398,13 +374,75 @@ li {
     color: #FF5722;
 }
 
+#icon13 {
+    color: #f9045d;
+}
+
 #icon14 {
     color: #00BCD4;
+}
+
+#icon15 {
+    color: #d9efb5;
 }
 
 #icon16 {
     color: #e6bfec;
 }
+
+#icon17 {
+    color: #FF9800;
+}
+
+#icon18 {
+    color: #e7497f;
+}
+
+#icon19 {
+    color: #d8f7fb;
+}
+
+#icon20 {
+    color:  #bf4adb;
+}
+
+#icon21 {
+    color: #f39476;
+}
+
+#icon23 {
+    color: #95dde6;
+}
+
+#icon22 {
+    color: #f10471;
+}
+
+#icon24 {
+    color: #d9efb5;
+}
+
+#icon25 {
+    color: #009688;
+}
+
+#icon26 {
+    color: #FF5722;
+}
+
+#icon27 {
+    color: #825e90;
+}
+
+#icon28 {
+    color: #e7497f;
+}
+
+#icon29 {
+    color: #1df1e4;
+}
+
+
 
 #access li {
     border: white;
@@ -416,18 +454,6 @@ li {
     margin-bottom: 100px;
     margin-left: 40px;
     margin-right: 40px;
-}
-
-#icon17 {
-    color: #FF9800;
-}
-
-#icon21 {
-    color: #f39476;
-}
-
-#icon19 {
-    color: #d8f7fb;
 }
 
 #specs {
