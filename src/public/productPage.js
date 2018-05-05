@@ -36,8 +36,10 @@ let badgesIcon = ["<i class='fas fa-hand-point-up fa-5x'></i>",
     "<i class=\"fas fa-file-word fa-5x\"></i>",
     "<i class=\"fab fa-stack-exchange fa-5x\"></i>",
     "<i class=\"fas fa-font fa-5x\"></i>",
-    "<i class=\"fas fa-quidditch fa-5x\"></i>",
-    "<i class=\"fas fa-bars fa-5x\"></i>", "<i class=\"fas fa-code fa-5x\"></i>"
+    "<i class=\"fas fa-map-signs fa-5x\"></i>",
+    "<i class=\"fas fa-bars fa-5x\"></i>",
+    "<i class =\"fa-puzzle-piece fa-5x\"></i>",
+    "<i class=\"fas fa-code fa-5x\"></i>"
 
 
 ];
