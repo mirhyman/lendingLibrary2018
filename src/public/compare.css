@@ -115,7 +115,7 @@ tr:nth-child(even) {
 
 
 
-#a0, #a1, #a2, #firstImg {
+#a0, #a1, #a2, #a3, #firstImg {
     border: 1px white solid;
     border-bottom: 1px black solid;
     background-color: white;
@@ -126,7 +126,7 @@ tr:nth-child(even) {
     background-color: white;
 }
 
-#b0, #b1, #b2 {
+#b0, #b1, #b2, #b3 {
     border: 1px white solid;
     border-bottom: 1px white solid;
     font-size: 1.5vw;
