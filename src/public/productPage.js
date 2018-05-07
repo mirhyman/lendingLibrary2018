@@ -206,7 +206,7 @@ window.onload = function() {
 
         let contactEmail = oReq.response.contactEmail;
         //console.log(purchase);
-        if (contactEmail) {
+        if (contactEmail && contactEmail.length !== 0) {
             build6 += "<tr><td>Contact Email</td><td><ul id='contactEmail'>";
             for (let i = 0; i < contactEmail.length; i++) {
                 build6 += "<a href='mailto:" + contactEmail[i] + "'></a>";
@@ -218,19 +218,26 @@ window.onload = function() {
         //console.log(purchase);
         if (contactLink && contactLink.length !== 0) {
             build6 += "<tr><td>Contact Link</td><td><ul id='contactLink'>";
-            for (let i = 0; i < contactLink.length; i++) {
-                build6 += "<href='" + contactLink[i] + "'>";
+            for (let i = 0; i < contactLink.length; i++)
+                build6 += "<a href='" + contactLink[i] + "'></a>";
             }
             build6 += "</ul></td></tr>";
         }
 
         let training = oReq.response.training;
         console.log(training);
-        if (training) {
+        if (training && training.length !== 0) {
             build6 += "<tr><td>Available Training</td><td><ul id='training'>";
             for (let i = 0; i < training.length; i++) {
-                build6 += "<li>" + training[i] + "</li>";
+                build6 += "<li><a href='" + training[i] + "'</a></li>";
             }
+            build6 += "</ul>";
+        }
+        let trainContext = oReq.response.trainContext;
+        console.log(trainContext);
+        if (trainContext) {
+            build6 += "<tr><td>Training Context</td><td><ul id='trainContext'>";
+            build6 += trainContext;
             build6 += "</ul>";
         }
         document.getElementById('purchaseTable').innerHTML = build6;
