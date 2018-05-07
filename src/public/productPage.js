@@ -229,7 +229,7 @@ window.onload = function() {
         if (training && training.length !== 0) {
             build6 += "<tr><td>Available Training</td><td><ul id='training'>";
             for (let i = 0; i < training.length; i++) {
-                build6 += "<li><a href='" + training[i] + "'</a></li>";
+                build6 += "<li><a href='" + training[i] + "'</a>" + training[i] + "</li>";
             }
             build6 += "</ul>";
         }
