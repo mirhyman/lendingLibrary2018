@@ -205,11 +205,11 @@ window.onload = function() {
         }
 
         let contactEmail = oReq.response.contactEmail;
-        //console.log(purchase);
+        console.log(contactEmail);
         if (contactEmail && contactEmail.length !== 0) {
             build6 += "<tr><td>Contact Email</td><td><ul id='contactEmail'>";
             for (let i = 0; i < contactEmail.length; i++) {
-                build6 += "<a href='mailto:" + contactEmail[i] + "'></a>";
+                build6 += "<a href='mailto:" + contactEmail[i] + "'>" + contactEmail[i] + "</a>";
             }
             build6 += "</ul></td></tr>";
         }
@@ -219,7 +219,7 @@ window.onload = function() {
         if (contactLink && contactLink.length !== 0) {
             build6 += "<tr><td>Contact Link</td><td><ul id='contactLink'>";
             for (let i = 0; i < contactLink.length; i++) {
-                build6 += "<a href='" + contactLink[i] + "'></a>";
+                build6 += "<a href='" + contactLink[i] +  "'>" + contactLink[i]  + "</a>";
             }
             build6 += "</ul></td></tr>";
 
