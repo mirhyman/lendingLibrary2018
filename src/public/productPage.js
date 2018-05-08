@@ -83,12 +83,7 @@ window.onload = function() {
             build += "<div id='brand'>" + oReq.response.brand + "</div>";
             let specs = oReq.response.spec;
             let hard = oReq.response.hardware;
-            if (oReq.response.spec && oReq.response.hardware === true) {
-                build += "<div id='specs'>Specs<br>";
-                build += oReq.response.spec[0] + ", " +
-                    oReq.response.spec[1] + ", " + oReq.response.spec[2] + " hours";
-                build += "</div>";
-            }
+
             build += "<div id='info'>";
         let desc = "";
         if (oReq.response.longDescription) {
@@ -158,6 +153,17 @@ window.onload = function() {
             }
         }
         */
+        let build_spec = '';
+        if (oReq.response.spec && oReq.response.hardware === true) {
+            build_spec += "<div id='specs'>Tech Specs<br>";
+            build_spec += "<tr><td>Weight</td><td>" +
+            + oReq.response.spec[0] + "</td></tr>";
+            build_spec += "<tr><td>Dimensions</td><td>" +
+                oReq.response.spec[1] + "</td></tr>";
+            build_spec += "<tr><td>Battery Life</td><td>"
+                + oReq.response.spec[2] + " hours</td></tr>";
+            build_spec += "</div>";
+        }
 
         let build5 = '';
         let otherNum = 0;
@@ -243,6 +249,7 @@ window.onload = function() {
             build6 += "</ul>";
         }
         document.getElementById('purchaseTable').innerHTML = build6;
+        document.getElementById('specList').innerHTML = build_spec;
 
         let oReq2 = new XMLHttpRequest();
         oReq2.open("GET", "/product/review/" + id, true);
