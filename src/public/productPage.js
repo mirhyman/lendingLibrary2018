@@ -83,7 +83,7 @@ window.onload = function() {
             build += "<div id='brand'>" + oReq.response.brand + "</div>";
             let specs = oReq.response.spec;
             let hard = oReq.response.hardware;
-            if (oReq.response.spec && oReq.response.hardware === "true") {
+            if (oReq.response.spec && oReq.response.hardware === true) {
                 build += "<div id='specs'>Specs<br>";
                 build += oReq.response.spec[0] + ", " +
                     oReq.response.spec[1] + ", " + oReq.response.spec[2] + " hours";
