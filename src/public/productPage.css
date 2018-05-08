@@ -442,6 +442,20 @@ li {
     color: #1df1e4;
 }
 
+#specs {
+    position: relative;
+    top: -10px;
+    font-family:  'Roboto', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    left: 120px;
+    font-size: 20px;
+}
+
+#spec {
+    margin-bottom: 85px;
+
+}
 
 
 #access li {
