@@ -156,12 +156,19 @@ window.onload = function() {
         let build_spec = '';
         if (oReq.response.spec && oReq.response.hardware === true) {
             build_spec += "<div id='specs'>Tech Specs<br>";
-            build_spec += "<tr><td>Weight</td><td>" +
-            + oReq.response.spec[0] + "</td></tr>";
+            build_spec += "<tr><td>Weight</td><td>";
+            let bs = '';
+            let weight = oReq.response.spec[0];
+            for(let w = 0; w < weight.length; w++) {
+                bs += weight[w];
+            }
+            build_spec += bs + "</td></tr>";
             build_spec += "<tr><td>Dimensions</td><td>" +
                 oReq.response.spec[1] + "</td></tr>";
+            build_spec += "<tr><td>Screen Size</td><td>" +
+            oReq.response.spec[2] + "</td></tr>";
             build_spec += "<tr><td>Battery Life</td><td>"
-                + oReq.response.spec[2] + " hours</td></tr>";
+                + oReq.response.spec[3] + " hours</td></tr>";
             build_spec += "</div>";
         }
 
