@@ -226,7 +226,7 @@ function unfilterResults(filter) {
                 // now loop through each filter and filter the currently
                 // pared down list
                 for (let j = 0; j < categoriesFilters.length; j++) {
-                    len++;
+                    
                     filteredOnCategory = filterOnList(filteredOnCategory,
                         categoriesFilters[j], key);
                 }
