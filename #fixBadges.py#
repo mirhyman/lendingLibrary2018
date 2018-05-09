@@ -1,0 +1,10 @@
+badgesTitle = ["Touchscreen", "Keyboard",
+    "Switch", "Mouse Alternative", "Built-in Eye Gaze",
+    "MacOS Compatible", "ECU Compatible",
+    "iOS Compatible", "Windows Compatible", "Android Compatible",
+    "Multilingual", "Email", "Texting", "Social Media", "Free Draw/Write",
+    "Built-in Camera", "Mountable", "Wearable", "Digitized Speech",
+    "Naturalistic Speech", "Record Your Own Voice", "Symbol-based Vocabulary",
+    "Photo-based Vocabulary", "Word-based Vocabulary", "Phrase-based Vocabulary",
+    "Text-based Communication", "Word Prediction", "Phrase Prediction",
+    "Sentence Prediction", "Programmable Shortcuts"];
