@@ -189,6 +189,11 @@ function unfilterResults(filter) {
             filteredOnCategory = filterGroups.get(str2);
         } else {
             let newLst = [];
+            if (category === 'software') {
+               currCategoryFilters.push('hardware');
+            } else if (category === 'hardware') {
+                currCategoryFilters.push('software');
+            }
             for (let i = 0; i < currCategoryFilters.length; i++) {
                 let res = filterOnList(allResults, currCategoryFilters[i], category);
 
@@ -226,7 +231,7 @@ function unfilterResults(filter) {
                 // now loop through each filter and filter the currently
                 // pared down list
                 for (let j = 0; j < categoriesFilters.length; j++) {
-                    
+
                     filteredOnCategory = filterOnList(filteredOnCategory,
                         categoriesFilters[j], key);
                 }
