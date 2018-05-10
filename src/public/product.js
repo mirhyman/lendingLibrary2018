@@ -300,6 +300,11 @@ function filterCurrResults(filter) {
             filteredOnCategory = filterGroups.get(str2);
         } else {
             let newLst = [];
+            if (category === 'software') {
+                currCategoryFilters.push('hardware');
+            } else if (category === 'hardware') {
+                currCategoryFilters.push('software');
+            }
             for (let i = 0; i < currCategoryFilters.length; i++) {
                 let res = filterOnList(allResults, currCategoryFilters[i], category);
 
