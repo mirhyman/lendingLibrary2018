@@ -91,7 +91,7 @@ window.onload = function() {
                 if (features[i] === 'warranty') {
                     // never will have 70 badges
                     build3 += "<li><div id='icon" + 70 + "'>";
-                    build3 += "<i class=\"fa fa-life-ring\" aria-hidden=\"true\"></i>"
+                    build3 += "<i class=\"fa fa-life-ring fa-5x\" aria-hidden=\"true\"></i>"
                         + "</div>" + "Warranty" + "</li>";
                 }
             }
