@@ -192,7 +192,7 @@ function check() {
         if (addAnd) {
             queryString += "&";
         }
-        queryString += "minPrice=0&maxPrice=50";
+        queryString += "minPrice=0&maxPrice=1";
         addAnd = true;
     }
     if (document.getElementById("0to99").checked) {

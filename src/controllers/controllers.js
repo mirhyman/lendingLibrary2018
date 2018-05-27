@@ -152,7 +152,6 @@ async function getProductByText(req, res) {
 
 async function getProductsByAccess(req, res) {
     let access = req.query.query;
-    console.log(access);
     if(!access) {
         return res.status(400).send('Must include access');
     }

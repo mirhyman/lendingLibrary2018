@@ -86,6 +86,15 @@ window.onload = function() {
             let badges = oReq.response.badges;
             let build3 = '';
             let badgeNum = 0;
+            let features = oReq.response.features;
+            for (let i = 0; i < features.length; i++) {
+                if (features[i] === 'warranty') {
+                    // never will have 70 badges
+                    build3 += "<li><div id='icon" + 70 + "'>";
+                    build3 += "<i class=\"fa fa-life-ring\" aria-hidden=\"true\"></i>"
+                        + "</div>" + Warranty + "</li>";
+                }
+            }
         for (let i = 0; i < badgesTitle.length; i++) {
 
             if (badges[i] === 'true') {

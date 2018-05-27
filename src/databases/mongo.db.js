@@ -201,6 +201,7 @@ async function getProductByQuery(prod) {
                 }
             }
         }
+        console.log("products after hardware: " + productMap);
         const accessList = prod.access;
         if (accessList) {
             let i;
@@ -216,6 +217,7 @@ async function getProductByQuery(prod) {
                 }
             }
         }
+        console.log("products after access: " + productMap);
         const platformList = prod.platform;
         if (platformList) {
             let i;
@@ -231,6 +233,7 @@ async function getProductByQuery(prod) {
                 }
             }
         }
+        console.log("products after platform: " + productMap);
         const languageList = prod.languages;
 
         if (languageList) {
@@ -249,15 +252,18 @@ async function getProductByQuery(prod) {
                 }
             }
         }
+        console.log("products after language: " + productMap);
         const minPrice = prod.minPrice;
         const maxPrice = prod.maxPrice;
         if (maxPrice !== 0) {
             let priceProds = await
                 ProductModel.find({price: {$lt: maxPrice, $gte: minPrice}});
-            console.log(priceProds);
+            //console.log(priceProds);
             let i;
             for (i = 0; i < priceProds.length; i++) {
                 let currProd = priceProds[i];
+                console.log("currProd is: ");
+                console.log(currProd);
                 if (!productMap.has(currProd.id)) {
                     productMap.set(currProd.id, currProd);
                 }
@@ -281,7 +287,7 @@ async function getProductByQuery(prod) {
 
         var result = [];
         // calculate scores
-        console.log(productMap);
+        //console.log(productMap);
         for (var curProd of productMap.values()) {
             var curScore = 0;
             // hardware
@@ -334,21 +340,39 @@ async function getProductByQuery(prod) {
         result.sort(function (a, b) {
             return b.score - a.score;
         });
+        console.log(result);
         let hasSeen = [];
         let results = [];
         for (let i = 0; i < result.length; i++) {
             let seen = 0;
+            console.log(result[i].product.id);
+            //console.log(typeof(result[i].product.id));
+            let num = result[i].product.id;
+            if (typeof(result[i].product.id) === 'object') {
+
+                num = result[i].product.id.valueOf();
+                console.log(num);
+            }
             for (let j = 0; j < hasSeen.length; j++) {
-                if (hasSeen[j].product.id === hasSeen[j].product.id) {
+                let seen_num = hasSeen[j].product.id;
+
+                if (typeof(hasSeen[j].product.id) === 'object') {
+                    seen_num = hasSeen[j].product.id.valueOf();
+                }
+                console.log("in hasSeen the id is: " + seen_num + " and the current product" +
+                " id is: " + num);
+                if (seen_num === num) {
                     seen = 1;
+                    console.log('correct duplicates');
                     break;
                 }
             }
             if (seen !== 1) {
                 results.push(result[i].product);
+                hasSeen.push(result[i]);
             }
         }
-        
+
 
         //console.log(results);
         return results.map(res => Product.fromDb(res));
