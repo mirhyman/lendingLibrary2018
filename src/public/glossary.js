@@ -2,7 +2,7 @@ function goHome() {
     window.location = "/";
 }
 
-function allProducts() {
+function getAll() {
     let oReq = new XMLHttpRequest();
 
     oReq.open("GET", "/products", true);
