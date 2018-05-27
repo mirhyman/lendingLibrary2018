@@ -56,24 +56,32 @@ let checkBoxToField =  new Map(checkBox);
 
 window.onload = function() {
     let str = window.location.href;
+    console.log(str);
     let idx = str.indexOf("?");
     str = str.substring(idx);
     let sub = str.indexOf("Q");
     let sub1 = str.indexOf("$ACC");
     let oReq = new XMLHttpRequest();
-    //console.log(sub);
-    if (sub1 != -1) {
+    if (sub1 !== -1) {
         str = str.substring(5);
+        console.log("product access");
         oReq.open("GET", "/productAccess?query=" + str, true);
+
     } else if (sub !== -1) {
         str = str.substring(2);
+        console.log("textSearch");
         oReq.open("GET", "/textSearch?query=" + str, true);
+
     } else if (str === "?") {
         //console.log("here 2");
+        console.log("get products");
         oReq.open("GET", "/products", true);
+
     } else {
         //console.log("here 3");
+        console.log("get product");
         oReq.open("GET", "/product" + str, true);
+
     }
     oReq.responseType = 'json';
     oReq.onload = function(oEvent) {
