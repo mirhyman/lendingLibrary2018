@@ -55,7 +55,7 @@ async function getProductByQuery(req, res) {
     let jsonProd = {
         hardware: req.query.hardware,
         access: req.query.access,
-        platform: req.query.platform,
+        platform: req.query.software,
         languages: req.query.languages,
         maxPrice: maxPrice,
         minPrice: minPrice,
