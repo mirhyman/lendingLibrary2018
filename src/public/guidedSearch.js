@@ -67,17 +67,19 @@ function check() {
     let queryString = "";
     // will fix this
     let addAnd = false;
-
-    if (document.getElementById("hardware").checked) {
-        queryString += "hardware=true";
-        addAnd = true;
-    }
-    if (document.getElementById("software").checked) {
-        if (addAnd) {
-            queryString += "&";
+    if (!(document.getElementById("hardware").checked &&
+        document.getElementById("software").checked)) {
+        if (document.getElementById("hardware").checked) {
+            queryString += "hardware=true";
+            addAnd = true;
         }
-        queryString += "hardware=false";
-        addAnd = true;
+        if (document.getElementById("software").checked) {
+            if (addAnd) {
+                queryString += "&";
+            }
+            queryString += "hardware=false";
+            addAnd = true;
+        }
     }
     let idx = '0';
     if (document.getElementById("keyboard").checked) {
