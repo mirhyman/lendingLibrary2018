@@ -334,10 +334,26 @@ async function getProductByQuery(prod) {
             return b.score - a.score;
         });
 
+        let duplicates = new Map();
+        let toRemove = [];
+        for (let i = 0; i < result.length; i++) {
+            if (duplicates.has(result[i].product.id)) {
+                toRemove.push(i);
+            } else {
+                duplicates.set(result[i].product.id, result[i].product);
+            }
+        }
+
+        for (let i = 0; i < toRemove.length; i++) {
+            let removeIndex = toRemove[i] - i;
+            result.splice(removeIndex, removeIndex + 1);
+        }
+
         var results = [];
         for (let i = 0; i < result.length; i++) {
             results.push(result[i].product);
         }
+        
 
         //console.log(results);
         return results.map(res => Product.fromDb(res));
