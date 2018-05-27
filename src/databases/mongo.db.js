@@ -318,7 +318,7 @@ async function getProductByQuery(prod) {
             }
             // price
             if (prod.minPrice <= curProd.price && prod.maxPrice > curProd.price) {
-                curScore += 2;
+                curScore += 10000;
             }
             if (prod.features) {
                 for (var curFeat of curProd.features) {
@@ -353,7 +353,7 @@ async function getProductByQuery(prod) {
         for (let i = 0; i < result.length; i++) {
             results.push(result[i].product);
         }
-        
+
 
         //console.log(results);
         return results.map(res => Product.fromDb(res));
