@@ -92,7 +92,7 @@ window.onload = function() {
                     // never will have 70 badges
                     build3 += "<li><div id='icon" + 70 + "'>";
                     build3 += "<i class=\"fa fa-life-ring\" aria-hidden=\"true\"></i>"
-                        + "</div>" + Warranty + "</li>";
+                        + "</div>" + "Warranty" + "</li>";
                 }
             }
         for (let i = 0; i < badgesTitle.length; i++) {
