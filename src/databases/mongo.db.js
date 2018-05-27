@@ -329,31 +329,26 @@ async function getProductByQuery(prod) {
             }
             result.push({product: curProd, score: curScore});
         }
+
         // order resulting array by descending score
         result.sort(function (a, b) {
             return b.score - a.score;
         });
-
-        let duplicates = new Map();
-        let toRemove = [];
+        let hasSeen = [];
+        let results = [];
         for (let i = 0; i < result.length; i++) {
-            if (duplicates.has(result[i].product.id)) {
-                toRemove.push(i);
-            } else {
-                duplicates.set(result[i].product.id, result[i].product);
+            let seen = 0;
+            for (let j = 0; j < hasSeen.length; j++) {
+                if (hasSeen[j].product.id === hasSeen[j].product.id) {
+                    seen = 1;
+                    break;
+                }
+            }
+            if (seen !== 1) {
+                results.push(result[i].product);
             }
         }
-
-        for (let i = 0; i < toRemove.length; i++) {
-            let removeIndex = toRemove[i] - i;
-            result.splice(removeIndex, removeIndex + 1);
-        }
-
-        var results = [];
-        for (let i = 0; i < result.length; i++) {
-            results.push(result[i].product);
-        }
-
+        
 
         //console.log(results);
         return results.map(res => Product.fromDb(res));
