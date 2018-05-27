@@ -70,14 +70,6 @@ window.onload = function() {
             //console.log(name_final);
             build += "<div id='name'>" +
                 name + "</div>";
-            build += "<div id='professional'>";
-            console.log(oReq.response.professional);
-            if (oReq.response.professional === true) {
-                professional = true;
-                console.log('got here');
-                build += "<i class=\"fas fa-user-md fa-2x\"></i>";
-            }
-            build += "</div>";
             build += "<div id='price'>$" + oReq.response.price + "</div>";
             console.log(oReq.response.description);
             build += "<div id='brand'>" + oReq.response.brand + "</div>";
