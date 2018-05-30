@@ -16,37 +16,14 @@ let categoricalFilters = new Map();
 
 
 let filterGroups = new Map();
-// yes this is terrible but i'm rolling with it.
-// list of the current items filtered on everything but the professional field
-let noProfessional = [];
-// current items filtered on everything but the hardware field
-let noHardware = [];
-// current items filtered on everything but the access field
-let noAccess = [];
-// current items filtered on everything but the software field
-let noSoftware = [];
-// not filtered on languages
-let noLang = [];
-// not filtered on price
-let noPrice = [];
-// not filtered on features = []
-let noFeats = [];
 
-let noNotHardware = [];
-
-// maps the category names to a list of items
-// which are filtered on all the current filters
-// except those filters which are from the
-// current category
-let groupsList = new Map();
 
 let checkBox= [['keyboard', 'keyboard'],
     ['accessTouch', 'touch'], ['accessSwitch', 'switch'],
     ['accessMouse', 'mouse'], ['accessEyes', 'eyes'],
     ['softwareMacOS', 'mac'], ['softwareIOS', 'ios'],
+    ['softwareECU', 'ecu'],
     ['softwareWindows', 'windows'], ['softwareAndroid', 'android'],
-    ['english', 'english'], ['spanish', 'spanish'],
-    ['mandarin', 'mandarin'], ['french', 'french'],
     ['emailExtra', 'email'], ['textingExtra', 'texting'],
     ['socialMedia', 'social'], ['drawingWriting', 'draw'],
     ['camera', 'camera'], ['mount', 'mountable'],
@@ -90,11 +67,9 @@ window.onload = function() {
         // to begin, curr results is all results
         // as there is no filters
         currResults = allResults;
-        // the past results starts off with the state of
-        // all results (this is also just no filter)
-        pastResults.push(allResults);
 
-        // to begin all the lists are set to allResults
+
+        /* to begin all the lists are set to allResults
         noProfessional = allResults;
         noHardware = allResults;
         noAccess = allResults;
@@ -111,12 +86,21 @@ window.onload = function() {
         groupsList.set("language", noLang);
         groupsList.set("price", noPrice);
         groupsList.set("software", noSoftware);
+        */
 
         // set the categorical filters map up, at the begining
         // this should just have a bunch of empty lists
-        for (let [key, value] of groupsList) {
-            categoricalFilters.set(key, []);
-        }
+        // for hardware it is either true in the list or it is just true
+        categoricalFilters.set("hardware", []);
+        categoricalFilters.set("software", []);
+        // filter for the platforms
+        categoricalFilters.set("platform", []);
+        categoricalFilters.set("access", []);
+        categoricalFilters.set("features", []);
+        categoricalFilters.set("language", []);
+        categoricalFilters.set("price", []);
+
+
 
         // this gets all the id's for the filter list items
         let lst1 = Array.from(document.getElementById("filterList").getElementsByTagName("ul"));
@@ -133,7 +117,8 @@ window.onload = function() {
             }
         }
 
-        //getElementsByTagName("ul").getElementsByTagName("li"));
+        // fills up checkedOrNot with a list of whether or not a certain category is checked or
+        // not checked
         for (let i = 0; i < lst.length; i++) {
 
             checkedOrNot.set(lst[i], 0);
@@ -150,105 +135,27 @@ window.onload = function() {
 
 function onCheckUpdate(filter) {
     if (filter.checked) {
-        filterCurrResults(filter);
+        if (filter.title === 'hardware' &&
+            document.getElementById('software').checked) {
+            document.getElementById('hardware').checked = false;
+            document.getElementById('alert').style.display = 'inherit';
+        } else if (filter.title === 'software' &&
+            document.getElementById('hardware').checked) {
+            document.getElementById('software').checked = false;
+            document.getElementById('alert').style.display = 'inherit';
+        } else {
+            filterCurrResults(filter);
+        }
     } else {
         unfilterResults(filter);
     }
 }
 
-function unfilterResults(filter) {
-    let category = filter.title;
 
-    let filterBy = filter.id;
-
-    checkedOrNot.set(filterBy, 0);
-    let str = '';
-    for (let [key, value] of checkedOrNot) {
-        str += checkedOrNot.get(key);
-    }
-    if (filterGroups.has(str)) {
-        // we found a previous version of this where the list
-        // was already filtered on all these filters
-        currResults = filterGroups.get(str);
-        let oldIdx = categoricalFilters.get(category).indexOf(filterBy);
-        if (oldIdx !== -1) {
-            categoricalFilters.get(category).splice(oldIdx, 1);
-        }
-        displayResults();
-    } else {
-        let filteredOnCategory = allResults;
-
-        // remove this new filter
-        let oldIdx = categoricalFilters.get(category).indexOf(filterBy);
-        if (oldIdx !== -1) {
-            categoricalFilters.get(category).splice(oldIdx, 1);
-        }
-
-        let currCategoryFilters = categoricalFilters.get(category);
-        let str2 = '';
-        for (let [key, value] of checkedOrNot) {
-            if (document.getElementById(key).title === category) {
-                str2 += checkedOrNot.get(key);
-            } else {
-                str2 += 0;
-            }
-        }
-        if (filterGroups.has(str2)) {
-            filteredOnCategory = filterGroups.get(str2);
-        } else {
-            let newLst = [];
-           
-            for (let i = 0; i < currCategoryFilters.length; i++) {
-                let res = filterOnList(allResults, currCategoryFilters[i], category);
-
-                // now loop through res and add in any items to newLst that were not there
-                // before
-                for (let j = 0; j < res.length; j++) {
-                    if (!newLst.includes(res[j])) {
-                        newLst.push(res[j]);
-                    }
-                }
-            }
-            // at this point, all of the results in all results should be filtered on *this*
-            // category with the use of "or" logic
-
-            // if currCategoryFilters is empty then set newLst just to allResults
-            if (currCategoryFilters.length === 0) {
-                newLst = allResults;
-            }
-
-            filteredOnCategory = newLst;
-            filterGroups.set(str2, filteredOnCategory);
-        }
-
-        // now, loop through filteredOnCategory and apply *and* logic to all the
-        // remaining categories filters, checking and updating the map on the way as we go.
-
-        // so loop through the categoricalFilters map
-
-        for (let [key, value] of categoricalFilters) {
-
-            // make sure this is not the current category we are on!
-            if (key !== category) {
-                let categoriesFilters = categoricalFilters.get(key);
-
-                // now loop through each filter and filter the currently
-                // pared down list
-                for (let j = 0; j < categoriesFilters.length; j++) {
-
-                    filteredOnCategory = filterOnList(filteredOnCategory,
-                        categoriesFilters[j], key);
-                }
-            }
-        }
-
-        currResults = filteredOnCategory;
-        filterGroups.set(str, currResults);
-        displayResults();
-    }
+function searchQuery() {
+    let queryString = document.getElementById('search').value;
+    window.location = "/loadProduct?Q" + queryString;
 }
-
-
 
 
 function filterCurrResults(filter) {
@@ -276,54 +183,126 @@ function filterCurrResults(filter) {
 
         displayResults();
     } else {
-        //we didnt already filter on these filters so we have to
-        // build it up.
-
-        let newList = [];
-
-        // go through each categorical filters, so ie for hardware = "hardware",
-        // and "price" = free, 0-100, 1000+, access=eyes
-        // *first* go grab all the items in allResults which have this combination
-        // of this categories filters. (check the map first and then add to the map
-        // if it is not there already.
-
-        let filteredOnCategory = allResults;
-
         // add this new filter
         categoricalFilters.get(category).push(filterBy);
+        // get all the current filters in this same category
+        // note that if this is
         let currCategoryFilters = categoricalFilters.get(category);
-        let str2 = '';
-        for (let [key, value] of checkedOrNot) {
-            if (document.getElementById(key).title === category) {
-                str2 += checkedOrNot.get(key);
-            } else {
-                str2 += 0;
-            }
-        }
-        if (filterGroups.has(str2)) {
-            filteredOnCategory = filterGroups.get(str2);
-        } else {
-            let newLst = [];
-            if (category === 'software') {
-                currCategoryFilters.push('hardware');
-            } else if (category === 'hardware') {
-                currCategoryFilters.push('software');
-            }
-            for (let i = 0; i < currCategoryFilters.length; i++) {
-                let res = filterOnList(allResults, currCategoryFilters[i], category);
 
-                // now loop through res and add in any items to newLst that were not there
-                // before
-                for (let j = 0; j < res.length; j++) {
-                    if (!newLst.includes(res[j])) {
-                        newLst.push(res[j]);
-                    }
+        // now loop through all the filters that are within this category and apply
+        // "or" logic, so that all items in newLst are for instance ios or windows if
+        // in platform both ios and windows are checked
+        let newLst = [];
+        for (let i = 0; i < currCategoryFilters.length; i++) {
+            // res will be the result of allResults filtered on the currentCategoricalFilter,
+            // making sure to match the filter to the current category
+            let res = filterOnList(allResults, currCategoryFilters[i], category);
+
+            // now loop through res and add in any items to newLst which were not
+            // there before
+            for (let j = 0; j < res.length; j++) {
+                if (!newLst.includes(res[j])) {
+                    newLst.push(res[j]);
                 }
             }
-            // at this point, all of the results in all results should be filtered on *this*
-            // category with the use of "or" logic
-            filteredOnCategory = newLst;
-            filterGroups.set(str2, filteredOnCategory);
+        }
+        // at this point, all of the results in all results should be filtered on *this*
+        // category with the use of "or" logic
+        filteredOnCategory = newLst;
+
+        // now, loop through filteredOnCategory and apply *and* logic to all the
+        // remaining categories filters, checking and updating the map on the way as we go.
+
+        // so loop through the categoricalFilters map
+        for (let [key, value] of categoricalFilters) {
+            newLst = [];
+            // make sure this is not the current category we are on!
+            if (key !== category) {
+                // grab the categorical filter for this category
+                let categoriesFilters = categoricalFilters.get(key);
+
+                // now loop through each filter and filter the currently
+                // pared down list, using *or* logic on each category
+                for (let j = 0; j < categoriesFilters.length; j++) {
+                    let res = filterOnList(filteredOnCategory,
+                        categoriesFilters[j], key);
+                    for (let k = 0; k < res.length; k++) {
+                        if (!newLst.includes(res[k])) {
+                            newLst.push(res[k]);
+                        }
+                    }
+                }
+                // at this point we now have newLst which is a list of all the items from
+                // the currently pared down version of the initial category
+                // and also every item which is from the other current category
+                // so now we filteredOnCategory to be the newLst we made
+                if (newLst.length > 0) {
+                    filteredOnCategory = newLst;
+                }
+            }
+        }
+
+        currResults = filteredOnCategory;
+        filterGroups.set(str, currResults);
+        displayResults();
+    }
+}
+
+function unfilterResults(filter) {
+    // grab onto the "type" of filter this is (ie what group)
+    let category = filter.title;
+
+    // now grab onto the actual new filter criteria
+    let filterBy = filter.id;
+
+
+    // check the filterGroups map to see if we have already created
+    // a collection which has been filtered on all the current
+    // filters we have selected
+    checkedOrNot.set(filterBy, 0);
+    let str = '';
+    for (let [key, value] of checkedOrNot) {
+        str += checkedOrNot.get(key);
+    }
+
+    if (filterGroups.has(str)) {
+        // we found a previous version of this where the list
+        // was already filtered on all these filters
+        currResults = filterGroups.get(str);
+        let idx = categoricalFilters.get(category).indexOf(filterBy);
+        categoricalFilters.get(category).splice(idx, 1);
+
+        displayResults();
+    } else {
+        let idx = categoricalFilters.get(category).indexOf(filterBy);
+        categoricalFilters.get(category).splice(idx, 1);
+
+        // get all the current filters in this same category
+        // note that if this is
+        let currCategoryFilters = categoricalFilters.get(category);
+
+        // now loop through all the filters that are within this category and apply
+        // "or" logic, so that all items in newLst are for instance ios or windows if
+        // in platform both ios and windows are checked
+        let newLst = [];
+        for (let i = 0; i < currCategoryFilters.length; i++) {
+            // res will be the result of allResults filtered on the currentCategoricalFilter,
+            // making sure to match the filter to the current category
+            let res = filterOnList(allResults, currCategoryFilters[i], category);
+
+            // now loop through res and add in any items to newLst which were not
+            // there before
+            for (let j = 0; j < res.length; j++) {
+                if (!newLst.includes(res[j])) {
+                    newLst.push(res[j]);
+                }
+            }
+        }
+        // at this point, all of the results in all results should be filtered on *this*
+        // category with the use of "or" logic
+        filteredOnCategory = newLst;
+        if (newLst.length < 1) {
+            filteredOnCategory = allResults;
         }
 
         // now, loop through filteredOnCategory and apply *and* logic to all the
@@ -331,16 +310,29 @@ function filterCurrResults(filter) {
 
         // so loop through the categoricalFilters map
         for (let [key, value] of categoricalFilters) {
-
+            newLst = [];
             // make sure this is not the current category we are on!
             if (key !== category) {
+                // grab the categorical filter for this category
                 let categoriesFilters = categoricalFilters.get(key);
 
                 // now loop through each filter and filter the currently
-                // pared down list
+                // pared down list, using *or* logic on each category
                 for (let j = 0; j < categoriesFilters.length; j++) {
-                    filteredOnCategory = filterOnList(filteredOnCategory,
+                    let res = filterOnList(filteredOnCategory,
                         categoriesFilters[j], key);
+                    for (let k = 0; k < res.length; k++) {
+                        if (!newLst.includes(res[k])) {
+                            newLst.push(res[k]);
+                        }
+                    }
+                }
+                // at this point we now have newLst which is a list of all the items from
+                // the currently pared down version of the initial category
+                // and also every item which is from the other current category
+                // so now we filteredOnCategory to be the newLst we made
+                if (newLst.length > 0) {
+                    filteredOnCategory = newLst;
                 }
             }
         }
@@ -353,21 +345,24 @@ function filterCurrResults(filter) {
 
 function filterOnList(listToFilter, filterBy, category) {
     let newItems = [];
-    //console.log(listToFilter);
+    // loops through the given listToFilter and
+    // filters by filterBy on given cateogry
     for (let i = 0; i < listToFilter.length; i++) {
+        // get the filter item which is the product which is up for
+        // consideration from the list to filter on
         let item = listToFilter[i];
-        if (category === 'pro' && item.professional === 'true') {
+        // if the category is hardware and the item we are on is hardware
+        // and if the filterBy is true then we want to filter all items which are hardware
+        if (category === 'hardware' && item.hardware) {
             newItems.push(item);
-        } else if (category === 'hardware' && item.hardware) {
-            newItems.push(item);
-        } else if (category === 'notHardware' && !item.hardware) {
+        } else if (category === 'software' && !item.hardware) {
             newItems.push(item);
         } else if (category === 'access') {
             let prodAccess = item.access;
             if (prodAccess.includes(checkBoxToField.get(filterBy))) {
                 newItems.push(item);
             }
-        } else if (category === 'software') {
+        } else if (category === 'platform') {
             let prodPlatform = item.platform;
             if (prodPlatform.includes(checkBoxToField.get(filterBy))) {
                 newItems.push(item);
@@ -377,11 +372,8 @@ function filterOnList(listToFilter, filterBy, category) {
             if (prodFeat.includes(checkBoxToField.get(filterBy))) {
                 newItems.push(item);
             }
-        } else if (category === 'language') {
-            let prodLanguages = item.languages;
-            if (prodLanguages.includes(checkBoxToField.get(filterBy))) {
-                newItems.push(item);
-            }
+        } else if (category === 'language' && item.languages.length > 1) {
+            newItems.push(item);
         } else if (filterBy === 'freeTo50'
             && item.price === 0) {
             newItems.push(item);

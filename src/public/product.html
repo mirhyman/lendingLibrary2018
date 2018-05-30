@@ -15,6 +15,10 @@
 <button id="glossary" onclick="glossary()">Glossary</button>
     <button id="compare_all_your_items" onclick="compare()">Compare (0)</button>
 </div>
+<div class='searchBar'>
+    <label for="search"><input type="text" placeholder= "Search All Products..." id="search"></label>
+    <button id="submitSearch" onclick="searchQuery()"><i class="fa fa-search"></i></button> <!--changed to magnifying icon-->
+</div>
 <br>
 <div id="content">
     <div id="filter">Filter By...<br></div>
@@ -31,12 +35,16 @@
             <li>
                 <label class="container"> Software
                     <input type="checkBox"  id="software"
-                           title="notHardware"
+                           title="software"
                               onchange="onCheckUpdate(this)"/>
                     <span class="checkmark"></span>
                 </label>
             </li>
         </ul>
+        <div id="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Please only select hardware, software, or neither.
+        </div>
     </li>
     <li><b>Types of Access</b>
         <ul style="list-style-type:none" class="filterSections">
@@ -86,7 +94,7 @@
     <ul style="list-style-type:none" class="filterSections">
         <li>
             <label class="container">ios
-                <input type="checkbox" title="software" id="softwareIOS"
+                <input type="checkbox" title="platform" id="softwareIOS"
 
                           onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
@@ -94,7 +102,7 @@
         </li>
         <li>
             <label class="container">Mac OS
-                <input type="checkbox" title="software" id="softwareMacOS"
+                <input type="checkbox" title="platform" id="softwareMacOS"
 
                           onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
@@ -103,7 +111,7 @@
         <li>
             <label class="container">Windows
                 <input type="checkbox"
-                       title="software" id="softwareWindows"
+                       title="platform" id="softwareWindows"
 
                           onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
@@ -112,7 +120,7 @@
         <li>
             <label class="container">Android
                 <input type="checkbox"
-                       title="software" id="softwareAndroid"
+                       title="platform" id="softwareAndroid"
 
                           onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
@@ -121,7 +129,7 @@
         <li>
             <label class="container">ECU Compatible
                 <input type="checkbox"
-                       title="software" id="softwareECU"
+                       title="platform" id="softwareECU"
 
                        onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
@@ -132,37 +140,12 @@
     <li><b>Languages</b>
     <ul style="list-style-type:none" class="filterSections">
         <li>
-            <label class="container">French
-                <input type="checkbox" title="language" id="french"
+            <label class="container">Multilingual
+                <input type="checkbox" title="language" id="multi"
 
             onchange="onCheckUpdate(this)"/>
                 <span class="checkmark"></span>
             </label>
-        </li>
-        <li>
-            <label class="container">English
-            <input type="checkbox" title="language" id="english"
-
-            onchange="onCheckUpdate(this)"/>
-                <span class="checkmark"></span>
-            </label>
-        </li>
-        <li>
-            <label class="container">Chinese
-                <input type="checkbox" title="language" id="chinese"
-                       class="language"
-            onchange="onCheckUpdate(this)"/>
-                <span class="checkmark"></span>
-            </label>
-        </li>
-        <li>
-            <label class="container">Spanish
-                <input type="checkbox" title="language" id="spanish"
-                       class="language"
-                       onchange="onCheckUpdate(this)">
-                <span class="checkmark"></span>
-            </label>
-
         </li>
     </ul>
     </li>
