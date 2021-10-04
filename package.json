@@ -18,8 +18,13 @@
   },
   "homepage": "https://github.com/mirhyman/lendingLibrary2018#readme",
   "dependencies": {
+    "bson": "^4.5.2",
     "express": "^4.16.2",
-    "mongoose": "^5.0.7",
+    "lodash": "^4.17.21",
+    "mongodb": "^4.1.2",
+    "mongoose": "^6.0.8",
+    "mpath": "^0.8.4",
+    "mquery": "^4.0.0",
     "winston": "^2.4.0"
   }
 }

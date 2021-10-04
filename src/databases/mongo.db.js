@@ -12,7 +12,7 @@ const logPrefix = 'MongoDB: ';
 
 var mongoDB = process.env.MONGODB_URI || 'mongodb://localhost/Products';
 
-mongoose.connect(mongoDB, { useMongoClient: true }).catch(e => {winston.error(`${logPrefix}connection error ${e}`); process.exit(1);});
+mongoose.connect(mongoDB).catch(e => {winston.error(`${logPrefix}connection error ${e}`); process.exit(1);});
 
 function validateName(value) {
     if (!value || value.length < 4) return false; // too short
@@ -36,7 +36,7 @@ let PicModel = mongoose.model('Image', PicSchema);
     ReviewSchema.index({"$**": "text"}, {"background": false});
     let ReviewModel = mongoose.model('Review', ReviewSchema);
     ReviewModel.ensureIndexes(function (err) {
-        if (err) return handleError(err);
+        if (err) return err;
     });
 
     let ProductSchema = new mongoose.Schema({
@@ -79,7 +79,7 @@ let PicModel = mongoose.model('Image', PicSchema);
     ProductSchema.index({"$**": "text"}, {"background": false});
     let ProductModel = mongoose.model('Product', ProductSchema);
     ProductModel.ensureIndexes(function (err) {
-        if (err) return handleError(err);
+        if (err) err;
     });
 
 
