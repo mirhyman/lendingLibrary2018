@@ -1,3 +1,6 @@
+import * as prodConstants from '../constants/productConstants';
+import {TOUCH_ACCESS_KEY} from "../constants/productConstants";
+
 let allResults = [];
 let currResults = [];
 let pastResults = [];
@@ -18,8 +21,8 @@ let categoricalFilters = new Map();
 let filterGroups = new Map();
 
 
-let checkBox= [['keyboard', 'keyboard'],
-    ['accessTouch', 'touch'], ['accessSwitch', 'switch'],
+let checkBox= [[prodConstants.KEYBOARD, prodConstants.KEYBOARD],
+    [prodConstants.TOUCH_ACCESS_KEY, prodConstants.TOUCH_VALUE], [prodConstants.SWITCH_ACCESS_KEY, 'switch'],
     ['accessMouse', 'mouse'], ['accessEyes', 'eyes'],
     ['softwareMacOS', 'mac'], ['softwareIOS', 'ios'],
     ['softwareECU', 'ecu'],
