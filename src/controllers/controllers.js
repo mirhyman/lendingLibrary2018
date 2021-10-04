@@ -29,7 +29,8 @@ async function getReview(req, res) {
         return res.status(400).send('Must include id');
     }
     try {
-        const review = await service.getReview(id);
+        //const review = await service.getReview(id);
+        const review = {};
         if(review) {
             res.json(review).status(200);
         } else {
